@@ -220,5 +220,40 @@ export const SVG_IMAGES = {
         <text x="0" y="14" text-anchor="middle" fill="%23059669" font-family="Arial" font-weight="bold" font-size="12">3.7V</text>
       </g>
     </g>
+  </svg>`,
+
+  // 6. German LIR2025 30-Min Fast Charger
+  lir2025_30min_fast_charger: `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+    <defs>
+      <linearGradient id="bgg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="%23020617"/>
+        <stop offset="100%" stop-color="%230f172a"/>
+      </linearGradient>
+      <linearGradient id="neon" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="%2310b981"/>
+        <stop offset="100%" stop-color="%2306b6d4"/>
+      </linearGradient>
+    </defs>
+    <rect width="800" height="600" fill="url(%23bgg)"/>
+    <g transform="translate(200, 100)">
+      <rect x="0" y="0" width="400" height="380" rx="32" fill="%23090d16" stroke="%2310b981" stroke-width="4"/>
+      <text x="200" y="55" text-anchor="middle" fill="%2310b981" font-family="Arial" font-weight="900" font-size="22">VSZAPOWER 30-MIN ULTRA FAST</text>
+      <text x="200" y="80" text-anchor="middle" fill="%2394a3b8" font-family="Arial" font-size="12">CR2025 / CR2032 RECHARGEABLE REPLACEMENT DOCK</text>
+      
+      <!-- Charger Slots -->
+      <circle cx="120" cy="200" r="70" fill="%230f172a" stroke="%23334155" stroke-width="3"/>
+      <circle cx="120" cy="200" r="60" fill="%23cbd5e1" stroke="%2310b981" stroke-width="3"/>
+      <text x="120" y="195" text-anchor="middle" fill="%230f172a" font-family="Arial" font-weight="bold" font-size="16">LIR2025</text>
+      <text x="120" y="215" text-anchor="middle" fill="%23059669" font-family="Arial" font-weight="bold" font-size="12">30 MIN FAST</text>
+      <circle cx="120" cy="300" r="8" fill="%2310b981"/>
+
+      <circle cx="280" cy="200" r="70" fill="%230f172a" stroke="%23334155" stroke-width="3"/>
+      <circle cx="280" cy="200" r="60" fill="%23cbd5e1" stroke="%2310b981" stroke-width="3"/>
+      <text x="280" y="195" text-anchor="middle" fill="%230f172a" font-family="Arial" font-weight="bold" font-size="16">LIR2032</text>
+      <text x="280" y="215" text-anchor="middle" fill="%23059669" font-family="Arial" font-weight="bold" font-size="12">30 MIN FAST</text>
+      <circle cx="280" cy="300" r="8" fill="%2310b981"/>
+
+      <text x="200" y="345" text-anchor="middle" fill="%2338bdf8" font-family="Arial" font-weight="bold" font-size="14">支持 Autoschlüssel • Fernbedienungen • Waagen</text>
+    </g>
   </svg>`
 };

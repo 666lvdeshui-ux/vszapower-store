@@ -130,27 +130,36 @@ export const MOCK_PRODUCTS = [
     }
   },
   {
-    id: '5',
-    slug: 'lir2032-4pack',
-    title: '4-Pack LIR2032 Rechargeable 3.7V Coin Cell Batteries',
-    tagline: '500+ Recharge Cycles for Car Keys & Apple AirTags',
-    price: 12.99,
-    compare_at_price: 16.99,
+    id: '6',
+    slug: 'lir2025-30min-fast-charger',
+    title: 'VSZAPOWER 30-Min Ultra Fast LIR2025 / LIR2032 Coin Cell Charger',
+    tagline: 'Full Charge in 30 Mins | Eco Replacement for CR2025 & CR2032 Car Keys & Remotes',
+    price: 15.99,
+    compare_at_price: 22.99,
     is_starter_kit: false,
-    category: '可充电纽扣电池',
-    image_url: SVG_IMAGES.lir2032_4pack_batteries,
+    category: '纽扣电池充电器',
+    image_url: '/products/lir2025-30min-charger.jpg',
     images: [
-      SVG_IMAGES.lir2032_4pack_batteries,
+      '/products/lir2025-30min-charger.jpg',
+      'https://img.kwcdn.com/product/fancy/0cfe312f-e3dd-484e-9e38-f0c3b5016346.jpg',
+      SVG_IMAGES.lir2025_30min_fast_charger,
     ],
     certifications: [
-      { name: 'UN38.3 锂电池运输安全认证', image_url: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80' }
+      { name: 'CE 欧盟安全认证', image_url: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80' },
+      { name: 'FCC 电磁兼容认证', image_url: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80' },
+      { name: 'RoHS 环保无毒认证', image_url: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80' },
+      { name: '30-Min Fast Charge Microchip Certificate', image_url: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80' }
     ],
-    badge: 'ECO PACK',
-    description: 'Premium grade LIR2032 3.7V rechargeable lithium coin cells. Replaces disposable CR2032 in compatible AirTags, car key fobs, motherboard RTC, and LED gadgets.',
+    badge: '30-MIN ULTRA FAST / NEW',
+    description: 'High-performance 30-minute ultra-fast coin cell battery charger specially designed for LIR2025 and LIR2032 rechargeable button cells. Perfect eco-friendly replacement for disposable CR2025 / CR2032 batteries used in car key fobs (Autoschlüssel), TV remotes (Fernbedienungen), digital scales (Waagen), glow sticks, and electronic floats. Features intelligent MCU constant current/voltage control, 4.2V auto cutoff, and red/green LED charging status.',
     specs: {
-      capacity: '45mAh',
-      voltage: '3.7V Nominal (4.2V Peak)',
-      lifespan: '500+ Recharge Cycles'
+      charging_speed: '30 Minutes 100% Full Charge',
+      supported_batteries: 'LIR2025, LIR2032, LIR2016, ML2025',
+      replaces_disposable: 'CR2025, CR2032, CR2016',
+      applications: 'Car Key Fobs, Remotes, Digital Scales, Glow Sticks, Memo Pads',
+      input: 'Micro-USB / USB-C 5V 1.5A Fast Charge',
+      output: '4.2V 80mA CC/CV Fast Charger',
+      safety: 'Auto Cutoff 4.2V, Reverse Polarity Protection'
     }
   }
 ];
