@@ -5,13 +5,14 @@ import ProductManager from '@/components/admin/ProductManager';
 import PostManager from '@/components/admin/PostManager';
 import BannerManager from '@/components/admin/BannerManager';
 import InquiryManager from '@/components/admin/InquiryManager';
-import { Shield, Zap, Lock, LogOut, Package, BookOpen, Database, ExternalLink, CheckCircle, Image, MessageSquare } from 'lucide-react';
+import VideoManager from '@/components/admin/VideoManager';
+import { Shield, Zap, Lock, LogOut, Package, BookOpen, Database, ExternalLink, CheckCircle, Image, MessageSquare, Video } from 'lucide-react';
 
 export default function AdminDashboardPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [passcode, setPasscode] = useState('');
   const [authError, setAuthError] = useState(false);
-  const [activeTab, setActiveTab] = useState<'inquiries' | 'products' | 'banners' | 'posts' | 'settings'>('inquiries');
+  const [activeTab, setActiveTab] = useState<'inquiries' | 'products' | 'videos' | 'banners' | 'posts' | 'settings'>('inquiries');
   const [todayInquiryCount, setTodayInquiryCount] = useState<number>(0);
 
   useEffect(() => {
@@ -84,7 +85,7 @@ export default function AdminDashboardPage() {
             VSZAPOWER Admin
           </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '28px' }}>
-            Enter your admin passcode to access customer inquiries, products, hero banners & CMS.
+            Enter your admin passcode to access customer inquiries, products, short videos, hero banners & CMS.
           </p>
 
           <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -243,6 +244,27 @@ export default function AdminDashboardPage() {
           </button>
 
           <button
+            onClick={() => setActiveTab('videos')}
+            style={{
+              padding: '10px 20px',
+              borderRadius: '10px',
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 700,
+              fontSize: '0.95rem',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              background: activeTab === 'videos' ? 'var(--accent-gradient)' : 'rgba(255,255,255,0.05)',
+              color: activeTab === 'videos' ? '#041410' : 'var(--text-main)',
+              border: 'none',
+              boxShadow: activeTab === 'videos' ? 'var(--accent-glow)' : 'none'
+            }}
+          >
+            <Video size={18} /> 短视频栏目管理 (Videos)
+          </button>
+
+          <button
             onClick={() => setActiveTab('banners')}
             style={{
               padding: '10px 20px',
@@ -309,6 +331,7 @@ export default function AdminDashboardPage() {
         {/* Tab Content */}
         {activeTab === 'inquiries' && <InquiryManager />}
         {activeTab === 'products' && <ProductManager />}
+        {activeTab === 'videos' && <VideoManager />}
         {activeTab === 'banners' && <BannerManager />}
         {activeTab === 'posts' && <PostManager />}
         {activeTab === 'settings' && (

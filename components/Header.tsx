@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Zap, BookOpen, Home, MessageSquare, Menu, X, Shield } from 'lucide-react';
+import { Zap, BookOpen, Home, MessageSquare, Menu, X, Shield, Video } from 'lucide-react';
 
 interface HeaderProps {
   onContactClick?: () => void;
@@ -88,6 +88,18 @@ export default function Header({ onContactClick }: HeaderProps) {
             transition: 'color 0.2s',
           }}>
             <Zap size={16} color="var(--accent-cyan)" /> 可充电纽扣电池
+          </Link>
+          <Link href="/#videos" style={{
+            color: 'var(--text-muted)',
+            textDecoration: 'none',
+            fontSize: '0.95rem',
+            fontWeight: 600,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            transition: 'color 0.2s',
+          }}>
+            <Video size={16} color="#f59e0b" /> 短视频
           </Link>
           <Link href="/academy" style={{
             color: 'var(--text-muted)',

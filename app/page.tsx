@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import HeroCarousel from '@/components/HeroCarousel';
 import ProductGrid from '@/components/ProductGrid';
+import VideoSection from '@/components/VideoSection';
 import ContactSection from '@/components/ContactSection';
 import BlogPreview from '@/components/BlogPreview';
 
@@ -25,10 +26,13 @@ export default function HomePage() {
       {/* 2. Product Catalog List with Specs Modal & 'Click to Contact' Buttons */}
       <ProductGrid onContactClick={handleOpenContact} />
 
-      {/* 3. Battery Academy Feature Highlights */}
+      {/* 3. Short Video Showcase (短视频栏目 - 列表式: 左侧视频, 右侧标题与关键词) */}
+      <VideoSection onContactClick={handleOpenContact} />
+
+      {/* 4. Battery Academy Feature Highlights */}
       <BlogPreview />
 
-      {/* 4. Direct Contact Us Section */}
+      {/* 5. Direct Contact Us Section */}
       <ContactSection />
 
       {/* Pop-up Contact Inquiry Modal */}
