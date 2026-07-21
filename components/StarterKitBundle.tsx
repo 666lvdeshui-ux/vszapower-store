@@ -1,10 +1,30 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ShoppingBag, CheckCircle, Package, Shield, Gift, Sparkles } from 'lucide-react';
+import { ProductItem } from '@/lib/store';
 
 export default function StarterKitBundle() {
   const [added, setAdded] = useState(false);
+  const [product, setProduct] = useState<ProductItem | null>(null);
+
+  useEffect(() => {
+    fetch('/api/products')
+      .then(res => res.json())
+      .then(json => {
+        if (json.success && json.data && json.data.length > 0) {
+          const starter = json.data.find((p: ProductItem) => p.is_starter_kit) || json.data[0];
+          setProduct(starter);
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const price = product ? `$${product.price}` : '$24.99';
+  const comparePrice = product?.compare_at_price ? `$${product.compare_at_price}` : '$39.99';
+  const title = product?.title || 'Vszapower Smart Dock + 4x LIR2032 Pack';
+  const imageUrl = product?.image_url || 'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1000&q=80';
+  const badge = product?.badge || '37% OFF BUNDLE';
 
   const handleOrder = () => {
     setAdded(true);

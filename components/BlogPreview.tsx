@@ -1,11 +1,24 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { MOCK_POSTS } from '@/lib/supabase';
+import { PostItem } from '@/lib/store';
 import { BookOpen, Clock, ArrowRight, User } from 'lucide-react';
 
-export default function BlogPreview({ posts = MOCK_POSTS }) {
+export default function BlogPreview({ posts: initialPosts = MOCK_POSTS }) {
+  const [posts, setPosts] = useState<PostItem[]>(initialPosts as unknown as PostItem[]);
+
+  useEffect(() => {
+    fetch('/api/posts')
+      .then(res => res.json())
+      .then(json => {
+        if (json.success && json.data && json.data.length > 0) {
+          setPosts(json.data.filter((p: PostItem) => p.published));
+        }
+      })
+      .catch(console.error);
+  }, []);
   return (
     <section style={{
       padding: '80px 24px',

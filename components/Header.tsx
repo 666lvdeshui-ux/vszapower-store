@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Zap, BookOpen, ShieldCheck, ShoppingCart, HelpCircle, Menu, X } from 'lucide-react';
+import { Zap, BookOpen, ShieldCheck, ShoppingCart, HelpCircle, Menu, X, Shield } from 'lucide-react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -120,6 +120,18 @@ export default function Header() {
             transition: 'color 0.2s',
           }}>
             <BookOpen size={16} /> Battery Academy
+          </Link>
+          <Link href="/admin" style={{
+            color: 'var(--accent-green)',
+            textDecoration: 'none',
+            fontSize: '0.95rem',
+            fontWeight: 600,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            transition: 'color 0.2s',
+          }}>
+            <Shield size={16} /> Admin Portal
           </Link>
         </nav>
 
