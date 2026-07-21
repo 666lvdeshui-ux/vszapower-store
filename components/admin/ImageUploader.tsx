@@ -12,7 +12,7 @@ interface ImageUploaderProps {
 
 export default function ImageUploader({ value, onChange, label = '上传图片', placeholder = '点击或拖拽上传本地图片' }: ImageUploaderProps) {
   const [uploading, setUploading] = useState(false);
-  const [mode, setMode] = useState<'upload' | 'url'>('upload');
+  const [showUrlInput, setShowUrlInput] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -61,170 +61,169 @@ export default function ImageUploader({ value, onChange, label = '上传图片',
     <div style={{ marginBottom: '16px' }}>
       {label && (
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-          <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{label}</label>
-          <div style={{ display: 'flex', gap: '8px', fontSize: '0.75rem' }}>
-            <button
-              type="button"
-              onClick={() => setMode('upload')}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: mode === 'upload' ? 'var(--accent-green)' : 'var(--text-dim)',
-                fontWeight: mode === 'upload' ? 700 : 400,
-                cursor: 'pointer',
-              }}
-            >
-              📁 本地上传
-            </button>
-            <span style={{ color: 'var(--border-color)' }}>|</span>
-            <button
-              type="button"
-              onClick={() => setMode('url')}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: mode === 'url' ? 'var(--accent-cyan)' : 'var(--text-dim)',
-                fontWeight: mode === 'url' ? 700 : 400,
-                cursor: 'pointer',
-              }}
-            >
-              🔗 网络 URL
-            </button>
-          </div>
+          <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 600 }}>{label}</label>
+          <button
+            type="button"
+            onClick={() => setShowUrlInput(!showUrlInput)}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: showUrlInput ? 'var(--accent-green)' : 'var(--text-dim)',
+              fontSize: '0.75rem',
+              cursor: 'pointer',
+            }}
+          >
+            {showUrlInput ? '✓ 隐藏 URL 输入框' : '🔗 输入网络 URL'}
+          </button>
         </div>
       )}
 
-      {/* Mode 1: File Upload */}
-      {mode === 'upload' ? (
-        <div>
-          <input
-            type="file"
-            ref={fileInputRef}
-            onChange={handleFileChange}
-            accept="image/*"
-            style={{ display: 'none' }}
-          />
+      {/* Hidden File Input */}
+      <input
+        type="file"
+        ref={fileInputRef}
+        onChange={handleFileChange}
+        accept="image/*"
+        style={{ display: 'none' }}
+      />
 
-          {value ? (
-            <div style={{
-              position: 'relative',
-              borderRadius: '12px',
-              overflow: 'hidden',
-              border: '1px solid var(--border-color)',
-              background: '#0d121c',
-              height: '140px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-              <img src={value} alt="Uploaded Preview" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-              
-              <div style={{
-                position: 'absolute',
-                top: '8px',
-                right: '8px',
-                display: 'flex',
-                gap: '6px',
-              }}>
-                <button
-                  type="button"
-                  onClick={() => fileInputRef.current?.click()}
-                  style={{
-                    background: 'rgba(10, 13, 20, 0.85)',
-                    border: '1px solid var(--border-color)',
-                    color: '#fff',
-                    borderRadius: '6px',
-                    padding: '4px 8px',
-                    fontSize: '0.75rem',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '4px',
-                  }}
-                >
-                  <Upload size={12} /> 更换图片
-                </button>
-                <button
-                  type="button"
-                  onClick={() => onChange('')}
-                  style={{
-                    background: 'rgba(239, 68, 68, 0.85)',
-                    border: 'none',
-                    color: '#fff',
-                    borderRadius: '6px',
-                    width: '26px',
-                    height: '26px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                  }}
-                >
-                  <X size={14} />
-                </button>
-              </div>
+      {/* Visual Box */}
+      {value ? (
+        <div style={{
+          border: '1px solid var(--border-color)',
+          borderRadius: '12px',
+          overflow: 'hidden',
+          background: '#0d121c',
+          padding: '12px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '16px',
+        }}>
+          <div style={{
+            width: '80px',
+            height: '80px',
+            borderRadius: '8px',
+            overflow: 'hidden',
+            background: '#05080f',
+            flexShrink: 0,
+            border: '1px solid var(--border-color)',
+          }}>
+            <img src={value} alt="Preview" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </div>
+
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '6px' }}>
+            <div style={{ fontSize: '0.8rem', color: 'var(--accent-green)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <Check size={14} /> 图片就绪 (已上传/选中)
+            </div>
+            
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                disabled={uploading}
+                className="btn-primary"
+                style={{
+                  padding: '6px 12px',
+                  fontSize: '0.8rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                }}
+              >
+                {uploading ? (
+                  <>
+                    <Loader2 size={12} className="animate-spin" /> 上传中...
+                  </>
+                ) : (
+                  <>
+                    <Upload size={12} /> 从电脑重新上传图片
+                  </>
+                )}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => onChange('')}
+                style={{
+                  background: 'rgba(239, 68, 68, 0.15)',
+                  border: '1px solid rgba(239, 68, 68, 0.3)',
+                  color: '#ef4444',
+                  borderRadius: '6px',
+                  padding: '6px 10px',
+                  fontSize: '0.8rem',
+                  cursor: 'pointer',
+                }}
+              >
+                移除
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        /* Empty Upload Zone */
+        <div
+          onClick={() => fileInputRef.current?.click()}
+          onDragOver={e => e.preventDefault()}
+          onDrop={handleDrop}
+          style={{
+            border: '2px dashed var(--accent-green)',
+            borderRadius: '12px',
+            padding: '24px 16px',
+            textAlign: 'center',
+            background: 'rgba(16, 185, 129, 0.05)',
+            cursor: 'pointer',
+            transition: 'all 0.2s',
+          }}
+        >
+          {uploading ? (
+            <div style={{ color: 'var(--accent-green)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+              <Loader2 size={20} className="animate-spin" /> 正在读取并上传本地图片...
             </div>
           ) : (
-            <div
-              onClick={() => fileInputRef.current?.click()}
-              onDragOver={e => e.preventDefault()}
-              onDrop={handleDrop}
-              style={{
-                border: '2px dashed var(--border-color)',
+            <div>
+              <div style={{
+                width: '44px',
+                height: '44px',
                 borderRadius: '12px',
-                padding: '24px 16px',
-                textAlign: 'center',
-                background: 'rgba(255,255,255,0.02)',
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-              }}
-            >
-              {uploading ? (
-                <div style={{ color: 'var(--accent-green)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                  <Loader2 size={20} className="animate-spin" /> 上传处理中...
-                </div>
-              ) : (
-                <div>
-                  <div style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '10px',
-                    background: 'rgba(16, 185, 129, 0.15)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    margin: '0 auto 10px',
-                  }}>
-                    <Upload size={20} color="var(--accent-green)" />
-                  </div>
-                  <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff', marginBottom: '4px' }}>
-                    {placeholder}
-                  </div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>
-                    支持选图上传 PNG, JPG, WEBP, SVG 文件
-                  </div>
-                </div>
-              )}
+                background: 'var(--accent-gradient)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 10px',
+                boxShadow: 'var(--accent-glow)',
+              }}>
+                <Upload size={22} color="#041410" />
+              </div>
+              <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '4px' }}>
+                📁 {placeholder}
+              </div>
+              <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                点击打开电脑相册，或将图片文件拖拽至此处 (PNG, JPG, WEBP, SVG)
+              </div>
             </div>
           )}
         </div>
-      ) : (
-        /* Mode 2: Direct URL Input */
-        <input
-          type="url"
-          value={value}
-          onChange={e => onChange(e.target.value)}
-          placeholder="https://..."
-          style={{
-            width: '100%',
-            padding: '10px 14px',
-            borderRadius: '10px',
-            background: 'rgba(255,255,255,0.05)',
-            border: '1px solid var(--border-color)',
-            color: '#fff',
-            fontSize: '0.9rem',
-          }}
-        />
+      )}
+
+      {/* Optional URL Input if toggled */}
+      {showUrlInput && (
+        <div style={{ marginTop: '8px' }}>
+          <input
+            type="text"
+            value={value}
+            onChange={e => onChange(e.target.value)}
+            placeholder="粘贴外部图片网络 URL 链接 (如 https://...)"
+            style={{
+              width: '100%',
+              padding: '8px 12px',
+              borderRadius: '8px',
+              background: 'rgba(255,255,255,0.05)',
+              border: '1px solid var(--border-color)',
+              color: '#fff',
+              fontSize: '0.8rem',
+            }}
+          />
+        </div>
       )}
     </div>
   );

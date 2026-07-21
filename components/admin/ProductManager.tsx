@@ -463,7 +463,7 @@ export default function ProductManager() {
                   type="button"
                   onClick={() => {
                     const updated = [...(editingProduct.images || [editingProduct.image_url || ''])];
-                    updated.push('https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1200&q=80');
+                    updated.push('');
                     setEditingProduct({ ...editingProduct, images: updated });
                   }}
                   className="btn-secondary"
@@ -489,7 +489,7 @@ export default function ProductManager() {
                     type="button"
                     onClick={() => {
                       const currentCerts = Array.isArray(editingProduct.certifications) ? [...editingProduct.certifications] : [];
-                      currentCerts.push({ name: 'CE 欧盟安全认证', image_url: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80' });
+                      currentCerts.push({ name: '', image_url: '' });
                       setEditingProduct({ ...editingProduct, certifications: currentCerts });
                     }}
                     className="btn-secondary"
