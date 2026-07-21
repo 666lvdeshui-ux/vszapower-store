@@ -38,9 +38,9 @@ export default function Header({ onContactClick }: HeaderProps) {
         }}>
           <img
             src="/logo.svg"
-            alt="VSZAPOWER Smart Recharge Tech"
+            alt="VSzapower"
             style={{
-              height: '38px',
+              height: '36px',
               width: 'auto',
               display: 'block',
             }}

@@ -22,7 +22,7 @@ export default function Footer() {
         {/* Col 1: Brand Info */}
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-            <img src="/logo.svg" alt="VSZAPOWER Smart Recharge Tech" style={{ height: '34px', width: 'auto', display: 'block' }} />
+            <img src="/logo.svg" alt="VSzapower" style={{ height: '30px', width: 'auto', display: 'block' }} />
           </div>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '20px' }}>
             The premiere rechargeable coin cell system. Empowering AirTags, key fobs, and smart IoT devices with eco-friendly LIR2032/LIR2450 chargers.
