@@ -206,20 +206,24 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
               )}
 
               <div>
-                {/* Product Image */}
+                {/* Product Image (Square 1:1 Aspect Ratio) */}
                 <div style={{
-                  height: '220px',
-                  borderRadius: '14px',
+                  width: '100%',
+                  aspectRatio: '1 / 1',
+                  borderRadius: '16px',
                   overflow: 'hidden',
                   marginBottom: '20px',
-                  background: '#0d121c',
+                  background: '#0a0e17',
                   border: '1px solid var(--border-color)',
                   position: 'relative',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}>
                   <img
                     src={product.image_url}
                     alt={product.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '12px' }}
                   />
                 </div>
 
