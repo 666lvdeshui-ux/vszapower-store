@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ProductItem } from '@/lib/store';
-import { MessageSquare, Info, Zap, X, Filter } from 'lucide-react';
+import { ProductItem, CertificationItem } from '@/lib/store';
+import { MessageSquare, Info, Zap, X, Filter, Shield, ChevronLeft, ChevronRight, Maximize2, Award } from 'lucide-react';
 
 interface ProductGridProps {
   onContactClick: (productName?: string) => void;
@@ -13,6 +13,12 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
   const [loading, setLoading] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  
+  // Carousel & Lightbox State for Detail Modal
+  const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
+  const [lightboxImage, setLightboxImage] = useState<{ url: string; title: string } | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number>(0);
+  const [lightboxList, setLightboxList] = useState<string[]>([]);
 
   useEffect(() => {
     fetch('/api/products')
@@ -38,6 +44,31 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
     window.addEventListener('hashchange', checkHash);
     return () => window.removeEventListener('hashchange', checkHash);
   }, []);
+
+  const openProductModal = (product: ProductItem) => {
+    setSelectedProduct(product);
+    setActiveImageIndex(0);
+  };
+
+  const openLightbox = (urlList: string[], index: number, title?: string) => {
+    setLightboxList(urlList);
+    setLightboxIndex(index);
+    setLightboxImage({ url: urlList[index], title: title || '查看大图' });
+  };
+
+  const nextLightboxImage = () => {
+    if (lightboxList.length <= 1) return;
+    const nextIdx = (lightboxIndex + 1) % lightboxList.length;
+    setLightboxIndex(nextIdx);
+    setLightboxImage({ url: lightboxList[nextIdx], title: lightboxImage?.title || '查看大图' });
+  };
+
+  const prevLightboxImage = () => {
+    if (lightboxList.length <= 1) return;
+    const prevIdx = (lightboxIndex - 1 + lightboxList.length) % lightboxList.length;
+    setLightboxIndex(prevIdx);
+    setLightboxImage({ url: lightboxList[prevIdx], title: lightboxImage?.title || '查看大图' });
+  };
 
   const filteredProducts = products.filter(p => {
     if (selectedCategory === 'all') return true;
@@ -240,7 +271,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
               {/* Action Buttons */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                 <button
-                  onClick={() => setSelectedProduct(product)}
+                  onClick={() => openProductModal(product)}
                   className="btn-secondary"
                   style={{
                     padding: '12px 14px',
@@ -274,46 +305,360 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
         </div>
       )}
 
-      {/* Product Detail Modal */}
-      {selectedProduct && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'rgba(0,0,0,0.85)',
-          backdropFilter: 'blur(10px)',
-          zIndex: 1000,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '24px',
-        }}>
-          <div className="glass-panel" style={{
-            width: '100%',
-            maxWidth: '720px',
-            maxHeight: '90vh',
-            overflowY: 'auto',
-            padding: '36px',
-            borderRadius: '24px',
-            position: 'relative',
-            background: 'rgba(10, 13, 20, 0.95)',
-            border: '1px solid var(--border-color)',
-            color: '#fff',
+      {/* Rich Product Detail Modal */}
+      {selectedProduct && (() => {
+        const galleryImages = (Array.isArray(selectedProduct.images) && selectedProduct.images.length > 0)
+          ? selectedProduct.images
+          : [selectedProduct.image_url];
+        
+        const currentGalleryImage = galleryImages[activeImageIndex] || selectedProduct.image_url;
+
+        return (
+          <div style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(5, 8, 15, 0.88)',
+            backdropFilter: 'blur(12px)',
+            zIndex: 1000,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '24px',
           }}>
+            <div className="glass-panel" style={{
+              width: '100%',
+              maxWidth: '840px',
+              maxHeight: '90vh',
+              overflowY: 'auto',
+              padding: '36px',
+              borderRadius: '24px',
+              position: 'relative',
+              background: 'rgba(10, 13, 20, 0.96)',
+              border: '1px solid var(--border-color)',
+              color: '#fff',
+            }}>
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedProduct(null)}
+                aria-label="Close modal"
+                style={{
+                  position: 'absolute',
+                  top: '20px',
+                  right: '20px',
+                  background: 'rgba(255,255,255,0.1)',
+                  border: 'none',
+                  color: '#fff',
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  zIndex: 10,
+                }}
+              >
+                <X size={20} />
+              </button>
+
+              {/* Main Product Section: Gallery Carousel + Info */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', marginBottom: '28px' }}>
+                {/* Product Main Image Carousel */}
+                <div>
+                  <div style={{
+                    borderRadius: '16px',
+                    overflow: 'hidden',
+                    height: '280px',
+                    background: '#0d121c',
+                    border: '1px solid var(--border-color)',
+                    position: 'relative',
+                    cursor: 'zoom-in',
+                  }} onClick={() => openLightbox(galleryImages, activeImageIndex, selectedProduct.title)}>
+                    <img
+                      src={currentGalleryImage}
+                      alt={selectedProduct.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                    
+                    {/* Zoom Hint */}
+                    <div style={{
+                      position: 'absolute',
+                      bottom: '12px',
+                      right: '12px',
+                      background: 'rgba(0,0,0,0.7)',
+                      padding: '4px 10px',
+                      borderRadius: '8px',
+                      fontSize: '0.75rem',
+                      color: '#fff',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '4px',
+                    }}>
+                      <Maximize2 size={12} /> 点击全屏放大
+                    </div>
+
+                    {/* Left/Right Arrows if multiple images */}
+                    {galleryImages.length > 1 && (
+                      <>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setActiveImageIndex(prev => (prev === 0 ? galleryImages.length - 1 : prev - 1));
+                          }}
+                          style={{
+                            position: 'absolute',
+                            left: '8px',
+                            top: '50%',
+                            transform: 'translateY(-50%)',
+                            background: 'rgba(10,13,20,0.7)',
+                            border: '1px solid var(--border-color)',
+                            color: '#fff',
+                            width: '32px',
+                            height: '32px',
+                            borderRadius: '50%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          <ChevronLeft size={18} />
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setActiveImageIndex(prev => (prev + 1) % galleryImages.length);
+                          }}
+                          style={{
+                            position: 'absolute',
+                            right: '8px',
+                            top: '50%',
+                            transform: 'translateY(-50%)',
+                            background: 'rgba(10,13,20,0.7)',
+                            border: '1px solid var(--border-color)',
+                            color: '#fff',
+                            width: '32px',
+                            height: '32px',
+                            borderRadius: '50%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          <ChevronRight size={18} />
+                        </button>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Gallery Thumbnails Strip */}
+                  {galleryImages.length > 1 && (
+                    <div style={{ display: 'flex', gap: '8px', marginTop: '12px', overflowX: 'auto', paddingBottom: '4px' }}>
+                      {galleryImages.map((imgUrl, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setActiveImageIndex(idx)}
+                          style={{
+                            width: '60px',
+                            height: '60px',
+                            borderRadius: '10px',
+                            overflow: 'hidden',
+                            border: activeImageIndex === idx ? '2px solid var(--accent-green)' : '1px solid var(--border-color)',
+                            padding: 0,
+                            background: '#0d121c',
+                            cursor: 'pointer',
+                            opacity: activeImageIndex === idx ? 1 : 0.6,
+                            transition: 'all 0.2s',
+                          }}
+                        >
+                          <img src={imgUrl} alt={`Thumbnail ${idx + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Right Info Column */}
+                <div>
+                  <div style={{ display: 'flex', gap: '8px', marginBottom: '10px', flexWrap: 'wrap' }}>
+                    <span className="badge badge-green" style={{ fontSize: '0.7rem' }}>
+                      {selectedProduct.category || '核心产品'}
+                    </span>
+                    {selectedProduct.badge && (
+                      <span className="badge badge-gold" style={{ fontSize: '0.7rem' }}>
+                        {selectedProduct.badge}
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '8px', lineHeight: 1.3 }}>
+                    {selectedProduct.title}
+                  </h3>
+
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', marginBottom: '16px', lineHeight: 1.5 }}>
+                    {selectedProduct.tagline}
+                  </p>
+
+                  <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-green)', marginBottom: '20px' }}>
+                    ${selectedProduct.price}
+                    {selectedProduct.compare_at_price && (
+                      <span style={{ fontSize: '1rem', color: 'var(--text-dim)', textDecoration: 'line-through', marginLeft: '10px' }}>
+                        ${selectedProduct.compare_at_price}
+                      </span>
+                    )}
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      const title = selectedProduct.title;
+                      setSelectedProduct(null);
+                      onContactClick(title);
+                    }}
+                    className="btn-primary"
+                    style={{ width: '100%', padding: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontSize: '0.95rem' }}
+                  >
+                    <MessageSquare size={18} /> 点击联系 (Contact Us for Inquiries)
+                  </button>
+                </div>
+              </div>
+
+              {/* Specs & Description Section */}
+              <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '24px', marginBottom: '24px' }}>
+                <h4 style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Zap size={18} color="var(--accent-green)" /> 产品概述与规格描述 (Product Overview &amp; Specs)
+                </h4>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '20px' }}>
+                  {selectedProduct.description}
+                </p>
+
+                {selectedProduct.specs && Object.keys(selectedProduct.specs).length > 0 && (
+                  <div style={{ background: 'rgba(255,255,255,0.03)', padding: '16px 20px', borderRadius: '14px', border: '1px solid var(--border-color)' }}>
+                    <h5 style={{ fontSize: '0.9rem', color: 'var(--accent-green)', fontWeight: 700, marginBottom: '12px' }}>
+                      技术参数规格表 (Technical Parameters)
+                    </h5>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px', fontSize: '0.88rem' }}>
+                      {Object.entries(selectedProduct.specs).map(([key, val]) => (
+                        <div key={key}>
+                          <span style={{ color: 'var(--text-muted)', textTransform: 'capitalize' }}>{key}: </span>
+                          <span style={{ color: '#fff', fontWeight: 600 }}>{String(val)}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Certifications & Qualifications Section */}
+              <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '24px' }}>
+                <h4 style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', color: '#fff' }}>
+                  <Award size={20} color="var(--accent-cyan)" /> 资质与质量检测认证 (Qualifications &amp; Certifications)
+                </h4>
+
+                {(!selectedProduct.certifications || selectedProduct.certifications.length === 0) ? (
+                  <div style={{ background: 'rgba(255,255,255,0.02)', padding: '16px', borderRadius: '12px', textAlign: 'center', color: 'var(--text-dim)', fontSize: '0.88rem' }}>
+                    该产品符合 ISO9001, CE, FCC, RoHS 及 UN38.3 锂电池国际通用安全检测认证。
+                  </div>
+                ) : (
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
+                    gap: '16px',
+                  }}>
+                    {selectedProduct.certifications.map((cert, idx) => (
+                      <div
+                        key={idx}
+                        onClick={() => openLightbox(selectedProduct.certifications!.map(c => c.image_url), idx, cert.name)}
+                        style={{
+                          background: 'rgba(255,255,255,0.03)',
+                          border: '1px solid var(--border-color)',
+                          borderRadius: '14px',
+                          overflow: 'hidden',
+                          cursor: 'zoom-in',
+                          transition: 'transform 0.2s, border-color 0.2s',
+                        }}
+                      >
+                        <div style={{ height: '120px', background: '#0d121c', position: 'relative' }}>
+                          <img src={cert.image_url} alt={cert.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                          <div style={{
+                            position: 'absolute',
+                            inset: 0,
+                            background: 'linear-gradient(180deg, transparent 50%, rgba(10,13,20,0.8) 100%)',
+                          }} />
+                          <span style={{
+                            position: 'absolute',
+                            bottom: '6px',
+                            right: '6px',
+                            background: 'rgba(0,0,0,0.7)',
+                            padding: '2px 6px',
+                            borderRadius: '4px',
+                            fontSize: '0.7rem',
+                            color: '#fff',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '2px',
+                          }}>
+                            <Maximize2 size={10} /> 放大
+                          </span>
+                        </div>
+                        <div style={{ padding: '10px 12px', fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)', textAlign: 'center' }}>
+                          {cert.name}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* Fullscreen Lightbox Zoom Modal */}
+      {lightboxImage && (
+        <div
+          onClick={() => setLightboxImage(null)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 9999,
+            background: 'rgba(0,0,0,0.95)',
+            backdropFilter: 'blur(16px)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '24px',
+          }}
+        >
+          {/* Top Title & Close Button */}
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{
+              position: 'absolute',
+              top: '20px',
+              left: '24px',
+              right: '24px',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              zIndex: 10,
+            }}
+          >
+            <span style={{ color: '#fff', fontSize: '1.1rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Maximize2 size={18} color="var(--accent-green)" /> {lightboxImage.title} ({lightboxIndex + 1} / {lightboxList.length})
+            </span>
             <button
-              onClick={() => setSelectedProduct(null)}
-              aria-label="Close modal"
+              onClick={() => setLightboxImage(null)}
               style={{
-                position: 'absolute',
-                top: '20px',
-                right: '20px',
-                background: 'rgba(255,255,255,0.1)',
+                background: 'rgba(255,255,255,0.2)',
                 border: 'none',
                 color: '#fff',
-                width: '36px',
-                height: '36px',
+                width: '40px',
+                height: '40px',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
@@ -321,65 +666,81 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                 cursor: 'pointer',
               }}
             >
-              <X size={20} />
+              <X size={24} />
             </button>
+          </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '28px', marginBottom: '24px' }}>
-              <div style={{ borderRadius: '16px', overflow: 'hidden', height: '240px', background: '#0d121c', border: '1px solid var(--border-color)' }}>
-                <img src={selectedProduct.image_url} alt={selectedProduct.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
+          {/* Large Image Preview Container */}
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{
+              position: 'relative',
+              maxWidth: '90vw',
+              maxHeight: '80vh',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <img
+              src={lightboxImage.url}
+              alt={lightboxImage.title}
+              style={{
+                maxWidth: '100%',
+                maxHeight: '80vh',
+                borderRadius: '16px',
+                boxShadow: '0 25px 50px rgba(0,0,0,0.8)',
+                objectFit: 'contain',
+              }}
+            />
 
-              <div>
-                {selectedProduct.badge && (
-                  <span className="badge badge-gold" style={{ fontSize: '0.7rem', marginBottom: '10px', display: 'inline-block' }}>
-                    {selectedProduct.badge}
-                  </span>
-                )}
-                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '8px', lineHeight: 1.3 }}>
-                  {selectedProduct.title}
-                </h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '16px' }}>
-                  {selectedProduct.tagline}
-                </p>
-
-                <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-green)', marginBottom: '16px' }}>
-                  ${selectedProduct.price}
-                </div>
-
+            {/* Left/Right Navigation Arrows for Lightbox */}
+            {lightboxList.length > 1 && (
+              <>
                 <button
-                  onClick={() => {
-                    const title = selectedProduct.title;
-                    setSelectedProduct(null);
-                    onContactClick(title);
+                  onClick={prevLightboxImage}
+                  style={{
+                    position: 'absolute',
+                    left: '-20px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    background: 'rgba(10,13,20,0.8)',
+                    border: '1px solid var(--border-color)',
+                    color: '#fff',
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
                   }}
-                  className="btn-primary"
-                  style={{ width: '100%', padding: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
                 >
-                  <MessageSquare size={18} /> 点击联系 (Contact Us for Product)
+                  <ChevronLeft size={28} />
                 </button>
-              </div>
-            </div>
-
-            <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '20px' }}>
-              <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '10px' }}>Product Overview &amp; Specs</h4>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '20px' }}>
-                {selectedProduct.description}
-              </p>
-
-              {selectedProduct.specs && Object.keys(selectedProduct.specs).length > 0 && (
-                <div style={{ background: 'rgba(255,255,255,0.03)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
-                  <h5 style={{ fontSize: '0.9rem', color: 'var(--accent-green)', fontWeight: 700, marginBottom: '10px' }}>Technical Parameters</h5>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', fontSize: '0.85rem' }}>
-                    {Object.entries(selectedProduct.specs).map(([key, val]) => (
-                      <div key={key}>
-                        <span style={{ color: 'var(--text-muted)', textTransform: 'capitalize' }}>{key}: </span>
-                        <span style={{ color: '#fff', fontWeight: 600 }}>{String(val)}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+                <button
+                  onClick={nextLightboxImage}
+                  style={{
+                    position: 'absolute',
+                    right: '-20px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    background: 'rgba(10,13,20,0.8)',
+                    border: '1px solid var(--border-color)',
+                    color: '#fff',
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <ChevronRight size={28} />
+                </button>
+              </>
+            )}
           </div>
         </div>
       )}

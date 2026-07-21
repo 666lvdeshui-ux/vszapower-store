@@ -24,6 +24,17 @@ export const MOCK_PRODUCTS = [
     is_starter_kit: true,
     category: '纽扣电池充电器',
     image_url: 'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=800&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1609592424074-954930b8098c?auto=format&fit=crop&w=1200&q=80',
+    ],
+    certifications: [
+      { name: 'CE 欧盟安全认证', image_url: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80' },
+      { name: 'FCC 电磁兼容认证', image_url: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80' },
+      { name: 'RoHS 环保无毒认证', image_url: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80' },
+      { name: 'UN38.3 锂电池运输安全认证', image_url: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80' }
+    ],
     badge: 'BEST SELLER / SAVE 37%',
     description: 'Complete Starter Pack with 1x Smart Charger Dock + 4x High-Capacity LIR2032 Rechargeable Coin Cell Batteries in eco-friendly papercard gift packaging. Features dual-slot 3.6V/4.2V micro-chip control, overcharge protection, and reverse polarity defense.',
     specs: {
@@ -43,6 +54,14 @@ export const MOCK_PRODUCTS = [
     is_starter_kit: false,
     category: '纽扣电池充电器',
     image_url: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=800&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1200&q=80',
+    ],
+    certifications: [
+      { name: 'CE 欧盟安全认证', image_url: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80' },
+      { name: 'RoHS 环保无毒认证', image_url: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80' }
+    ],
     badge: 'SMART DOCK',
     description: 'High precision 2-slot fast USB coin battery charger. LED dual-color indicator (Red: Charging, Green: Fully Charged).',
     specs: {
@@ -61,6 +80,12 @@ export const MOCK_PRODUCTS = [
     is_starter_kit: false,
     category: '可充电纽扣电池',
     image_url: 'https://images.unsplash.com/photo-1609592424074-954930b8098c?auto=format&fit=crop&w=800&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1609592424074-954930b8098c?auto=format&fit=crop&w=1200&q=80'
+    ],
+    certifications: [
+      { name: 'UN38.3 锂电池运输安全认证', image_url: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80' }
+    ],
     badge: 'ECO PACK',
     description: 'Premium grade LIR2032 3.7V rechargeable lithium coin cells. Replaces CR2032 in compatible devices.',
     specs: {

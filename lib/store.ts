@@ -1,5 +1,10 @@
 import { MOCK_PRODUCTS, MOCK_POSTS, supabase } from './supabase';
 
+export interface CertificationItem {
+  name: string;
+  image_url: string;
+}
+
 export interface ProductItem {
   id: string;
   slug: string;
@@ -10,6 +15,8 @@ export interface ProductItem {
   is_starter_kit?: boolean;
   category?: string;
   image_url: string;
+  images?: string[];
+  certifications?: CertificationItem[];
   badge?: string;
   description: string;
   specs?: Record<string, string>;
@@ -108,6 +115,8 @@ export async function saveProduct(product: Partial<ProductItem>): Promise<Produc
     is_starter_kit: Boolean(product.is_starter_kit),
     category: product.category || '纽扣电池充电器',
     image_url: product.image_url || 'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=800&q=80',
+    images: Array.isArray(product.images) && product.images.length > 0 ? product.images : [product.image_url || 'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=800&q=80'],
+    certifications: Array.isArray(product.certifications) ? product.certifications : [],
     badge: product.badge || '',
     description: product.description || '',
     specs: product.specs || {},

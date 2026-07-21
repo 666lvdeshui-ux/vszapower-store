@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ProductItem } from '@/lib/store';
-import { Plus, Edit2, Trash2, Package, Tag, DollarSign, Image as ImageIcon, Sparkles, Check, AlertCircle } from 'lucide-react';
+import { Plus, Edit2, Trash2, Package, Tag, DollarSign, Image as ImageIcon, Sparkles, Check, AlertCircle, Shield } from 'lucide-react';
 
 export default function ProductManager() {
   const [products, setProducts] = useState<ProductItem[]>([]);
@@ -385,7 +385,9 @@ export default function ProductManager() {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Image URL</label>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>
+                  产品主封面图片 URL (Main Cover Image URL)
+                </label>
                 <input
                   type="text"
                   required
@@ -400,6 +402,127 @@ export default function ProductManager() {
                     color: '#fff'
                   }}
                 />
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>
+                  产品相册/主图轮播图片列表 (Gallery Images - 每行一个图片 URL)
+                </label>
+                <textarea
+                  rows={3}
+                  value={Array.isArray(editingProduct.images) ? editingProduct.images.join('\n') : (editingProduct.image_url || '')}
+                  onChange={e => {
+                    const lines = e.target.value.split('\n').map(s => s.trim()).filter(Boolean);
+                    setEditingProduct({
+                      ...editingProduct,
+                      images: lines,
+                      image_url: lines[0] || editingProduct.image_url || '',
+                    });
+                  }}
+                  placeholder="https://images.unsplash.com/photo-1...\nhttps://images.unsplash.com/photo-2..."
+                  style={{
+                    width: '100%',
+                    padding: '10px 14px',
+                    borderRadius: '8px',
+                    background: 'rgba(255,255,255,0.05)',
+                    border: '1px solid var(--border-color)',
+                    color: '#fff',
+                    fontFamily: 'monospace',
+                    fontSize: '0.85rem',
+                  }}
+                />
+              </div>
+
+              {/* Certifications Manager Section */}
+              <div style={{
+                background: 'rgba(255,255,255,0.02)',
+                padding: '16px',
+                borderRadius: '12px',
+                border: '1px solid var(--border-color)',
+              }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                  <label style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--accent-green)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <Shield size={16} /> 产品资质与质量认证管理 (Certifications)
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const currentCerts = Array.isArray(editingProduct.certifications) ? [...editingProduct.certifications] : [];
+                      currentCerts.push({ name: 'CE 欧盟安全认证', image_url: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80' });
+                      setEditingProduct({ ...editingProduct, certifications: currentCerts });
+                    }}
+                    className="btn-secondary"
+                    style={{ padding: '4px 12px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '4px' }}
+                  >
+                    <Plus size={14} /> 添加资质
+                  </button>
+                </div>
+
+                {(!editingProduct.certifications || editingProduct.certifications.length === 0) ? (
+                  <p style={{ fontSize: '0.8rem', color: 'var(--text-dim)', textAlign: 'center', padding: '10px' }}>
+                    暂无配置资质证书，点击“添加资质”按钮新增（如 CE/FCC/RoHS/UN38.3 等）
+                  </p>
+                ) : (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    {editingProduct.certifications.map((cert, idx) => (
+                      <div key={idx} style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr auto', gap: '8px', alignItems: 'center' }}>
+                        <input
+                          type="text"
+                          placeholder="资质名称 (例: CE 欧盟安全认证)"
+                          value={cert.name}
+                          onChange={e => {
+                            const newCerts = [...editingProduct.certifications!];
+                            newCerts[idx].name = e.target.value;
+                            setEditingProduct({ ...editingProduct, certifications: newCerts });
+                          }}
+                          style={{
+                            padding: '8px 10px',
+                            borderRadius: '6px',
+                            background: 'rgba(255,255,255,0.05)',
+                            border: '1px solid var(--border-color)',
+                            color: '#fff',
+                            fontSize: '0.85rem',
+                          }}
+                        />
+                        <input
+                          type="url"
+                          placeholder="证书图片 URL"
+                          value={cert.image_url}
+                          onChange={e => {
+                            const newCerts = [...editingProduct.certifications!];
+                            newCerts[idx].image_url = e.target.value;
+                            setEditingProduct({ ...editingProduct, certifications: newCerts });
+                          }}
+                          style={{
+                            padding: '8px 10px',
+                            borderRadius: '6px',
+                            background: 'rgba(255,255,255,0.05)',
+                            border: '1px solid var(--border-color)',
+                            color: '#fff',
+                            fontSize: '0.85rem',
+                          }}
+                        />
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const newCerts = editingProduct.certifications!.filter((_, i) => i !== idx);
+                            setEditingProduct({ ...editingProduct, certifications: newCerts });
+                          }}
+                          style={{
+                            background: 'rgba(239, 68, 68, 0.15)',
+                            border: '1px solid rgba(239, 68, 68, 0.3)',
+                            color: '#ef4444',
+                            borderRadius: '6px',
+                            padding: '8px',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          <Trash2 size={14} />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <div>
