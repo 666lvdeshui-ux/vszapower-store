@@ -22,20 +22,7 @@ export default function Footer() {
         {/* Col 1: Brand Info */}
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-            <div style={{
-              width: '32px',
-              height: '32px',
-              borderRadius: '8px',
-              background: 'var(--accent-gradient)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-              <Zap size={18} color="#041410" strokeWidth={2.5} />
-            </div>
-            <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', fontWeight: 800 }}>
-              VSZA<span className="gradient-text">POWER</span>
-            </span>
+            <img src="/logo.svg" alt="VSZAPOWER" style={{ height: '28px', width: 'auto', display: 'block' }} />
           </div>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '20px' }}>
             The premiere rechargeable coin cell system. Empowering AirTags, key fobs, and smart IoT devices with eco-friendly LIR2032/LIR2450 chargers.

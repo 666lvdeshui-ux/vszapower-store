@@ -36,39 +36,15 @@ export default function Header({ onContactClick }: HeaderProps) {
           gap: '10px',
           textDecoration: 'none',
         }}>
-          <div style={{
-            width: '40px',
-            height: '40px',
-            borderRadius: '10px',
-            background: 'var(--accent-gradient)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: 'var(--accent-glow)',
-          }}>
-            <Zap size={22} color="#041410" strokeWidth={2.5} />
-          </div>
-          <div>
-            <span style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: '1.4rem',
-              fontWeight: 800,
-              letterSpacing: '-0.5px',
-              color: '#ffffff',
-            }}>
-              VSZA<span className="gradient-text">POWER</span>
-            </span>
-            <span style={{
+          <img
+            src="/logo.svg"
+            alt="VSZAPOWER"
+            style={{
+              height: '32px',
+              width: 'auto',
               display: 'block',
-              fontSize: '0.65rem',
-              color: 'var(--text-muted)',
-              letterSpacing: '1px',
-              textTransform: 'uppercase',
-              marginTop: '-4px',
-            }}>
-              Rechargeable Coin Systems
-            </span>
-          </div>
+            }}
+          />
         </Link>
 
         {/* Simplified 3-Tab Desktop Navigation */}
