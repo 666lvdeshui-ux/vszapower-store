@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { PostItem } from '@/lib/store';
 import { Plus, Edit3, Trash2, Eye, BookOpen, User, Clock, FileText, CheckCircle, XCircle } from 'lucide-react';
+import ImageUploader from '@/components/admin/ImageUploader';
 
 export default function PostManager() {
   const [posts, setPosts] = useState<PostItem[]>([]);
@@ -358,22 +359,12 @@ export default function PostManager() {
                   </div>
                 </div>
 
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Cover Image URL</label>
-                  <input
-                    type="text"
-                    value={editingPost.cover_image || ''}
-                    onChange={e => setEditingPost({ ...editingPost, cover_image: e.target.value })}
-                    style={{
-                      width: '100%',
-                      padding: '10px 14px',
-                      borderRadius: '8px',
-                      background: 'rgba(255,255,255,0.05)',
-                      border: '1px solid var(--border-color)',
-                      color: '#fff'
-                    }}
-                  />
-                </div>
+                <ImageUploader
+                  label="文章封面图片 (Article Cover Image)"
+                  value={editingPost.cover_image || ''}
+                  onChange={url => setEditingPost({ ...editingPost, cover_image: url })}
+                  placeholder="点击或拖拽上传文章封面图片"
+                />
 
                 <div>
                   <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Article Summary / Excerpt</label>

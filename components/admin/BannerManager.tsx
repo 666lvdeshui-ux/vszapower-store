@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { BannerItem } from '@/lib/store';
 import { Plus, Edit2, Trash2, Image, Sparkles, ExternalLink, RefreshCw } from 'lucide-react';
+import ImageUploader from '@/components/admin/ImageUploader';
 
 export default function BannerManager() {
   const [banners, setBanners] = useState<BannerItem[]>([]);
@@ -317,26 +318,12 @@ export default function BannerManager() {
                 />
               </div>
 
-              <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>
-                  背景图片 URL (Image URL - 支持 Unsplash 图片链接或图片库)
-                </label>
-                <input
-                  type="url"
-                  required
-                  placeholder="https://images.unsplash.com/photo-..."
-                  value={editingBanner.image_url || ''}
-                  onChange={e => setEditingBanner({ ...editingBanner, image_url: e.target.value })}
-                  style={{
-                    width: '100%',
-                    padding: '10px 14px',
-                    borderRadius: '10px',
-                    background: 'rgba(255,255,255,0.05)',
-                    border: '1px solid var(--border-color)',
-                    color: '#fff',
-                  }}
-                />
-              </div>
+              <ImageUploader
+                label="轮播大图背景图片 (Banner Slide Image)"
+                value={editingBanner.image_url || ''}
+                onChange={url => setEditingBanner({ ...editingBanner, image_url: url })}
+                placeholder="点击或拖拽上传轮播图背景图片"
+              />
 
               <div>
                 <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { ProductItem } from '@/lib/store';
 import { Plus, Edit2, Trash2, Package, Tag, DollarSign, Image as ImageIcon, Sparkles, Check, AlertCircle, Shield } from 'lucide-react';
+import ImageUploader from '@/components/admin/ImageUploader';
 
 export default function ProductManager() {
   const [products, setProducts] = useState<ProductItem[]>([]);
@@ -384,53 +385,92 @@ export default function ProductManager() {
                 </label>
               </div>
 
-              <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>
-                  产品主封面图片 URL (Main Cover Image URL)
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={editingProduct.image_url || ''}
-                  onChange={e => setEditingProduct({ ...editingProduct, image_url: e.target.value })}
-                  style={{
-                    width: '100%',
-                    padding: '10px 14px',
-                    borderRadius: '8px',
-                    background: 'rgba(255,255,255,0.05)',
-                    border: '1px solid var(--border-color)',
-                    color: '#fff'
-                  }}
-                />
-              </div>
+              {/* Main Cover Image Uploader */}
+              <ImageUploader
+                label="产品主封面图片 (Main Cover Image)"
+                value={editingProduct.image_url || ''}
+                onChange={url => {
+                  const currentImages = Array.isArray(editingProduct.images) ? [...editingProduct.images] : [];
+                  if (currentImages.length === 0) currentImages.push(url);
+                  else currentImages[0] = url;
+                  setEditingProduct({ ...editingProduct, image_url: url, images: currentImages });
+                }}
+                placeholder="点击或拖拽上传产品主图"
+              />
 
-              <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>
-                  产品相册/主图轮播图片列表 (Gallery Images - 每行一个图片 URL)
-                </label>
-                <textarea
-                  rows={3}
-                  value={Array.isArray(editingProduct.images) ? editingProduct.images.join('\n') : (editingProduct.image_url || '')}
-                  onChange={e => {
-                    const lines = e.target.value.split('\n').map(s => s.trim()).filter(Boolean);
-                    setEditingProduct({
-                      ...editingProduct,
-                      images: lines,
-                      image_url: lines[0] || editingProduct.image_url || '',
-                    });
+              {/* Product Gallery Images Manager */}
+              <div style={{
+                background: 'rgba(255,255,255,0.02)',
+                padding: '16px',
+                borderRadius: '12px',
+                border: '1px solid var(--border-color)',
+                marginBottom: '16px',
+              }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                  <label style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--accent-cyan)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <ImageIcon size={16} /> 产品相册多图轮播管理 (Gallery Images)
+                  </label>
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: '12px', marginBottom: '12px' }}>
+                  {(editingProduct.images || [editingProduct.image_url || '']).map((imgUrl, imgIdx) => (
+                    <div key={imgIdx} style={{ position: 'relative' }}>
+                      <ImageUploader
+                        value={imgUrl}
+                        onChange={newUrl => {
+                          const updated = [...(editingProduct.images || [editingProduct.image_url || ''])];
+                          updated[imgIdx] = newUrl;
+                          setEditingProduct({
+                            ...editingProduct,
+                            images: updated,
+                            image_url: updated[0] || '',
+                          });
+                        }}
+                        placeholder={`上传图 ${imgIdx + 1}`}
+                      />
+                      {(editingProduct.images && editingProduct.images.length > 1) && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const updated = editingProduct.images!.filter((_, i) => i !== imgIdx);
+                            setEditingProduct({
+                              ...editingProduct,
+                              images: updated,
+                              image_url: updated[0] || '',
+                            });
+                          }}
+                          style={{
+                            position: 'absolute',
+                            top: '4px',
+                            right: '4px',
+                            background: 'rgba(239,68,68,0.85)',
+                            color: '#fff',
+                            border: 'none',
+                            borderRadius: '4px',
+                            padding: '2px 6px',
+                            fontSize: '0.7rem',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          删除
+                        </button>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    const updated = [...(editingProduct.images || [editingProduct.image_url || ''])];
+                    updated.push('https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1200&q=80');
+                    setEditingProduct({ ...editingProduct, images: updated });
                   }}
-                  placeholder="https://images.unsplash.com/photo-1...\nhttps://images.unsplash.com/photo-2..."
-                  style={{
-                    width: '100%',
-                    padding: '10px 14px',
-                    borderRadius: '8px',
-                    background: 'rgba(255,255,255,0.05)',
-                    border: '1px solid var(--border-color)',
-                    color: '#fff',
-                    fontFamily: 'monospace',
-                    fontSize: '0.85rem',
-                  }}
-                />
+                  className="btn-secondary"
+                  style={{ padding: '6px 14px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '4px' }}
+                >
+                  <Plus size={14} /> 上传/增加相册展示图片
+                </button>
               </div>
 
               {/* Certifications Manager Section */}
@@ -439,6 +479,7 @@ export default function ProductManager() {
                 padding: '16px',
                 borderRadius: '12px',
                 border: '1px solid var(--border-color)',
+                marginBottom: '16px',
               }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
                   <label style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--accent-green)', display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -460,65 +501,61 @@ export default function ProductManager() {
 
                 {(!editingProduct.certifications || editingProduct.certifications.length === 0) ? (
                   <p style={{ fontSize: '0.8rem', color: 'var(--text-dim)', textAlign: 'center', padding: '10px' }}>
-                    暂无配置资质证书，点击“添加资质”按钮新增（如 CE/FCC/RoHS/UN38.3 等）
+                    暂无配置资质证书，点击“添加资质”按钮上传新增（如 CE/FCC/RoHS/UN38.3 等）
                   </p>
                 ) : (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     {editingProduct.certifications.map((cert, idx) => (
-                      <div key={idx} style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr auto', gap: '8px', alignItems: 'center' }}>
-                        <input
-                          type="text"
-                          placeholder="资质名称 (例: CE 欧盟安全认证)"
-                          value={cert.name}
-                          onChange={e => {
-                            const newCerts = [...editingProduct.certifications!];
-                            newCerts[idx].name = e.target.value;
-                            setEditingProduct({ ...editingProduct, certifications: newCerts });
-                          }}
-                          style={{
-                            padding: '8px 10px',
-                            borderRadius: '6px',
-                            background: 'rgba(255,255,255,0.05)',
-                            border: '1px solid var(--border-color)',
-                            color: '#fff',
-                            fontSize: '0.85rem',
-                          }}
-                        />
-                        <input
-                          type="url"
-                          placeholder="证书图片 URL"
+                      <div key={idx} style={{ background: 'rgba(255,255,255,0.02)', padding: '12px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', gap: '8px', marginBottom: '8px' }}>
+                          <input
+                            type="text"
+                            placeholder="资质名称 (例: CE 欧盟安全认证)"
+                            value={cert.name}
+                            onChange={e => {
+                              const newCerts = [...editingProduct.certifications!];
+                              newCerts[idx].name = e.target.value;
+                              setEditingProduct({ ...editingProduct, certifications: newCerts });
+                            }}
+                            style={{
+                              flex: 1,
+                              padding: '8px 10px',
+                              borderRadius: '6px',
+                              background: 'rgba(255,255,255,0.05)',
+                              border: '1px solid var(--border-color)',
+                              color: '#fff',
+                              fontSize: '0.85rem',
+                            }}
+                          />
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const newCerts = editingProduct.certifications!.filter((_, i) => i !== idx);
+                              setEditingProduct({ ...editingProduct, certifications: newCerts });
+                            }}
+                            style={{
+                              background: 'rgba(239, 68, 68, 0.15)',
+                              border: '1px solid rgba(239, 68, 68, 0.3)',
+                              color: '#ef4444',
+                              borderRadius: '6px',
+                              padding: '6px 12px',
+                              fontSize: '0.8rem',
+                              cursor: 'pointer',
+                            }}
+                          >
+                            删除资质
+                          </button>
+                        </div>
+                        <ImageUploader
+                          label="证书图片上传"
                           value={cert.image_url}
-                          onChange={e => {
+                          onChange={newUrl => {
                             const newCerts = [...editingProduct.certifications!];
-                            newCerts[idx].image_url = e.target.value;
+                            newCerts[idx].image_url = newUrl;
                             setEditingProduct({ ...editingProduct, certifications: newCerts });
                           }}
-                          style={{
-                            padding: '8px 10px',
-                            borderRadius: '6px',
-                            background: 'rgba(255,255,255,0.05)',
-                            border: '1px solid var(--border-color)',
-                            color: '#fff',
-                            fontSize: '0.85rem',
-                          }}
+                          placeholder="点击或拖拽上传证书图片"
                         />
-                        <button
-                          type="button"
-                          onClick={() => {
-                            const newCerts = editingProduct.certifications!.filter((_, i) => i !== idx);
-                            setEditingProduct({ ...editingProduct, certifications: newCerts });
-                          }}
-                          style={{
-                            background: 'rgba(239, 68, 68, 0.15)',
-                            border: '1px solid rgba(239, 68, 68, 0.3)',
-                            color: '#ef4444',
-                            borderRadius: '6px',
-                            padding: '8px',
-                            cursor: 'pointer',
-                          }}
-                        >
-                          <Trash2 size={14} />
-                        </button>
                       </div>
                     ))}
                   </div>
