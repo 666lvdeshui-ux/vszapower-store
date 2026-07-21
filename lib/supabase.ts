@@ -17,7 +17,7 @@ export const MOCK_PRODUCTS = [
   {
     id: '1',
     slug: 'lir2032-starter-kit',
-    title: 'Vszapower Smart Coin Cell Charger + 4x LIR2032 Batteries Starter Kit',
+    title: 'Vszapower Smart Dual-Slot Coin Cell Charger + 4x LIR2032 Batteries Starter Kit',
     tagline: 'Stop throwing away disposable button batteries. Save money & reduce e-waste.',
     price: 24.99,
     compare_at_price: 39.99,
@@ -36,9 +36,10 @@ export const MOCK_PRODUCTS = [
       { name: 'UN38.3 锂电池运输安全认证', image_url: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80' }
     ],
     badge: 'BEST SELLER / SAVE 37%',
-    description: 'Complete Starter Pack with 1x Smart Charger Dock + 4x High-Capacity LIR2032 Rechargeable Coin Cell Batteries in eco-friendly papercard gift packaging. Features dual-slot 3.6V/4.2V micro-chip control, overcharge protection, and reverse polarity defense.',
+    description: 'Complete Starter Pack with 1x Smart Dual-Slot Charger Dock + 4x High-Capacity LIR2032 Rechargeable Coin Cell Batteries in eco-friendly papercard gift packaging. Features dual-slot 3.6V/4.2V micro-chip control, overcharge protection, red/green LED charge status, and reverse polarity defense.',
     specs: {
       voltage: '3.6V-4.2V Auto Switch',
+      supported: 'LIR2032, LIR2025, LIR2016, ML2032',
       safety: 'Overcharge / Short Circuit / Reverse Polarity Protection',
       packaging: 'Eco-Friendly Kraft Papercard Pack',
       warranty: '2 Years'
@@ -46,11 +47,11 @@ export const MOCK_PRODUCTS = [
   },
   {
     id: '2',
-    slug: 'vszapower-dual-charger-dock',
-    title: 'Vszapower Universal LIR/ML Coin Cell Smart Charger Dock',
-    tagline: 'Compatible with LIR2032, LIR2025, LIR2016, LIR2450, ML2032',
-    price: 14.99,
-    compare_at_price: 19.99,
+    slug: 'vszapower-quad-pro-charger',
+    title: 'VSZAPOWER Smart 4-Slot Type-C Coin Cell Battery Charger Pro Dock',
+    tagline: 'Quad-Slot Independent Fast Charging with LED Status Indicators',
+    price: 18.99,
+    compare_at_price: 28.99,
     is_starter_kit: false,
     category: '纽扣电池充电器',
     image_url: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=800&q=80',
@@ -60,21 +61,77 @@ export const MOCK_PRODUCTS = [
     ],
     certifications: [
       { name: 'CE 欧盟安全认证', image_url: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80' },
+      { name: 'FCC 电磁兼容认证', image_url: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80' },
       { name: 'RoHS 环保无毒认证', image_url: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80' }
     ],
-    badge: 'SMART DOCK',
-    description: 'High precision 2-slot fast USB coin battery charger. LED dual-color indicator (Red: Charging, Green: Fully Charged).',
+    badge: '4-SLOT PRO / FAST CHARGE',
+    description: 'Professional 4-bay intelligent coin cell charger dock with independent MCU micro-chip charging channels. Powered by USB-C input. Supports charging 1 to 4 rechargeable lithium button cells (LIR2032, LIR2025, LIR2016, LIR2450) simultaneously with precision CC/CV charging curve.',
     specs: {
-      input: 'USB-C / Micro-USB 5V 1A',
-      output: '4.2V 50mA x 2',
-      supported: 'LIR2032, LIR2025, LIR2016, LIR2450, ML2032'
+      input: 'USB Type-C 5V 2A',
+      output: '4.2V 50mA x 4 Independent Channels',
+      supported: 'LIR2032, LIR2025, LIR2016, LIR2450, LIR2430, ML2032',
+      display: 'Red (Charging), Green (Fully Charged)',
+      protection: 'MCU Cutoff, Short Circuit & Overcurrent Protection'
     }
   },
   {
     id: '3',
+    slug: 'lir2450-heavy-duty-kit',
+    title: 'VSZAPOWER LIR2450 High-Capacity Rechargeable Coin Cell Charger Kit',
+    tagline: '120mAh High Drain Energy for Smart Door Locks & Glucose Meters',
+    price: 19.99,
+    compare_at_price: 29.99,
+    is_starter_kit: false,
+    category: '纽扣电池充电器',
+    image_url: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1200&q=80'
+    ],
+    certifications: [
+      { name: 'CE 欧盟安全认证', image_url: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80' },
+      { name: 'UN38.3 锂电池运输安全认证', image_url: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80' }
+    ],
+    badge: 'HIGH CAPACITY 120mAh',
+    description: 'High power coin cell charging solution engineered for heavy-drain devices such as electronic smart door locks, solar tire pressure sensors, glucometers, and IoT beacons. Includes 1x dedicated LIR2450 Smart Charger Dock and 2x 120mAh 3.7V LIR2450 rechargeable coin cells.',
+    specs: {
+      battery_model: 'LIR2450 (3.7V / 120mAh)',
+      recharge_cycles: '500+ Full Discharge/Charge Cycles',
+      charger_input: 'Micro-USB / USB-C 5V 1A',
+      applications: 'Smart Locks, Tire Pressure Sensors, IoT Beacons'
+    }
+  },
+  {
+    id: '4',
+    slug: 'vszapower-portable-pocket-charger',
+    title: 'VSZAPOWER Ultra-Compact Portable USB Coin Cell Battery Charger',
+    tagline: 'Pocket-Sized Foldable USB Charger Dock for AirTags & Key Fobs',
+    price: 9.99,
+    compare_at_price: 15.99,
+    is_starter_kit: false,
+    category: '纽扣电池充电器',
+    image_url: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80'
+    ],
+    certifications: [
+      { name: 'CE 欧盟安全认证', image_url: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80' },
+      { name: 'RoHS 环保无毒认证', image_url: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80' }
+    ],
+    badge: 'PORTABLE TRAVEL',
+    description: 'Ultra-lightweight 28g travel coin battery charger featuring an integrated foldable USB connector. Plugs directly into power banks, laptops, or phone adapters. Ideal for quick charging on the go.',
+    specs: {
+      input: 'Integrated Foldable USB-A 5V 1A',
+      output: '4.2V 40mA x 2 Channels',
+      dimensions: '72mm x 38mm x 14mm',
+      weight: '28g Ultra-Lightweight'
+    }
+  },
+  {
+    id: '5',
     slug: 'lir2032-4pack',
     title: '4-Pack LIR2032 Rechargeable 3.7V Coin Cell Batteries',
-    tagline: '500+ Recharge Cycles for Car Keys & AirTags',
+    tagline: '500+ Recharge Cycles for Car Keys & Apple AirTags',
     price: 12.99,
     compare_at_price: 16.99,
     is_starter_kit: false,
@@ -87,11 +144,11 @@ export const MOCK_PRODUCTS = [
       { name: 'UN38.3 锂电池运输安全认证', image_url: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80' }
     ],
     badge: 'ECO PACK',
-    description: 'Premium grade LIR2032 3.7V rechargeable lithium coin cells. Replaces CR2032 in compatible devices.',
+    description: 'Premium grade LIR2032 3.7V rechargeable lithium coin cells. Replaces disposable CR2032 in compatible AirTags, car key fobs, motherboard RTC, and LED gadgets.',
     specs: {
       capacity: '45mAh',
-      voltage: '3.7V',
-      cycles: '500+ times'
+      voltage: '3.7V Nominal (4.2V Peak)',
+      lifespan: '500+ Recharge Cycles'
     }
   }
 ];
