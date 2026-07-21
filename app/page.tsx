@@ -1,12 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import Header from '@/components/Header';
 import HeroCarousel from '@/components/HeroCarousel';
 import ProductGrid from '@/components/ProductGrid';
 import ContactSection from '@/components/ContactSection';
 import BlogPreview from '@/components/BlogPreview';
-import Footer from '@/components/Footer';
 
 export default function HomePage() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -21,9 +19,6 @@ export default function HomePage() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-main)', color: 'var(--text-main)' }}>
-      {/* Navigation Header */}
-      <Header onContactClick={() => handleOpenContact()} />
-
       {/* 1. Hero Carousel Banner */}
       <HeroCarousel onContactClick={handleOpenContact} />
 
@@ -44,9 +39,6 @@ export default function HomePage() {
           prefilledProduct={selectedProduct}
         />
       )}
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }

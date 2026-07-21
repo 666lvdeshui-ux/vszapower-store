@@ -131,8 +131,8 @@ export default async function PostDetailPage({ params }: { params: { slug: strin
         <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '20px' }}>
           Get the official Vszapower Smart Dock + 4x LIR2032 batteries starter kit with eco kraft gift packaging and 2-year warranty protection.
         </p>
-        <Link href="/#starter-kit" className="btn-primary">
-          <ShoppingBag size={18} /> Buy LIR2032 Starter Kit ($24.99)
+        <Link href="/#contact" className="btn-primary">
+          <ShoppingBag size={18} /> 联系我们 (Contact Us for Starter Kit)
         </Link>
       </div>
     </article>
