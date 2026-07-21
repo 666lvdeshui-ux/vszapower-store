@@ -3,13 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import ProductManager from '@/components/admin/ProductManager';
 import PostManager from '@/components/admin/PostManager';
-import { Shield, Zap, Lock, LogOut, Package, BookOpen, Database, ExternalLink, CheckCircle } from 'lucide-react';
+import BannerManager from '@/components/admin/BannerManager';
+import { Shield, Zap, Lock, LogOut, Package, BookOpen, Database, ExternalLink, CheckCircle, Image } from 'lucide-react';
 
 export default function AdminDashboardPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [passcode, setPasscode] = useState('');
   const [authError, setAuthError] = useState(false);
-  const [activeTab, setActiveTab] = useState<'products' | 'posts' | 'settings'>('products');
+  const [activeTab, setActiveTab] = useState<'products' | 'banners' | 'posts' | 'settings'>('products');
 
   useEffect(() => {
     const savedAuth = localStorage.getItem('vszapower_admin_auth');
@@ -71,7 +72,7 @@ export default function AdminDashboardPage() {
             VSZAPOWER Admin
           </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '28px' }}>
-            Enter your admin passcode to access product pricing, catalog & Battery Academy CMS.
+            Enter your admin passcode to access products, hero banners & Battery Academy CMS.
           </p>
 
           <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -135,25 +136,10 @@ export default function AdminDashboardPage() {
           justifyContent: 'space-between'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <div style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: '8px',
-              background: 'var(--accent-gradient)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
-              <Zap size={20} color="#041410" />
-            </div>
-            <div>
-              <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.2rem' }}>
-                VSZA<span className="gradient-text">POWER</span>
-              </span>
-              <span className="badge badge-green" style={{ marginLeft: '10px', fontSize: '0.65rem' }}>
-                ADMIN PORTAL
-              </span>
-            </div>
+            <img src="/logo.svg" alt="VSzapower" style={{ height: '30px', width: 'auto' }} />
+            <span className="badge badge-green" style={{ fontSize: '0.65rem' }}>
+              ADMIN PORTAL
+            </span>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
@@ -194,7 +180,8 @@ export default function AdminDashboardPage() {
           gap: '12px',
           marginBottom: '32px',
           borderBottom: '1px solid var(--border-color)',
-          paddingBottom: '16px'
+          paddingBottom: '16px',
+          flexWrap: 'wrap'
         }}>
           <button
             onClick={() => setActiveTab('products')}
@@ -214,7 +201,28 @@ export default function AdminDashboardPage() {
               boxShadow: activeTab === 'products' ? 'var(--accent-glow)' : 'none'
             }}
           >
-            <Package size={18} /> Product Catalog Management
+            <Package size={18} /> 产品目录管理 (Products)
+          </button>
+
+          <button
+            onClick={() => setActiveTab('banners')}
+            style={{
+              padding: '10px 20px',
+              borderRadius: '10px',
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 700,
+              fontSize: '0.95rem',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              background: activeTab === 'banners' ? 'var(--accent-gradient)' : 'rgba(255,255,255,0.05)',
+              color: activeTab === 'banners' ? '#041410' : 'var(--text-main)',
+              border: 'none',
+              boxShadow: activeTab === 'banners' ? 'var(--accent-glow)' : 'none'
+            }}
+          >
+            <Image size={18} /> 首页轮播图管理 (Banner Slides)
           </button>
 
           <button
@@ -235,7 +243,7 @@ export default function AdminDashboardPage() {
               boxShadow: activeTab === 'posts' ? 'var(--accent-glow)' : 'none'
             }}
           >
-            <BookOpen size={18} /> Battery Academy CMS
+            <BookOpen size={18} /> 电池学院文章 (CMS)
           </button>
 
           <button
@@ -256,12 +264,13 @@ export default function AdminDashboardPage() {
               boxShadow: activeTab === 'settings' ? 'var(--accent-glow)' : 'none'
             }}
           >
-            <Database size={18} /> Database & Sync Status
+            <Database size={18} /> 云端数据库状态 (Database)
           </button>
         </div>
 
         {/* Tab Content */}
         {activeTab === 'products' && <ProductManager />}
+        {activeTab === 'banners' && <BannerManager />}
         {activeTab === 'posts' && <PostManager />}
         {activeTab === 'settings' && (
           <div className="glass-panel" style={{ padding: '32px' }}>
@@ -287,7 +296,7 @@ export default function AdminDashboardPage() {
                   <Database size={16} /> Supabase Schema SQL
                 </h4>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                  Included file <code>supabase_schema.sql</code> is ready for 1-click execution on Supabase.
+                  Included file <code>supabase_schema.sql</code> contains schema for products, posts & banners.
                 </p>
               </div>
             </div>

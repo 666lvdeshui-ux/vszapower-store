@@ -225,3 +225,19 @@ Explore our full line of **[Smart Coin Cell Chargers](/products/lir2032-starter-
   '8 min read'
 )
 ON CONFLICT (slug) DO NOTHING;
+
+-- 8. Create Banners table (Hero Carousel Banners)
+CREATE TABLE IF NOT EXISTS public.banners (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  badge TEXT DEFAULT 'SMART RECHARGE SYSTEM',
+  title TEXT NOT NULL,
+  subtitle TEXT NOT NULL,
+  image_url TEXT NOT NULL,
+  cta_text TEXT DEFAULT '联系我们 (Contact Us)',
+  cta_link TEXT DEFAULT '/#contact',
+  highlight TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE public.banners ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Allow public read banners" ON public.banners FOR SELECT USING (true);
