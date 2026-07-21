@@ -24,29 +24,36 @@ export async function POST(request: Request) {
     const body = await request.json();
     const saved = await saveInquiry(body);
 
-    // Trigger Email Notification to 666lvdeshui@gmail.com
     const recipientEmail = '666lvdeshui@gmail.com';
-    const emailSubject = `【VSZAPOWER 网站咨询提醒】收到来自 ${saved.name} 的产品询价`;
-    const emailContent = `
-尊敬的管理员，
+    let emailStatusMessage = '';
 
-您的 VSZAPOWER 官方网站（vszapower-store.vercel.app）收到一条新的客户咨询：
+    // 1. Send via FormSubmit AJAX service to 666lvdeshui@gmail.com
+    try {
+      const emailRes = await fetch('https://formsubmit.co/ajax/666lvdeshui@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Origin': 'https://vszapower-store.vercel.app',
+          'Referer': 'https://vszapower-store.vercel.app/',
+        },
+        body: JSON.stringify({
+          _subject: `【VSZAPOWER 网站新询价】来自 ${saved.name} 的产品咨询`,
+          _captcha: 'false',
+          '客户姓名 Name': saved.name,
+          '联系方式 Contact': saved.contact,
+          '意向产品 Product': saved.product,
+          '留言内容 Message': saved.message,
+          '提交时间 Time': new Date(saved.created_at).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }),
+        }),
+      });
+      const emailJson = await emailRes.json();
+      emailStatusMessage = emailJson.message || 'Email dispatched via FormSubmit';
+    } catch (emailErr) {
+      console.error('[Email Dispatch Error]:', emailErr);
+    }
 
---------------------------------------------------
-👤 客户姓名: ${saved.name}
-📞 联系方式: ${saved.contact}
-📦 咨询意向产品: ${saved.product}
-💬 留言内容: ${saved.message}
-⏰ 提交时间: ${new Date(saved.created_at).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}
---------------------------------------------------
-
-请尽快登录后台处理并与客户联系：
-🔗 后台管理面板: https://vszapower-store.vercel.app/admin
-
-VSZAPOWER 自动通知系统
-`;
-
-    // Attempting to send email via Resend API if process.env.RESEND_API_KEY is present
+    // 2. Resend API Fallback if configured
     if (process.env.RESEND_API_KEY) {
       try {
         await fetch('https://api.resend.com/emails', {
@@ -56,21 +63,18 @@ VSZAPOWER 自动通知系统
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            from: 'VSZAPOWER Inquiry <notifications@vszapower.com>',
+            from: 'VSZAPOWER <onboarding@resend.dev>',
             to: [recipientEmail],
-            subject: emailSubject,
-            text: emailContent,
+            subject: `【VSZAPOWER 网站新询价】来自 ${saved.name} 的产品咨询`,
+            text: `收到新咨询：\n姓名: ${saved.name}\n联系方式: ${saved.contact}\n意向产品: ${saved.product}\n留言内容: ${saved.message}`,
           }),
         });
-        console.log(`[Email Notification] Email sent successfully to ${recipientEmail}`);
       } catch (err) {
-        console.warn('[Email Notification] Resend fetch error:', err);
+        console.warn('[Resend API Error]:', err);
       }
-    } else {
-      console.log(`[Email Notification Alert] Target: ${recipientEmail}\nSubject: ${emailSubject}\n${emailContent}`);
     }
 
-    return NextResponse.json({ success: true, inquiry: saved });
+    return NextResponse.json({ success: true, inquiry: saved, emailStatus: emailStatusMessage });
   } catch (error) {
     return NextResponse.json({ error: 'Failed to process inquiry' }, { status: 500 });
   }

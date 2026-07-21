@@ -57,6 +57,35 @@ export default function InquiryManager() {
     }
   };
 
+  const [testSending, setTestSending] = useState(false);
+
+  const handleSendTestEmail = async () => {
+    setTestSending(true);
+    try {
+      const res = await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: '系统自动测试客户',
+          contact: '666lvdeshui@gmail.com',
+          product: 'Vszapower Smart Coin Cell Charger Starter Kit',
+          message: '【测试邮件提醒】这是一条从 VSZAPOWER 网站发起的客户询价测试邮件。',
+        }),
+      });
+      const json = await res.json();
+      if (json.success) {
+        alert(`测试咨询已成功保存并提交！\n邮件服务响应: ${json.emailStatus || 'Sent'}\n目标邮箱: 666lvdeshui@gmail.com\n(提示: 首次使用 FormSubmit 服务的激活确认链接已自动投递至您的邮箱，请去 666lvdeshui@gmail.com 收件箱点击【Activate Form】确认即可永久免密接收邮件提醒)`);
+        loadInquiries();
+      } else {
+        alert('测试发送失败');
+      }
+    } catch (e) {
+      alert('请求异常');
+    } finally {
+      setTestSending(false);
+    }
+  };
+
   const filteredInquiries = inquiries.filter(item => {
     if (filterStatus === 'all') return true;
     return item.status === filterStatus;
@@ -82,13 +111,23 @@ export default function InquiryManager() {
           </p>
         </div>
 
-        <button
-          onClick={loadInquiries}
-          className="btn-secondary"
-          style={{ padding: '10px 16px', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px' }}
-        >
-          <RefreshCw size={16} /> 刷新咨询列表
-        </button>
+        <div style={{ display: 'flex', gap: '10px' }}>
+          <button
+            onClick={handleSendTestEmail}
+            disabled={testSending}
+            className="btn-primary"
+            style={{ padding: '10px 16px', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px' }}
+          >
+            <Mail size={16} /> {testSending ? '发送测试邮件中...' : '测试邮件推送 (Send Test Email)'}
+          </button>
+          <button
+            onClick={loadInquiries}
+            className="btn-secondary"
+            style={{ padding: '10px 16px', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px' }}
+          >
+            <RefreshCw size={16} /> 刷新咨询列表
+          </button>
+        </div>
       </div>
 
       {/* Stats Header Cards */}
