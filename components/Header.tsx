@@ -47,47 +47,71 @@ export default function Header({ onContactClick }: HeaderProps) {
           />
         </Link>
 
-        {/* Simplified 3-Tab Desktop Navigation */}
+        {/* Navigation Tabs */}
         <nav style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '36px',
+          gap: '28px',
         }} className="desktop-nav">
           <Link href="/" style={{
             color: '#ffffff',
             textDecoration: 'none',
-            fontSize: '1rem',
+            fontSize: '0.95rem',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
-            gap: '8px',
+            gap: '6px',
             transition: 'color 0.2s',
           }}>
-            <Home size={18} /> 首页 (Home)
+            <Home size={16} /> 首页
+          </Link>
+          <Link href="/#products?cat=charger" style={{
+            color: 'var(--text-muted)',
+            textDecoration: 'none',
+            fontSize: '0.95rem',
+            fontWeight: 600,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            transition: 'color 0.2s',
+          }}>
+            <Zap size={16} color="var(--accent-green)" /> 纽扣电池充电器
+          </Link>
+          <Link href="/#products?cat=battery" style={{
+            color: 'var(--text-muted)',
+            textDecoration: 'none',
+            fontSize: '0.95rem',
+            fontWeight: 600,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            transition: 'color 0.2s',
+          }}>
+            <Zap size={16} color="var(--accent-cyan)" /> 可充电纽扣电池
           </Link>
           <Link href="/academy" style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: '1rem',
+            fontSize: '0.95rem',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
-            gap: '8px',
+            gap: '6px',
             transition: 'color 0.2s',
           }}>
-            <BookOpen size={18} /> 电池学院 (Academy)
+            <BookOpen size={16} /> 电池学院
           </Link>
           <Link href="/#contact" onClick={() => onContactClick && onContactClick()} style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: '1rem',
+            fontSize: '0.95rem',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
-            gap: '8px',
+            gap: '6px',
             transition: 'color 0.2s',
           }}>
-            <MessageSquare size={18} /> 联系我们 (Contact)
+            <MessageSquare size={16} /> 联系我们
           </Link>
         </nav>
 

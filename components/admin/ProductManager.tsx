@@ -334,6 +334,26 @@ export default function ProductManager() {
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div>
+                  <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>
+                    产品分类 (Product Category)
+                  </label>
+                  <select
+                    value={editingProduct.category || '纽扣电池充电器'}
+                    onChange={e => setEditingProduct({ ...editingProduct, category: e.target.value })}
+                    style={{
+                      width: '100%',
+                      padding: '10px 14px',
+                      borderRadius: '8px',
+                      background: '#121826',
+                      border: '1px solid var(--border-color)',
+                      color: '#fff',
+                    }}
+                  >
+                    <option value="纽扣电池充电器">🔌 纽扣电池充电器 (Coin Cell Chargers)</option>
+                    <option value="可充电纽扣电池">🔋 可充电纽扣电池 (Rechargeable Coin Cells)</option>
+                  </select>
+                </div>
+                <div>
                   <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Badge Label</label>
                   <input
                     type="text"
@@ -350,17 +370,18 @@ export default function ProductManager() {
                     }}
                   />
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', paddingTop: '20px' }}>
-                  <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '0.9rem' }}>
-                    <input
-                      type="checkbox"
-                      checked={Boolean(editingProduct.is_starter_kit)}
-                      onChange={e => setEditingProduct({ ...editingProduct, is_starter_kit: e.target.checked })}
-                      style={{ width: '18px', height: '18px', accentColor: 'var(--accent-green)' }}
-                    />
-                    Flag as Main Starter Kit Bundle
-                  </label>
-                </div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', margin: '4px 0' }}>
+                <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '0.9rem' }}>
+                  <input
+                    type="checkbox"
+                    checked={Boolean(editingProduct.is_starter_kit)}
+                    onChange={e => setEditingProduct({ ...editingProduct, is_starter_kit: e.target.checked })}
+                    style={{ width: '18px', height: '18px', accentColor: 'var(--accent-green)' }}
+                  />
+                  Flag as Main Starter Kit Bundle
+                </label>
               </div>
 
               <div>

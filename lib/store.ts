@@ -8,6 +8,7 @@ export interface ProductItem {
   price: number;
   compare_at_price?: number;
   is_starter_kit?: boolean;
+  category?: string;
   image_url: string;
   badge?: string;
   description: string;
@@ -105,6 +106,7 @@ export async function saveProduct(product: Partial<ProductItem>): Promise<Produc
     price: Number(product.price) || 0,
     compare_at_price: product.compare_at_price ? Number(product.compare_at_price) : undefined,
     is_starter_kit: Boolean(product.is_starter_kit),
+    category: product.category || '纽扣电池充电器',
     image_url: product.image_url || 'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=800&q=80',
     badge: product.badge || '',
     description: product.description || '',
