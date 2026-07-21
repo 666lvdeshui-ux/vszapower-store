@@ -257,3 +257,22 @@ ALTER TABLE public.inquiries ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Allow public read inquiries" ON public.inquiries FOR SELECT USING (true);
 CREATE POLICY "Allow public insert inquiries" ON public.inquiries FOR INSERT WITH CHECK (true);
 
+-- 10. Create Videos table (Product Short Videos CMS)
+CREATE TABLE IF NOT EXISTS public.videos (
+  id TEXT PRIMARY KEY,
+  title TEXT NOT NULL,
+  duration TEXT DEFAULT '00:30',
+  video_url TEXT NOT NULL,
+  poster_url TEXT,
+  keywords TEXT[] DEFAULT '{}',
+  description TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE public.videos ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Allow public read videos" ON public.videos FOR SELECT USING (true);
+CREATE POLICY "Allow public insert videos" ON public.videos FOR INSERT WITH CHECK (true);
+CREATE POLICY "Allow public update videos" ON public.videos FOR UPDATE USING (true);
+CREATE POLICY "Allow public delete videos" ON public.videos FOR DELETE USING (true);
+
+

@@ -1,15 +1,35 @@
 'use client';
 
-import React, { useState } from 'react';
-import { VideoItem, INITIAL_VIDEOS } from '@/components/VideoSection';
+import React, { useState, useEffect } from 'react';
+import { VideoItem, INITIAL_VIDEOS } from '@/lib/store';
 import ImageUploader from '@/components/admin/ImageUploader';
 import { Plus, Edit2, Trash2, Video, Tag, Play, Check, RefreshCw } from 'lucide-react';
 
 export default function VideoManager() {
   const [videos, setVideos] = useState<VideoItem[]>(INITIAL_VIDEOS);
+  const [loading, setLoading] = useState(true);
   const [editingVideo, setEditingVideo] = useState<Partial<VideoItem> | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [keywordsText, setKeywordsText] = useState('');
+
+  const loadVideos = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch('/api/videos');
+      const json = await res.json();
+      if (json.success && Array.isArray(json.data)) {
+        setVideos(json.data);
+      }
+    } catch (e) {
+      console.error('Fetch videos error:', e);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    loadVideos();
+  }, []);
 
   const handleOpenAdd = () => {
     setEditingVideo({
@@ -31,7 +51,7 @@ export default function VideoManager() {
     setIsModalOpen(true);
   };
 
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!editingVideo || !editingVideo.title) return;
 
@@ -51,22 +71,33 @@ export default function VideoManager() {
       description: editingVideo.description || '',
     };
 
-    const index = videos.findIndex(v => v.id === newVid.id);
-    if (index >= 0) {
-      const updated = [...videos];
-      updated[index] = newVid;
-      setVideos(updated);
-    } else {
-      setVideos([newVid, ...videos]);
+    try {
+      const res = await fetch('/api/videos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newVid),
+      });
+      const json = await res.json();
+      if (json.success) {
+        alert('短视频保存发布成功！');
+        setIsModalOpen(false);
+        loadVideos();
+      } else {
+        alert('保存失败，请重试');
+      }
+    } catch (err) {
+      alert('网络异常');
     }
-
-    setIsModalOpen(false);
-    alert('短视频发布/更新成功！');
   };
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     if (!confirm('确定要删除该短视频吗？')) return;
-    setVideos(videos.filter(v => v.id !== id));
+    try {
+      await fetch(`/api/videos?id=${id}`, { method: 'DELETE' });
+      loadVideos();
+    } catch (e) {
+      alert('删除失败');
+    }
   };
 
   return (

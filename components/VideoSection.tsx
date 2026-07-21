@@ -1,56 +1,27 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Play, Pause, Video, Tag, MessageSquare, ExternalLink, Sparkles, Volume2, VolumeX } from 'lucide-react';
-
-export interface VideoItem {
-  id: string;
-  title: string;
-  duration: string;
-  video_url: string;
-  poster_url: string;
-  keywords: string[];
-  description: string;
-  related_product_id?: string;
-  created_at?: string;
-}
-
-export const INITIAL_VIDEOS: VideoItem[] = [
-  {
-    id: 'vid_1',
-    title: 'Vszapower 智能双槽 LIR2032 充电器 30分钟极速快充与变色指示灯实测演示',
-    duration: '00:45',
-    video_url: 'https://assets.mixkit.co/videos/preview/mixkit-circuit-board-with-glowing-lines-41565-large.mp4',
-    poster_url: 'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=800&q=80',
-    keywords: ['#LIR2032快充', '#30分钟充满', '#智能变色指示灯', '#车钥匙电池', '#安全防爆MCU'],
-    description: '高清短视频展示 VSZAPOWER 智能双槽纽扣电池充电器的实际充电过程。插入 LIR2032 电池后红灯亮起启动快充，充满后芯片自动切断并转为绿灯。支持全系列 LIR 锂纽扣电池。',
-  },
-  {
-    id: 'vid_2',
-    title: 'VSZAPOWER 4-Slot Pro 4槽独立通道 Type-C 纽扣电池充电座拆箱与四卡槽混充测试',
-    duration: '01:15',
-    video_url: 'https://assets.mixkit.co/videos/preview/mixkit-hands-holding-a-smartphone-with-green-screen-41544-large.mp4',
-    poster_url: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=800&q=80',
-    keywords: ['#4槽独立通道', '#TypeC快充输入', '#LIR2032/2025/2450混充', '#温控过充保护'],
-    description: '演示 4 槽旗舰版充电座同时为 LIR2032、LIR2025、LIR2016 及 LIR2450 等不同型号电池混充。每槽独立 MCU 芯片独立检测控制，互不干扰。',
-  },
-  {
-    id: 'vid_3',
-    title: 'Apple AirTag & 车钥匙电池替换实操：用 LIR2032 可充电池替代一次性 CR2032',
-    duration: '00:58',
-    video_url: 'https://assets.mixkit.co/videos/preview/mixkit-macro-shot-of-a-circuit-board-41567-large.mp4',
-    poster_url: 'https://images.unsplash.com/photo-1609592424074-954930b8098c?auto=format&fit=crop&w=800&q=80',
-    keywords: ['#AirTag续航教程', '#车钥匙遥控器电池', '#环保循环500次', '#告别一次性扣式电池'],
-    description: '手把手教您如何将 Apple AirTag、宝马/奔驰/丰田车钥匙中的耗尽 CR2032 一次性电池替换为 VSZAPOWER LIR2032 可充电电池，一次购买即可循环充电使用 500 次以上！',
-  }
-];
+import { VideoItem, INITIAL_VIDEOS } from '@/lib/store';
 
 interface VideoSectionProps {
   onContactClick: (productName?: string) => void;
 }
 
 export default function VideoSection({ onContactClick }: VideoSectionProps) {
+  const [videos, setVideos] = useState<VideoItem[]>(INITIAL_VIDEOS);
   const [playingId, setPlayingId] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch('/api/videos')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && Array.isArray(data.data) && data.data.length > 0) {
+          setVideos(data.data);
+        }
+      })
+      .catch(console.error);
+  }, []);
 
   return (
     <section id="videos" style={{
@@ -78,7 +49,7 @@ export default function VideoSection({ onContactClick }: VideoSectionProps) {
 
       {/* Video Items List (Left Video, Right Title & Keywords) */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-        {INITIAL_VIDEOS.map(video => (
+        {videos.map(video => (
           <div
             key={video.id}
             className="glass-panel"
