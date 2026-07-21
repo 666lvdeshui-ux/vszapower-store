@@ -13,6 +13,8 @@ export const supabase = isSupabaseConfigured
   : null;
 
 // Mock Fallback Data when Supabase is not connected yet
+import { SVG_IMAGES } from './productImages';
+
 export const MOCK_PRODUCTS = [
   {
     id: '1',
@@ -23,11 +25,11 @@ export const MOCK_PRODUCTS = [
     compare_at_price: 39.99,
     is_starter_kit: true,
     category: '纽扣电池充电器',
-    image_url: 'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=800&q=80',
+    image_url: SVG_IMAGES.dual_charger_starter_kit,
     images: [
+      SVG_IMAGES.dual_charger_starter_kit,
+      SVG_IMAGES.lir2032_4pack_batteries,
       'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1609592424074-954930b8098c?auto=format&fit=crop&w=1200&q=80',
     ],
     certifications: [
       { name: 'CE 欧盟安全认证', image_url: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80' },
@@ -54,10 +56,10 @@ export const MOCK_PRODUCTS = [
     compare_at_price: 28.99,
     is_starter_kit: false,
     category: '纽扣电池充电器',
-    image_url: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=800&q=80',
+    image_url: SVG_IMAGES.quad_pro_charger,
     images: [
-      'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1200&q=80',
+      SVG_IMAGES.quad_pro_charger,
+      SVG_IMAGES.dual_charger_starter_kit,
     ],
     certifications: [
       { name: 'CE 欧盟安全认证', image_url: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80' },
@@ -83,10 +85,10 @@ export const MOCK_PRODUCTS = [
     compare_at_price: 29.99,
     is_starter_kit: false,
     category: '纽扣电池充电器',
-    image_url: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80',
+    image_url: SVG_IMAGES.lir2450_heavy_duty,
     images: [
-      'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1200&q=80'
+      SVG_IMAGES.lir2450_heavy_duty,
+      SVG_IMAGES.quad_pro_charger,
     ],
     certifications: [
       { name: 'CE 欧盟安全认证', image_url: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80' },
@@ -110,9 +112,9 @@ export const MOCK_PRODUCTS = [
     compare_at_price: 15.99,
     is_starter_kit: false,
     category: '纽扣电池充电器',
-    image_url: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+    image_url: SVG_IMAGES.portable_usb_charger,
     images: [
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80'
+      SVG_IMAGES.portable_usb_charger,
     ],
     certifications: [
       { name: 'CE 欧盟安全认证', image_url: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80' },
@@ -136,9 +138,9 @@ export const MOCK_PRODUCTS = [
     compare_at_price: 16.99,
     is_starter_kit: false,
     category: '可充电纽扣电池',
-    image_url: 'https://images.unsplash.com/photo-1609592424074-954930b8098c?auto=format&fit=crop&w=800&q=80',
+    image_url: SVG_IMAGES.lir2032_4pack_batteries,
     images: [
-      'https://images.unsplash.com/photo-1609592424074-954930b8098c?auto=format&fit=crop&w=1200&q=80'
+      SVG_IMAGES.lir2032_4pack_batteries,
     ],
     certifications: [
       { name: 'UN38.3 锂电池运输安全认证', image_url: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80' }

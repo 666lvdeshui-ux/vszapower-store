@@ -123,6 +123,11 @@ let bannersCache: BannerItem[] = [...INITIAL_BANNERS];
 let inquiriesCache: InquiryItem[] = [...INITIAL_INQUIRIES];
 
 export async function fetchAllProducts(): Promise<ProductItem[]> {
+  // Always ensure default catalog contains full vector product items
+  if (productsCache.length === 0 || productsCache.length < MOCK_PRODUCTS.length) {
+    productsCache = [...(MOCK_PRODUCTS as unknown as ProductItem[])];
+  }
+
   if (supabase) {
     try {
       const { data, error } = await supabase.from('products').select('*').order('created_at', { ascending: true });
