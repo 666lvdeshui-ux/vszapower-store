@@ -1,0 +1,346 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { InquiryItem } from '@/lib/store';
+import { MessageSquare, Calendar, CheckCircle2, Clock, Trash2, RefreshCw, Mail, Phone, Check, AlertCircle } from 'lucide-react';
+
+export default function InquiryManager() {
+  const [inquiries, setInquiries] = useState<InquiryItem[]>([]);
+  const [todayCount, setTodayCount] = useState<number>(0);
+  const [pendingCount, setPendingCount] = useState<number>(0);
+  const [totalCount, setTotalCount] = useState<number>(0);
+  const [loading, setLoading] = useState(true);
+  const [filterStatus, setFilterStatus] = useState<string>('all');
+
+  const loadInquiries = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch('/api/inquiries');
+      const json = await res.json();
+      if (json.inquiries) {
+        setInquiries(json.inquiries);
+        setTodayCount(json.todayCount || 0);
+        setPendingCount(json.pendingCount || 0);
+        setTotalCount(json.totalCount || 0);
+      }
+    } catch (e) {
+      console.error('Failed to load inquiries:', e);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    loadInquiries();
+  }, []);
+
+  const handleUpdateStatus = async (id: string, status: 'new' | 'contacted' | 'resolved') => {
+    try {
+      await fetch('/api/inquiries', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, status }),
+      });
+      loadInquiries();
+    } catch (e) {
+      alert('更新状态失败');
+    }
+  };
+
+  const handleDelete = async (id: string) => {
+    if (!confirm('确定要删除此条咨询记录吗？')) return;
+    try {
+      await fetch(`/api/inquiries?id=${id}`, { method: 'DELETE' });
+      loadInquiries();
+    } catch (e) {
+      alert('删除失败');
+    }
+  };
+
+  const filteredInquiries = inquiries.filter(item => {
+    if (filterStatus === 'all') return true;
+    return item.status === filterStatus;
+  });
+
+  return (
+    <div>
+      {/* Header & Refresh */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: '28px',
+        flexWrap: 'wrap',
+        gap: '16px',
+      }}>
+        <div>
+          <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#fff', display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <MessageSquare size={24} color="var(--accent-green)" /> 客户咨询与询价管理 (Customer Inquiries)
+          </h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>
+            系统会在收到客户咨询时自动向 <code>666lvdeshui@gmail.com</code> 发送邮件提醒。
+          </p>
+        </div>
+
+        <button
+          onClick={loadInquiries}
+          className="btn-secondary"
+          style={{ padding: '10px 16px', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px' }}
+        >
+          <RefreshCw size={16} /> 刷新咨询列表
+        </button>
+      </div>
+
+      {/* Stats Header Cards */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+        gap: '20px',
+        marginBottom: '32px',
+      }}>
+        {/* Today's Count */}
+        <div className="glass-panel" style={{
+          padding: '24px',
+          borderRadius: '16px',
+          border: '1px solid rgba(16, 185, 129, 0.4)',
+          background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(10, 13, 20, 0.6) 100%)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '16px',
+        }}>
+          <div style={{
+            width: '52px',
+            height: '52px',
+            borderRadius: '14px',
+            background: 'var(--accent-gradient)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 0 20px rgba(16, 185, 129, 0.4)',
+          }}>
+            <Calendar size={26} color="#041410" />
+          </div>
+          <div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 600 }}>
+              今日咨询数量 (Today)
+            </div>
+            <div style={{ fontSize: '2.2rem', fontWeight: 800, color: 'var(--accent-green)', lineHeight: 1.1 }}>
+              {todayCount} <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--accent-green)' }}>条</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Pending Count */}
+        <div className="glass-panel" style={{
+          padding: '24px',
+          borderRadius: '16px',
+          border: '1px solid rgba(245, 158, 11, 0.3)',
+          background: 'rgba(10, 13, 20, 0.6)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '16px',
+        }}>
+          <div style={{
+            width: '52px',
+            height: '52px',
+            borderRadius: '14px',
+            background: 'rgba(245, 158, 11, 0.15)',
+            border: '1px solid rgba(245, 158, 11, 0.3)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+            <Clock size={26} color="#f59e0b" />
+          </div>
+          <div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 600 }}>
+              待处理咨询 (Pending)
+            </div>
+            <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#f59e0b', lineHeight: 1.1 }}>
+              {pendingCount} <span style={{ fontSize: '0.9rem', fontWeight: 600, color: '#f59e0b' }}>条</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Total Count */}
+        <div className="glass-panel" style={{
+          padding: '24px',
+          borderRadius: '16px',
+          border: '1px solid var(--border-color)',
+          background: 'rgba(10, 13, 20, 0.6)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '16px',
+        }}>
+          <div style={{
+            width: '52px',
+            height: '52px',
+            borderRadius: '14px',
+            background: 'rgba(59, 130, 246, 0.15)',
+            border: '1px solid rgba(59, 130, 246, 0.3)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+            <MessageSquare size={26} color="#3b82f6" />
+          </div>
+          <div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 600 }}>
+              历史咨询总数 (Total)
+            </div>
+            <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#fff', lineHeight: 1.1 }}>
+              {totalCount} <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-dim)' }}>条</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Filter Tabs */}
+      <div style={{ display: 'flex', gap: '10px', marginBottom: '24px' }}>
+        <button
+          onClick={() => setFilterStatus('all')}
+          style={{
+            padding: '8px 16px',
+            borderRadius: '8px',
+            fontSize: '0.85rem',
+            fontWeight: 600,
+            cursor: 'pointer',
+            background: filterStatus === 'all' ? 'var(--accent-gradient)' : 'rgba(255,255,255,0.05)',
+            color: filterStatus === 'all' ? '#041410' : 'var(--text-muted)',
+            border: 'none',
+          }}
+        >
+          全部咨询 ({inquiries.length})
+        </button>
+
+        <button
+          onClick={() => setFilterStatus('new')}
+          style={{
+            padding: '8px 16px',
+            borderRadius: '8px',
+            fontSize: '0.85rem',
+            fontWeight: 600,
+            cursor: 'pointer',
+            background: filterStatus === 'new' ? 'rgba(245, 158, 11, 0.2)' : 'rgba(255,255,255,0.05)',
+            color: filterStatus === 'new' ? '#f59e0b' : 'var(--text-muted)',
+            border: filterStatus === 'new' ? '1px solid rgba(245, 158, 11, 0.4)' : 'none',
+          }}
+        >
+          未处理 ({inquiries.filter(i => i.status === 'new').length})
+        </button>
+
+        <button
+          onClick={() => setFilterStatus('contacted')}
+          style={{
+            padding: '8px 16px',
+            borderRadius: '8px',
+            fontSize: '0.85rem',
+            fontWeight: 600,
+            cursor: 'pointer',
+            background: filterStatus === 'contacted' ? 'rgba(16, 185, 129, 0.2)' : 'rgba(255,255,255,0.05)',
+            color: filterStatus === 'contacted' ? 'var(--accent-green)' : 'var(--text-muted)',
+            border: filterStatus === 'contacted' ? '1px solid rgba(16, 185, 129, 0.4)' : 'none',
+          }}
+        >
+          已联系处理 ({inquiries.filter(i => i.status === 'contacted' || i.status === 'resolved').length})
+        </button>
+      </div>
+
+      {/* Inquiry Cards List */}
+      {loading ? (
+        <div style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '40px' }}>
+          加载咨询数据中...
+        </div>
+      ) : filteredInquiries.length === 0 ? (
+        <div className="glass-panel" style={{ padding: '40px', textAlign: 'center', color: 'var(--text-muted)' }}>
+          暂无符合条件的咨询记录。
+        </div>
+      ) : (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          {filteredInquiries.map(item => (
+            <div key={item.id} className="glass-panel" style={{
+              padding: '24px',
+              borderRadius: '16px',
+              border: item.status === 'new' ? '1px solid rgba(245, 158, 11, 0.4)' : '1px solid var(--border-color)',
+              background: item.status === 'new' ? 'rgba(245, 158, 11, 0.03)' : 'rgba(10, 13, 20, 0.6)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '12px',
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#fff' }}>
+                    {item.name}
+                  </h3>
+                  <span className={`badge ${item.status === 'new' ? 'badge-gold' : 'badge-green'}`} style={{ fontSize: '0.7rem' }}>
+                    {item.status === 'new' ? '🆕 待联系回复' : '✓ 已联系处理'}
+                  </span>
+                </div>
+
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>
+                  提交时间: {new Date(item.created_at).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}
+                </div>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px', fontSize: '0.9rem', background: 'rgba(255,255,255,0.03)', padding: '12px 16px', borderRadius: '10px' }}>
+                <div>
+                  <span style={{ color: 'var(--text-muted)' }}>联系方式: </span>
+                  <span style={{ color: 'var(--accent-cyan)', fontWeight: 700 }}>{item.contact}</span>
+                </div>
+                <div>
+                  <span style={{ color: 'var(--text-muted)' }}>意向产品: </span>
+                  <span style={{ color: '#fff', fontWeight: 600 }}>{item.product}</span>
+                </div>
+              </div>
+
+              <div>
+                <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '4px' }}>留言内容:</div>
+                <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: 1.6, whiteSpace: 'pre-wrap' }}>
+                  {item.message}
+                </p>
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', paddingTop: '10px', borderTop: '1px solid var(--border-color)' }}>
+                {item.status === 'new' ? (
+                  <button
+                    onClick={() => handleUpdateStatus(item.id, 'contacted')}
+                    className="btn-primary"
+                    style={{ padding: '6px 14px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '4px' }}
+                  >
+                    <CheckCircle2 size={14} /> 标记为已联系
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => handleUpdateStatus(item.id, 'new')}
+                    className="btn-secondary"
+                    style={{ padding: '6px 14px', fontSize: '0.8rem' }}
+                  >
+                    重置为未处理
+                  </button>
+                )}
+
+                <button
+                  onClick={() => handleDelete(item.id)}
+                  style={{
+                    background: 'rgba(239, 68, 68, 0.15)',
+                    border: '1px solid rgba(239, 68, 68, 0.3)',
+                    color: '#ef4444',
+                    padding: '6px 14px',
+                    borderRadius: '8px',
+                    fontSize: '0.8rem',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                  }}
+                >
+                  <Trash2 size={14} /> 删除记录
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}

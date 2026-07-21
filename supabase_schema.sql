@@ -241,3 +241,19 @@ CREATE TABLE IF NOT EXISTS public.banners (
 
 ALTER TABLE public.banners ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Allow public read banners" ON public.banners FOR SELECT USING (true);
+
+-- 9. Create Inquiries table (Customer Inquiries)
+CREATE TABLE IF NOT EXISTS public.inquiries (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name TEXT NOT NULL,
+  contact TEXT NOT NULL,
+  product TEXT NOT NULL,
+  message TEXT NOT NULL,
+  status TEXT DEFAULT 'new',
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE public.inquiries ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Allow public read inquiries" ON public.inquiries FOR SELECT USING (true);
+CREATE POLICY "Allow public insert inquiries" ON public.inquiries FOR INSERT WITH CHECK (true);
+

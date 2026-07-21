@@ -4,19 +4,31 @@ import React, { useState, useEffect } from 'react';
 import ProductManager from '@/components/admin/ProductManager';
 import PostManager from '@/components/admin/PostManager';
 import BannerManager from '@/components/admin/BannerManager';
-import { Shield, Zap, Lock, LogOut, Package, BookOpen, Database, ExternalLink, CheckCircle, Image } from 'lucide-react';
+import InquiryManager from '@/components/admin/InquiryManager';
+import { Shield, Zap, Lock, LogOut, Package, BookOpen, Database, ExternalLink, CheckCircle, Image, MessageSquare } from 'lucide-react';
 
 export default function AdminDashboardPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [passcode, setPasscode] = useState('');
   const [authError, setAuthError] = useState(false);
-  const [activeTab, setActiveTab] = useState<'products' | 'banners' | 'posts' | 'settings'>('products');
+  const [activeTab, setActiveTab] = useState<'inquiries' | 'products' | 'banners' | 'posts' | 'settings'>('inquiries');
+  const [todayInquiryCount, setTodayInquiryCount] = useState<number>(0);
 
   useEffect(() => {
     const savedAuth = localStorage.getItem('vszapower_admin_auth');
     if (savedAuth === 'true') {
       setIsAuthenticated(true);
     }
+
+    // Fetch initial inquiry stats for tab badge
+    fetch('/api/inquiries')
+      .then(res => res.json())
+      .then(data => {
+        if (data.todayCount !== undefined) {
+          setTodayInquiryCount(data.todayCount);
+        }
+      })
+      .catch(console.error);
   }, []);
 
   const handleLogin = (e: React.FormEvent) => {
@@ -72,7 +84,7 @@ export default function AdminDashboardPage() {
             VSZAPOWER Admin
           </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '28px' }}>
-            Enter your admin passcode to access products, hero banners & Battery Academy CMS.
+            Enter your admin passcode to access customer inquiries, products, hero banners & CMS.
           </p>
 
           <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -184,6 +196,32 @@ export default function AdminDashboardPage() {
           flexWrap: 'wrap'
         }}>
           <button
+            onClick={() => setActiveTab('inquiries')}
+            style={{
+              padding: '10px 20px',
+              borderRadius: '10px',
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 700,
+              fontSize: '0.95rem',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              background: activeTab === 'inquiries' ? 'var(--accent-gradient)' : 'rgba(255,255,255,0.05)',
+              color: activeTab === 'inquiries' ? '#041410' : 'var(--text-main)',
+              border: 'none',
+              boxShadow: activeTab === 'inquiries' ? 'var(--accent-glow)' : 'none'
+            }}
+          >
+            <MessageSquare size={18} /> 客户咨询管理 (Inquiries)
+            {todayInquiryCount > 0 && (
+              <span className="badge badge-gold" style={{ marginLeft: '4px', fontSize: '0.65rem' }}>
+                今日 {todayInquiryCount} 条
+              </span>
+            )}
+          </button>
+
+          <button
             onClick={() => setActiveTab('products')}
             style={{
               padding: '10px 20px',
@@ -269,6 +307,7 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* Tab Content */}
+        {activeTab === 'inquiries' && <InquiryManager />}
         {activeTab === 'products' && <ProductManager />}
         {activeTab === 'banners' && <BannerManager />}
         {activeTab === 'posts' && <PostManager />}
@@ -284,10 +323,10 @@ export default function AdminDashboardPage() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
               <div style={{ background: 'rgba(255,255,255,0.03)', padding: '20px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
                 <h4 style={{ color: 'var(--accent-green)', fontWeight: 700, marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <CheckCircle size={16} /> Admin Passcode
+                  <CheckCircle size={16} /> Notification Email Target
                 </h4>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                  Active passcode: <code>vszapower2026</code>
+                  Active Notification Recipient: <code>666lvdeshui@gmail.com</code>
                 </p>
               </div>
 
@@ -296,7 +335,7 @@ export default function AdminDashboardPage() {
                   <Database size={16} /> Supabase Schema SQL
                 </h4>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                  Included file <code>supabase_schema.sql</code> contains schema for products, posts & banners.
+                  Included file <code>supabase_schema.sql</code> contains schema for products, posts, banners & inquiries.
                 </p>
               </div>
             </div>

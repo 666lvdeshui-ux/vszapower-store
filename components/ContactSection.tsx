@@ -18,13 +18,27 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      if (onCloseModal) onCloseModal();
-    }, 3000);
+    setSubmitting(true);
+    try {
+      await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        if (onCloseModal) onCloseModal();
+      }, 4000);
+    } catch (err) {
+      alert('提交异常，请稍后重试');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const formContent = (
@@ -51,10 +65,10 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
         }}>
           <CheckCircle2 size={48} color="var(--accent-green)" style={{ margin: '0 auto 16px' }} />
           <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '8px' }}>
-            Message Sent Successfully!
+            咨询已成功提交！(Inquiry Sent)
           </h3>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-            Thank you for contacting VSZAPOWER. Our engineering team will respond within 2 hours.
+            系统已自动发送邮件通知至管理员邮箱（<code>666lvdeshui@gmail.com</code>），我们的团队将在24小时内联系您。
           </p>
         </div>
       ) : (

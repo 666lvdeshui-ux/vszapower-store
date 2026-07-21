@@ -49,6 +49,16 @@ export interface BannerItem {
   created_at?: string;
 }
 
+export interface InquiryItem {
+  id: string;
+  name: string;
+  contact: string;
+  product: string;
+  message: string;
+  status: 'new' | 'contacted' | 'resolved';
+  created_at: string;
+}
+
 export const INITIAL_BANNERS: BannerItem[] = [
   {
     id: 'banner_1',
@@ -85,10 +95,32 @@ export const INITIAL_BANNERS: BannerItem[] = [
   }
 ];
 
+export const INITIAL_INQUIRIES: InquiryItem[] = [
+  {
+    id: 'inq_1',
+    name: '张经理 (Liang Corp)',
+    contact: 'zhang@liangtech.com / 13800138000',
+    product: 'Vszapower Smart Coin Cell Charger + 4x LIR2032 Batteries Starter Kit',
+    message: '需采购 200 套 LIR2032 套装用于共享气象传感器设备，请发送大货批发报价单及测试样品。',
+    status: 'new',
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 'inq_2',
+    name: 'David Smith',
+    contact: 'david.smith@iot-solutions.io',
+    product: 'Vszapower Universal LIR/ML Coin Cell Smart Charger Dock',
+    message: 'Inquiring about bulk shipping to California for LIR2450 dual-slot charger docks with CE/FCC certification.',
+    status: 'new',
+    created_at: new Date().toISOString(),
+  }
+];
+
 // Global in-memory cache fallback for serverless execution
 let productsCache: ProductItem[] = [...(MOCK_PRODUCTS as unknown as ProductItem[])];
 let postsCache: PostItem[] = [...(MOCK_POSTS as unknown as PostItem[])];
 let bannersCache: BannerItem[] = [...INITIAL_BANNERS];
+let inquiriesCache: InquiryItem[] = [...INITIAL_INQUIRIES];
 
 export async function fetchAllProducts(): Promise<ProductItem[]> {
   if (supabase) {
@@ -272,5 +304,72 @@ export async function removeBanner(id: string): Promise<boolean> {
   }
 
   bannersCache = bannersCache.filter(b => b.id !== id);
+  return true;
+}
+
+export async function fetchAllInquiries(): Promise<InquiryItem[]> {
+  if (supabase) {
+    try {
+      const { data, error } = await supabase.from('inquiries').select('*').order('created_at', { ascending: false });
+      if (!error && data && data.length > 0) {
+        return data as InquiryItem[];
+      }
+    } catch (e) {
+      console.warn('Supabase fetch inquiries error, using local store:', e);
+    }
+  }
+  return inquiriesCache;
+}
+
+export async function saveInquiry(inquiry: Partial<InquiryItem>): Promise<InquiryItem> {
+  const newInquiry: InquiryItem = {
+    id: inquiry.id || `inq_${Date.now()}`,
+    name: inquiry.name || 'Anonymous User',
+    contact: inquiry.contact || 'No contact provided',
+    product: inquiry.product || 'General Product Inquiry',
+    message: inquiry.message || 'No message content',
+    status: inquiry.status || 'new',
+    created_at: inquiry.created_at || new Date().toISOString(),
+  };
+
+  if (supabase) {
+    try {
+      const { data, error } = await supabase.from('inquiries').upsert(newInquiry).select().single();
+      if (!error && data) return data as InquiryItem;
+    } catch (e) {
+      console.warn('Supabase save inquiry error, falling back to local store:', e);
+    }
+  }
+
+  inquiriesCache.unshift(newInquiry);
+  return newInquiry;
+}
+
+export async function removeInquiry(id: string): Promise<boolean> {
+  if (supabase) {
+    try {
+      const { error } = await supabase.from('inquiries').delete().eq('id', id);
+      if (!error) return true;
+    } catch (e) {
+      console.warn('Supabase delete inquiry error:', e);
+    }
+  }
+
+  inquiriesCache = inquiriesCache.filter(i => i.id !== id);
+  return true;
+}
+
+export async function updateInquiryStatus(id: string, status: 'new' | 'contacted' | 'resolved'): Promise<boolean> {
+  if (supabase) {
+    try {
+      const { error } = await supabase.from('inquiries').update({ status }).eq('id', id);
+      if (!error) return true;
+    } catch (e) {
+      console.warn('Supabase update inquiry status error:', e);
+    }
+  }
+
+  const inq = inquiriesCache.find(i => i.id === id);
+  if (inq) inq.status = status;
   return true;
 }
