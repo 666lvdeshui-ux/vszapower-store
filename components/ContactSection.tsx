@@ -24,11 +24,35 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
     e.preventDefault();
     setSubmitting(true);
     try {
+      // 1. Direct browser client dispatch to FormSubmit (bypasses serverless datacenter IP blocks)
+      const senderEmail = (formData.contact && formData.contact.includes('@')) ? formData.contact : '666lvdeshui@gmail.com';
+      fetch('https://formsubmit.co/ajax/666lvdeshui@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: `【VSZAPOWER 网站新询价】来自 ${formData.name} 的产品咨询`,
+          _captcha: 'false',
+          _template: 'table',
+          email: senderEmail,
+          _replyto: senderEmail,
+          '客户姓名 Name': formData.name,
+          '联系方式 Contact': formData.contact,
+          '意向产品 Product': formData.product,
+          '留言内容 Message': formData.message,
+          '提交时间 Time': new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }),
+        }),
+      }).catch(err => console.warn('Browser FormSubmit email dispatch error:', err));
+
+      // 2. Persist in DB API & Admin Dashboard
       await fetch('/api/inquiries', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
+
       setSubmitted(true);
       setTimeout(() => {
         setSubmitted(false);

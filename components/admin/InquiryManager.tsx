@@ -95,6 +95,35 @@ export default function InquiryManager() {
   const handleSendTestEmail = async () => {
     setTestSending(true);
     try {
+      // 1. Direct browser client dispatch to FormSubmit for instant notification
+      let clientMsg = '';
+      try {
+        const clientRes = await fetch('https://formsubmit.co/ajax/666lvdeshui@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            _subject: '【VSZAPOWER 测试邮件提醒】',
+            _captcha: 'false',
+            _template: 'table',
+            email: '666lvdeshui@gmail.com',
+            _replyto: '666lvdeshui@gmail.com',
+            '客户姓名 Name': '系统自动测试客户',
+            '联系方式 Contact': '666lvdeshui@gmail.com',
+            '意向产品 Product': 'Vszapower Smart Coin Cell Charger Starter Kit',
+            '留言内容 Message': '【测试邮件提醒】这是一条从 VSZAPOWER 网站发起的客户询价测试邮件。',
+            '提交时间 Time': new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }),
+          }),
+        });
+        const clientJson = await clientRes.json();
+        clientMsg = clientJson.message || 'Direct browser dispatch succeeded';
+      } catch (e) {
+        console.warn('Browser test dispatch error:', e);
+      }
+
+      // 2. Persist in DB API & Admin Dashboard
       const res = await fetch('/api/inquiries', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -107,7 +136,7 @@ export default function InquiryManager() {
       });
       const json = await res.json();
       if (json.success) {
-        alert(`测试咨询已成功保存并提交！\n邮件服务响应: ${json.emailStatus || 'Sent'}\n目标邮箱: 666lvdeshui@gmail.com\n(提示: 首次使用 FormSubmit 服务的激活确认链接已自动投递至您的邮箱，请去 666lvdeshui@gmail.com 收件箱点击【Activate Form】确认即可永久免密接收邮件提醒)`);
+        alert(`测试咨询已成功保存并提交！\n浏览器直连发信结果: ${clientMsg}\n目标邮箱: 666lvdeshui@gmail.com\n(提示: 请在 Gmail 收件箱或垃圾箱中查收主题为【VSZAPOWER 测试邮件提醒】的即时邮件通知)`);
         loadInquiries();
       } else {
         alert('测试发送失败');
