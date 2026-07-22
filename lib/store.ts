@@ -67,38 +67,53 @@ export interface VideoItem {
   poster_url: string;
   keywords: string[];
   description: string;
+  tiktok_url?: string;
   created_at?: string;
 }
 
 export const INITIAL_VIDEOS: VideoItem[] = [
   {
-    id: 'vid_1',
-    title: 'Vszapower 智能双槽 LIR2032 充电器 30分钟极速快充与变色指示灯实测演示',
+    id: 'vid_tiktok_1',
+    title: 'VSZAPOWER TikTok 官方实测：智能双槽 LIR2032 充电器 30分钟极速快充与变色指示灯演示',
     duration: '00:45',
     video_url: 'https://assets.mixkit.co/videos/preview/mixkit-circuit-board-with-glowing-lines-41565-large.mp4',
     poster_url: 'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=800&q=80',
-    keywords: ['#LIR2032快充', '#30分钟充满', '#智能变色指示灯', '#车钥匙电池', '#安全防爆MCU'],
-    description: '高清短视频展示 VSZAPOWER 智能双槽纽扣电池充电器的实际充电过程。插入 LIR2032 电池后红灯亮起启动快充，充满后芯片自动切断并转为绿灯。支持全系列 LIR 锂纽扣电池。',
+    tiktok_url: 'https://www.tiktok.com/@vszapower.3c',
+    keywords: ['#TikTokViral', '#vszapower.3c', '#LIR2032快充', '#30分钟充满', '#车钥匙电池', '#安全防爆MCU'],
+    description: 'TikTok 官方账号 @vszapower.3c 推荐产品：高清短视频展示 VSZAPOWER 智能双槽纽扣电池充电器的实际充电过程。插入 LIR2032 电池后红灯亮起启动快充，充满后芯片自动切断并转为绿灯。',
     created_at: new Date().toISOString(),
   },
   {
-    id: 'vid_2',
-    title: 'VSZAPOWER 4-Slot Pro 4槽独立通道 Type-C 纽扣电池充电座拆箱与四卡槽混充测试',
-    duration: '01:15',
+    id: 'vid_tiktok_2',
+    title: 'VSZAPOWER TikTok 热门教程：Apple AirTag & 车钥匙电池替换实操 (LIR2032 替代一次性 CR2032)',
+    duration: '00:58',
     video_url: 'https://assets.mixkit.co/videos/preview/mixkit-hands-holding-a-smartphone-with-green-screen-41544-large.mp4',
     poster_url: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=800&q=80',
-    keywords: ['#4槽独立通道', '#TypeC快充输入', '#LIR2032/2025/2450混充', '#温控过充保护'],
-    description: '演示 4 槽旗舰版充电座同时为 LIR2032、LIR2025、LIR2016 及 LIR2450 等不同型号电池混充。每槽独立 MCU 芯片独立检测控制，互不干扰。',
+    tiktok_url: 'https://www.tiktok.com/@vszapower.3c',
+    keywords: ['#vszapower.3c', '#AirTag续航教程', '#车钥匙遥控器电池', '#环保循环500次', '#告别一次性扣式电池'],
+    description: 'TikTok 官方实操：手把手教您如何将 Apple AirTag、宝马/奔驰/丰田车钥匙中的耗尽 CR2032 一次性电池替换为 VSZAPOWER LIR2032 可充电电池，一次购买即可循环充电使用 500 次以上！',
     created_at: new Date().toISOString(),
   },
   {
-    id: 'vid_3',
-    title: 'Apple AirTag & 车钥匙电池替换实操：用 LIR2032 可充电池替代一次性 CR2032',
-    duration: '00:58',
+    id: 'vid_tiktok_3',
+    title: 'VSZAPOWER TikTok 旗舰拆箱：4-Slot Pro 4槽独立通道 Type-C 纽扣电池充电座混充测试',
+    duration: '01:15',
     video_url: 'https://assets.mixkit.co/videos/preview/mixkit-macro-shot-of-a-circuit-board-41567-large.mp4',
     poster_url: 'https://images.unsplash.com/photo-1609592424074-954930b8098c?auto=format&fit=crop&w=800&q=80',
-    keywords: ['#AirTag续航教程', '#车钥匙遥控器电池', '#环保循环500次', '#告别一次性扣式电池'],
-    description: '手把手教您如何将 Apple AirTag、宝马/奔驰/丰田车钥匙中的耗尽 CR2032 一次性电池替换为 VSZAPOWER LIR2032 可充电电池，一次购买即可循环充电使用 500 次以上！',
+    tiktok_url: 'https://www.tiktok.com/@vszapower.3c',
+    keywords: ['#vszapower.3c', '#4槽独立通道', '#TypeC快充输入', '#LIR2032/2025/2450混充', '#温控过充保护'],
+    description: 'TikTok 官方演示 4 槽旗舰版充电座同时为 LIR2032、LIR2025、LIR2016 及 LIR2450 等不同型号电池混充。每槽独立 MCU 芯片独立检测控制，互不干扰。',
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 'vid_tiktok_4',
+    title: 'VSZAPOWER TikTok 欧洲热销：LIR2025 / LIR2032 30分钟极速纽扣电池充电座',
+    duration: '00:36',
+    video_url: 'https://assets.mixkit.co/videos/preview/mixkit-circuit-board-with-glowing-lines-41565-large.mp4',
+    poster_url: '/products/lir2025-30min-charger.jpg',
+    tiktok_url: 'https://www.tiktok.com/@vszapower.3c',
+    keywords: ['#vszapower.3c', '#LIR2025快充', '#CR2025Ersatz', '#Autoschlüssel', '#30MinSchnellladen'],
+    description: 'TikTok 德语区热款：30 分钟极速纽扣电池充电器，专门适配 Autoschlüssel (车钥匙)、Fernbedienungen (遥控器) 及电子秤，高能循环替代 CR2025。',
     created_at: new Date().toISOString(),
   }
 ];

@@ -42,9 +42,33 @@ export default function VideoSection({ onContactClick }: VideoSectionProps) {
         }}>
           产品 <span className="gradient-text">短视频展厅</span>
         </h2>
-        <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: '640px', margin: '0 auto' }}>
+        <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: '640px', margin: '0 auto', marginBottom: '16px' }}>
           直观视频展示 VSZAPOWER 纽扣电池充电座的真实充放电效果、智能指示灯切断与多设备场景应用。
         </p>
+
+        {/* TikTok Profile Badge */}
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <a
+            href="https://www.tiktok.com/@vszapower.3c"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '8px 18px',
+              borderRadius: '30px',
+              background: 'rgba(255, 44, 85, 0.12)',
+              border: '1px solid rgba(255, 44, 85, 0.4)',
+              color: '#ff2c55',
+              fontSize: '0.85rem',
+              fontWeight: 700,
+              textDecoration: 'none',
+            }}
+          >
+            🎵 关注 TikTok 官方账号 @vszapower.3c <ExternalLink size={14} />
+          </a>
+        </div>
       </div>
 
       {/* Video Items List (Left Video, Right Title & Keywords) */}
@@ -149,7 +173,7 @@ export default function VideoSection({ onContactClick }: VideoSectionProps) {
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
                 <span className="badge badge-green" style={{ fontSize: '0.7rem' }}>
-                  产品短视频展示
+                  TikTok 视频
                 </span>
               </div>
 
@@ -210,11 +234,22 @@ export default function VideoSection({ onContactClick }: VideoSectionProps) {
                   <MessageSquare size={16} /> 点击咨询产品
                 </button>
                 <a
-                  href="#products"
+                  href={video.tiktok_url || 'https://www.tiktok.com/@vszapower.3c'}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-secondary"
-                  style={{ padding: '10px 20px', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}
+                  style={{
+                    padding: '10px 20px',
+                    fontSize: '0.9rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    textDecoration: 'none',
+                    borderColor: 'rgba(255, 44, 85, 0.4)',
+                    color: '#ff2c55',
+                  }}
                 >
-                  <Sparkles size={16} /> 查看对应产品
+                  <ExternalLink size={16} /> 在 TikTok 观看 (@vszapower.3c)
                 </a>
               </div>
             </div>
