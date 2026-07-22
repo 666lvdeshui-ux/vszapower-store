@@ -41,7 +41,6 @@ export default function Footer() {
             <li><Link href="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>首页 (Home)</Link></li>
             <li><Link href="/academy" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>电池学院 (Battery Academy)</Link></li>
             <li><Link href="/#contact" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>联系我们 (Contact Us)</Link></li>
-            <li><Link href="/admin" style={{ color: 'var(--accent-green)', textDecoration: 'none' }}>后台管理 (Admin Portal)</Link></li>
           </ul>
         </div>
 

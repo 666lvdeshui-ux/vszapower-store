@@ -127,18 +127,8 @@ export default function Header({ onContactClick }: HeaderProps) {
           </Link>
         </nav>
 
-        {/* Action Button & Admin Link */}
+        {/* Action Button */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <Link href="/admin" style={{
-            color: 'var(--text-dim)',
-            textDecoration: 'none',
-            fontSize: '0.85rem',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '4px',
-          }}>
-            <Shield size={14} /> 后台
-          </Link>
           <button
             onClick={() => onContactClick ? onContactClick() : (window.location.href = '/#contact')}
             className="btn-primary"
