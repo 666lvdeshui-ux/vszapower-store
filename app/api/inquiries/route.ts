@@ -34,8 +34,8 @@ export async function POST(request: Request) {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
-          'Origin': 'https://vszapower-store.vercel.app',
-          'Referer': 'https://vszapower-store.vercel.app/',
+          'Origin': 'https://www.vszapower.com',
+          'Referer': 'https://www.vszapower.com/',
         },
         body: JSON.stringify({
           _subject: `【VSZAPOWER 网站新询价】来自 ${saved.name} 的产品咨询`,
@@ -48,7 +48,11 @@ export async function POST(request: Request) {
         }),
       });
       const emailJson = await emailRes.json();
-      emailStatusMessage = emailJson.message || 'Email dispatched via FormSubmit';
+      if (emailJson.message && emailJson.message.includes('Activation')) {
+        emailStatusMessage = 'FormSubmit 激活邮件已派送至 666lvdeshui@gmail.com，请登录 Gmail 邮箱（或检查垃圾箱）点击【Activate Form】链接确认一次即可激活！';
+      } else {
+        emailStatusMessage = emailJson.message || 'Email dispatched successfully';
+      }
     } catch (emailErr) {
       console.error('[Email Dispatch Error]:', emailErr);
     }
