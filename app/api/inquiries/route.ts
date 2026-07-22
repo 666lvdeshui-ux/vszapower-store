@@ -28,6 +28,8 @@ export async function POST(request: Request) {
     let emailStatusMessage = '';
 
     // 1. Send via FormSubmit AJAX service to 666lvdeshui@gmail.com
+    const senderEmail = (saved.contact && saved.contact.includes('@')) ? saved.contact : '666lvdeshui@gmail.com';
+
     try {
       const emailRes = await fetch('https://formsubmit.co/ajax/666lvdeshui@gmail.com', {
         method: 'POST',
@@ -40,6 +42,9 @@ export async function POST(request: Request) {
         body: JSON.stringify({
           _subject: `【VSZAPOWER 网站新询价】来自 ${saved.name} 的产品咨询`,
           _captcha: 'false',
+          _template: 'table',
+          email: senderEmail,
+          _replyto: senderEmail,
           '客户姓名 Name': saved.name,
           '联系方式 Contact': saved.contact,
           '意向产品 Product': saved.product,
