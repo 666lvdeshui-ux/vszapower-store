@@ -449,7 +449,12 @@ export async function saveInquiry(inquiry: Partial<InquiryItem>): Promise<Inquir
     }
   }
 
-  inquiriesCache.unshift(newInquiry);
+  const existingIdx = inquiriesCache.findIndex(i => i.id === newInquiry.id);
+  if (existingIdx >= 0) {
+    inquiriesCache[existingIdx] = newInquiry;
+  } else {
+    inquiriesCache.unshift(newInquiry);
+  }
   return newInquiry;
 }
 
@@ -478,6 +483,8 @@ export async function updateInquiryStatus(id: string, status: 'new' | 'contacted
   }
 
   const inq = inquiriesCache.find(i => i.id === id);
-  if (inq) inq.status = status;
+  if (inq) {
+    inq.status = status;
+  }
   return true;
 }

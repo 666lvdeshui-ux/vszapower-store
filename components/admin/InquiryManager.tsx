@@ -17,12 +17,40 @@ export default function InquiryManager() {
     try {
       const res = await fetch('/api/inquiries');
       const json = await res.json();
-      if (json.inquiries) {
-        setInquiries(json.inquiries);
-        setTodayCount(json.todayCount || 0);
-        setPendingCount(json.pendingCount || 0);
-        setTotalCount(json.totalCount || 0);
-      }
+
+      let serverInquiries: InquiryItem[] = json.inquiries || [];
+
+      // Read local storage inquiries
+      let localInquiries: InquiryItem[] = [];
+      try {
+        const stored = localStorage.getItem('vszapower_inquiries_cache');
+        if (stored) localInquiries = JSON.parse(stored);
+      } catch (e) {}
+
+      // Merge server & local by ID
+      const map = new Map<string, InquiryItem>();
+      serverInquiries.forEach(item => map.set(item.id, item));
+      localInquiries.forEach(item => {
+        if (!map.has(item.id)) map.set(item.id, item);
+      });
+
+      const merged = Array.from(map.values()).sort((a, b) => {
+        return new Date(b.created_at || 0).getTime() - new Date(a.created_at || 0).getTime();
+      });
+
+      setInquiries(merged);
+
+      // Save back to local storage
+      try {
+        localStorage.setItem('vszapower_inquiries_cache', JSON.stringify(merged));
+      } catch (e) {}
+
+      // Recalculate stats
+      const todayStr = new Date().toISOString().split('T')[0];
+      const todayInq = merged.filter(i => i.created_at && i.created_at.startsWith(todayStr));
+      setTodayCount(todayInq.length);
+      setPendingCount(merged.filter(i => i.status === 'new').length);
+      setTotalCount(merged.length);
     } catch (e) {
       console.error('Failed to load inquiries:', e);
     } finally {
@@ -41,7 +69,10 @@ export default function InquiryManager() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id, status }),
       });
-      loadInquiries();
+      // Update local state and localStorage
+      const updated = inquiries.map(item => item.id === id ? { ...item, status } : item);
+      setInquiries(updated);
+      localStorage.setItem('vszapower_inquiries_cache', JSON.stringify(updated));
     } catch (e) {
       alert('更新状态失败');
     }
@@ -51,7 +82,9 @@ export default function InquiryManager() {
     if (!confirm('确定要删除此条咨询记录吗？')) return;
     try {
       await fetch(`/api/inquiries?id=${id}`, { method: 'DELETE' });
-      loadInquiries();
+      const updated = inquiries.filter(item => item.id !== id);
+      setInquiries(updated);
+      localStorage.setItem('vszapower_inquiries_cache', JSON.stringify(updated));
     } catch (e) {
       alert('删除失败');
     }
