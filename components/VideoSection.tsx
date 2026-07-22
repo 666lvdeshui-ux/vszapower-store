@@ -114,7 +114,8 @@ export default function VideoSection({ onContactClick }: VideoSectionProps) {
                   style={{
                     width: '100%',
                     height: '100%',
-                    position: 'relative',
+                    position: 'absolute',
+                    inset: 0,
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
@@ -124,17 +125,20 @@ export default function VideoSection({ onContactClick }: VideoSectionProps) {
                   <img
                     src={video.poster_url}
                     alt={video.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.8 }}
+                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.8 }}
                   />
                   <div style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%)',
+                    background: 'linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.75) 100%)',
                   }} />
 
-                  {/* Play Button Overlay */}
+                  {/* Perfectly Centered Play Button Overlay */}
                   <div style={{
-                    position: 'relative',
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
                     zIndex: 2,
                     width: '64px',
                     height: '64px',
@@ -146,7 +150,7 @@ export default function VideoSection({ onContactClick }: VideoSectionProps) {
                     boxShadow: '0 0 30px rgba(16, 185, 129, 0.6)',
                     transition: 'transform 0.2s',
                   }}>
-                    <Play size={28} fill="#041410" color="#041410" style={{ marginLeft: '4px' }} />
+                    <Play size={28} fill="#041410" color="#041410" style={{ marginLeft: '3px' }} />
                   </div>
 
                   {/* Video Duration Badge */}
