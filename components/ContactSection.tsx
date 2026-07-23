@@ -12,6 +12,7 @@ interface ContactSectionProps {
 export default function ContactSection({ isOpenModal = false, onCloseModal, prefilledProduct = '' }: ContactSectionProps) {
   const [formData, setFormData] = useState({
     name: '',
+    country: '',
     contact: '',
     product: prefilledProduct || 'General Inquiry / Bulk Order',
     message: '',
@@ -39,6 +40,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
           email: senderEmail,
           _replyto: senderEmail,
           '客户姓名 Name': formData.name,
+          '所属国家 Country': formData.country || '未填写 (Not Specified)',
           '联系方式 Contact': formData.contact,
           '意向产品 Product': formData.product,
           '留言内容 Message': formData.message,
@@ -151,6 +153,17 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                 value={formData.name}
                 onChange={e => setFormData({ ...formData, name: e.target.value })}
                 placeholder="e.g. John Doe / 张先生"
+                style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: '#fff' }}
+              />
+            </div>
+
+            <div>
+              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Country / Region / 所属国家</label>
+              <input
+                type="text"
+                value={formData.country}
+                onChange={e => setFormData({ ...formData, country: e.target.value })}
+                placeholder="e.g. United States / 中国 / Germany"
                 style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: '#fff' }}
               />
             </div>

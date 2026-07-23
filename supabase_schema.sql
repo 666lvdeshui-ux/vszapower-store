@@ -246,12 +246,15 @@ CREATE POLICY "Allow public read banners" ON public.banners FOR SELECT USING (tr
 CREATE TABLE IF NOT EXISTS public.inquiries (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
+  country TEXT,
   contact TEXT NOT NULL,
   product TEXT NOT NULL,
   message TEXT NOT NULL,
   status TEXT DEFAULT 'new',
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
+
+ALTER TABLE public.inquiries ADD COLUMN IF NOT EXISTS country TEXT;
 
 ALTER TABLE public.inquiries ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Allow public read inquiries" ON public.inquiries FOR SELECT USING (true);

@@ -111,6 +111,7 @@ export default function InquiryManager() {
             email: '666lvdeshui@gmail.com',
             _replyto: '666lvdeshui@gmail.com',
             '客户姓名 Name': '系统自动测试客户',
+            '所属国家 Country': '中国 (China)',
             '联系方式 Contact': '666lvdeshui@gmail.com',
             '意向产品 Product': 'Vszapower Smart Coin Cell Charger Starter Kit',
             '留言内容 Message': '【测试邮件提醒】这是一条从 VSZAPOWER 网站发起的客户询价测试邮件。',
@@ -129,6 +130,7 @@ export default function InquiryManager() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: '系统自动测试客户',
+          country: '中国 (China)',
           contact: '666lvdeshui@gmail.com',
           product: 'Vszapower Smart Coin Cell Charger Starter Kit',
           message: '【测试邮件提醒】这是一条从 VSZAPOWER 网站发起的客户询价测试邮件。',
@@ -383,7 +385,11 @@ export default function InquiryManager() {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px', fontSize: '0.9rem', background: 'rgba(255,255,255,0.03)', padding: '12px 16px', borderRadius: '10px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px', fontSize: '0.9rem', background: 'rgba(255,255,255,0.03)', padding: '12px 16px', borderRadius: '10px' }}>
+                <div>
+                  <span style={{ color: 'var(--text-muted)' }}>所属国家: </span>
+                  <span style={{ color: '#fff', fontWeight: 600 }}>{item.country || '未指定'}</span>
+                </div>
                 <div>
                   <span style={{ color: 'var(--text-muted)' }}>联系方式: </span>
                   <span style={{ color: 'var(--accent-cyan)', fontWeight: 700 }}>{item.contact}</span>

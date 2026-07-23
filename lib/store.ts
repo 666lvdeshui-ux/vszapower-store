@@ -52,6 +52,7 @@ export interface BannerItem {
 export interface InquiryItem {
   id: string;
   name: string;
+  country?: string;
   contact: string;
   product: string;
   message: string;
@@ -158,6 +159,7 @@ export const INITIAL_INQUIRIES: InquiryItem[] = [
   {
     id: 'inq_1',
     name: '张经理 (Liang Corp)',
+    country: '中国 (China)',
     contact: 'zhang@liangtech.com / 13800138000',
     product: 'Vszapower Smart Coin Cell Charger + 4x LIR2032 Batteries Starter Kit',
     message: '需采购 200 套 LIR2032 套装用于共享气象传感器设备，请发送大货批发报价单及测试样品。',
@@ -167,6 +169,7 @@ export const INITIAL_INQUIRIES: InquiryItem[] = [
   {
     id: 'inq_2',
     name: 'David Smith',
+    country: '美国 (United States)',
     contact: 'david.smith@iot-solutions.io',
     product: 'Vszapower Universal LIR/ML Coin Cell Smart Charger Dock',
     message: 'Inquiring about bulk shipping to California for LIR2450 dual-slot charger docks with CE/FCC certification.',
@@ -448,6 +451,7 @@ export async function saveInquiry(inquiry: Partial<InquiryItem>): Promise<Inquir
   const newInquiry: InquiryItem = {
     id: inquiry.id || `inq_${Date.now()}`,
     name: inquiry.name || 'Anonymous User',
+    country: inquiry.country || '未指定 (Not Specified)',
     contact: inquiry.contact || 'No contact provided',
     product: inquiry.product || 'General Product Inquiry',
     message: inquiry.message || 'No message content',

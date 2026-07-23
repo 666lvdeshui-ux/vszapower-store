@@ -79,6 +79,7 @@ export async function POST(request: Request) {
           email: senderEmail,
           _replyto: senderEmail,
           '客户姓名 Name': saved.name,
+          '所属国家 Country': saved.country || '未填写 (Not Specified)',
           '联系方式 Contact': saved.contact,
           '意向产品 Product': saved.product,
           '留言内容 Message': saved.message,
@@ -108,7 +109,7 @@ export async function POST(request: Request) {
             from: 'VSZAPOWER <onboarding@resend.dev>',
             to: [recipientEmail],
             subject: `【VSZAPOWER 网站新询价】来自 ${saved.name} 的产品咨询`,
-            text: `收到新咨询：\n姓名: ${saved.name}\n联系方式: ${saved.contact}\n意向产品: ${saved.product}\n留言内容: ${saved.message}`,
+            text: `收到新咨询：\n姓名: ${saved.name}\n所属国家: ${saved.country || '未填写'}\n联系方式: ${saved.contact}\n意向产品: ${saved.product}\n留言内容: ${saved.message}`,
           }),
         });
       } catch (err) {
