@@ -163,7 +163,7 @@ export async function POST(request: Request) {
     }
 
     const publishedResults = [];
-    for (const item of articlesToPublish) {
+    for (const item of articlesToPublish as Array<Record<string, any>>) {
       const saved = await savePost({
         slug: item.slug || item.topic,
         title: item.title,
