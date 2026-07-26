@@ -19,6 +19,7 @@ export default function BlogPreview({ posts: initialPosts = MOCK_POSTS }) {
       })
       .catch(console.error);
   }, []);
+
   return (
     <section style={{
       padding: '80px 24px',
@@ -28,40 +29,51 @@ export default function BlogPreview({ posts: initialPosts = MOCK_POSTS }) {
       {/* Section Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '40px', flexWrap: 'wrap', gap: '20px' }}>
         <div>
-          <span className="badge badge-green" style={{ marginBottom: '12px' }}>
-            BATTERY ACADEMY (CONTENT HUB)
+          <span className="badge badge-green" style={{ marginBottom: '12px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+            <BookOpen size={14} /> 电池学院 · BATTERY ACADEMY
           </span>
           <h2 style={{
             fontFamily: 'var(--font-heading)',
             fontSize: 'clamp(2rem, 4vw, 2.5rem)',
             fontWeight: 800,
           }}>
-            Learn & Save: <span className="gradient-text">Latest Technical Guides</span>
+            学习与节能：<span className="gradient-text">最新可充电池技术指南</span>
           </h2>
         </div>
 
         <Link href="/academy" className="btn-secondary" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>
-          View All Academy Guides <ArrowRight size={16} />
+          查看学院全部文章 <ArrowRight size={16} />
         </Link>
       </div>
 
-      {/* Blog Cards Grid */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-        gap: '32px',
-      }}>
+      {/* Blog List Items (列表式排版) */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
         {posts.map((post) => (
-          <article key={post.slug} className="glass-panel" style={{
-            display: 'flex',
-            flexDirection: 'column',
-            overflow: 'hidden',
-          }}>
-            <div style={{ height: '200px', overflow: 'hidden', position: 'relative' }}>
+          <article
+            key={post.slug}
+            className="glass-panel blog-preview-list-item"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'minmax(220px, 300px) 1fr',
+              gap: '0',
+              borderRadius: '16px',
+              overflow: 'hidden',
+              transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
+              border: '1px solid var(--border-color)',
+            }}
+          >
+            {/* Left Thumbnail */}
+            <div style={{ position: 'relative', overflow: 'hidden', minHeight: '200px' }}>
               <img
                 src={post.cover_image}
                 alt={post.title}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  transition: 'transform 0.5s ease',
+                }}
+                className="preview-cover-img"
               />
               <span style={{
                 position: 'absolute',
@@ -79,43 +91,77 @@ export default function BlogPreview({ posts: initialPosts = MOCK_POSTS }) {
               </span>
             </div>
 
-            <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            {/* Right Details */}
+            <div style={{
+              padding: '24px 28px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+            }}>
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '12px' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <User size={14} /> {post.author}
+                    <User size={14} style={{ color: 'var(--accent-green)' }} /> {post.author}
                   </span>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <Clock size={14} /> {post.read_time}
+                    <Clock size={14} style={{ color: 'var(--accent-green)' }} /> {post.read_time}
                   </span>
                 </div>
 
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', fontWeight: 700, marginBottom: '10px', lineHeight: 1.4 }}>
-                  <Link href={`/academy/${post.slug}`} style={{ color: '#fff', textDecoration: 'none' }}>
+                <h3 style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '1.25rem',
+                  fontWeight: 700,
+                  marginBottom: '10px',
+                  lineHeight: 1.4,
+                }}>
+                  <Link href={`/academy/${post.slug}`} style={{ color: '#fff', textDecoration: 'none' }} className="preview-title-link">
                     {post.title}
                   </Link>
                 </h3>
 
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '20px' }}>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '16px' }}>
                   {post.summary}
                 </p>
               </div>
 
-              <Link href={`/academy/${post.slug}`} style={{
-                color: 'var(--accent-green)',
-                fontWeight: 700,
-                fontSize: '0.9rem',
-                textDecoration: 'none',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-              }}>
-                Read Article <ArrowRight size={16} />
-              </Link>
+              <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: '12px', borderTop: '1px solid rgba(255, 255, 255, 0.05)' }}>
+                <Link
+                  href={`/academy/${post.slug}`}
+                  style={{
+                    color: 'var(--accent-green)',
+                    fontWeight: 700,
+                    fontSize: '0.9rem',
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                  }}
+                >
+                  阅读指南文章 <ArrowRight size={16} />
+                </Link>
+              </div>
             </div>
           </article>
         ))}
       </div>
+
+      <style jsx global>{`
+        @media (max-width: 768px) {
+          article.blog-preview-list-item {
+            grid-template-columns: 1fr !important;
+          }
+          .preview-cover-img {
+            height: 180px !important;
+          }
+        }
+        .preview-title-link:hover {
+          color: var(--accent-green) !important;
+        }
+        article.blog-preview-list-item:hover .preview-cover-img {
+          transform: scale(1.05);
+        }
+      `}</style>
     </section>
   );
 }

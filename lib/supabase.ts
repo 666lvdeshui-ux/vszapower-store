@@ -168,120 +168,209 @@ export const MOCK_POSTS = [
   {
     id: 'p1',
     slug: 'cr2032-vs-lir2032-can-you-recharge-them',
-    title: 'CR2032 vs LIR2032: Can You Recharge Them? (The Ultimate Guide)',
-    summary: 'Stop throwing away dead CR2032 batteries. Discover how switching to LIR2032 rechargeable coin cells and dedicated chargers saves money while keeping AirTags and Car Key Fobs powered.',
-    category: 'Battery Academy',
+    title: 'CR2032 vs LIR2032 终极对比：一次性与可充电纽扣电池全面深度解析',
+    summary: '别再频繁扔掉用完的 CR2032 电池！深入剖析 3.0V 一次性锂锰电池与 3.7V LIR2032 可充电锂离子电池的区别、设备兼容性上限、安全充电要点及 5 年使用成本对比。',
+    category: '选型与对比',
+    tags: ['CR2032', 'LIR2032', '选型指南', '电压安全'],
     cover_image: 'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1200&q=80',
-    author: 'Dr. Alex Vance, Electrochemistry Lead',
-    read_time: '6 min read',
+    author: 'Dr. Alex Vance, 电池电化学首席工程师',
+    read_time: '6 分钟阅读',
+    published: true,
     created_at: new Date().toISOString(),
-    content: `# CR2032 vs LIR2032: Can You Recharge Them?
+    content: `# CR2032 vs LIR2032 终极对比：一次性与可充电纽扣电池全面深度解析
 
-Every year, millions of disposable **CR2032** button cell batteries end up in landfills. From Apple AirTags and car key fobs to motherboard RTC clocks and smart home sensors, CR2032 is the most omnipresent battery on earth.
+每年有数以亿计的一次性 **CR2032** 纽扣电池被丢弃进入垃圾填埋场。从 Apple AirTag 防丢器、汽车智能钥匙遥控器，到主板 RTC 实时时钟和智能家居传感器，CR2032 是当今应用最广泛的微型电源。
 
-However, when your car key fob dies or your AirTag gives a low battery warning, most users simply buy another pack of disposable batteries. **Did you know there is a rechargeable alternative?**
+然而，当车钥匙或 AirTag 弹出低电量警告时，绝大多数用户习惯于重新购买一盒一次性电池。**你是否知道，存在完美兼容且可持续循环充电 500+ 次的替代方案？**
 
 ---
 
-## 1. The Core Difference: Disposable vs Rechargeable
+## 1. 核心差异：一次性 vs 可充电
 
-| Feature | CR2032 (Disposable) | LIR2032 (Rechargeable) |
+| 参数指标 | CR2032 (一次性电池) | LIR2032 (可充电锂电池) |
 |---|---|---|
-| **Chemistry** | Lithium Manganese Dioxide (Li/MnO2) | Lithium Ion (Li-ion) |
-| **Nominal Voltage** | 3.0V | 3.6V - 3.7V |
-| **Rechargeable?** | **NO (Dangerous to attempt)** | **YES (500+ Cycles)** |
-| **Capacity** | ~220mAh | ~45mAh |
-| **Long-term Cost** | High (Continuous buying) | Very Low (Buy once, reuse 500x) |
+| **化学体系** | 锂-二氧化锰 (Li/MnO2) | 锂离子 (Li-ion 扣式) |
+| **标称电压** | 3.0V (初始峰值约 3.2V) | 3.6V - 3.7V (满电约 4.2V) |
+| **是否可充电** | **严禁充电 (可能导致泄漏与过热)** | **支持循环充电 500+ 次** |
+| **典型容量** | ~220mAh | ~45mAh - 50mAh |
+| **长期成本** | 高 (需反复购买新电池) | 极低 (一次购买，循环重复利用) |
+| **环保指数** | 产生大量重金属电子垃圾 | 显著降低一次性废电池排放 |
 
 > [!WARNING]
-> Never attempt to recharge standard **CR2032** batteries in any charger! Doing so can cause thermal runaway or electrolyte leakage. Always use designated **LIR2032** rechargeable batteries with a certified smart charger dock like **Vszapower LIR Smart Dock**.
+> 切勿将普通一次性 **CR2032** 放入任何充电器中！这会导致电池内部压力剧增、电解液泄漏甚至热失控风险。请务必使用专门设计的 **LIR2032** 可充电纽扣电池及配套智能充电座（如 **Vszapower LIR 智能充电座**）。
 
 ---
 
-## 2. Voltage Compatibility: Will 3.7V LIR2032 Damage My Device?
+## 2. 电压兼容性：3.7V 的 LIR2032 会损坏我的设备吗？
 
-Standard CR2032 supplies **3.0V**, while a freshly charged LIR2032 starts at **3.6V to 4.2V**. 
+标准 CR2032 输出电压为 **3.0V**，而满电状态下的 LIR2032 电压为 **3.6V 至 4.2V**。
 
-The vast majority of modern microelectronics—including **Apple AirTags**, **Key Fobs (Toyota, Honda, BMW)**, and **Smart Home Motion Sensors**—are built with integrated voltage regulators rated up to 4.5V. 
+绝大多数现代微电子设备——包括 **Apple AirTag**、**主流汽车遥控钥匙（宝马、丰田、奥迪、本田等）**、**智能门磁与温湿度传感器**——在设计阶段均内置了输入过压保护与 LDO 稳压芯片，输入耐压上限通常达 **4.5V ~ 5.5V**。
 
-This means **LIR2032 works flawlessly** in 95%+ of modern consumer devices, providing sustainable power with rapid USB recharge capability!
-
----
-
-## 3. Why You Need a Smart Dedicated Charger
-
-Coin cell batteries require precise trickle charge currents (typically 20mA - 50mA). Charging them with standard AA/AAA fast chargers or uncontrolled power supplies will degrade battery lifespan.
-
-The **Vszapower Smart Coin Cell Charger Dock** features:
-- **Integrated Microchip Protection**: Auto-cuts power at 4.2V to prevent overcharging.
-- **Reverse Polarity Protection**: Prevents damage if inserted backwards.
-- **Dual Slot Design**: Charge 2 batteries simultaneously in 45 minutes.
+这意味着 **LIR2032 可以在 95% 以上的现代消费电子设备中无缝工作**，在享受快速 USB 充电的同时，彻底告别频繁购买一次性电池的烦恼！
 
 ---
 
-## 4. Economic & Environmental Impact
+## 3. 为何必须搭配专用的微型智能充电座？
 
-If you replace 5 coin cell batteries per year across key fobs, AirTags, and home sensors:
-- **5-Year Disposable Cost**: ~$45 - $60
-- **Vszapower Starter Kit**: **$24.99** (Includes 1 Smart Charger + 4 LIR2032 batteries)
+扣式电池的体积微小，充电时需要极为精准的微电流控制（通常为 20mA - 50mA 涓流与恒流）。若使用普通 AA/AAA 电池充电器或无控制电路的简易接口，极易损坏电池寿命。
 
-You break even in less than 18 months, while eliminating dozens of heavy metal waste batteries from the ecosystem.
+**Vszapower 智能扣式电池充电座** 具备以下核心安全技术：
+- **微芯片全程控温防过充**：达到 4.2V 饱充电压时自动断电。
+- **正负极反接保护**：即便放反电池也不会短路损坏。
+- **双槽独立通道设计**：45 分钟内充满两节电池，LED 双色指示清晰明了。
 
 ---
 
-### Ready to Upgrade to Rechargeable Coin Cells?
-Check out our **[LIR2032 Starter Kit](/products/lir2032-starter-kit)** featuring eco-friendly kraft papercard gift packaging, 4x LIR2032 rechargeable cells, and full 2-year warranty protection!`
+## 4. 经济性与环保效益算账
+
+假设你的家庭每年在车钥匙、AirTag 和智能传感器上消耗 6 节扣式电池：
+- **5 年一次性电池开销**：约 ¥180 - ¥260
+- **Vszapower LIR2032 充电套装**：**仅需一套**（包含 1 个智能充电座 + 4 节 LIR2032 可充电池）
+
+使用 18 个月内即可实现成本回本，并在接下来的数年中为地球少产生数十节重金属废电池！
+
+---
+
+### 准备好升级为环保可充电纽扣电池了吗？
+探索我们的 **[LIR2032 智能充电套装](/products/lir2032-starter-kit)**，内置牛皮纸环保礼盒包装、4 节高品质 LIR2032 电池与 2 年质量质保承诺！`
   },
   {
     id: 'p2',
     slug: 'the-ultimate-guide-to-rechargeable-coin-cell-batteries',
-    title: 'The Ultimate Guide to Rechargeable Coin Cell Batteries (LIR vs ML Series)',
-    summary: 'A complete technical breakdown of LIR2032, LIR2025, LIR2450, and ML2032 rechargeable coin cells for DIY makers, electronics repair, and smart home enthusiasts.',
-    category: 'Battery Academy',
+    title: 'LIR2032 / LIR2025 / LIR2450 / ML2032 全系列纽扣电池规格图谱与选型指南',
+    summary: '面对复杂的 LIR2032、LIR2025、LIR2450 以及 ML2032 命名，如何为你的设备精准匹配电池？一文拆解 4 位数字编码含义、尺寸规格与应用场景。',
+    category: '选型与对比',
+    tags: ['规格图谱', 'LIR2450', 'LIR2025', 'ML2032'],
     cover_image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=1200&q=80',
-    author: 'Vszapower Engineering Team',
-    read_time: '8 min read',
+    author: 'Vszapower 技术工程团队',
+    read_time: '8 分钟阅读',
+    published: true,
     created_at: new Date().toISOString(),
-    content: `# The Ultimate Guide to Rechargeable Coin Cell Batteries
+    content: `# LIR2032 / LIR2025 / LIR2450 / ML2032 全系列纽扣电池规格图谱与选型指南
 
-Navigating the world of rechargeable coin cell batteries can feel confusing. With designations like **LIR2032**, **LIR2450**, and **ML2032**, selecting the exact match for your device and ensuring safe charging is paramount.
-
----
-
-## Decoding Coin Cell Model Numbers
-
-Understanding the 4-digit code is simple once you know the pattern:
-- **First 2 Digits**: Diameter in millimeters (e.g., **20** = 20mm).
-- **Last 2 Digits**: Height/Thickness in tenths of a millimeter (e.g., **32** = 3.2mm).
-
-| Model | Rechargeable Code | Voltage | Best Suited Applications |
-|---|---|---|---|
-| 20mm x 3.2mm | **LIR2032** | 3.7V | AirTags, Car Fobs, Gamepads, LED Badges |
-| 20mm x 2.5mm | **LIR2025** | 3.7V | Ultra-slim Car Remotes, Calculators |
-| 24mm x 5.0mm | **LIR2450** | 3.7V | Smart Door Locks, High Drain Zigbee Nodes |
-| 20mm x 3.2mm | **ML2032** | 3.0V | Solar Watches, Motherboard CMOS Backup |
+在挑选可充电纽扣电池时，各种型号代码如 **LIR2032**、**LIR2450**、**ML2032** 常常让人感到困惑。准确理解型号背后的物理尺寸与电化学特性，是确保设备安全稳定运行的关键。
 
 ---
 
-## Safety Standards & Papercard Packaging Aesthetics
+## 一图看懂：纽扣电池 4 位数字代码含义
 
-When buying electronic components online, packaging and safety standards are your strongest quality indicators.
+纽扣电池的命名遵循国际 IEC 标准，后 4 位数字直接揭示了它的物理尺寸：
+- **前 2 位数字**：电池直径（单位：毫米 mm），例如 **20** = 直径 20mm。
+- **后 2 位数字**：电池厚度/高度（单位：十分之一毫米 0.1mm），例如 **32** = 厚度 3.2mm；**50** = 厚度 5.0mm。
 
-At **Vszapower**, all charger kits are shipped in **Precision Eco-Kraft Papercard Packaging**. Beyond aesthetics, our papercard packs ensure:
-1. Zero static discharge during transit.
-2. Complete parameter visibility (clearly marked 3.6V-4.2V micro-chip specs).
-3. Minimal plastic footprint.
+| 尺寸规格 | 可充电型号 | 标称电压 | 典型容量 | 最佳适用设备场景 |
+|---|---|---|---|---|
+| 20mm x 3.2mm | **LIR2032** | 3.7V | ~45mAh | Apple AirTag、汽车钥匙遥控器、主板发光徽章 |
+| 20mm x 2.5mm | **LIR2025** | 3.7V | ~35mAh | 超薄款车钥匙（雷克萨斯、奔驰等）、薄型计算器 |
+| 24mm x 5.0mm | **LIR2450** | 3.7V | ~120mAh | 智能指纹门锁、高功耗 Zigbee/蓝牙大功耗节点 |
+| 20mm x 3.2mm | **ML2032** | 3.0V | ~65mAh | 光动能手表、需要 3.0V 严格定压的 CMOS 备份电源 |
 
 ---
 
-## Step-by-Step: How to Recharge Your Coin Cell
+## 高品质极简环保牛皮纸盒包装
 
-1. Insert your LIR2032/LIR2450 battery into the **Vszapower Smart Dock**.
-2. Connect to any 5V USB port (Laptop, Powerbank, or Wall Adapter).
-3. The LED indicator turns **Solid RED** while charging.
-4. When fully charged (~45 mins), the LED turns **Solid GREEN** and safety auto-shutoff engages.
+在选择微型电子元器件时，包装设计往往反映了制造工厂的工程标准。
 
-Explore our full line of **[Smart Coin Cell Chargers](/products/lir2032-starter-kit)** today.`
+**Vszapower** 全线产品均采用定制的 **Precision Eco-Kraft 高密度牛皮纸盒包装**。除了质感高雅外，环保牛皮纸包装还带来：
+1. **静电防护**：有效隔离运输途中的静电干扰与短路风险。
+2. **参数一目了然**：正面清晰标注 3.6V-4.2V 微芯片过充电控制参数。
+3. **极简减塑**：零塑料过度包装，符合现代化绿色环保理念。
+
+---
+
+## 4 步轻松完成纽扣电池充电
+
+1. 将 LIR2032 / LIR2450 电池放入 **Vszapower 智能充电座** 的独立卡槽。
+2. 连接任意 5V USB 供电口（笔记本电脑、充电宝或手机充电头）。
+3. 充电过程中指示灯呈现 **高亮红色**。
+4. 约 45 分钟满电后，指示灯自动切换为 **常亮绿色** 并触发智能切断保护。
+
+即刻查看我们的 **[智能纽扣电池充电套装全系列](/products/lir2032-starter-kit)**！`
+  },
+  {
+    id: 'p3',
+    slug: 'airtag-battery-life-and-lir2032-compatibility-lab-test',
+    title: 'Apple AirTag 续航提升与 LIR2032 可充电电池实测与兼容性报告',
+    summary: 'AirTag 总是提示低电量？我们通过实验室实测，验证了 3.7V LIR2032 在 AirTag 上的高频定位、蜂鸣器响铃及全电量循环表现。',
+    category: '设备兼容测评',
+    tags: ['AirTag', '车钥匙遥控', '实测报告', 'LIR2032'],
+    cover_image: 'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=1200&q=80',
+    author: 'Vszapower 实验室测试组',
+    read_time: '5 分钟阅读',
+    published: true,
+    created_at: new Date().toISOString(),
+    content: `# Apple AirTag 续航提升与 LIR2032 可充电电池实测与兼容性报告
+
+Apple AirTag 作为全球广受欢迎的防丢标记设备，采用一枚标准 2032 规格纽扣电池供电。官方标称续航约 1 年，但在高频寻物、查找响铃或处于人流量巨大的蓝牙节点区域时，电池消耗速度显著加快。
+
+很多用户提出疑问：**能否用可充电的 LIR2032 替代 AirTag 中的一次性 CR2032 电池？** 我们在电化学实验室进行了为期 30 天的严苛测试。
+
+---
+
+## 实验室实测关键结论
+
+> [!NOTE]
+> **测试结论概览**：LIR2032 在 AirTag 中运行稳定，U1 超宽频精确查找与蓝牙广播功能完全正常，且支持无限次反复充电。
+
+### 1. 电压承受度测试
+AirTag 内部的电源管理芯片（PMIC）设计工作上限可达 **4.5V**。当放入刚充满电（4.2V）的 LIR2032 时，AirTag 能够立即无缝识别并初始化成功，无任何发热或异常提示。
+
+### 2. 蜂鸣器响铃与精准查找功能
+由于 LIR2032 输出电压略高于普通 CR2032（3.7V vs 3.0V），AirTag 内置蜂鸣器在发出提示音时声音更加清晰洪亮，U1 芯片的信号发射功率保持最高水准。
+
+### 3. 循环充电周期
+虽然单次充电在 AirTag 上的持续使用时长约为 3 - 4 个月（容量约为一次性电池的 1/4），但由于充电过程仅需 **45 分钟** 即可充满，配备 2 节以上 LIR2032 交替使用，即可实现真正的 **零购买成本、零电池浪费** 体验！
+
+---
+
+### 推荐搭配
+建议搭配使用 **[Vszapower LIR2032 入门套装](/products/lir2032-starter-kit)**，套装内含 4 节高容量可充电池与 USB 双槽充电器。`
+  },
+  {
+    id: 'p4',
+    slug: 'coin-cell-charging-safety-and-smart-chip-tech',
+    title: '微型纽扣电池智能充电器脉冲保护与 Auto-Cut 芯片原理解析',
+    summary: '纽扣电池充电为何不能使用常规快充？深入了解 20mA 微电流控制、Auto-Cut 饱满自动切断防过充机制与微型安全电路设计。',
+    category: '充电与安全',
+    tags: ['充电安全', '智能芯片', '防过充', '环保纸盒'],
+    cover_image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80',
+    author: 'Vszapower 研发中心',
+    read_time: '7 分钟阅读',
+    published: true,
+    created_at: new Date().toISOString(),
+    content: `# 微型纽扣电池智能充电器脉冲保护与 Auto-Cut 芯片原理解析
+
+纽扣电池虽然体积小小，但其内部电化学结构与锂离子电芯同样精准。错误使用高电流充电设备极易对扣式电池造成不可逆损伤。
+
+本文将为您揭秘 **Vszapower 智能扣式电池充电座** 内部的微型保护芯片与高效脉冲充电架构。
+
+---
+
+## 1. 为什么纽扣电池必须使用 20mA-50mA 微电流？
+
+与手机电池（数千毫安时，充放电电流可达数安培）不同，LIR2032 电池的容量通常在 **45mAh - 50mAh** 之间。
+
+按照电池充电 C 率（C-Rate）安全标准，最佳充电倍率应保持在 **0.5C - 1C**。这意味着充电电流必须严格锁定在 **20mA 至 50mA** 之间：
+- **电流过大**：会导致电解液结晶与内阻剧增，缩短电池寿命。
+- **电流精确调控**：确保电芯内部锂离子均匀嵌入负极石墨层，循环寿命达到 500 次以上。
+
+---
+
+## 2. Auto-Cut 饱充自动切断技术
+
+Vszapower 智能充电座每个通道均内置独立的 IC 控制单元：
+1. **实时电压监测**：每毫秒对电池端电压进行高精度采样。
+2. **预充与恒流段**：对低电压电池采用柔和预充，随后进入恒流阶段。
+3. **4.20V 阀值断电**：当电池电压精确达到 **4.20V ± 0.05V** 时，芯片立即触发 **Auto-Cut** 硬件级关闭电流，防止任何形式的过充。
+
+---
+
+## 3. 防反接与短路双重防护
+
+当用户在夜间或不便观察时误将电池正负极颠倒放入卡槽，Vszapower 智能电路会自动切断通道回路，且 LED 状态灯不会亮起，有效保护电池与充电器电路不受损坏。
+
+结合**高密度环保牛皮纸盒包装**，无论是在实验室桌面、家用办公桌还是出差便携包中，都能提供持久可靠的安全保障。`
   }
 ];
 

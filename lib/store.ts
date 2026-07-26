@@ -29,6 +29,7 @@ export interface PostItem {
   title: string;
   summary: string;
   category: string;
+  tags?: string[];
   cover_image: string;
   author: string;
   read_time: string;
