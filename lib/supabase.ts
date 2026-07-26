@@ -419,6 +419,24 @@ export const MOCK_COMPATIBILITY = [
     common_devices: ['Solar Watches', 'Motherboard CMOS Backup', 'Solar Keychains'],
     recommended_charger: 'Vszapower Universal Dock',
     notes: 'Direct 3.0V voltage match for solar/CMOS applications.'
+  },
+  {
+    standard_model: 'CR1632',
+    rechargeable_model: 'LIR1632',
+    voltage: '3.7V (Replaces 3.0V)',
+    capacity: '20mAh',
+    common_devices: ['Car Key Remotes', 'Heart Rate Chest Straps', 'Digital Calipers'],
+    recommended_charger: 'Vszapower Universal Micro Dock',
+    notes: '16mm x 3.2mm rechargeable coin cell.'
+  },
+  {
+    standard_model: 'CR1220',
+    rechargeable_model: 'LIR1220',
+    voltage: '3.7V (Replaces 3.0V)',
+    capacity: '12mAh',
+    common_devices: ['Smart Watch RTC', 'Micro Laser Pointers', 'Miniature Calculators'],
+    recommended_charger: 'Vszapower Universal Micro Dock',
+    notes: 'Micro 12mm x 2.0mm rechargeable coin cell.'
   }
 ];
 
