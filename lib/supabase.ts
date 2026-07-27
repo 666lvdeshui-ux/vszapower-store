@@ -32,10 +32,12 @@ export const MOCK_PRODUCTS = [
       'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1200&q=80',
     ],
     certifications: [
-      { name: 'CE 欧盟安全认证', image_url: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80' },
-      { name: 'FCC 电磁兼容认证', image_url: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80' },
-      { name: 'RoHS 环保无毒认证', image_url: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80' },
-      { name: 'UN38.3 锂电池运输安全认证', image_url: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80' }
+      { name: 'GCC 认证', image_url: '' },
+      { name: 'Battery 电池检测认证', image_url: '' },
+      { name: 'CE 欧盟安全认证', image_url: '' },
+      { name: 'FCC 电磁兼容认证', image_url: '' },
+      { name: 'RoHS 环保无毒认证', image_url: '' },
+      { name: 'UN38.3 锂电池安全认证', image_url: '' }
     ],
     badge: 'BEST SELLER / SAVE 37%',
     description: 'Complete Starter Pack with 1x Smart Dual-Slot Charger Dock + 4x High-Capacity LIR2032 Rechargeable Coin Cell Batteries in eco-friendly papercard gift packaging. Features dual-slot 3.6V/4.2V micro-chip control, overcharge protection, red/green LED charge status, and reverse polarity defense.',

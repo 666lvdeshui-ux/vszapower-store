@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ProductItem, CertificationItem } from '@/lib/store';
-import { MessageSquare, Info, Zap, X, Filter, Shield, ChevronLeft, ChevronRight, Maximize2, Award } from 'lucide-react';
+import { MessageSquare, Info, Zap, X, Filter, Shield, ShieldCheck, ChevronLeft, ChevronRight, Maximize2, Award } from 'lucide-react';
 
 interface ProductGridProps {
   onContactClick: (productName?: string) => void;
@@ -564,53 +564,33 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
 
                 {(!selectedProduct.certifications || selectedProduct.certifications.length === 0) ? (
                   <div style={{ background: 'rgba(255,255,255,0.02)', padding: '16px', borderRadius: '12px', textAlign: 'center', color: 'var(--text-dim)', fontSize: '0.88rem' }}>
-                    该产品符合 ISO9001, CE, FCC, RoHS 及 UN38.3 锂电池国际通用安全检测认证。
+                    该产品符合 GCC, Battery, CE, FCC, RoHS 及 UN38.3 锂电池国际通用安全检测认证。
                   </div>
                 ) : (
                   <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
-                    gap: '16px',
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '12px',
                   }}>
                     {selectedProduct.certifications.map((cert, idx) => (
                       <div
                         key={idx}
-                        onClick={() => openLightbox(selectedProduct.certifications!.map(c => c.image_url), idx, cert.name)}
                         style={{
-                          background: 'rgba(255,255,255,0.03)',
-                          border: '1px solid var(--border-color)',
-                          borderRadius: '14px',
-                          overflow: 'hidden',
-                          cursor: 'zoom-in',
-                          transition: 'transform 0.2s, border-color 0.2s',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          background: 'rgba(0, 230, 153, 0.08)',
+                          border: '1px solid rgba(0, 230, 153, 0.3)',
+                          borderRadius: '10px',
+                          padding: '10px 16px',
+                          color: '#fff',
+                          fontSize: '0.9rem',
+                          fontWeight: 700,
+                          boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
                         }}
                       >
-                        <div style={{ height: '120px', background: '#0d121c', position: 'relative' }}>
-                          <img src={cert.image_url} alt={cert.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                          <div style={{
-                            position: 'absolute',
-                            inset: 0,
-                            background: 'linear-gradient(180deg, transparent 50%, rgba(10,13,20,0.8) 100%)',
-                          }} />
-                          <span style={{
-                            position: 'absolute',
-                            bottom: '6px',
-                            right: '6px',
-                            background: 'rgba(0,0,0,0.7)',
-                            padding: '2px 6px',
-                            borderRadius: '4px',
-                            fontSize: '0.7rem',
-                            color: '#fff',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '2px',
-                          }}>
-                            <Maximize2 size={10} /> 放大
-                          </span>
-                        </div>
-                        <div style={{ padding: '10px 12px', fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)', textAlign: 'center' }}>
-                          {cert.name}
-                        </div>
+                        <ShieldCheck size={18} color="var(--accent-green)" />
+                        <span>{cert.name}</span>
                       </div>
                     ))}
                   </div>

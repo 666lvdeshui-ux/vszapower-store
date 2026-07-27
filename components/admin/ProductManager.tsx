@@ -490,7 +490,7 @@ export default function ProductManager() {
                 </button>
               </div>
 
-              {/* Certifications Manager Section */}
+              {/* Certifications Manager Section (Text Only - No Image Needed) */}
               <div style={{
                 background: 'rgba(255,255,255,0.02)',
                 padding: '16px',
@@ -498,85 +498,120 @@ export default function ProductManager() {
                 border: '1px solid var(--border-color)',
                 marginBottom: '16px',
               }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
                   <label style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--accent-green)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <Shield size={16} /> 产品资质与质量认证管理 (Certifications)
+                    <Shield size={16} /> 产品资质名称管理 (Certifications &amp; Standards)
                   </label>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      const currentCerts = Array.isArray(editingProduct.certifications) ? [...editingProduct.certifications] : [];
-                      currentCerts.push({ name: '', image_url: '' });
-                      setEditingProduct({ ...editingProduct, certifications: currentCerts });
-                    }}
-                    className="btn-secondary"
-                    style={{ padding: '4px 12px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '4px' }}
-                  >
-                    <Plus size={14} /> 添加资质
-                  </button>
+                </div>
+                <p style={{ fontSize: '0.78rem', color: 'var(--text-dim)', marginBottom: '12px' }}>
+                  仅需填写资质名称（无需上传图片），如 GCC, Battery, CE, FCC, RoHS, UN38.3 等。
+                </p>
+
+                {/* Quick Add Preset Certification Chips */}
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '14px' }}>
+                  <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', alignSelf: 'center' }}>常用快速添加：</span>
+                  {['GCC', 'Battery', 'CE 认证', 'FCC 认证', 'RoHS 认证', 'UN38.3 认证'].map(preset => (
+                    <button
+                      key={preset}
+                      type="button"
+                      onClick={() => {
+                        const currentCerts = Array.isArray(editingProduct.certifications) ? [...editingProduct.certifications] : [];
+                        if (!currentCerts.some(c => c.name === preset)) {
+                          currentCerts.push({ name: preset, image_url: '' });
+                          setEditingProduct({ ...editingProduct, certifications: currentCerts });
+                        }
+                      }}
+                      style={{
+                        padding: '4px 10px',
+                        borderRadius: '6px',
+                        background: 'rgba(0, 230, 153, 0.1)',
+                        border: '1px solid rgba(0, 230, 153, 0.25)',
+                        color: 'var(--accent-green)',
+                        fontSize: '0.75rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                      }}
+                    >
+                      + {preset}
+                    </button>
+                  ))}
                 </div>
 
+                {/* Certification Name Items List */}
                 {(!editingProduct.certifications || editingProduct.certifications.length === 0) ? (
-                  <p style={{ fontSize: '0.8rem', color: 'var(--text-dim)', textAlign: 'center', padding: '10px' }}>
-                    暂无配置资质证书，点击“添加资质”按钮上传新增（如 CE/FCC/RoHS/UN38.3 等）
+                  <p style={{ fontSize: '0.8rem', color: 'var(--text-dim)', textAlign: 'center', padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px' }}>
+                    暂无配置资质，可从上方快捷点击添加（如 GCC, Battery）或在下方手动添加。
                   </p>
                 ) : (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '12px' }}>
                     {editingProduct.certifications.map((cert, idx) => (
-                      <div key={idx} style={{ background: 'rgba(255,255,255,0.02)', padding: '12px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', gap: '8px', marginBottom: '8px' }}>
-                          <input
-                            type="text"
-                            placeholder="资质名称 (例: CE 欧盟安全认证)"
-                            value={cert.name}
-                            onChange={e => {
-                              const newCerts = [...editingProduct.certifications!];
-                              newCerts[idx].name = e.target.value;
-                              setEditingProduct({ ...editingProduct, certifications: newCerts });
-                            }}
-                            style={{
-                              flex: 1,
-                              padding: '8px 10px',
-                              borderRadius: '6px',
-                              background: 'rgba(255,255,255,0.05)',
-                              border: '1px solid var(--border-color)',
-                              color: '#fff',
-                              fontSize: '0.85rem',
-                            }}
-                          />
-                          <button
-                            type="button"
-                            onClick={() => {
-                              const newCerts = editingProduct.certifications!.filter((_, i) => i !== idx);
-                              setEditingProduct({ ...editingProduct, certifications: newCerts });
-                            }}
-                            style={{
-                              background: 'rgba(239, 68, 68, 0.15)',
-                              border: '1px solid rgba(239, 68, 68, 0.3)',
-                              color: '#ef4444',
-                              borderRadius: '6px',
-                              padding: '6px 12px',
-                              fontSize: '0.8rem',
-                              cursor: 'pointer',
-                            }}
-                          >
-                            删除资质
-                          </button>
-                        </div>
-                        <ImageUploader
-                          label="证书图片上传"
-                          value={cert.image_url}
-                          onChange={newUrl => {
+                      <div
+                        key={idx}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          background: 'rgba(255,255,255,0.06)',
+                          border: '1px solid var(--border-color)',
+                          padding: '6px 12px',
+                          borderRadius: '8px',
+                        }}
+                      >
+                        <input
+                          type="text"
+                          placeholder="资质名称 (例: GCC, Battery)"
+                          value={cert.name}
+                          onChange={e => {
                             const newCerts = [...editingProduct.certifications!];
-                            newCerts[idx].image_url = newUrl;
+                            newCerts[idx].name = e.target.value;
                             setEditingProduct({ ...editingProduct, certifications: newCerts });
                           }}
-                          placeholder="点击或拖拽上传证书图片"
+                          style={{
+                            background: 'transparent',
+                            border: 'none',
+                            color: '#fff',
+                            fontSize: '0.85rem',
+                            fontWeight: 600,
+                            outline: 'none',
+                            minWidth: '120px',
+                          }}
                         />
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const newCerts = editingProduct.certifications!.filter((_, i) => i !== idx);
+                            setEditingProduct({ ...editingProduct, certifications: newCerts });
+                          }}
+                          style={{
+                            background: 'none',
+                            border: 'none',
+                            color: '#ef4444',
+                            cursor: 'pointer',
+                            fontSize: '1rem',
+                            lineHeight: 1,
+                            padding: '0 2px',
+                          }}
+                          title="删除此资质"
+                        >
+                          ✕
+                        </button>
                       </div>
                     ))}
                   </div>
                 )}
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    const currentCerts = Array.isArray(editingProduct.certifications) ? [...editingProduct.certifications] : [];
+                    currentCerts.push({ name: '', image_url: '' });
+                    setEditingProduct({ ...editingProduct, certifications: currentCerts });
+                  }}
+                  className="btn-secondary"
+                  style={{ padding: '6px 14px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '4px', marginTop: '8px' }}
+                >
+                  <Plus size={14} /> 手动添加自定义资质名称
+                </button>
               </div>
 
               <div>
