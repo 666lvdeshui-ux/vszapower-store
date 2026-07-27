@@ -181,6 +181,9 @@ export const INITIAL_INQUIRIES: InquiryItem[] = [
 
 // Global in-memory cache fallback for serverless execution
 let productsCache: ProductItem[] = [...(MOCK_PRODUCTS as unknown as ProductItem[])];
+let isProductsInitialized = true;
+const deletedProductIds = new Set<string>();
+
 let postsCache: PostItem[] = [...(MOCK_POSTS as unknown as PostItem[])];
 let bannersCache: BannerItem[] = [...INITIAL_BANNERS];
 let inquiriesCache: InquiryItem[] = [...INITIAL_INQUIRIES];
@@ -245,22 +248,17 @@ export async function removeVideo(id: string): Promise<boolean> {
 }
 
 export async function fetchAllProducts(): Promise<ProductItem[]> {
-  // Always ensure default catalog contains full vector product items
-  if (productsCache.length === 0 || productsCache.length < MOCK_PRODUCTS.length) {
-    productsCache = [...(MOCK_PRODUCTS as unknown as ProductItem[])];
-  }
-
   if (supabase) {
     try {
       const { data, error } = await supabase.from('products').select('*').order('created_at', { ascending: true });
       if (!error && data && data.length > 0) {
-        return data as ProductItem[];
+        return (data as ProductItem[]).filter(p => !deletedProductIds.has(p.id));
       }
     } catch (e) {
       console.warn('Supabase fetch error, using local store:', e);
     }
   }
-  return productsCache;
+  return productsCache.filter(p => !deletedProductIds.has(p.id));
 }
 
 export async function saveProduct(product: Partial<ProductItem>): Promise<ProductItem> {
@@ -282,6 +280,8 @@ export async function saveProduct(product: Partial<ProductItem>): Promise<Produc
     created_at: product.created_at || new Date().toISOString(),
   };
 
+  deletedProductIds.delete(newProduct.id);
+
   if (supabase) {
     try {
       const { data, error } = await supabase.from('products').upsert(newProduct).select().single();
@@ -301,6 +301,9 @@ export async function saveProduct(product: Partial<ProductItem>): Promise<Produc
 }
 
 export async function removeProduct(id: string): Promise<boolean> {
+  deletedProductIds.add(id);
+  productsCache = productsCache.filter(p => p.id !== id);
+
   if (supabase) {
     try {
       const { error } = await supabase.from('products').delete().eq('id', id);
@@ -310,7 +313,6 @@ export async function removeProduct(id: string): Promise<boolean> {
     }
   }
 
-  productsCache = productsCache.filter(p => p.id !== id);
   return true;
 }
 
