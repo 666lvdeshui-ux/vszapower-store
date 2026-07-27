@@ -68,13 +68,29 @@ export default function ProductManager() {
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!editingProduct) return;
-    setSaveStatus('Saving...');
+    setSaveStatus('Saving product...');
     try {
       const res = await fetch('/api/products', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(editingProduct),
       });
+
+      if (!res.ok) {
+        const text = await res.text();
+        let errMsg = `Server returned ${res.status}`;
+        try {
+          const parsed = JSON.parse(text);
+          errMsg = parsed.error || parsed.message || errMsg;
+        } catch {
+          if (res.status === 413) {
+            errMsg = '数据包/图片文件过大，超出服务器限制。请尝试压缩图片或删除极大图片后再试。';
+          }
+        }
+        setSaveStatus(`保存失败: ${errMsg}`);
+        return;
+      }
+
       const json = await res.json();
       if (json.success) {
         setSaveStatus('Saved successfully!');
@@ -82,10 +98,11 @@ export default function ProductManager() {
         setIsModalOpen(false);
         loadProducts();
       } else {
-        setSaveStatus(`Error: ${json.error}`);
+        setSaveStatus(`保存失败: ${json.error || 'Unknown error'}`);
       }
     } catch (e) {
-      setSaveStatus('Failed to save product');
+      console.error('Failed to save product:', e);
+      setSaveStatus('保存失败，请检查网络连接或网络图片 URL 后重试');
     }
   };
 

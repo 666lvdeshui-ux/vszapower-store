@@ -78,6 +78,22 @@ export default function PostManager() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(editingPost),
       });
+
+      if (!res.ok) {
+        const text = await res.text();
+        let errMsg = `Server returned ${res.status}`;
+        try {
+          const parsed = JSON.parse(text);
+          errMsg = parsed.error || parsed.message || errMsg;
+        } catch {
+          if (res.status === 413) {
+            errMsg = '文章图片或数据体过大，超出服务器限制。请压缩图片后再试。';
+          }
+        }
+        setSaveStatus(`保存失败: ${errMsg}`);
+        return;
+      }
+
       const json = await res.json();
       if (json.success) {
         setSaveStatus('Article published successfully!');
@@ -85,10 +101,11 @@ export default function PostManager() {
         setIsModalOpen(false);
         loadPosts();
       } else {
-        setSaveStatus(`Error: ${json.error}`);
+        setSaveStatus(`保存失败: ${json.error || 'Unknown error'}`);
       }
     } catch (e) {
-      setSaveStatus('Failed to save article');
+      console.error('Failed to save article:', e);
+      setSaveStatus('保存失败，请检查网络连接后再试');
     }
   };
 
