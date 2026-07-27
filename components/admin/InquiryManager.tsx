@@ -20,6 +20,13 @@ export default function InquiryManager() {
 
       let serverInquiries: InquiryItem[] = json.inquiries || [];
 
+      // Read deleted inquiries set
+      let deletedIdsSet = new Set<string>();
+      try {
+        const storedDeleted = localStorage.getItem('vszapower_deleted_inquiries');
+        if (storedDeleted) deletedIdsSet = new Set(JSON.parse(storedDeleted));
+      } catch (e) {}
+
       // Read local storage inquiries
       let localInquiries: InquiryItem[] = [];
       try {
@@ -27,11 +34,13 @@ export default function InquiryManager() {
         if (stored) localInquiries = JSON.parse(stored);
       } catch (e) {}
 
-      // Merge server & local by ID
+      // Merge server & local by ID, excluding deleted
       const map = new Map<string, InquiryItem>();
-      serverInquiries.forEach(item => map.set(item.id, item));
+      serverInquiries.forEach(item => {
+        if (!deletedIdsSet.has(item.id)) map.set(item.id, item);
+      });
       localInquiries.forEach(item => {
-        if (!map.has(item.id)) map.set(item.id, item);
+        if (!deletedIdsSet.has(item.id) && !map.has(item.id)) map.set(item.id, item);
       });
 
       const merged = Array.from(map.values()).sort((a, b) => {
@@ -82,6 +91,16 @@ export default function InquiryManager() {
     if (!confirm('确定要删除此条咨询记录吗？')) return;
     try {
       await fetch(`/api/inquiries?id=${id}`, { method: 'DELETE' });
+      
+      // Update deleted IDs set in localStorage
+      let deletedIdsSet = new Set<string>();
+      try {
+        const storedDeleted = localStorage.getItem('vszapower_deleted_inquiries');
+        if (storedDeleted) deletedIdsSet = new Set(JSON.parse(storedDeleted));
+      } catch (e) {}
+      deletedIdsSet.add(id);
+      localStorage.setItem('vszapower_deleted_inquiries', JSON.stringify(Array.from(deletedIdsSet)));
+
       const updated = inquiries.filter(item => item.id !== id);
       setInquiries(updated);
       localStorage.setItem('vszapower_inquiries_cache', JSON.stringify(updated));

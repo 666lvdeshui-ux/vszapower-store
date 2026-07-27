@@ -181,69 +181,77 @@ export const INITIAL_INQUIRIES: InquiryItem[] = [
 
 // Global in-memory cache fallback for serverless execution
 let productsCache: ProductItem[] = [...(MOCK_PRODUCTS as unknown as ProductItem[])];
-let isProductsInitialized = true;
 const deletedProductIds = new Set<string>();
 
 let postsCache: PostItem[] = [...(MOCK_POSTS as unknown as PostItem[])];
+const deletedPostIds = new Set<string>();
+
 let bannersCache: BannerItem[] = [...INITIAL_BANNERS];
+const deletedBannerIds = new Set<string>();
+
 let inquiriesCache: InquiryItem[] = [...INITIAL_INQUIRIES];
+const deletedInquiryIds = new Set<string>();
+
 let videosCache: VideoItem[] = [...INITIAL_VIDEOS];
+const deletedVideoIds = new Set<string>();
 
 export async function fetchAllVideos(): Promise<VideoItem[]> {
   if (supabase) {
     try {
       const { data, error } = await supabase.from('videos').select('*').order('created_at', { ascending: false });
       if (!error && data && data.length > 0) {
-        return data as VideoItem[];
+        return (data as VideoItem[]).filter(v => !deletedVideoIds.has(v.id));
       }
     } catch (e) {
       console.warn('Supabase fetch videos error, using local store:', e);
     }
   }
-  return videosCache;
+  return videosCache.filter(v => !deletedVideoIds.has(v.id));
 }
 
 export async function saveVideo(video: Partial<VideoItem>): Promise<VideoItem> {
-  const newVid: VideoItem = {
-    id: video.id || `vid_${Date.now()}`,
-    title: video.title || 'Untitled Short Video',
+  const newVideo: VideoItem = {
+    id: video.id || `video_${Date.now()}`,
+    title: video.title || 'Untitled Video',
     duration: video.duration || '00:30',
-    video_url: video.video_url || '',
-    poster_url: video.poster_url || '',
-    keywords: Array.isArray(video.keywords) ? video.keywords : ['#VSZAPOWER'],
+    video_url: video.video_url || 'https://assets.mixkit.co/videos/preview/mixkit-circuit-board-micro-controller-42862-large.mp4',
+    poster_url: video.poster_url || 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+    keywords: Array.isArray(video.keywords) ? video.keywords : ['纽扣电池充电器', 'LIR2032'],
     description: video.description || '',
     created_at: video.created_at || new Date().toISOString(),
   };
 
+  deletedVideoIds.delete(newVideo.id);
+
   if (supabase) {
     try {
-      const { data, error } = await supabase.from('videos').upsert(newVid).select().single();
+      const { data, error } = await supabase.from('videos').upsert(newVideo).select().single();
       if (!error && data) return data as VideoItem;
     } catch (e) {
       console.warn('Supabase save video error, falling back to local store:', e);
     }
   }
 
-  const index = videosCache.findIndex(v => v.id === newVid.id);
+  const index = videosCache.findIndex(v => v.id === newVideo.id);
   if (index >= 0) {
-    videosCache[index] = newVid;
+    videosCache[index] = newVideo;
   } else {
-    videosCache.unshift(newVid);
+    videosCache.unshift(newVideo);
   }
-  return newVid;
+  return newVideo;
 }
 
 export async function removeVideo(id: string): Promise<boolean> {
+  deletedVideoIds.add(id);
+  videosCache = videosCache.filter(v => v.id !== id);
+
   if (supabase) {
     try {
-      const { error } = await supabase.from('videos').delete().eq('id', id);
-      if (!error) return true;
+      await supabase.from('videos').delete().eq('id', id);
     } catch (e) {
       console.warn('Supabase delete video error:', e);
     }
   }
-
-  videosCache = videosCache.filter(v => v.id !== id);
   return true;
 }
 
@@ -306,8 +314,7 @@ export async function removeProduct(id: string): Promise<boolean> {
 
   if (supabase) {
     try {
-      const { error } = await supabase.from('products').delete().eq('id', id);
-      if (!error) return true;
+      await supabase.from('products').delete().eq('id', id);
     } catch (e) {
       console.warn('Supabase delete error:', e);
     }
@@ -321,29 +328,45 @@ export async function fetchAllPosts(): Promise<PostItem[]> {
     try {
       const { data, error } = await supabase.from('posts').select('*').order('created_at', { ascending: false });
       if (!error && data && data.length > 0) {
-        return data as PostItem[];
+        return (data as PostItem[]).filter(p => !deletedPostIds.has(p.id));
       }
     } catch (e) {
-      console.warn('Supabase fetch error, using local store:', e);
+      console.warn('Supabase fetch posts error, using local store:', e);
     }
   }
-  return postsCache;
+  return postsCache.filter(p => !deletedPostIds.has(p.id));
+}
+
+export async function getPostBySlug(slug: string): Promise<PostItem | null> {
+  if (supabase) {
+    try {
+      const { data, error } = await supabase.from('posts').select('*').eq('slug', slug).single();
+      if (!error && data) return data as PostItem;
+    } catch (e) {
+      console.warn('Supabase get post by slug error:', e);
+    }
+  }
+  const post = postsCache.find(p => p.slug === slug && !deletedPostIds.has(p.id));
+  return post || null;
 }
 
 export async function savePost(post: Partial<PostItem>): Promise<PostItem> {
   const newPost: PostItem = {
     id: post.id || `post_${Date.now()}`,
-    slug: post.slug || (post.title ? post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') : `article-${Date.now()}`),
+    slug: post.slug || (post.title ? post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') : `post-${Date.now()}`),
     title: post.title || 'Untitled Article',
     summary: post.summary || '',
+    content: post.content || '',
     category: post.category || 'Battery Academy',
+    tags: Array.isArray(post.tags) ? post.tags : ['纽扣电池充电器', 'LIR2032'],
     cover_image: post.cover_image || 'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1200&q=80',
-    author: post.author || 'Vszapower Editorial Team',
+    author: post.author || 'Vszapower Tech Team',
     read_time: post.read_time || '5 min read',
-    content: post.content || '# Article Title\n\nWrite your content here...',
-    published: post.published !== undefined ? post.published : true,
+    published: post.published ?? true,
     created_at: post.created_at || new Date().toISOString(),
   };
+
+  deletedPostIds.delete(newPost.id);
 
   if (supabase) {
     try {
@@ -364,16 +387,16 @@ export async function savePost(post: Partial<PostItem>): Promise<PostItem> {
 }
 
 export async function removePost(id: string): Promise<boolean> {
+  deletedPostIds.add(id);
+  postsCache = postsCache.filter(p => p.id !== id);
+
   if (supabase) {
     try {
-      const { error } = await supabase.from('posts').delete().eq('id', id);
-      if (!error) return true;
+      await supabase.from('posts').delete().eq('id', id);
     } catch (e) {
       console.warn('Supabase delete post error:', e);
     }
   }
-
-  postsCache = postsCache.filter(p => p.id !== id);
   return true;
 }
 
@@ -382,13 +405,13 @@ export async function fetchAllBanners(): Promise<BannerItem[]> {
     try {
       const { data, error } = await supabase.from('banners').select('*').order('created_at', { ascending: true });
       if (!error && data && data.length > 0) {
-        return data as BannerItem[];
+        return (data as BannerItem[]).filter(b => !deletedBannerIds.has(b.id));
       }
     } catch (e) {
       console.warn('Supabase fetch banners error, using local store:', e);
     }
   }
-  return bannersCache;
+  return bannersCache.filter(b => !deletedBannerIds.has(b.id));
 }
 
 export async function saveBanner(banner: Partial<BannerItem>): Promise<BannerItem> {
@@ -403,6 +426,8 @@ export async function saveBanner(banner: Partial<BannerItem>): Promise<BannerIte
     highlight: banner.highlight || '✓ 500+ Recharge Cycles',
     created_at: banner.created_at || new Date().toISOString(),
   };
+
+  deletedBannerIds.delete(newBanner.id);
 
   if (supabase) {
     try {
@@ -423,16 +448,16 @@ export async function saveBanner(banner: Partial<BannerItem>): Promise<BannerIte
 }
 
 export async function removeBanner(id: string): Promise<boolean> {
+  deletedBannerIds.add(id);
+  bannersCache = bannersCache.filter(b => b.id !== id);
+
   if (supabase) {
     try {
-      const { error } = await supabase.from('banners').delete().eq('id', id);
-      if (!error) return true;
+      await supabase.from('banners').delete().eq('id', id);
     } catch (e) {
       console.warn('Supabase delete banner error:', e);
     }
   }
-
-  bannersCache = bannersCache.filter(b => b.id !== id);
   return true;
 }
 
@@ -441,13 +466,13 @@ export async function fetchAllInquiries(): Promise<InquiryItem[]> {
     try {
       const { data, error } = await supabase.from('inquiries').select('*').order('created_at', { ascending: false });
       if (!error && data && data.length > 0) {
-        return data as InquiryItem[];
+        return (data as InquiryItem[]).filter(i => !deletedInquiryIds.has(i.id));
       }
     } catch (e) {
       console.warn('Supabase fetch inquiries error, using local store:', e);
     }
   }
-  return inquiriesCache;
+  return inquiriesCache.filter(i => !deletedInquiryIds.has(i.id));
 }
 
 export async function saveInquiry(inquiry: Partial<InquiryItem>): Promise<InquiryItem> {
@@ -461,6 +486,8 @@ export async function saveInquiry(inquiry: Partial<InquiryItem>): Promise<Inquir
     status: inquiry.status || 'new',
     created_at: inquiry.created_at || new Date().toISOString(),
   };
+
+  deletedInquiryIds.delete(newInquiry.id);
 
   if (supabase) {
     try {
@@ -481,16 +508,16 @@ export async function saveInquiry(inquiry: Partial<InquiryItem>): Promise<Inquir
 }
 
 export async function removeInquiry(id: string): Promise<boolean> {
+  deletedInquiryIds.add(id);
+  inquiriesCache = inquiriesCache.filter(i => i.id !== id);
+
   if (supabase) {
     try {
-      const { error } = await supabase.from('inquiries').delete().eq('id', id);
-      if (!error) return true;
+      await supabase.from('inquiries').delete().eq('id', id);
     } catch (e) {
       console.warn('Supabase delete inquiry error:', e);
     }
   }
-
-  inquiriesCache = inquiriesCache.filter(i => i.id !== id);
   return true;
 }
 

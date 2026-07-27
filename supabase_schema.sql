@@ -5,12 +5,13 @@
 
 -- 1. Create Posts table (Battery Academy Blog)
 CREATE TABLE IF NOT EXISTS public.posts (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  id TEXT PRIMARY KEY,
   slug TEXT UNIQUE NOT NULL,
   title TEXT NOT NULL,
   summary TEXT NOT NULL,
   content TEXT NOT NULL,
   category TEXT DEFAULT 'Battery Academy',
+  tags TEXT[] DEFAULT '{}',
   cover_image TEXT,
   author TEXT DEFAULT 'Vszapower Tech Team',
   read_time TEXT DEFAULT '5 min read',
@@ -21,14 +22,17 @@ CREATE TABLE IF NOT EXISTS public.posts (
 
 -- 2. Create Products table
 CREATE TABLE IF NOT EXISTS public.products (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  id TEXT PRIMARY KEY,
   slug TEXT UNIQUE NOT NULL,
   title TEXT NOT NULL,
   tagline TEXT,
   price NUMERIC(10,2) NOT NULL,
   compare_at_price NUMERIC(10,2),
   is_starter_kit BOOLEAN DEFAULT false,
+  category TEXT DEFAULT '纽扣电池充电器',
   image_url TEXT,
+  images TEXT[] DEFAULT '{}',
+  certifications JSONB DEFAULT '[]'::jsonb,
   specs JSONB,
   description TEXT,
   badge TEXT,
@@ -37,7 +41,7 @@ CREATE TABLE IF NOT EXISTS public.products (
 
 -- 3. Create Battery Compatibility Matcher table
 CREATE TABLE IF NOT EXISTS public.battery_compatibilities (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  id TEXT PRIMARY KEY,
   standard_model TEXT UNIQUE NOT NULL, -- e.g. CR2032
   rechargeable_model TEXT NOT NULL,     -- e.g. LIR2032
   voltage TEXT NOT NULL,                -- e.g. 3.6V-3.7V
@@ -47,14 +51,19 @@ CREATE TABLE IF NOT EXISTS public.battery_compatibilities (
   notes TEXT
 );
 
--- 4. Enable Row Level Security (RLS) for public read access
+-- 4. Enable Row Level Security (RLS) for public full access
 ALTER TABLE public.posts ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.products ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.battery_compatibilities ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY "Allow public read posts" ON public.posts FOR SELECT USING (true);
-CREATE POLICY "Allow public read products" ON public.products FOR SELECT USING (true);
-CREATE POLICY "Allow public read compatibilities" ON public.battery_compatibilities FOR SELECT USING (true);
+DROP POLICY IF EXISTS "Allow all posts" ON public.posts;
+CREATE POLICY "Allow all posts" ON public.posts FOR ALL USING (true) WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow all products" ON public.products;
+CREATE POLICY "Allow all products" ON public.products FOR ALL USING (true) WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow all compatibilities" ON public.battery_compatibilities;
+CREATE POLICY "Allow all compatibilities" ON public.battery_compatibilities FOR ALL USING (true) WITH CHECK (true);
 
 -- 5. Seed Data for Products
 INSERT INTO public.products (slug, title, tagline, price, compare_at_price, is_starter_kit, image_url, badge, description, specs)
