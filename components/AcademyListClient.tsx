@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { PostItem } from '@/lib/store';
-import { Search, Clock, User, ArrowRight, List, LayoutGrid, BookOpen } from 'lucide-react';
+import { Search, Clock, User, Calendar, ArrowRight, List, LayoutGrid, BookOpen } from 'lucide-react';
 
 interface AcademyListClientProps {
   posts: PostItem[];
@@ -275,12 +275,15 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
                 <div>
                   {/* Tags & Meta Row */}
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '14px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
-                        <User size={14} style={{ color: 'var(--accent-green)' }} /> {post.author}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '0.85rem', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: 'var(--accent-green)', fontWeight: 600 }}>
+                        <Calendar size={14} /> {post.created_at ? new Date(post.created_at).toISOString().split('T')[0] : '2026-07-29'}
                       </span>
                       <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
-                        <Clock size={14} style={{ color: 'var(--accent-green)' }} /> {post.read_time}
+                        <User size={14} style={{ color: 'var(--text-dim)' }} /> {post.author}
+                      </span>
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                        <Clock size={14} style={{ color: 'var(--accent-cyan)' }} /> {post.read_time}
                       </span>
                     </div>
 
@@ -396,12 +399,12 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
 
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '12px' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <User size={14} /> {post.author}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '14px', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '12px', flexWrap: 'wrap' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--accent-green)', fontWeight: 600 }}>
+                      <Calendar size={14} /> {post.created_at ? new Date(post.created_at).toISOString().split('T')[0] : '2026-07-29'}
                     </span>
                     <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <Clock size={14} /> {post.read_time}
+                      <User size={14} /> {post.author}
                     </span>
                   </div>
 

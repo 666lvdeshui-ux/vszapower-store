@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { MOCK_POSTS } from '@/lib/supabase';
 import { PostItem } from '@/lib/store';
-import { BookOpen, Clock, ArrowRight, User } from 'lucide-react';
+import { BookOpen, Clock, ArrowRight, User, Calendar } from 'lucide-react';
 
 export default function BlogPreview({ posts: initialPosts = MOCK_POSTS }) {
   const [posts, setPosts] = useState<PostItem[]>(initialPosts as unknown as PostItem[]);
@@ -99,12 +99,15 @@ export default function BlogPreview({ posts: initialPosts = MOCK_POSTS }) {
               justifyContent: 'space-between',
             }}>
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '12px' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <User size={14} style={{ color: 'var(--accent-green)' }} /> {post.author}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '12px', flexWrap: 'wrap' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--accent-green)', fontWeight: 600 }}>
+                    <Calendar size={14} /> {post.created_at ? new Date(post.created_at).toISOString().split('T')[0] : '2026-07-29'}
                   </span>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <Clock size={14} style={{ color: 'var(--accent-green)' }} /> {post.read_time}
+                    <User size={14} style={{ color: 'var(--text-dim)' }} /> {post.author}
+                  </span>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <Clock size={14} style={{ color: 'var(--accent-cyan)' }} /> {post.read_time}
                   </span>
                 </div>
 
