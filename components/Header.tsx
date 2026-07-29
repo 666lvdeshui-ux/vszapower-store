@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Zap, BookOpen, Home, MessageSquare, Menu, X, Video } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
+import ThemeToggle from './ThemeToggle';
 import { useLanguage } from '@/context/LanguageContext';
 
 interface HeaderProps {
@@ -177,8 +178,11 @@ export default function Header({ onContactClick }: HeaderProps) {
           </Link>
         </nav>
 
-        {/* Action Controls: Language Switcher + Contact Button */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        {/* Action Controls: Theme Toggle + Language Switcher + Contact Button */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          {/* Light / Dark Mode Manual Switcher */}
+          <ThemeToggle />
+
           {/* Top-Right Language Switcher Dropdown */}
           <LanguageSwitcher />
 

@@ -3,6 +3,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { LanguageProvider } from '@/context/LanguageContext';
+import { ThemeProvider } from '@/context/ThemeContext';
 
 export const metadata: Metadata = {
   title: 'VSZAPOWER | Smart Coin Cell Charger & Rechargeable Batteries (LIR2032/LIR2450)',
@@ -56,11 +57,13 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <LanguageProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </LanguageProvider>
+        <ThemeProvider>
+          <LanguageProvider>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
