@@ -183,10 +183,10 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
           gap: '32px',
         }}>
           {filteredProducts.map(product => {
-            const translatedTitle = translateDynamicContent(product.title, lang);
-            const translatedTagline = translateDynamicContent(product.tagline, lang);
-            const translatedBadge = translateDynamicContent(product.badge, lang);
-            const translatedCategory = translateDynamicContent(product.category, lang);
+            const translatedTitle = product.translations?.[lang]?.title || translateDynamicContent(product.title, lang);
+            const translatedTagline = product.translations?.[lang]?.tagline || translateDynamicContent(product.tagline, lang);
+            const translatedBadge = product.translations?.[lang]?.badge || translateDynamicContent(product.badge, lang);
+            const translatedCategory = product.translations?.[lang]?.category || translateDynamicContent(product.category, lang);
 
             return (
               <div

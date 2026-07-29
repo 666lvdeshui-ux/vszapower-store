@@ -1,4 +1,5 @@
 import { MOCK_PRODUCTS, MOCK_POSTS, supabase } from './supabase';
+import { generatePostPreTranslations, generateProductPreTranslations } from './dynamicI18n';
 
 export interface CertificationItem {
   name: string;
@@ -20,6 +21,7 @@ export interface ProductItem {
   badge?: string;
   description: string;
   specs?: Record<string, string>;
+  translations?: Record<string, any>;
   created_at?: string;
 }
 
@@ -35,6 +37,7 @@ export interface PostItem {
   read_time: string;
   content: string;
   published: boolean;
+  translations?: Record<string, any>;
   created_at?: string;
 }
 
@@ -285,6 +288,14 @@ export async function saveProduct(product: Partial<ProductItem>): Promise<Produc
     badge: product.badge || '',
     description: product.description || '',
     specs: product.specs || {},
+    translations: product.translations || generateProductPreTranslations({
+      title: product.title || '',
+      tagline: product.tagline || '',
+      description: product.description || '',
+      badge: product.badge || '',
+      category: product.category || '',
+      specs: product.specs || {},
+    }),
     created_at: product.created_at || new Date().toISOString(),
   };
 
@@ -363,6 +374,12 @@ export async function savePost(post: Partial<PostItem>): Promise<PostItem> {
     author: post.author || 'Vszapower Tech Team',
     read_time: post.read_time || '5 min read',
     published: post.published ?? true,
+    translations: post.translations || generatePostPreTranslations({
+      title: post.title || '',
+      summary: post.summary || '',
+      category: post.category || '',
+      content: post.content || '',
+    }),
     created_at: post.created_at || new Date().toISOString(),
   };
 

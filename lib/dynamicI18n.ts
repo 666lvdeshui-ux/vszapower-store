@@ -1,5 +1,9 @@
-// Comprehensive Dynamic Content Translation Engine for Database Products, Videos & Blog Posts
-// Translates any dynamic title, tagline, summary, description, and spec keys across all 14 supported languages.
+// Comprehensive Dynamic Content & Pre-translation Engine for Database Products, Videos & Blog Posts
+// Automatically pre-translates any newly published product or blog article across all 14 supported languages.
+
+export const SUPPORTED_LANG_CODES = [
+  'de', 'ja', 'es', 'ko', 'he', 'ar', 'en', 'fr', 'pt', 'ru', 'vi', 'zh-HK', 'zh-CN', 'zh-TW'
+];
 
 export const DYNAMIC_DICTIONARY: Record<string, Record<string, string>> = {
   // --- PRODUCTS ---
@@ -51,93 +55,25 @@ export const DYNAMIC_DICTIONARY: Record<string, Record<string, string>> = {
     'zh-CN': 'VSZAPOWER 智能 4 槽 Type-C 纽扣电池快充座 Pro',
     'zh-TW': 'VSZAPOWER 智慧 4 槽 Type-C 鈕扣電池快充座 Pro',
   },
-
-  // --- VIDEOS ---
-  'VSZAPOWER 双槽智能纽扣电池充电座实操演示': {
-    de: 'Demonstration des intelligenten Vszapower 2-Slot Knopfbatterie-Ladegeräts',
-    ja: 'VSZAPOWER 2スロットスマートボタン電池充電ドックの動作デモ',
-    es: 'Demostración de Carga del Cargador Inteligente de 2 Ranuras VSZAPOWER',
-    ko: 'VSZAPOWER 2구 스마트 코인건전지 충전 독 작동 시연',
-    ar: 'عرض توضيحي لشاحن بطاريات الزر الذكي المزدوج من VSZAPOWER',
-    he: 'הדגמת טעינה של מטען סוללות כפתור חכם 2 תאים מבית VSZAPOWER',
-    en: 'VSZAPOWER Smart Dual-Slot Coin Cell Charger Dock Demonstration',
-    fr: 'Démonstration du Chargeur de Piles Bouton 2 Emplacements VSZAPOWER',
-    pt: 'Demonstração do Carregador Inteligente de 2 Entradas VSZAPOWER',
-    ru: 'Демонстрация работы зарядного устройства VSZAPOWER 2 слота',
-    vi: 'Thử nghiệm thực tế Đế sạc pin nút áo 2 khe thông minh VSZAPOWER',
-    'zh-HK': 'VSZAPOWER 雙槽智能鈕扣電池充電座實操演示',
-    'zh-CN': 'VSZAPOWER 双槽智能纽扣电池充电座实操演示',
-    'zh-TW': 'VSZAPOWER 雙槽智慧鈕扣電池充電座實操演示',
-  },
-  'AirTag 替换 LIR2032 可充电池对比测试': {
-    de: 'AirTag LIR2032 Akku-Vergleichstest',
-    ja: 'AirTag LIR2032 充電池の動作比較テスト',
-    es: 'Prueba de Rendimiento de Batería Recargable LIR2032 en AirTag',
-    ko: 'AirTag LIR2032 충전지 교체 성능 비교 테스트',
-    ar: 'اختبار مقارنة بطارية LIR2032 القابلة للشحن في جهاز AirTag',
-    he: 'בדיקת השוואת סוללה נטענת LIR2032 עבור AirTag',
-    en: 'AirTag LIR2032 Rechargeable Battery Compatibility & Performance Test',
-    fr: 'Test de Performance des Piles Rechargeables LIR2032 pour AirTag',
-    pt: 'Teste de Desempenho da Bateria Recarregável LIR2032 no AirTag',
-    ru: 'Тест совместимости аккумулятора LIR2032 в метке Apple AirTag',
-    vi: 'Thử nghiệm so sánh pin sạc LIR2032 trên thiết bị Apple AirTag',
-    'zh-HK': 'AirTag 替換 LIR2032 可充電池對比測試',
-    'zh-CN': 'AirTag 替换 LIR2032 可充电池对比测试',
-    'zh-TW': 'AirTag 替換 LIR2032 可充電池對比測試',
-  },
-
-  // --- BLOG ARTICLES TITLES ---
-  'AirTag / 车钥匙 / 智能门锁替换成本计算：为什么必须配置一台专用纽扣电池充电器？': {
-    de: 'Kostenberechnung für AirTag, Autoschlüssel & Smart Locks: Warum Sie ein Knopfbatterie-Ladegerät brauchen',
-    ja: 'AirTag・車のキー・スマートロックの電池コスト計算：なぜ専用充電器が必要なのか？',
-    es: 'Cálculo de Costes para AirTag, Llaves de Coche y Cerraduras: Por Qué Necesita un Cargador de Pilas Botón',
-    ko: 'AirTag / 자동차 스마트키 / 도어락 배터리 교체 비용 계산: 왜 전용 충전기가 필수인가?',
-    ar: 'حساب تكلفة استبدال بطاريات AirTag ومفاتيح السيارات: لماذا تحتاج إلى شاحن بطاريات زر مخصص؟',
-    he: 'חישוב עלויות עבור AirTag ושלטי רכב: למה חייבים מטען סוללות כפתור ייעודי?',
-    en: 'Cost Savings Guide for AirTags & Car Key Fobs: Why You Need a Dedicated Coin Cell Charger',
-    fr: 'Calcul des Coûts pour AirTags & Clés de Voiture : Pourquoi Investir Dans un Chargeur de Piles Bouton',
-    pt: 'Cálculo de Custos para AirTag e Chaves de Carro: Por Que Você Precisa de um Carregador de Baterias Botão',
-    ru: 'Расчет экономии для AirTag и автоключей: Зачем нужно зарядное устройство для дисковых батареек',
-    vi: 'Tính toán chi phí thay pin AirTag & chìa khóa xe: Tại sao bạn nên sở hữu bộ sạc pin nút áo chuyên dụng?',
-    'zh-HK': 'AirTag / 車鑰匙 / 智能門鎖替換成本計算：為什麼必須配置一台專用鈕扣電池充電器？',
-    'zh-CN': 'AirTag / 车钥匙 / 智能门锁替换成本计算：为什么必须配置一台专用纽扣电池充电器？',
-    'zh-TW': 'AirTag / 車鑰匙 / 智慧門鎖替換成本計算：為什麼必須配置一台專用鈕扣電池充電器？',
-  },
-  '【每日扣式电池前沿】ML2032 (3.0V) 与 LIR2032 (3.7V) 纽扣电池充电器对比：主板 CMOS 与光动能手表充电全解析 (2026-07-29版)': {
-    de: 'ML2032 (3.0V) vs LIR2032 (3.7V) Knopfbatterie-Ladegeräte: CMOS & Uhren-Leitfaden',
-    ja: 'ML2032 (3.0V) vs LIR2032 (3.7V) ボタン電池充電器比較：マザーボードCMOS＆ソーラー腕時計充電解説',
-    es: 'Comparativa ML2032 (3.0V) vs LIR2032 (3.7V): Cargadores de Pilas Botón para Placa Base y Relojes',
-    ko: 'ML2032 (3.0V) vs LIR2032 (3.7V) 코인건전지 충전기 비교: 메인보드 CMOS 및 솔라 시계 충전 분석',
-    ar: 'مقارنة شواحن بطاريات ML2032 (3.0V) و LIR2032 (3.7V): دليل لوحات الأم والساعات الشمسية',
-    he: 'השוואת מטעני סוללות ML2032 (3.0V) מול LIR2032 (3.7V): לוחות אם ושעונים',
-    en: 'ML2032 (3.0V) vs LIR2032 (3.7V) Coin Cell Charger Guide: CMOS Motherboard & Solar Watches',
-    fr: 'Comparatif ML2032 (3.0V) vs LIR2032 (3.7V) : Chargeurs de Piles Bouton pour Cartes Mères et Montres',
-    pt: 'Comparativo ML2032 (3.0V) vs LIR2032 (3.7V): Carregadores de Bateria Botão para Placa-Mãe e Relógios',
-    ru: 'Сравнение зарядных устройств ML2032 (3.0V) и LIR2032 (3.7V): Материнские платы и часы',
-    vi: 'So sánh bộ sạc pin nút áo ML2032 (3.0V) & LIR2032 (3.7V): Pin CMOS mainboard & Đồng hồ năng lượng mặt trời',
-    'zh-HK': '【每日扣式電池前沿】ML2032 (3.0V) 與 LIR2032 (3.7V) 鈕扣電池充電器對比：主板 CMOS 與光動能手錶充電全解析',
-    'zh-CN': '【每日扣式电池前沿】ML2032 (3.0V) 与 LIR2032 (3.7V) 纽扣电池充电器对比：主板 CMOS 与光动能手表充电全解析',
-    'zh-TW': '【每日扣式電池前沿】ML2032 (3.0V) 與 LIR2032 (3.7V) 鈕扣電池充電器對比：主板 CMOS 與光動能手錶充電全解析',
-  },
-  '【电池学院前沿速递】LIR1632 与 LIR1220 微型可充电纽扣电池专用充电器原理及精密设备供电方案 (2026-07-29专刊)': {
-    de: 'LIR1632 & LIR1220 Micro-Knopfbatterie-Ladegeräte: Technische Anleitung',
-    ja: 'LIR1632＆LIR1220 小型充電式ボタン電池専用充電器の原理と精密機器給電ソリューション',
-    es: 'Principios de Cargadores Micro LIR1632 y LIR1220 para Equipos de Precisión',
-    ko: 'LIR1632 및 LIR1220 초소형 충전식 코인건전지 전용 충전기 원리 및 정밀 기기 공급 솔루션',
-    ar: 'دليل شواحن بطاريات LIR1632 و LIR1220 المصغرة القابلة للشحن للأجهزة الدقيقة',
-    he: 'עקרונות מטעני סוללות כפתור זעירות LIR1632 ו-LIR1220 למכשירים מדויקים',
-    en: 'LIR1632 & LIR1220 Micro Coin Cell Charger Mechanics & Precision Device Power Solution',
-    fr: 'Principes des Chargeurs Micro LIR1632 & LIR1220 pour Équipements de Précision',
-    pt: 'Princípios dos Carregadores Micro LIR1632 e LIR1220 para Equipamentos de Precisão',
-    ru: 'Принцип работы зарядных устройств для микроакумуляторов LIR1632 и LIR1220',
-    vi: 'Nguyên lý bộ sạc pin nút áo siêu nhỏ LIR1632 & LIR1220 cho thiết bị chính xác',
-    'zh-HK': '【電池學院前沿速遞】LIR1632 與 LIR1220 微型可充電鈕扣電池專用充電器原理及精密設備供電方案',
-    'zh-CN': '【电池学院前沿速递】LIR1632 与 LIR1220 微型可充电纽扣电池专用充电器原理及精密设备供电方案',
-    'zh-TW': '【電池學院前沿速遞】LIR1632 與 LIR1220 微型可充電鈕扣電池專用充電器原理及精密設備供電方案',
+  'LIR2032 / LIR2025 / LIR2016 / LIR2450 智能纽扣电池充电器选型与微电流防过充技术指南': {
+    de: 'LIR2032 / LIR2025 / LIR2016 / LIR2450 Smart Knopfbatterie-Ladegerät Leitfaden',
+    ja: 'LIR2032 / LIR2025 / LIR2016 / LIR2450 ボタン電池充電器選定ガイド',
+    es: 'Guía del Cargador de Pilas Botón LIR2032 / LIR2025 / LIR2016 / LIR2450',
+    ko: 'LIR2032 / LIR2025 / LIR2016 / LIR2450 코인건전지 충전기 선정 가이드',
+    ar: 'دليل شاحن بطاريات الزر الذكي LIR2032 / LIR2025 / LIR2016 / LIR2450',
+    he: 'מדריך מטען סוללות כפתור LIR2032 / LIR2025 / LIR2016 / LIR2450',
+    en: 'LIR2032 / LIR2025 / LIR2016 / LIR2450 Smart Coin Cell Charger Selection & Micro-Current Protection Guide',
+    fr: 'Guide du Chargeur de Piles Bouton LIR2032 / LIR2025 / LIR2016 / LIR2450',
+    pt: 'Guia do Carregador de Baterias Botão LIR2032 / LIR2025 / LIR2016 / LIR2450',
+    ru: 'Руководство по выбору зарядного устройства LIR2032 / LIR2025 / LIR2016 / LIR2450',
+    vi: 'Hướng dẫn chọn bộ sạc pin nút áo thông minh LIR2032 / LIR2025 / LIR2016 / LIR2450',
+    'zh-HK': 'LIR2032 / LIR2025 / LIR2016 / LIR2450 智能鈕扣電池充電器選型與微電流防過充技術指南',
+    'zh-CN': 'LIR2032 / LIR2025 / LIR2016 / LIR2450 智能纽扣电池充电器选型与微电流防过充技术指南',
+    'zh-TW': 'LIR2032 / LIR2025 / LIR2016 / LIR2450 智慧鈕扣電池充電器選型與微電流防過充技術指南',
   },
 };
 
-// Phrase replacements for non-exact database strings (Keywords & Tech Terms)
+// Technical keyword dictionary for phrase replacement
 export const KEYWORD_REPLACEMENTS: Record<string, Record<string, string>> = {
   de: {
     '纽扣电池充电器': 'Knopfbatterie-Ladegerät',
@@ -491,6 +427,50 @@ export function translateDynamicContent(text: string | undefined | null, lang: s
       }
     });
   }
+
+  return result;
+}
+
+/**
+ * AUTOMATIC PUBLICATION MULTILINGUAL PRE-TRANSLATION GENERATOR
+ * Called during product or post publication (e.g. daily news cron, admin article creation, admin product save).
+ * Automatically generates pre-translated multilingual JSON dictionaries for all 14 supported languages!
+ */
+export function generatePostPreTranslations(post: { title: string; summary: string; category?: string; content: string }): Record<string, { title: string; summary: string; category: string; content: string }> {
+  const result: Record<string, { title: string; summary: string; category: string; content: string }> = {};
+
+  SUPPORTED_LANG_CODES.forEach((lang) => {
+    result[lang] = {
+      title: translateDynamicContent(post.title, lang),
+      summary: translateDynamicContent(post.summary, lang),
+      category: translateDynamicContent(post.category || '纽扣电池充电器', lang),
+      content: translateDynamicContent(post.content, lang),
+    };
+  });
+
+  return result;
+}
+
+export function generateProductPreTranslations(product: { title: string; tagline?: string; description?: string; badge?: string; category?: string; specs?: Record<string, string> }): Record<string, { title: string; tagline: string; description: string; badge: string; category: string; specs: Record<string, string> }> {
+  const result: Record<string, { title: string; tagline: string; description: string; badge: string; category: string; specs: Record<string, string> }> = {};
+
+  SUPPORTED_LANG_CODES.forEach((lang) => {
+    const translatedSpecs: Record<string, string> = {};
+    if (product.specs) {
+      Object.entries(product.specs).forEach(([k, v]) => {
+        translatedSpecs[translateDynamicContent(k, lang)] = translateDynamicContent(String(v), lang);
+      });
+    }
+
+    result[lang] = {
+      title: translateDynamicContent(product.title, lang),
+      tagline: translateDynamicContent(product.tagline || '', lang),
+      description: translateDynamicContent(product.description || '', lang),
+      badge: translateDynamicContent(product.badge || '', lang),
+      category: translateDynamicContent(product.category || '', lang),
+      specs: translatedSpecs,
+    };
+  });
 
   return result;
 }

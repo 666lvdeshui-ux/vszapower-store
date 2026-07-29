@@ -15,12 +15,13 @@ interface AcademyArticleClientProps {
 export default function AcademyArticleClient({ post, formattedDate }: AcademyArticleClientProps) {
   const { lang, t } = useLanguage();
 
-  const translatedTitle = translateDynamicContent(post.title, lang);
-  const translatedSummary = translateDynamicContent(post.summary, lang);
-  const translatedCategory = translateDynamicContent(post.category, lang);
+  const translatedTitle = post.translations?.[lang]?.title || translateDynamicContent(post.title, lang);
+  const translatedSummary = post.translations?.[lang]?.summary || translateDynamicContent(post.summary, lang);
+  const translatedCategory = post.translations?.[lang]?.category || translateDynamicContent(post.category, lang);
 
   // Markdown to HTML Formatter with real-time dynamic translation
-  const formattedContentHtml = formatMarkdownWithI18n(post.content, lang);
+  const rawContent = post.translations?.[lang]?.content || post.content;
+  const formattedContentHtml = formatMarkdownWithI18n(rawContent, lang);
 
   const articleSchema = {
     '@context': 'https://schema.org',
