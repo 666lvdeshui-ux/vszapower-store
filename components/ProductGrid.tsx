@@ -4,13 +4,14 @@ import React, { useState, useEffect } from 'react';
 import { ProductItem, CertificationItem } from '@/lib/store';
 import { MessageSquare, Info, Zap, X, Filter, ShieldCheck, ChevronLeft, ChevronRight, Maximize2, Award } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { translateDynamicContent } from '@/lib/dynamicI18n';
 
 interface ProductGridProps {
   onContactClick: (productName?: string) => void;
 }
 
 export default function ProductGrid({ onContactClick }: ProductGridProps) {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   const [products, setProducts] = useState<ProductItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
@@ -181,133 +182,123 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
           gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
           gap: '32px',
         }}>
-          {filteredProducts.map(product => (
-            <div
-              key={product.id}
-              className="glass-panel"
-              style={{
-                borderRadius: '20px',
-                padding: '24px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                position: 'relative',
-                transition: 'transform 0.3s ease, border-color 0.3s ease',
-              }}
-            >
-              {product.badge && (
-                <span className="badge badge-gold" style={{
-                  position: 'absolute',
-                  top: '20px',
-                  right: '20px',
-                  zIndex: 2,
-                  fontSize: '0.7rem',
-                }}>
-                  {product.badge}
-                </span>
-              )}
+          {filteredProducts.map(product => {
+            const translatedTitle = translateDynamicContent(product.title, lang);
+            const translatedTagline = translateDynamicContent(product.tagline, lang);
+            const translatedBadge = translateDynamicContent(product.badge, lang);
+            const translatedCategory = translateDynamicContent(product.category, lang);
 
-              <div>
-                {/* Product Image (Square 1:1 Aspect Ratio) */}
-                <div style={{
-                  width: '100%',
-                  aspectRatio: '1 / 1',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  marginBottom: '20px',
-                  background: '#0a0e17',
-                  border: '1px solid var(--border-color)',
-                  position: 'relative',
+            return (
+              <div
+                key={product.id}
+                className="glass-panel"
+                style={{
+                  borderRadius: '20px',
+                  padding: '24px',
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                  <img
-                    src={product.image_url}
-                    alt={product.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '12px' }}
-                  />
-                </div>
-
-                {/* Product Header */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                  <span className="badge badge-green" style={{ fontSize: '0.65rem', padding: '2px 8px' }}>
-                    {product.category || (product.is_starter_kit ? '纽扣电池充电器' : '产品')}
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  position: 'relative',
+                  transition: 'transform 0.3s ease, border-color 0.3s ease',
+                }}
+              >
+                {translatedBadge && (
+                  <span className="badge badge-gold" style={{
+                    position: 'absolute',
+                    top: '20px',
+                    right: '20px',
+                    zIndex: 2,
+                    fontSize: '0.7rem',
+                  }}>
+                    {translatedBadge}
                   </span>
-                </div>
+                )}
 
-                <h3 style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '1.25rem',
-                  fontWeight: 800,
-                  color: '#fff',
-                  marginBottom: '8px',
-                  lineHeight: 1.35,
-                }}>
-                  {product.title}
-                </h3>
-
-                <p style={{
-                  color: 'var(--text-muted)',
-                  fontSize: '0.9rem',
-                  lineHeight: 1.5,
-                  marginBottom: '20px',
-                }}>
-                  {product.tagline}
-                </p>
-
-                {/* Price Display */}
-                <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '24px' }}>
-                  <span style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--accent-green)' }}>
-                    ${product.price}
-                  </span>
-                  {product.compare_at_price && (
-                    <span style={{ fontSize: '1rem', color: 'var(--text-dim)', textDecoration: 'line-through' }}>
-                      ${product.compare_at_price}
-                    </span>
-                  )}
-                  {product.is_starter_kit && (
-                    <span className="badge badge-green" style={{ fontSize: '0.65rem', marginLeft: 'auto' }}>
-                      ALL-IN-ONE KIT
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                <button
-                  onClick={() => openProductModal(product)}
-                  className="btn-secondary"
-                  style={{
-                    padding: '12px 14px',
-                    fontSize: '0.9rem',
+                <div>
+                  {/* Product Image (Square 1:1 Aspect Ratio) */}
+                  <div style={{
+                    width: '100%',
+                    aspectRatio: '1 / 1',
+                    borderRadius: '16px',
+                    overflow: 'hidden',
+                    marginBottom: '20px',
+                    background: '#0a0e17',
+                    border: '1px solid var(--border-color)',
+                    position: 'relative',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: '6px',
-                  }}
-                >
-                  <Info size={16} /> 查看介绍
-                </button>
+                  }}>
+                    <img
+                      src={product.image_url}
+                      alt={translatedTitle}
+                      style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '12px' }}
+                    />
+                  </div>
 
-                <button
-                  onClick={() => onContactClick(product.title)}
-                  className="btn-primary"
-                  style={{
-                    padding: '12px 14px',
+                  {/* Product Category Badge */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                    <span className="badge badge-green" style={{ fontSize: '0.65rem', padding: '2px 8px' }}>
+                      {translatedCategory || (product.is_starter_kit ? 'Charger Kit' : 'Product')}
+                    </span>
+                  </div>
+
+                  {/* Product Title */}
+                  <h3 style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '1.25rem',
+                    fontWeight: 800,
+                    color: '#fff',
+                    marginBottom: '8px',
+                    lineHeight: 1.35,
+                  }}>
+                    {translatedTitle}
+                  </h3>
+
+                  {/* Product Tagline */}
+                  <p style={{
+                    color: 'var(--text-muted)',
                     fontSize: '0.9rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '6px',
-                  }}
-                >
-                  <MessageSquare size={16} /> 点击联系
-                </button>
+                    lineHeight: 1.5,
+                    marginBottom: '20px',
+                  }}>
+                    {translatedTagline}
+                  </p>
+
+                  {/* Price Display */}
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '24px' }}>
+                    <span style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-green)' }}>
+                      ${product.price}
+                    </span>
+                    {product.compare_at_price && (
+                      <span style={{ color: 'var(--text-muted)', textDecoration: 'line-through', fontSize: '0.9rem' }}>
+                        ${product.compare_at_price}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Actions */}
+                <div style={{ display: 'flex', gap: '10px' }}>
+                  <button
+                    onClick={() => openProductModal(product)}
+                    className="btn-secondary"
+                    style={{ flex: 1, padding: '10px 14px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
+                  >
+                    <Info size={16} /> {t('btn_view_details')}
+                  </button>
+
+                  <button
+                    onClick={() => onContactClick(translatedTitle)}
+                    className="btn-primary"
+                    style={{ flex: 1, padding: '10px 14px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
+                  >
+                    <MessageSquare size={16} /> {t('btn_inquire_now')}
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
 

@@ -4,12 +4,15 @@ import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { PostItem } from '@/lib/store';
 import { Search, Clock, User, Calendar, ArrowRight, List, LayoutGrid, BookOpen } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
+import { translateDynamicContent } from '@/lib/dynamicI18n';
 
 interface AcademyListClientProps {
   posts: PostItem[];
 }
 
 export default function AcademyListClient({ posts }: AcademyListClientProps) {
+  const { lang, t } = useLanguage();
   const [viewMode, setViewMode] = useState<'list' | 'grid'>('list');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('全部');
@@ -220,146 +223,152 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
       {/* Articles Container - LIST VIEW (列表式排版) */}
       {viewMode === 'list' ? (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          {filteredPosts.map((post) => (
-            <article
-              key={post.slug}
-              className="glass-panel academy-list-article"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'minmax(240px, 320px) 1fr',
-                gap: '0',
-                borderRadius: '16px',
-                overflow: 'hidden',
-                transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
-                border: '1px solid var(--border-color)',
-              }}
-            >
-              {/* Left Column: Image & Badge */}
-              <div style={{ position: 'relative', overflow: 'hidden', minHeight: '220px' }}>
-                <img
-                  src={post.cover_image}
-                  alt={post.title}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    transition: 'transform 0.5s ease',
-                  }}
-                  className="list-cover-img"
-                />
-                <span style={{
-                  position: 'absolute',
-                  top: '14px',
-                  left: '14px',
-                  background: 'rgba(10, 13, 20, 0.88)',
-                  color: 'var(--accent-green)',
-                  fontSize: '0.78rem',
-                  fontWeight: 700,
-                  padding: '4px 12px',
-                  borderRadius: '6px',
-                  border: '1px solid rgba(0, 230, 153, 0.3)',
-                  backdropFilter: 'blur(8px)',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
-                }}>
-                  {post.category}
-                </span>
-              </div>
+          {filteredPosts.map((post) => {
+            const translatedTitle = translateDynamicContent(post.title, lang);
+            const translatedSummary = translateDynamicContent(post.summary, lang);
+            const translatedCategory = translateDynamicContent(post.category, lang);
 
-              {/* Right Column: Article Details */}
-              <div style={{
-                padding: '28px 32px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-              }}>
-                <div>
-                  {/* Tags & Meta Row */}
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '14px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '0.85rem', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
-                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: 'var(--accent-green)', fontWeight: 600 }}>
-                        <Calendar size={14} /> {post.created_at ? new Date(post.created_at).toISOString().split('T')[0] : '2026-07-29'}
-                      </span>
-                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
-                        <User size={14} style={{ color: 'var(--text-dim)' }} /> {post.author}
-                      </span>
-                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
-                        <Clock size={14} style={{ color: 'var(--accent-cyan)' }} /> {post.read_time}
-                      </span>
+            return (
+              <article
+                key={post.slug}
+                className="glass-panel academy-list-article"
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'minmax(240px, 320px) 1fr',
+                  gap: '0',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
+                  border: '1px solid var(--border-color)',
+                }}
+              >
+                {/* Left Column: Image & Badge */}
+                <div style={{ position: 'relative', overflow: 'hidden', minHeight: '220px' }}>
+                  <img
+                    src={post.cover_image}
+                    alt={translatedTitle}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      transition: 'transform 0.5s ease',
+                    }}
+                    className="list-cover-img"
+                  />
+                  <span style={{
+                    position: 'absolute',
+                    top: '14px',
+                    left: '14px',
+                    background: 'rgba(10, 13, 20, 0.88)',
+                    color: 'var(--accent-green)',
+                    fontSize: '0.78rem',
+                    fontWeight: 700,
+                    padding: '4px 12px',
+                    borderRadius: '6px',
+                    border: '1px solid rgba(0, 230, 153, 0.3)',
+                    backdropFilter: 'blur(8px)',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                  }}>
+                    {translatedCategory}
+                  </span>
+                </div>
+
+                {/* Right Column: Article Details */}
+                <div style={{
+                  padding: '28px 32px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                }}>
+                  <div>
+                    {/* Tags & Meta Row */}
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '14px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '0.85rem', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
+                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: 'var(--accent-green)', fontWeight: 600 }}>
+                          <Calendar size={14} /> {post.created_at ? new Date(post.created_at).toISOString().split('T')[0] : '2026-07-29'}
+                        </span>
+                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                          <User size={14} style={{ color: 'var(--text-dim)' }} /> {post.author}
+                        </span>
+                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                          <Clock size={14} style={{ color: 'var(--accent-cyan)' }} /> {post.read_time}
+                        </span>
+                      </div>
+
+                      {/* Tag Pills */}
+                      {post.tags && post.tags.length > 0 && (
+                        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                          {post.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              style={{
+                                fontSize: '0.75rem',
+                                color: 'rgba(255, 255, 255, 0.65)',
+                                background: 'rgba(255, 255, 255, 0.05)',
+                                padding: '2px 8px',
+                                borderRadius: '4px',
+                                border: '1px solid rgba(255, 255, 255, 0.08)',
+                              }}
+                            >
+                              #{translateDynamicContent(tag, lang)}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
 
-                    {/* Tag Pills */}
-                    {post.tags && post.tags.length > 0 && (
-                      <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-                        {post.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            style={{
-                              fontSize: '0.75rem',
-                              color: 'rgba(255, 255, 255, 0.65)',
-                              background: 'rgba(255, 255, 255, 0.05)',
-                              padding: '2px 8px',
-                              borderRadius: '4px',
-                              border: '1px solid rgba(255, 255, 255, 0.08)',
-                            }}
-                          >
-                            #{tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
+                    {/* Title */}
+                    <h2 style={{
+                      fontFamily: 'var(--font-heading)',
+                      fontSize: '1.35rem',
+                      fontWeight: 700,
+                      marginBottom: '12px',
+                      lineHeight: 1.4,
+                    }}>
+                      <Link
+                        href={`/academy/${post.slug}`}
+                        style={{
+                          color: '#fff',
+                          textDecoration: 'none',
+                          transition: 'color 0.2s ease',
+                        }}
+                        className="hover-green-text"
+                      >
+                        {translatedTitle}
+                      </Link>
+                    </h2>
+
+                    {/* Excerpt Summary */}
+                    <p style={{
+                      color: 'var(--text-muted)',
+                      fontSize: '0.95rem',
+                      lineHeight: 1.65,
+                      marginBottom: '20px',
+                    }}>
+                      {translatedSummary}
+                    </p>
                   </div>
 
-                  {/* Title */}
-                  <h2 style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '1.35rem',
-                    fontWeight: 700,
-                    marginBottom: '12px',
-                    lineHeight: 1.4,
-                  }}>
+                  {/* Footer Action Button */}
+                  <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: '12px', borderTop: '1px solid rgba(255, 255, 255, 0.05)' }}>
                     <Link
                       href={`/academy/${post.slug}`}
+                      className="btn-primary"
                       style={{
-                        color: '#fff',
-                        textDecoration: 'none',
-                        transition: 'color 0.2s ease',
+                        padding: '10px 22px',
+                        fontSize: '0.88rem',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
                       }}
-                      className="hover-green-text"
                     >
-                      {post.title}
+                      {t('btn_read_more')} <ArrowRight size={16} />
                     </Link>
-                  </h2>
-
-                  {/* Excerpt Summary */}
-                  <p style={{
-                    color: 'var(--text-muted)',
-                    fontSize: '0.95rem',
-                    lineHeight: 1.65,
-                    marginBottom: '20px',
-                  }}>
-                    {post.summary}
-                  </p>
+                  </div>
                 </div>
-
-                {/* Footer Action Button */}
-                <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: '12px', borderTop: '1px solid rgba(255, 255, 255, 0.05)' }}>
-                  <Link
-                    href={`/academy/${post.slug}`}
-                    className="btn-primary"
-                    style={{
-                      padding: '10px 22px',
-                      fontSize: '0.88rem',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                    }}
-                  >
-                    阅读完整指南 <ArrowRight size={16} />
-                  </Link>
-                </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       ) : (
         /* ARTICLES CONTAINER - GRID VIEW (网格式排版) */
@@ -368,63 +377,69 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
           gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
           gap: '32px',
         }}>
-          {filteredPosts.map((post) => (
-            <article key={post.slug} className="glass-panel" style={{
-              display: 'flex',
-              flexDirection: 'column',
-              overflow: 'hidden',
-              borderRadius: '16px',
-            }}>
-              <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
-                <img
-                  src={post.cover_image}
-                  alt={post.title}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-                <span style={{
-                  position: 'absolute',
-                  top: '12px',
-                  left: '12px',
-                  background: 'rgba(10, 13, 20, 0.85)',
-                  color: 'var(--accent-green)',
-                  fontSize: '0.75rem',
-                  fontWeight: 700,
-                  padding: '4px 10px',
-                  borderRadius: '6px',
-                  border: '1px solid var(--border-color)',
-                }}>
-                  {post.category}
-                </span>
-              </div>
+          {filteredPosts.map((post) => {
+            const translatedTitle = translateDynamicContent(post.title, lang);
+            const translatedSummary = translateDynamicContent(post.summary, lang);
+            const translatedCategory = translateDynamicContent(post.category, lang);
 
-              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '14px', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '12px', flexWrap: 'wrap' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--accent-green)', fontWeight: 600 }}>
-                      <Calendar size={14} /> {post.created_at ? new Date(post.created_at).toISOString().split('T')[0] : '2026-07-29'}
-                    </span>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <User size={14} /> {post.author}
-                    </span>
-                  </div>
-
-                  <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 700, marginBottom: '12px', lineHeight: 1.4 }}>
-                    <Link href={`/academy/${post.slug}`} style={{ color: '#fff', textDecoration: 'none' }}>
-                      {post.title}
-                    </Link>
-                  </h2>
-
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '20px' }}>
-                    {post.summary}
-                  </p>
+            return (
+              <article key={post.slug} className="glass-panel" style={{
+                display: 'flex',
+                flexDirection: 'column',
+                overflow: 'hidden',
+                borderRadius: '16px',
+              }}>
+                <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
+                  <img
+                    src={post.cover_image}
+                    alt={translatedTitle}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  <span style={{
+                    position: 'absolute',
+                    top: '12px',
+                    left: '12px',
+                    background: 'rgba(10, 13, 20, 0.85)',
+                    color: 'var(--accent-green)',
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    padding: '4px 10px',
+                    borderRadius: '6px',
+                    border: '1px solid var(--border-color)',
+                  }}>
+                    {translatedCategory}
+                  </span>
                 </div>
 
-                <Link href={`/academy/${post.slug}`} className="btn-primary" style={{ padding: '10px 20px', fontSize: '0.88rem', width: 'fit-content' }}>
-                  阅读完整指南 <ArrowRight size={16} />
-                </Link>
-              </div>
-            </article>
-          ))}
+                <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '14px', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '12px', flexWrap: 'wrap' }}>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--accent-green)', fontWeight: 600 }}>
+                        <Calendar size={14} /> {post.created_at ? new Date(post.created_at).toISOString().split('T')[0] : '2026-07-29'}
+                      </span>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <User size={14} /> {post.author}
+                      </span>
+                    </div>
+
+                    <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 700, marginBottom: '12px', lineHeight: 1.4 }}>
+                      <Link href={`/academy/${post.slug}`} style={{ color: '#fff', textDecoration: 'none' }}>
+                        {translatedTitle}
+                      </Link>
+                    </h2>
+
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '20px' }}>
+                      {translatedSummary}
+                    </p>
+                  </div>
+
+                  <Link href={`/academy/${post.slug}`} className="btn-primary" style={{ padding: '10px 20px', fontSize: '0.88rem', width: 'fit-content' }}>
+                    {t('btn_read_more')} <ArrowRight size={16} />
+                  </Link>
+                </div>
+              </article>
+            );
+          })}
         </div>
       )}
 
