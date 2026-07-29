@@ -2,13 +2,15 @@
 
 import React, { useState, useEffect } from 'react';
 import { ProductItem, CertificationItem } from '@/lib/store';
-import { MessageSquare, Info, Zap, X, Filter, Shield, ShieldCheck, ChevronLeft, ChevronRight, Maximize2, Award } from 'lucide-react';
+import { MessageSquare, Info, Zap, X, Filter, ShieldCheck, ChevronLeft, ChevronRight, Maximize2, Award } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface ProductGridProps {
   onContactClick: (productName?: string) => void;
 }
 
 export default function ProductGrid({ onContactClick }: ProductGridProps) {
+  const { t } = useLanguage();
   const [products, setProducts] = useState<ProductItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
@@ -83,7 +85,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
 
   return (
     <section id="products" style={{
-      padding: '40px 24px 80px',
+      padding: '80px 24px',
       maxWidth: '1280px',
       margin: '0 auto',
     }}>
@@ -97,10 +99,10 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
           fontSize: 'clamp(2rem, 4vw, 2.8rem)',
           fontWeight: 800,
         }}>
-          Featured <span className="gradient-text">Product Series &amp; Kits</span>
+          {t('section_products_title')}
         </h2>
-        <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', maxWidth: '640px', margin: '12px auto 0' }}>
-          Explore our smart coin cell chargers, LIR rechargeable batteries, and starter kits.
+        <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', maxWidth: '640px', margin: '12px auto 0', lineHeight: 1.6 }}>
+          {t('section_products_subtitle')}
         </p>
       </div>
 
@@ -126,7 +128,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
             transition: 'all 0.2s ease',
           }}
         >
-          <Filter size={14} style={{ marginRight: '6px', display: 'inline' }} /> 全部产品 (All Products)
+          <Filter size={14} style={{ marginRight: '6px', display: 'inline' }} /> {t('filter_all')}
         </button>
 
         <button
@@ -143,7 +145,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
             transition: 'all 0.2s ease',
           }}
         >
-          🔌 纽扣电池充电器 (Coin Cell Chargers)
+          🔌 {t('filter_chargers')}
         </button>
 
         <button
@@ -160,7 +162,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
             transition: 'all 0.2s ease',
           }}
         >
-          🔋 可充电纽扣电池 (Rechargeable Batteries)
+          🔋 {t('filter_batteries')}
         </button>
       </div>
 

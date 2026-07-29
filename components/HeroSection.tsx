@@ -2,9 +2,12 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Zap, ShieldCheck, RefreshCw, Sparkles, ArrowRight, DollarSign } from 'lucide-react';
+import { Zap, Sparkles, ArrowRight, RefreshCw } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function HeroSection() {
+  const { t } = useLanguage();
+
   return (
     <section style={{
       position: 'relative',
@@ -39,10 +42,10 @@ export default function HeroSection() {
         {/* Left Column: Hooks & Value Prop */}
         <div>
           {/* Top Tagline Badge */}
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '20px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '20px', flexWrap: 'wrap' }}>
             <span className="badge badge-green">
               <Sparkles size={14} style={{ display: 'inline', marginRight: '4px' }} />
-              TikTok & SEO Viral Solution
+              {t('hero_badge')}
             </span>
             <span className="badge badge-gold">
               Eco Kraft Packaging
@@ -51,23 +54,23 @@ export default function HeroSection() {
 
           <h1 style={{
             fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(2.5rem, 5vw, 3.8rem)',
+            fontSize: 'clamp(2.3rem, 5vw, 3.6rem)',
             fontWeight: 800,
-            lineHeight: 1.15,
+            lineHeight: 1.18,
             letterSpacing: '-1px',
             marginBottom: '20px',
           }}>
-            Stop Throwing Away <br />
-            <span className="gradient-text">Button Batteries!</span>
+            {t('hero_title_1')} <br />
+            <span className="gradient-text">{t('hero_title_2')}</span>
           </h1>
 
           <p style={{
             color: 'var(--text-muted)',
-            fontSize: '1.15rem',
+            fontSize: '1.1rem',
             lineHeight: 1.7,
             marginBottom: '32px',
           }}>
-            How much money do you waste on car key fobs and Apple AirTags every year? Switch to <strong style={{ color: '#fff' }}>Vszapower Rechargeable LIR Coin Cells</strong> & Smart Micro-Chip Chargers. Buy once, reuse 500+ times.
+            {t('hero_subtitle')}
           </p>
 
           {/* Quick Metrics */}
@@ -78,39 +81,38 @@ export default function HeroSection() {
             marginBottom: '36px',
           }}>
             <div className="glass-panel" style={{ padding: '16px', textAlign: 'center' }}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--accent-green)' }}>500+</div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Recharge Cycles</div>
+              <div style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-green)' }}>500+</div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{t('hero_highlight_1')}</div>
             </div>
             <div className="glass-panel" style={{ padding: '16px', textAlign: 'center' }}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>3.6V-4.2V</div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Smart Microchip</div>
+              <div style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>3.6V-4.2V</div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{t('hero_highlight_2')}</div>
             </div>
             <div className="glass-panel" style={{ padding: '16px', textAlign: 'center' }}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--kraft-gold)' }}>45 Mins</div>
+              <div style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--kraft-gold)' }}>45 Mins</div>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Fast USB Dock</div>
             </div>
           </div>
 
           {/* CTAs */}
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-            <Link href="#starter-kit" className="btn-primary" style={{ padding: '16px 32px', fontSize: '1.05rem' }}>
-              Get Starter Kit (Save 37%) <ArrowRight size={20} />
+            <Link href="#contact" className="btn-primary" style={{ padding: '16px 32px', fontSize: '1.05rem' }}>
+              {t('btn_contact')} <ArrowRight size={20} />
             </Link>
             <Link href="#matcher" className="btn-secondary" style={{ padding: '16px 28px', fontSize: '1.05rem' }}>
-              Find My Model
+              {t('btn_view_products')}
             </Link>
           </div>
         </div>
 
-        {/* Right Column: Hero Visual Card with Kraft Card Aesthetic */}
+        {/* Right Column: Hero Visual Card */}
         <div style={{ position: 'relative' }}>
           <div className="kraft-card" style={{ padding: '32px' }}>
-            {/* Visual Header */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Zap color="var(--accent-green)" size={24} />
                 <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.1rem', color: '#fff' }}>
-                  STARTER KIT BUNDLE
+                  {t('badge_starter_kit')}
                 </span>
               </div>
               <span style={{ fontSize: '0.8rem', color: 'var(--kraft-gold)', border: '1px solid var(--kraft-border)', padding: '2px 8px', borderRadius: '6px' }}>
@@ -118,7 +120,6 @@ export default function HeroSection() {
               </span>
             </div>
 
-            {/* Product Image Mock */}
             <div style={{
               position: 'relative',
               height: '240px',
@@ -130,7 +131,7 @@ export default function HeroSection() {
             }}>
               <img
                 src="https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=800&q=80"
-                alt="Vszapower Smart Coin Cell Charger and LIR2032 Batteries in Kraft Pack"
+                alt="VSZAPOWER Smart Coin Cell Charger and LIR2032 Batteries in Kraft Pack"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
               <div style={{
@@ -151,7 +152,6 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Price & Savings Badge */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div>
                 <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', textDecoration: 'line-through', marginRight: '8px' }}>
@@ -168,21 +168,13 @@ export default function HeroSection() {
                 padding: '8px 16px',
                 textAlign: 'right',
               }}>
-                <div style={{ color: 'var(--accent-green)', fontWeight: 800, fontSize: '0.9rem' }}>Includes:</div>
+                <div style={{ color: 'var(--accent-green)', fontWeight: 800, fontSize: '0.9rem' }}>{t('badge_best_seller')}</div>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>1x Charger Dock + 4x LIR2032</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 900px) {
-          :global(.hero-grid) {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

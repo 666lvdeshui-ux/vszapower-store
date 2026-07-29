@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, MessageSquare, Clock, ShieldCheck, X } from 'lucide-react';
+import { Mail, Phone, Send, CheckCircle2, Clock, X } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface ContactSectionProps {
   isOpenModal?: boolean;
@@ -10,6 +11,7 @@ interface ContactSectionProps {
 }
 
 export default function ContactSection({ isOpenModal = false, onCloseModal, prefilledProduct = '' }: ContactSectionProps) {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     country: '',
@@ -18,14 +20,12 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
-
   const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      // 1. Direct browser client dispatch to FormSubmit (bypasses serverless datacenter IP blocks)
       const senderEmail = (formData.contact && formData.contact.includes('@')) ? formData.contact : '666lvdeshui@gmail.com';
       fetch('https://formsubmit.co/ajax/666lvdeshui@gmail.com', {
         method: 'POST',
@@ -48,7 +48,6 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
         }),
       }).catch(err => console.warn('Browser FormSubmit email dispatch error:', err));
 
-      // 2. Persist in DB API & Admin Dashboard
       await fetch('/api/inquiries', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -71,13 +70,13 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
     <div style={{ color: '#fff' }}>
       <div style={{ textAlign: 'center', marginBottom: '32px' }}>
         <span className="badge badge-green" style={{ marginBottom: '12px' }}>
-          DIRECT CONTACT & INQUIRY
+          DIRECT CONTACT &amp; INQUIRY
         </span>
         <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 800 }}>
-          联系我们 <span className="gradient-text">(Contact Us)</span>
+          {t('contact_title')}
         </h2>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginTop: '8px' }}>
-          Have questions about LIR rechargeable battery compatibility, bulk orders, or custom specs? Reach out directly!
+          {t('contact_subtitle')}
         </p>
       </div>
 
@@ -91,11 +90,8 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
         }}>
           <CheckCircle2 size={48} color="var(--accent-green)" style={{ margin: '0 auto 16px' }} />
           <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '8px' }}>
-            咨询已成功提交！(Inquiry Sent)
+            {t('contact_success')}
           </h3>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-            系统已自动发送邮件通知至管理员邮箱（<code>666lvdeshui@gmail.com</code>），我们的团队将在24小时内联系您。
-          </p>
         </div>
       ) : (
         <div style={{
@@ -146,7 +142,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
           {/* Contact Form */}
           <form onSubmit={handleSubmit} className="glass-panel" style={{ padding: '32px', borderRadius: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Your Name / 联系人</label>
+              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>{t('contact_name')}</label>
               <input
                 type="text"
                 required
@@ -158,7 +154,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Country / Region / 所属国家</label>
+              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>{t('contact_country')}</label>
               <input
                 type="text"
                 value={formData.country}
@@ -169,7 +165,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Email or WhatsApp / 邮箱或微信</label>
+              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>{t('contact_email')}</label>
               <input
                 type="text"
                 required
@@ -181,7 +177,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Product of Interest / 咨询产品</label>
+              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>{t('contact_product')}</label>
               <input
                 type="text"
                 value={formData.product}
@@ -191,7 +187,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Your Message / 需求说明</label>
+              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>{t('contact_message')}</label>
               <textarea
                 rows={3}
                 required
@@ -203,7 +199,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
             </div>
 
             <button type="submit" className="btn-primary" style={{ padding: '14px', fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-              <Send size={18} /> 发送咨询 (Send Message)
+              <Send size={18} /> {t('btn_send_inquiry')}
             </button>
           </form>
         </div>

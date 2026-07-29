@@ -2,11 +2,13 @@
 
 import React, { useState } from 'react';
 import { MOCK_COMPATIBILITY } from '@/lib/supabase';
-import { Cpu, Zap, Info, ArrowRight, ShieldCheck, Tag } from 'lucide-react';
+import { Cpu, Zap, Info, ArrowRight, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function BatteryMatcher() {
   const [selectedModel, setSelectedModel] = useState('CR2032');
+  const { t } = useLanguage();
 
   const currentMatch = MOCK_COMPATIBILITY.find(
     (item) => item.standard_model === selectedModel
@@ -21,18 +23,17 @@ export default function BatteryMatcher() {
       {/* Section Header */}
       <div style={{ textAlign: 'center', marginBottom: '40px' }}>
         <span className="badge badge-green" style={{ marginBottom: '12px' }}>
-          VISUAL COMPATIBILITY MATCH TOOL
+          {t('matcher_title')}
         </span>
         <h2 style={{
           fontFamily: 'var(--font-heading)',
           fontSize: 'clamp(2rem, 4vw, 2.8rem)',
           fontWeight: 800,
         }}>
-          Not sure which model to buy? <br />
-          <span className="gradient-text">Look at what’s printed on your battery!</span>
+          {t('matcher_original')} vs <span className="gradient-text">{t('matcher_rechargeable')}</span>
         </h2>
-        <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', maxWidth: '640px', margin: '12px auto 0' }}>
-          Click your current disposable button battery model below to see the exact rechargeable equivalent, safe voltage parameters, and device support.
+        <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', maxWidth: '640px', margin: '12px auto 0', lineHeight: 1.6 }}>
+          {t('matcher_subtitle')}
         </p>
       </div>
 
@@ -81,13 +82,13 @@ export default function BatteryMatcher() {
 
           {/* Left Side: Battery Spec Breakdown */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Disposable:</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px', flexWrap: 'wrap' }}>
+              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{t('matcher_original')}:</span>
               <span style={{ background: 'rgba(255,255,255,0.1)', padding: '2px 10px', borderRadius: '6px', fontWeight: 700 }}>
                 {currentMatch.standard_model}
               </span>
               <ArrowRight size={18} color="var(--accent-green)" />
-              <span style={{ fontSize: '0.85rem', color: 'var(--accent-green)' }}>Rechargeable:</span>
+              <span style={{ fontSize: '0.85rem', color: 'var(--accent-green)' }}>{t('matcher_rechargeable')}:</span>
               <span style={{ background: 'var(--accent-green)', color: '#041410', padding: '2px 10px', borderRadius: '6px', fontWeight: 800 }}>
                 {currentMatch.rechargeable_model}
               </span>
@@ -99,7 +100,7 @@ export default function BatteryMatcher() {
               fontWeight: 800,
               marginBottom: '16px',
             }}>
-              Rechargeable Match: <span className="gradient-text">{currentMatch.rechargeable_model}</span>
+              {t('matcher_rechargeable')}: <span className="gradient-text">{currentMatch.rechargeable_model}</span>
             </h3>
 
             {/* Spec Matrix */}
@@ -110,11 +111,11 @@ export default function BatteryMatcher() {
               marginBottom: '24px',
             }}>
               <div style={{ background: 'rgba(255,255,255,0.03)', padding: '14px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Operating Voltage</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{t('matcher_voltage')}</div>
                 <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--accent-green)' }}>{currentMatch.voltage}</div>
               </div>
               <div style={{ background: 'rgba(255,255,255,0.03)', padding: '14px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Cell Capacity</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{t('matcher_capacity')}</div>
                 <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--accent-cyan)' }}>{currentMatch.capacity}</div>
               </div>
             </div>
@@ -135,8 +136,8 @@ export default function BatteryMatcher() {
               {currentMatch.notes}
             </div>
 
-            <Link href="/#starter-kit" className="btn-primary">
-              <Zap size={18} /> Buy {currentMatch.rechargeable_model} Charger Kit
+            <Link href="#contact" className="btn-primary">
+              <Zap size={18} /> {t('matcher_recommend')}: {currentMatch.recommended_charger}
             </Link>
           </div>
 
@@ -157,7 +158,7 @@ export default function BatteryMatcher() {
               gap: '8px',
             }}>
               <Cpu size={18} color="var(--accent-green)" />
-              Tested Compatible Devices for {currentMatch.standard_model}
+              {t('matcher_devices')}: {currentMatch.standard_model}
             </h4>
 
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -180,14 +181,6 @@ export default function BatteryMatcher() {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 900px) {
-          :global(.matcher-grid) {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

@@ -2,7 +2,9 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Zap, BookOpen, Home, MessageSquare, Menu, X, Shield, Video } from 'lucide-react';
+import { Zap, BookOpen, Home, MessageSquare, Menu, X, Video } from 'lucide-react';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface HeaderProps {
   onContactClick?: () => void;
@@ -10,6 +12,7 @@ interface HeaderProps {
 
 export default function Header({ onContactClick }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <header style={{
@@ -24,7 +27,7 @@ export default function Header({ onContactClick }: HeaderProps) {
       <div style={{
         maxWidth: '1280px',
         margin: '0 auto',
-        padding: '16px 24px',
+        padding: '14px 24px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -38,7 +41,7 @@ export default function Header({ onContactClick }: HeaderProps) {
         }}>
           <img
             src="/logo.svg"
-            alt="VSzapower"
+            alt="VSZAPOWER"
             style={{
               height: '36px',
               width: 'auto',
@@ -51,90 +54,93 @@ export default function Header({ onContactClick }: HeaderProps) {
         <nav style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '28px',
+          gap: '24px',
         }} className="desktop-nav">
           <Link href="/" style={{
             color: '#ffffff',
             textDecoration: 'none',
-            fontSize: '0.95rem',
+            fontSize: '0.92rem',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
             gap: '6px',
             transition: 'color 0.2s',
           }}>
-            <Home size={16} /> 首页
+            <Home size={16} /> {t('nav_home')}
           </Link>
           <Link href="/#products?cat=charger" style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: '0.95rem',
+            fontSize: '0.92rem',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
             gap: '6px',
             transition: 'color 0.2s',
           }}>
-            <Zap size={16} color="var(--accent-green)" /> 纽扣电池充电器
+            <Zap size={16} color="var(--accent-green)" /> {t('nav_chargers')}
           </Link>
           <Link href="/#products?cat=battery" style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: '0.95rem',
+            fontSize: '0.92rem',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
             gap: '6px',
             transition: 'color 0.2s',
           }}>
-            <Zap size={16} color="var(--accent-cyan)" /> 可充电纽扣电池
+            <Zap size={16} color="var(--accent-cyan)" /> {t('nav_batteries')}
           </Link>
           <Link href="/#videos" style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: '0.95rem',
+            fontSize: '0.92rem',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
             gap: '6px',
             transition: 'color 0.2s',
           }}>
-            <Video size={16} color="#f59e0b" /> 短视频
+            <Video size={16} color="#f59e0b" /> {t('nav_videos')}
           </Link>
           <Link href="/academy" style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: '0.95rem',
+            fontSize: '0.92rem',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
             gap: '6px',
             transition: 'color 0.2s',
           }}>
-            <BookOpen size={16} /> 电池学院
+            <BookOpen size={16} /> {t('nav_academy')}
           </Link>
           <Link href="/#contact" onClick={() => onContactClick && onContactClick()} style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: '0.95rem',
+            fontSize: '0.92rem',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
             gap: '6px',
             transition: 'color 0.2s',
           }}>
-            <MessageSquare size={16} /> 联系我们
+            <MessageSquare size={16} /> {t('nav_contact')}
           </Link>
         </nav>
 
-        {/* Action Button */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        {/* Action Controls: Language Switcher + Contact Button */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          {/* Top-Right Language Switcher Dropdown */}
+          <LanguageSwitcher />
+
           <button
             onClick={() => onContactClick ? onContactClick() : (window.location.href = '/#contact')}
             className="btn-primary"
-            style={{ padding: '10px 20px', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '8px' }}
+            style={{ padding: '8px 18px', fontSize: '0.88rem', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
           >
-            <MessageSquare size={18} /> 点击联系
+            <MessageSquare size={16} /> {t('btn_contact')}
           </button>
         </div>
       </div>

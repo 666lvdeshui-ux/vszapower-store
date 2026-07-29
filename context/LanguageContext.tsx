@@ -1,0 +1,72 @@
+'use client';
+
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { detectBrowserLanguage, getTranslation, SUPPORTED_LANGUAGES, TranslationKey } from '@/lib/i18n';
+
+interface LanguageContextType {
+  lang: string;
+  setLang: (code: string) => void;
+  t: (key: TranslationKey) => string;
+  isRTL: boolean;
+}
+
+const LanguageContext = createContext<LanguageContextType>({
+  lang: 'zh-CN',
+  setLang: () => {},
+  t: (key) => key,
+  isRTL: false,
+});
+
+export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const [lang, setLangState] = useState<string>('zh-CN');
+  const [isRTL, setIsRTL] = useState<boolean>(false);
+
+  useEffect(() => {
+    // 1. Check saved language preference in localStorage
+    let initialLang = 'zh-CN';
+    try {
+      const saved = localStorage.getItem('vszapower_lang');
+      if (saved) {
+        initialLang = saved;
+      } else {
+        // 2. Auto-detect browser system language
+        initialLang = detectBrowserLanguage();
+      }
+    } catch (e) {
+      initialLang = detectBrowserLanguage();
+    }
+
+    setLang(initialLang);
+  }, []);
+
+  const setLang = (code: string) => {
+    setLangState(code);
+    try {
+      localStorage.setItem('vszapower_lang', code);
+    } catch (e) {}
+
+    // Check RTL direction
+    const langObj = SUPPORTED_LANGUAGES.find(l => l.code === code);
+    const rtl = langObj?.dir === 'rtl';
+    setIsRTL(rtl);
+
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = code;
+      document.documentElement.dir = rtl ? 'rtl' : 'ltr';
+    }
+  };
+
+  const t = (key: TranslationKey): string => {
+    return getTranslation(lang, key);
+  };
+
+  return (
+    <LanguageContext.Provider value={{ lang, setLang, t, isRTL }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+}
+
+export function useLanguage() {
+  return useContext(LanguageContext);
+}
