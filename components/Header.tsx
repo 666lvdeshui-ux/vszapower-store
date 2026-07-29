@@ -32,23 +32,53 @@ export default function Header({ onContactClick }: HeaderProps) {
         alignItems: 'center',
         justifyContent: 'space-between',
       }}>
-        {/* Brand Logo */}
-        <Link href="/" style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '10px',
-          textDecoration: 'none',
-        }}>
-          <img
-            src="/logo.svg"
-            alt="VSZAPOWER"
-            style={{
-              height: '36px',
-              width: 'auto',
-              display: 'block',
-            }}
-          />
-        </Link>
+        {/* Brand Logo & Certification Strip */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          <Link href="/" style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            textDecoration: 'none',
+          }}>
+            <img
+              src="/logo.svg"
+              alt="VSZAPOWER"
+              style={{
+                height: '32px',
+                width: 'auto',
+                display: 'block',
+              }}
+            />
+          </Link>
+
+          {/* Certifications Badges (Below Logo) */}
+          <div style={{
+            display: 'flex',
+            gap: '4px',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            marginTop: '2px',
+          }}>
+            {['Battery', 'CE', 'FCC', 'RoHS', 'CE-Battery', 'GPSR-Test Report', 'PSE Exempt', 'UN38.3'].map((cert) => (
+              <span
+                key={cert}
+                style={{
+                  fontSize: '0.6rem',
+                  fontWeight: 700,
+                  color: 'var(--accent-green)',
+                  background: 'rgba(0, 230, 153, 0.08)',
+                  border: '1px solid rgba(0, 230, 153, 0.25)',
+                  padding: '1px 5px',
+                  borderRadius: '4px',
+                  whiteSpace: 'nowrap',
+                  lineHeight: '1.2',
+                }}
+              >
+                {cert}
+              </span>
+            ))}
+          </div>
+        </div>
 
         {/* Navigation Tabs */}
         <nav style={{

@@ -70,18 +70,33 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Col 4: Technical Compliance */}
+        {/* Col 4: Technical Compliance & Certifications */}
         <div>
-          <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', color: '#fff', marginBottom: '16px' }}>
-            Technical Compliance
+          <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', color: '#fff', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <Shield size={16} color="var(--accent-green)" /> Certifications &amp; Compliance
           </h4>
           <div style={{ background: 'rgba(255,255,255,0.03)', padding: '14px', borderRadius: '12px', border: '1px solid var(--border-color)', fontSize: '0.85rem' }}>
-            <p style={{ color: 'var(--text-muted)', marginBottom: '8px' }}>
-              <strong style={{ color: 'var(--accent-green)' }}>Micro-chip Spec:</strong> 3.6V-4.2V Auto Switch, Overcharge Cutoff, Reverse Polarity Guard.
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '10px' }}>
+              {['Battery', 'CE', 'FCC', 'RoHS', 'CE-Battery', 'GPSR-Test Report', 'PSE Exempt', 'UN38.3'].map((cert) => (
+                <span
+                  key={cert}
+                  style={{
+                    fontSize: '0.72rem',
+                    fontWeight: 700,
+                    color: 'var(--accent-green)',
+                    background: 'rgba(0, 230, 153, 0.1)',
+                    border: '1px solid rgba(0, 230, 153, 0.3)',
+                    padding: '3px 8px',
+                    borderRadius: '6px',
+                  }}
+                >
+                  ✓ {cert}
+                </span>
+              ))}
+            </div>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.78rem', lineHeight: 1.4 }}>
+              Micro-chip 3.6V-4.2V Auto Switch • Overcharge Cutoff • Kraft Pack Certified
             </p>
-            <span style={{ color: 'var(--kraft-gold)', fontSize: '0.75rem', fontWeight: 600 }}>
-              ★ Kraft Papercard Pack Certified
-            </span>
           </div>
         </div>
       </div>
@@ -100,8 +115,12 @@ export default function Footer() {
         <div>
           {t('footer_copyright')}
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          Crafted with <Heart size={14} color="#ef4444" fill="#ef4444" /> for Eco Electronics
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
+          <span style={{ color: 'var(--accent-green)', fontWeight: 600, fontSize: '0.8rem' }}>
+            ✓ Battery / CE / FCC / RoHS / CE-Battery / GPSR-Test Report / PSE Exempt / UN38.3
+          </span>
+          <span>•</span>
+          <span>Crafted with <Heart size={14} color="#ef4444" fill="#ef4444" style={{ display: 'inline' }} /> for Eco Electronics</span>
         </div>
       </div>
     </footer>

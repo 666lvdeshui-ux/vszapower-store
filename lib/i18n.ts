@@ -120,7 +120,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     hero_highlight_1: '✓ 500+ 循环寿命',
     hero_highlight_2: '✓ 4.2V Auto-Cut 防过充保护',
     hero_highlight_3: '✓ 环保纸盒精美包装',
-    hero_highlight_4: '✓ CE / FCC / RoHS 资质支持',
+    hero_highlight_4: '✓ Battery / CE / FCC / RoHS / CE-Battery / GPSR / PSE / UN38.3 认证',
     section_products_title: '纽扣电池充电器与电池选型中心',
     section_products_subtitle: '全系集成 MCU 微芯片高精度恒流/恒压充电算法，安全兼容 AirTag、车钥匙及精密仪器。',
     filter_all: '全部产品',
