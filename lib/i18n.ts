@@ -56,6 +56,7 @@ export type TranslationKey =
   | 'btn_view_products'
   | 'btn_read_more'
   | 'btn_send_inquiry'
+  | 'btn_back_to_academy'
   | 'hero_badge'
   | 'hero_title_1'
   | 'hero_title_2'
@@ -99,7 +100,7 @@ export type TranslationKey =
   | 'contact_success'
   | 'footer_copyright';
 
-export const TRANSLATIONS: Record<string, Record<TranslationKey, string>> = {
+export const TRANSLATIONS: Record<string, Record<string, string>> = {
   'zh-CN': {
     nav_home: '首页',
     nav_chargers: '纽扣电池充电器',
@@ -111,6 +112,7 @@ export const TRANSLATIONS: Record<string, Record<TranslationKey, string>> = {
     btn_view_products: '查看选型目录',
     btn_read_more: '阅读完整指南',
     btn_send_inquiry: '发送采购询盘',
+    btn_back_to_academy: '返回电池学院',
     hero_badge: '智能微电流循环充电系统',
     hero_title_1: '告别一次性纽扣电池',
     hero_title_2: '开启 500+ 次循环充电新时代',
@@ -165,6 +167,7 @@ export const TRANSLATIONS: Record<string, Record<TranslationKey, string>> = {
     btn_view_products: 'Explore Products',
     btn_read_more: 'Read Full Guide',
     btn_send_inquiry: 'Send Inquiry',
+    btn_back_to_academy: 'Back to Battery Academy',
     hero_badge: 'Smart Micro-Current Recharge System',
     hero_title_1: 'Stop Throwing Away Disposable Coin Cells',
     hero_title_2: 'Embrace 500+ Recharge Cycles',

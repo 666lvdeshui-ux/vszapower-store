@@ -573,7 +573,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                       boxShadow: 'var(--accent-glow)',
                     }}
                   >
-                    <MessageSquare size={20} /> 点击联系商务询价 (Contact for Wholesale Quote)
+                    <MessageSquare size={20} /> {translateDynamicContent('点击联系商务询价 (Contact for Wholesale Quote)', lang)}
                   </button>
                 </div>
               </div>
@@ -581,7 +581,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
               {/* Specs & Description Section */}
               <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '28px', marginBottom: '28px' }}>
                 <h4 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', color: '#fff' }}>
-                  <Zap size={20} color="var(--accent-green)" /> 产品概述与详情描述 (Product Overview &amp; Details)
+                  <Zap size={20} color="var(--accent-green)" /> {translateDynamicContent('产品概述与详情描述 (Product Overview & Details)', lang)}
                 </h4>
 
                 {/* Formatted Description Paragraphs */}
@@ -592,7 +592,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                       if (!trimmed) return null;
                       return (
                         <p key={pIdx} style={{ marginBottom: '12px' }}>
-                          {trimmed}
+                          {translateDynamicContent(trimmed, lang)}
                         </p>
                       );
                     })
@@ -610,18 +610,18 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     border: '1px solid var(--border-color)'
                   }}>
                     <h5 style={{ fontSize: '0.92rem', color: 'var(--accent-green)', fontWeight: 700, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      📋 技术参数规格表 (Technical Parameters &amp; Specifications)
+                      📋 {translateDynamicContent('技术参数规格表 (Technical Parameters & Specifications)', lang)}
                     </h5>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '14px' }}>
                       {Object.entries(selectedProduct.specs).map(([key, val]) => {
                         const specLabels: Record<string, string> = {
-                          voltage: '⚡ 输入/输出电压 (Voltage)',
-                          supported: '🔋 适配电池型号 (Supported Models)',
-                          safety: '🛡️ 安全保护机制 (Safety Protections)',
-                          packaging: '📦 环保包装形式 (Packaging)',
-                          warranty: '🎖️ 质保售后服务 (Warranty)',
+                          voltage: '输入/输出电压',
+                          supported: '适配电池型号',
+                          safety: '安全保护机制',
+                          packaging: '环保包装形式',
+                          warranty: '质保售后服务',
                         };
-                        const label = specLabels[key.toLowerCase()] || key.replace(/_/g, ' ').toUpperCase();
+                        const label = specLabels[key.toLowerCase()] || key.replace(/_/g, ' ');
                         return (
                           <div
                             key={key}
@@ -633,10 +633,10 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                             }}
                           >
                             <div style={{ color: 'var(--text-dim)', fontSize: '0.78rem', marginBottom: '4px' }}>
-                              {label}
+                              {translateDynamicContent(label, lang)}
                             </div>
                             <div style={{ color: '#fff', fontSize: '0.88rem', fontWeight: 600 }}>
-                              {String(val)}
+                              {translateDynamicContent(String(val), lang)}
                             </div>
                           </div>
                         );
