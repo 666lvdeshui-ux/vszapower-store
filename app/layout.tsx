@@ -19,7 +19,14 @@ export const metadata: Metadata = {
     'LIR1632 charger',
     'LIR1220 charger'
   ],
-  authors: [{ name: 'Vszapower Tech Team' }],
+  icons: {
+    icon: [
+      { url: '/favicon.png', type: 'image/png' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
   openGraph: {
     title: 'Vszapower Smart Coin Cell Charger & Rechargeable Batteries',
     description: 'Stop throwing away button batteries. Reusable LIR2032 & LIR2450 charger kit with eco papercard packaging.',
