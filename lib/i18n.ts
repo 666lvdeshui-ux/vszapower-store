@@ -12,7 +12,6 @@ export const SUPPORTED_LANGUAGES: LanguageOption[] = [
   { code: 'ko', name: 'Korean', nativeName: '한국어' },
   { code: 'he', name: 'Hebrew', nativeName: 'עברית', dir: 'rtl' },
   { code: 'ar', name: 'Arabic', nativeName: 'العربية', dir: 'rtl' },
-  { code: 'ckb', name: 'Kurdish (Sorani)', nativeName: 'کوردی (سۆرانی)', dir: 'rtl' },
   { code: 'en', name: 'English', nativeName: 'English' },
   { code: 'fr', name: 'French', nativeName: 'Français' },
   { code: 'pt', name: 'Portuguese (Brazil)', nativeName: 'Português (Brasil)' },
@@ -34,7 +33,6 @@ export function detectBrowserLanguage(): string {
   if (browserLang.startsWith('ko')) return 'ko';
   if (browserLang.startsWith('he') || browserLang.startsWith('iw')) return 'he';
   if (browserLang.startsWith('ar')) return 'ar';
-  if (browserLang.startsWith('ckb') || browserLang.startsWith('ku')) return 'ckb';
   if (browserLang.startsWith('fr')) return 'fr';
   if (browserLang.startsWith('pt')) return 'pt';
   if (browserLang.startsWith('ru')) return 'ru';
