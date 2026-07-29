@@ -20,15 +20,16 @@ export default function Header({ onContactClick }: HeaderProps) {
       position: 'sticky',
       top: 0,
       zIndex: 100,
-      background: 'rgba(10, 13, 20, 0.85)',
+      background: 'var(--bg-header)',
       backdropFilter: 'blur(20px)',
       WebkitBackdropFilter: 'blur(20px)',
       borderBottom: '1px solid var(--border-color)',
+      transition: 'background 0.3s ease, border-color 0.3s ease',
     }}>
       <div style={{
         maxWidth: '1280px',
         margin: '0 auto',
-        padding: '14px 24px',
+        padding: '12px 24px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -102,10 +103,10 @@ export default function Header({ onContactClick }: HeaderProps) {
         <nav style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '24px',
+          gap: '20px',
         }} className="desktop-nav">
           <Link href="/" style={{
-            color: '#ffffff',
+            color: 'var(--text-main)',
             textDecoration: 'none',
             fontSize: '0.92rem',
             fontWeight: 600,
