@@ -33,7 +33,7 @@ export default function Header({ onContactClick }: HeaderProps) {
         justifyContent: 'space-between',
       }}>
         {/* Brand Logo & Certification Strip */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
           <Link href="/" style={{
             display: 'flex',
             alignItems: 'center',
@@ -51,32 +51,49 @@ export default function Header({ onContactClick }: HeaderProps) {
             />
           </Link>
 
-          {/* Certifications Badges (Below Logo) */}
-          <div style={{
-            display: 'flex',
-            gap: '4px',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            marginTop: '2px',
-          }}>
-            {['Battery', 'CE', 'FCC', 'RoHS', 'CE-Battery', 'GPSR-Test Report', 'PSE Exempt', 'UN38.3'].map((cert) => (
-              <span
-                key={cert}
-                style={{
-                  fontSize: '0.6rem',
-                  fontWeight: 700,
-                  color: 'var(--accent-green)',
-                  background: 'rgba(0, 230, 153, 0.08)',
-                  border: '1px solid rgba(0, 230, 153, 0.25)',
-                  padding: '1px 5px',
-                  borderRadius: '4px',
-                  whiteSpace: 'nowrap',
-                  lineHeight: '1.2',
-                }}
-              >
-                {cert}
-              </span>
-            ))}
+          {/* Certifications Badges (2 Rows of 4 Items Each) */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', marginTop: '3px' }}>
+            <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+              {['Battery', 'CE', 'FCC', 'RoHS'].map((cert) => (
+                <span
+                  key={cert}
+                  style={{
+                    fontSize: '0.58rem',
+                    fontWeight: 700,
+                    color: 'var(--accent-green)',
+                    background: 'rgba(0, 230, 153, 0.08)',
+                    border: '1px solid rgba(0, 230, 153, 0.22)',
+                    padding: '1px 5px',
+                    borderRadius: '3px',
+                    whiteSpace: 'nowrap',
+                    lineHeight: '1.1',
+                  }}
+                >
+                  {cert}
+                </span>
+              ))}
+            </div>
+
+            <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+              {['CE-Battery', 'GPSR-Test Report', 'PSE Exempt', 'UN38.3'].map((cert) => (
+                <span
+                  key={cert}
+                  style={{
+                    fontSize: '0.58rem',
+                    fontWeight: 700,
+                    color: 'var(--accent-green)',
+                    background: 'rgba(0, 230, 153, 0.08)',
+                    border: '1px solid rgba(0, 230, 153, 0.22)',
+                    padding: '1px 5px',
+                    borderRadius: '3px',
+                    whiteSpace: 'nowrap',
+                    lineHeight: '1.1',
+                  }}
+                >
+                  {cert}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
