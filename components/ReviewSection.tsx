@@ -592,9 +592,10 @@ export default function ReviewSection({
   reviews = [],
   productTitle = '',
 }: ReviewSectionProps) {
-  const { lang, t } = useLanguage();
   const [selectedFilter, setSelectedFilter] = useState<'all' | '5star' | 'temu' | 'photos'>('all');
   const [helpfulVotes, setHelpfulVotes] = useState<Record<string, number>>({});
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const ITEMS_PER_PAGE = 10;
 
   const activeReviews = (Array.isArray(reviews) && reviews.length > 0) ? reviews : DEFAULT_TEMU_REVIEWS;
 
@@ -603,6 +604,11 @@ export default function ReviewSection({
       ...prev,
       [reviewId]: (prev[reviewId] || currentCount) + 1,
     }));
+  };
+
+  const handleFilterChange = (filter: 'all' | '5star' | 'temu' | 'photos') => {
+    setSelectedFilter(filter);
+    setCurrentPage(1);
   };
 
   const fiveStarCount = activeReviews.filter((r) => Number(r.rating) >= 4 || Number(r.rating) === 5).length;
@@ -615,6 +621,10 @@ export default function ReviewSection({
     if (selectedFilter === 'photos') return Array.isArray(r.images) && r.images.length > 0;
     return true;
   });
+
+  const totalPages = Math.ceil(filteredReviews.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const paginatedReviews = filteredReviews.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
   return (
     <div style={{ padding: '20px 0', borderTop: '1px solid var(--border-color)', marginTop: '24px' }}>
@@ -724,7 +734,7 @@ export default function ReviewSection({
         </span>
 
         <button
-          onClick={() => setSelectedFilter('all')}
+          onClick={() => handleFilterChange('all')}
           style={{
             fontSize: '0.82rem',
             fontWeight: 600,
@@ -740,7 +750,7 @@ export default function ReviewSection({
         </button>
 
         <button
-          onClick={() => setSelectedFilter('5star')}
+          onClick={() => handleFilterChange('5star')}
           style={{
             fontSize: '0.82rem',
             fontWeight: 600,
@@ -756,7 +766,7 @@ export default function ReviewSection({
         </button>
 
         <button
-          onClick={() => setSelectedFilter('temu')}
+          onClick={() => handleFilterChange('temu')}
           style={{
             fontSize: '0.82rem',
             fontWeight: 600,
@@ -773,7 +783,7 @@ export default function ReviewSection({
 
         {photoCount > 0 && (
           <button
-            onClick={() => setSelectedFilter('photos')}
+            onClick={() => handleFilterChange('photos')}
             style={{
               fontSize: '0.82rem',
               fontWeight: 600,
@@ -797,7 +807,7 @@ export default function ReviewSection({
             No reviews match your selected filter.
           </div>
         ) : (
-          filteredReviews.map((review) => {
+          paginatedReviews.map((review) => {
             const countryInfo = COUNTRY_FLAGS[review.country_code] || { flag: '🌐', name: review.country_code };
             const helpful = helpfulVotes[review.id] ?? (review.helpful_count || 12);
 
@@ -932,6 +942,72 @@ export default function ReviewSection({
           })
         )}
       </div>
+
+      {/* Pagination Controls Bar */}
+      {totalPages > 1 && (
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginTop: '24px', paddingTop: '16px', borderTop: '1px solid var(--border-color)' }}>
+          <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+            Showing <strong style={{ color: 'var(--text-main)' }}>{startIndex + 1}-{Math.min(startIndex + ITEMS_PER_PAGE, filteredReviews.length)}</strong> of <strong style={{ color: 'var(--text-main)' }}>{filteredReviews.length}</strong> reviews
+          </span>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <button
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              style={{
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                padding: '6px 14px',
+                borderRadius: '8px',
+                background: currentPage === 1 ? 'rgba(255,255,255,0.03)' : 'var(--bg-card)',
+                border: '1px solid var(--border-color)',
+                color: currentPage === 1 ? 'var(--text-dim)' : 'var(--text-main)',
+                cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+              }}
+            >
+              Prev
+            </button>
+
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                onClick={() => setCurrentPage(page)}
+                style={{
+                  fontSize: '0.82rem',
+                  fontWeight: currentPage === page ? 700 : 500,
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '8px',
+                  background: currentPage === page ? 'var(--accent-green)' : 'var(--bg-card)',
+                  color: currentPage === page ? '#000' : 'var(--text-main)',
+                  border: currentPage === page ? '1px solid var(--accent-green)' : '1px solid var(--border-color)',
+                  cursor: 'pointer',
+                  boxShadow: currentPage === page ? '0 0 10px rgba(16, 185, 129, 0.4)' : 'none',
+                }}
+              >
+                {page}
+              </button>
+            ))}
+
+            <button
+              disabled={currentPage === totalPages}
+              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              style={{
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                padding: '6px 14px',
+                borderRadius: '8px',
+                background: currentPage === totalPages ? 'rgba(255,255,255,0.03)' : 'var(--bg-card)',
+                border: '1px solid var(--border-color)',
+                color: currentPage === totalPages ? 'var(--text-dim)' : 'var(--text-main)',
+                cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+              }}
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
