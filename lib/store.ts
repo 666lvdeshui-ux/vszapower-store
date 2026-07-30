@@ -26,6 +26,45 @@ function saveProductsToFile(items: ProductItem[]) {
   } catch (e) {}
 }
 
+function getDeletedProductIds(): Set<string> {
+  const set = new Set<string>();
+  if (typeof window !== 'undefined') return set;
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    const file = path.join('/tmp', 'vszapower_deleted_product_ids.json');
+    if (fs.existsSync(file)) {
+      const arr = JSON.parse(fs.readFileSync(file, 'utf8'));
+      if (Array.isArray(arr)) arr.forEach(id => set.add(id));
+    }
+  } catch (e) {}
+  return set;
+}
+
+function saveDeletedProductId(id: string) {
+  if (typeof window !== 'undefined') return;
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    const file = path.join('/tmp', 'vszapower_deleted_product_ids.json');
+    const set = getDeletedProductIds();
+    set.add(id);
+    fs.writeFileSync(file, JSON.stringify(Array.from(set)), 'utf8');
+  } catch (e) {}
+}
+
+function removeDeletedProductId(id: string) {
+  if (typeof window !== 'undefined') return;
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    const file = path.join('/tmp', 'vszapower_deleted_product_ids.json');
+    const set = getDeletedProductIds();
+    set.delete(id);
+    fs.writeFileSync(file, JSON.stringify(Array.from(set)), 'utf8');
+  } catch (e) {}
+}
+
 export interface CertificationItem {
   name: string;
   image_url: string;
@@ -302,6 +341,7 @@ export async function removeVideo(id: string): Promise<boolean> {
 }
 
 export async function fetchAllProducts(): Promise<ProductItem[]> {
+  const deletedSet = getDeletedProductIds();
   const fileItems = loadProductsFromFile();
   if (fileItems.length > 0) {
     fileItems.forEach(item => {
@@ -322,11 +362,13 @@ export async function fetchAllProducts(): Promise<ProductItem[]> {
       if (!error && data && data.length > 0) {
         const sbList = data as ProductItem[];
         sbList.forEach(sbP => {
-          const idx = mergedList.findIndex(p => p.id === sbP.id);
-          if (idx >= 0) {
-            mergedList[idx] = { ...mergedList[idx], ...sbP };
-          } else {
-            mergedList.push(sbP);
+          if (!deletedSet.has(sbP.id) && !deletedProductIds.has(sbP.id)) {
+            const idx = mergedList.findIndex(p => p.id === sbP.id);
+            if (idx >= 0) {
+              mergedList[idx] = { ...mergedList[idx], ...sbP };
+            } else {
+              mergedList.push(sbP);
+            }
           }
         });
       }
@@ -335,7 +377,7 @@ export async function fetchAllProducts(): Promise<ProductItem[]> {
     }
   }
 
-  return mergedList.filter(p => !deletedProductIds.has(p.id));
+  return mergedList.filter(p => !deletedSet.has(p.id) && !deletedProductIds.has(p.id));
 }
 
 export async function saveProduct(product: Partial<ProductItem>): Promise<ProductItem> {
@@ -371,6 +413,7 @@ export async function saveProduct(product: Partial<ProductItem>): Promise<Produc
   };
 
   deletedProductIds.delete(newProduct.id);
+  removeDeletedProductId(newProduct.id);
 
   // 1. Update in-memory cache first
   const index = productsCache.findIndex(p => p.id === newProduct.id);
@@ -402,7 +445,9 @@ export async function saveProduct(product: Partial<ProductItem>): Promise<Produc
 
 export async function removeProduct(id: string): Promise<boolean> {
   deletedProductIds.add(id);
+  saveDeletedProductId(id);
   productsCache = productsCache.filter(p => p.id !== id);
+  saveProductsToFile(productsCache);
 
   if (supabase) {
     try {

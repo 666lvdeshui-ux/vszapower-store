@@ -188,30 +188,38 @@ export const MOCK_PRODUCTS = [
     }
   },
   {
-    id: '4',
-    slug: 'vszapower-portable-pocket-charger',
-    title: 'VSZAPOWER Ultra-Compact Portable USB Coin Cell Battery Charger',
-    tagline: 'Pocket-Sized Foldable USB Charger Dock for AirTags & Key Fobs',
-    price: 9.99,
-    compare_at_price: 15.99,
-    is_starter_kit: false,
+    id: 'prod_clip_charger',
+    slug: 'vszapower-clip-charger-7usd',
+    title: 'VSZAPOWER 夹式纽扣电池充电器，支持LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450，快速30分钟充满，携带方便，低电压充电器，自有工厂',
+    tagline: '纽扣电池充电器/夹式充电器/30分钟充满/携带方便/源头工厂直发',
+    price: 7.00,
+    compare_at_price: 11.00,
+    is_starter_kit: true,
     category: '纽扣电池充电器',
-    image_url: SVG_IMAGES.portable_usb_charger,
+    image_url: 'https://img.kwcdn.com/product/211a2a4076c/deabea03-9782-4bf1-9457-bc6244740035_1024x1024.jpeg',
     images: [
-      SVG_IMAGES.portable_usb_charger,
+      'https://img.kwcdn.com/product/211a2a4076c/deabea03-9782-4bf1-9457-bc6244740035_1024x1024.jpeg',
+      SVG_IMAGES.dual_charger_starter_kit,
     ],
     certifications: [
-      { name: 'CE 欧盟安全认证', image_url: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80' },
-      { name: 'RoHS 环保无毒认证', image_url: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80' }
+      { name: 'Battery 电池检测认证', image_url: '' },
+      { name: 'CE 欧盟安全认证', image_url: '' },
+      { name: 'FCC 电磁兼容认证', image_url: '' },
+      { name: 'RoHS 环保无毒认证', image_url: '' },
+      { name: 'UN38.3 锂电池安全认证', image_url: '' },
     ],
-    badge: 'PORTABLE TRAVEL',
-    description: 'Ultra-lightweight 28g travel coin battery charger featuring an integrated foldable USB connector. Plugs directly into power banks, laptops, or phone adapters. Ideal for quick charging on the go.',
+    badge: 'TEMU HOT SALE / $7 FACTORY DIRECT',
+    description: 'VSZAPOWER 自有工厂直发 7 美元精巧双充夹式纽扣电池充电器，广泛兼容 LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032 等全系列可充电扣式锂电池。内置 3.6V/4.2V MCU 微电流安全防护与 30 分钟极速快充芯片，过夜充电防过充发烫。',
     specs: {
-      input: 'Integrated Foldable USB-A 5V 1A',
-      output: '4.2V 40mA x 2 Channels',
-      dimensions: '72mm x 38mm x 14mm',
-      weight: '28g Ultra-Lightweight'
-    }
+      voltage: '3.6V - 4.2V Auto Switch',
+      supported: 'LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032',
+      safety: 'MCU 4.2V Cutoff / Short Circuit / Reverse Polarity Protection',
+      packaging: 'Eco Kraft Papercard Pack',
+      warranty: '2 Years Factory Direct'
+    },
+    rating: 4.93,
+    review_count: 1480,
+    temu_link: 'https://www.temu.com/goods.html?_bg_fs=1&goods_id=606258002264728',
   },
   {
     id: '6',
