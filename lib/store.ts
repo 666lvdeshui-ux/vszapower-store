@@ -6,6 +6,20 @@ export interface CertificationItem {
   image_url: string;
 }
 
+export interface ReviewItem {
+  id: string;
+  reviewer_name: string;
+  avatar_url?: string;
+  country_code: string;
+  rating: number;
+  title: string;
+  content: string;
+  verified_source: 'Temu' | 'Amazon' | 'Direct';
+  images?: string[];
+  date: string;
+  helpful_count?: number;
+}
+
 export interface ProductItem {
   id: string;
   slug: string;
@@ -22,6 +36,10 @@ export interface ProductItem {
   description: string;
   specs?: Record<string, string>;
   translations?: Record<string, any>;
+  rating?: number;
+  review_count?: number;
+  temu_link?: string;
+  reviews?: ReviewItem[];
   created_at?: string;
 }
 

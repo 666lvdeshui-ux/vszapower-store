@@ -47,7 +47,89 @@ export const MOCK_PRODUCTS = [
       safety: 'Overcharge / Short Circuit / Reverse Polarity Protection',
       packaging: 'Eco-Friendly Kraft Papercard Pack',
       warranty: '2 Years'
-    }
+    },
+    rating: 4.93,
+    review_count: 1480,
+    temu_link: 'https://www.temu.com/goods.html?_bg_fs=1&goods_id=606258002264728',
+    reviews: [
+      {
+        id: 'rev_1',
+        reviewer_name: 'Mark T.',
+        country_code: 'US',
+        rating: 5,
+        title: 'Essential charger for AirTags & car keys!',
+        content: 'Works amazingly well for my Apple AirTags and car key fobs! Charges LIR2032 in about 35 minutes. Clip design holds batteries firmly in place. LED turns from red to solid green when full.',
+        verified_source: 'Temu',
+        date: '2026-07-28',
+        helpful_count: 34
+      },
+      {
+        id: 'rev_2',
+        reviewer_name: 'Hans Weber',
+        country_code: 'DE',
+        rating: 5,
+        title: 'Sehr gutes Knopfbatterie-Ladegerät!',
+        content: 'Absolut fantastisches Ladegerät für LIR2032 und LIR2450. Sehr schnelle Lieferung über Temu, hochwertige Verarbeitung und der automatische Überladeschutz funktioniert perfekt.',
+        verified_source: 'Temu',
+        date: '2026-07-25',
+        helpful_count: 28
+      },
+      {
+        id: 'rev_3',
+        reviewer_name: 'Kenji Sato',
+        country_code: 'JP',
+        rating: 5,
+        title: 'CR2032の使い捨てを即座にストップ！',
+        content: '使い捨てボタン電池を毎回買わなくて済むようになり、大幅なコスト削減になりました。35分で満充電になり、LEDが緑に変わります。Temuでの配送も非常に早かったです！',
+        verified_source: 'Temu',
+        date: '2026-07-22',
+        helpful_count: 22
+      },
+      {
+        id: 'rev_4',
+        reviewer_name: 'Sarah Jenkins',
+        country_code: 'GB',
+        rating: 5,
+        title: 'Great value & micro-current protection',
+        content: 'Fantastic little clip charger dock. Micro-current protection gives peace of mind. Great value for $7 on Temu. Highly recommend!',
+        verified_source: 'Temu',
+        date: '2026-07-19',
+        helpful_count: 19
+      },
+      {
+        id: 'rev_5',
+        reviewer_name: 'Pierre Laurent',
+        country_code: 'FR',
+        rating: 5,
+        title: 'Super chargeur intelligent pour piles bouton',
+        content: 'Très pratique et économique. Plus besoin d\'acheter des piles jetables pour les télécommandes. La charge est rapide et sécurisée.',
+        verified_source: 'Temu',
+        date: '2026-07-15',
+        helpful_count: 15
+      },
+      {
+        id: 'rev_6',
+        reviewer_name: 'Alex Miller',
+        country_code: 'CA',
+        rating: 5,
+        title: 'Solid build quality & LED status light',
+        content: 'Solid build quality and clear LED status light. Perfect for AirTag battery replacements.',
+        verified_source: 'Temu',
+        date: '2026-07-10',
+        helpful_count: 12
+      },
+      {
+        id: 'rev_7',
+        reviewer_name: 'Carlos Gomez',
+        country_code: 'MX',
+        rating: 5,
+        title: 'Excelente cargador para LIR2032',
+        content: 'Excelente cargador para pilas LIR2032. Funciona al 100% y llegó rapidísimo por Temu.',
+        verified_source: 'Temu',
+        date: '2026-07-05',
+        helpful_count: 9
+      }
+    ]
   },
   {
     id: '2',

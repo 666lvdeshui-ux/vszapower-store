@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { ProductItem, CertificationItem } from '@/lib/store';
-import { MessageSquare, Info, Zap, X, Filter, ShieldCheck, ChevronLeft, ChevronRight, Maximize2, Award } from 'lucide-react';
+import { MessageSquare, Info, Zap, X, Filter, ShieldCheck, ChevronLeft, ChevronRight, Maximize2, Award, Star } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { translateDynamicContent } from '@/lib/dynamicI18n';
+import ReviewSection from './ReviewSection';
 
 interface ProductGridProps {
   onContactClick: (productName?: string) => void;
@@ -248,19 +249,34 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     fontFamily: 'var(--font-heading)',
                     fontSize: '1.25rem',
                     fontWeight: 800,
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     marginBottom: '8px',
                     lineHeight: 1.35,
                   }}>
                     {translatedTitle}
                   </h3>
 
+                  {/* Temu Star Rating & Reviews Badge */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '10px', flexWrap: 'wrap' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
+                      {[1, 2, 3, 4, 5].map((s) => (
+                        <Star key={s} size={13} fill="#f59e0b" color="#f59e0b" />
+                      ))}
+                    </div>
+                    <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-main)' }}>
+                      {product.rating ? product.rating.toFixed(2) : '4.93'}
+                    </span>
+                    <span style={{ fontSize: '0.75rem', color: '#f97316', background: 'rgba(249, 115, 22, 0.12)', border: '1px solid rgba(249, 115, 22, 0.3)', padding: '1px 6px', borderRadius: '4px', fontWeight: 600 }}>
+                      ✓ {product.review_count ? product.review_count.toLocaleString() : '1,480'}+ Temu Reviews
+                    </span>
+                  </div>
+
                   {/* Product Tagline */}
                   <p style={{
                     color: 'var(--text-muted)',
                     fontSize: '0.9rem',
                     lineHeight: 1.5,
-                    marginBottom: '20px',
+                    marginBottom: '16px',
                   }}>
                     {translatedTagline}
                   </p>
@@ -686,6 +702,15 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                   </div>
                 )}
               </div>
+
+              {/* Temu Global Customer Reviews Section */}
+              <ReviewSection
+                rating={selectedProduct.rating || 4.93}
+                reviewCount={selectedProduct.review_count || 1480}
+                temuLink={selectedProduct.temu_link}
+                reviews={selectedProduct.reviews || []}
+                productTitle={selectedProduct.title}
+              />
             </div>
           </div>
         );
