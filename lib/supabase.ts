@@ -15,6 +15,23 @@ export const supabase = isSupabaseConfigured
 // Mock Fallback Data when Supabase is not connected yet
 import { SVG_IMAGES } from './productImages';
 
+export const REAL_PRODUCT_COVER_IMAGES = [
+  'https://img.kwcdn.com/product/211a2a4076c/deabea03-9782-4bf1-9457-bc6244740035_1024x1024.jpeg',
+  'https://img.kwcdn.com/product/fancy/0cfe312f-e3dd-484e-9e38-f0c3b5016346.jpg',
+  'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=1200&q=80',
+];
+
+export function getRandomProductCoverImage(index?: number): string {
+  if (typeof index === 'number') {
+    return REAL_PRODUCT_COVER_IMAGES[Math.abs(index) % REAL_PRODUCT_COVER_IMAGES.length];
+  }
+  return REAL_PRODUCT_COVER_IMAGES[Math.floor(Math.random() * REAL_PRODUCT_COVER_IMAGES.length)];
+}
+
 export const MOCK_PRODUCTS = [
   {
     id: '1',
@@ -264,7 +281,7 @@ export const MOCK_POSTS = [
     summary: '别再频繁扔掉用完的 CR2032 电池！深入剖析 3.0V 一次性锂锰电池与 3.7V LIR2032 可充电锂离子电池的区别、设备兼容性上限、安全充电要点及 5 年使用成本对比。',
     category: '选型与对比',
     tags: ['CR2032', 'LIR2032', '选型指南', '电压安全'],
-    cover_image: 'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1200&q=80',
+    cover_image: REAL_PRODUCT_COVER_IMAGES[0],
     author: 'Dr. Alex Vance, 电池电化学首席工程师',
     read_time: '6 分钟阅读',
     published: true,
@@ -334,7 +351,7 @@ export const MOCK_POSTS = [
     summary: '面对复杂的 LIR2032、LIR2025、LIR2450 以及 ML2032 命名，如何为你的设备精准匹配电池？一文拆解 4 位数字编码含义、尺寸规格与应用场景。',
     category: '选型与对比',
     tags: ['规格图谱', 'LIR2450', 'LIR2025', 'ML2032'],
-    cover_image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=1200&q=80',
+    cover_image: REAL_PRODUCT_COVER_IMAGES[1],
     author: 'Vszapower 技术工程团队',
     read_time: '8 分钟阅读',
     published: true,
@@ -387,7 +404,7 @@ export const MOCK_POSTS = [
     summary: 'AirTag 总是提示低电量？我们通过实验室实测，验证了 3.7V LIR2032 在 AirTag 上的高频定位、蜂鸣器响铃及全电量循环表现。',
     category: '设备兼容测评',
     tags: ['AirTag', '车钥匙遥控', '实测报告', 'LIR2032'],
-    cover_image: 'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=1200&q=80',
+    cover_image: REAL_PRODUCT_COVER_IMAGES[2],
     author: 'Vszapower 实验室测试组',
     read_time: '5 分钟阅读',
     published: true,
@@ -426,7 +443,7 @@ AirTag 内部的电源管理芯片（PMIC）设计工作上限可达 **4.5V**。
     summary: '纽扣电池充电为何不能使用常规快充？深入了解 20mA 微电流控制、Auto-Cut 饱满自动切断防过充机制与微型安全电路设计。',
     category: '充电与安全',
     tags: ['充电安全', '智能芯片', '防过充', '环保纸盒'],
-    cover_image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80',
+    cover_image: REAL_PRODUCT_COVER_IMAGES[3],
     author: 'Vszapower 研发中心',
     read_time: '7 分钟阅读',
     published: true,

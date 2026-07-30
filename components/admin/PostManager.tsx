@@ -5,6 +5,8 @@ import { PostItem } from '@/lib/store';
 import { Plus, Edit3, Trash2, Eye, BookOpen, User, Clock, FileText, CheckCircle, XCircle } from 'lucide-react';
 import ImageUploader from '@/components/admin/ImageUploader';
 
+import { getRandomProductCoverImage } from '@/lib/supabase';
+
 export default function PostManager() {
   const [posts, setPosts] = useState<PostItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -39,7 +41,7 @@ export default function PostManager() {
       slug: '',
       summary: '',
       category: 'Battery Academy',
-      cover_image: 'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1200&q=80',
+      cover_image: getRandomProductCoverImage(),
       author: 'Dr. Alex Vance, Electrochemistry Lead',
       read_time: '6 min read',
       published: true,

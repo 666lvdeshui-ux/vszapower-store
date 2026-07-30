@@ -113,7 +113,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                 </div>
                 <div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Email Inquiries</div>
-                  <div style={{ fontSize: '1rem', fontWeight: 700 }}>sales@vszapower.com</div>
+                  <div style={{ fontSize: '1rem', fontWeight: 700 }}>666lvdeshui@gmail.com</div>
                 </div>
               </div>
 
@@ -123,7 +123,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                 </div>
                 <div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>WhatsApp / Direct Call</div>
-                  <div style={{ fontSize: '1rem', fontWeight: 700 }}>+86 188 2032 8899</div>
+                  <div style={{ fontSize: '1rem', fontWeight: 700 }}>+8618879620636</div>
                 </div>
               </div>
 
