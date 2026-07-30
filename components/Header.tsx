@@ -34,8 +34,8 @@ export default function Header({ onContactClick }: HeaderProps) {
         alignItems: 'center',
         justifyContent: 'space-between',
       }}>
-        {/* Brand Logo & Certification Strip */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+        {/* Brand Logo & Certification Strip (Prevent Shrink) */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', flexShrink: 0 }}>
           <Link href="/" style={{
             display: 'flex',
             alignItems: 'center',
@@ -99,88 +99,97 @@ export default function Header({ onContactClick }: HeaderProps) {
           </div>
         </div>
 
-        {/* Navigation Tabs */}
+        {/* Navigation Tabs (Responsive & Multi-language Optimized) */}
         <nav style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '20px',
-        }} className="desktop-nav">
+          gap: 'clamp(8px, 1.2vw, 18px)',
+          overflowX: 'auto',
+          scrollbarWidth: 'none',
+          padding: '4px 0',
+        }} className="desktop-nav custom-scrollbar-hidden">
           <Link href="/" style={{
             color: 'var(--text-main)',
             textDecoration: 'none',
-            fontSize: '0.92rem',
+            fontSize: 'clamp(0.8rem, 0.88vw, 0.92rem)',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
-            gap: '6px',
+            gap: '5px',
+            whiteSpace: 'nowrap',
             transition: 'color 0.2s',
           }}>
-            <Home size={16} /> {t('nav_home')}
+            <Home size={15} style={{ flexShrink: 0 }} /> {t('nav_home')}
           </Link>
           <Link href="/#products?cat=charger" style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: '0.92rem',
+            fontSize: 'clamp(0.8rem, 0.88vw, 0.92rem)',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
-            gap: '6px',
+            gap: '5px',
+            whiteSpace: 'nowrap',
             transition: 'color 0.2s',
           }}>
-            <Zap size={16} color="var(--accent-green)" /> {t('nav_chargers')}
+            <Zap size={15} color="var(--accent-green)" style={{ flexShrink: 0 }} /> {t('nav_chargers')}
           </Link>
           <Link href="/#products?cat=battery" style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: '0.92rem',
+            fontSize: 'clamp(0.8rem, 0.88vw, 0.92rem)',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
-            gap: '6px',
+            gap: '5px',
+            whiteSpace: 'nowrap',
             transition: 'color 0.2s',
           }}>
-            <Zap size={16} color="var(--accent-cyan)" /> {t('nav_batteries')}
+            <Zap size={15} color="var(--accent-cyan)" style={{ flexShrink: 0 }} /> {t('nav_batteries')}
           </Link>
           <Link href="/#videos" style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: '0.92rem',
+            fontSize: 'clamp(0.8rem, 0.88vw, 0.92rem)',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
-            gap: '6px',
+            gap: '5px',
+            whiteSpace: 'nowrap',
             transition: 'color 0.2s',
           }}>
-            <Video size={16} color="#f59e0b" /> {t('nav_videos')}
+            <Video size={15} color="#f59e0b" style={{ flexShrink: 0 }} /> {t('nav_videos')}
           </Link>
           <Link href="/academy" style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: '0.92rem',
+            fontSize: 'clamp(0.8rem, 0.88vw, 0.92rem)',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
-            gap: '6px',
+            gap: '5px',
+            whiteSpace: 'nowrap',
             transition: 'color 0.2s',
           }}>
-            <BookOpen size={16} /> {t('nav_academy')}
+            <BookOpen size={15} style={{ flexShrink: 0 }} /> {t('nav_academy')}
           </Link>
           <Link href="/#contact" onClick={() => onContactClick && onContactClick()} style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: '0.92rem',
+            fontSize: 'clamp(0.8rem, 0.88vw, 0.92rem)',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
-            gap: '6px',
+            gap: '5px',
+            whiteSpace: 'nowrap',
             transition: 'color 0.2s',
           }}>
-            <MessageSquare size={16} /> {t('nav_contact')}
+            <MessageSquare size={15} style={{ flexShrink: 0 }} /> {t('nav_contact')}
           </Link>
         </nav>
 
-        {/* Action Controls: Theme Toggle + Language Switcher + Contact Button */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        {/* Action Controls: Theme Toggle + Language Switcher + Contact Button (Prevent Shrink) */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
           {/* Light / Dark Mode Manual Switcher */}
           <ThemeToggle />
 

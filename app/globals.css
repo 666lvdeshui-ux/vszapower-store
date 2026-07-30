@@ -63,6 +63,15 @@
   color: #059669 !important;
 }
 
+.custom-scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
