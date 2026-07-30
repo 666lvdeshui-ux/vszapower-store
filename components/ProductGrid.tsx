@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ProductItem, CertificationItem } from '@/lib/store';
-import { MessageSquare, Info, Zap, X, Filter, ShieldCheck, ChevronLeft, ChevronRight, Maximize2, Award, Star } from 'lucide-react';
+import { MessageSquare, Info, Zap, X, Filter, ShieldCheck, ChevronLeft, ChevronRight, Maximize2, Award, Star, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { translateDynamicContent } from '@/lib/dynamicI18n';
 import ReviewSection from './ReviewSection';
@@ -509,6 +509,76 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                       ))}
                     </div>
                   )}
+
+                  {/* Multi-Scenario Real-World Highlights Card */}
+                  <div
+                    style={{
+                      marginTop: '20px',
+                      background: 'rgba(16, 185, 129, 0.04)',
+                      border: '1px solid rgba(16, 185, 129, 0.2)',
+                      borderRadius: '16px',
+                      padding: '16px',
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+                      <h5 style={{ fontSize: '0.88rem', fontWeight: 800, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <Sparkles size={16} color="var(--accent-green)" /> {translateDynamicContent('全场景高频买家口碑体验 (Real-World Use Cases)', lang)}
+                      </h5>
+                      <span style={{ fontSize: '0.72rem', background: 'rgba(249, 115, 22, 0.15)', color: '#f97316', border: '1px solid rgba(249, 115, 22, 0.3)', padding: '2px 6px', borderRadius: '4px', fontWeight: 700 }}>
+                        ★ 99.2% Satisfied
+                      </span>
+                    </div>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.82rem' }}>
+                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', background: 'rgba(10, 13, 20, 0.6)', padding: '8px 10px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                        <span style={{ fontSize: '1rem' }}>🏷️</span>
+                        <div>
+                          <strong style={{ color: 'var(--accent-green)', display: 'block', fontSize: '0.82rem' }}>
+                            {translateDynamicContent('Apple AirTag 防丢器专属配合', lang)}
+                          </strong>
+                          <span style={{ color: 'var(--text-muted)', fontSize: '0.78rem' }}>
+                            {translateDynamicContent('35分钟充满LIR2032，替代CR2032无缝使用，电量识别精准不弹窗警告。', lang)}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', background: 'rgba(10, 13, 20, 0.6)', padding: '8px 10px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                        <span style={{ fontSize: '1rem' }}>🔑</span>
+                        <div>
+                          <strong style={{ color: 'var(--accent-green)', display: 'block', fontSize: '0.82rem' }}>
+                            {translateDynamicContent('汽车智能钥匙 / 车遥控器', lang)}
+                          </strong>
+                          <span style={{ color: 'var(--text-muted)', fontSize: '0.78rem' }}>
+                            {translateDynamicContent('摆脱一次性纽扣电池高频消耗，随时循环充电，高寒恶劣天气下续航稳定。', lang)}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', background: 'rgba(10, 13, 20, 0.6)', padding: '8px 10px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                        <span style={{ fontSize: '1rem' }}>🏠</span>
+                        <div>
+                          <strong style={{ color: 'var(--accent-green)', display: 'block', fontSize: '0.82rem' }}>
+                            {translateDynamicContent('Smart Home / IoT 传感器', lang)}
+                          </strong>
+                          <span style={{ color: 'var(--text-muted)', fontSize: '0.78rem' }}>
+                            {translateDynamicContent('支持 Smart Lock 智能门锁、血糖仪、门窗传感器及温湿度计，微流保护不烧板。', lang)}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', background: 'rgba(10, 13, 20, 0.6)', padding: '8px 10px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                        <span style={{ fontSize: '1rem' }}>🛡️</span>
+                        <div>
+                          <strong style={{ color: 'var(--accent-green)', display: 'block', fontSize: '0.82rem' }}>
+                            {translateDynamicContent('4.2V MCU 微芯片自动断电', lang)}
+                          </strong>
+                          <span style={{ color: 'var(--text-muted)', fontSize: '0.78rem' }}>
+                            {translateDynamicContent('独立通道防过充/防反接，全天过夜充电不发烫，通过 UN38.3 & CE-battery 认证。', lang)}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Right Info Column */}
