@@ -474,7 +474,17 @@ export async function fetchAllPosts(): Promise<PostItem[]> {
     try {
       const { data, error } = await supabase.from('posts').select('*').order('created_at', { ascending: false });
       if (!error && data && data.length > 0) {
-        return (data as PostItem[]).filter(p => !deletedPostIds.has(p.id));
+        const postsList = (data as PostItem[]).map(p => ({
+          ...p,
+          translations: p.translations || generatePostPreTranslations({
+            title: p.title || '',
+            summary: p.summary || '',
+            category: p.category || '',
+            content: p.content || '',
+          }),
+        }));
+        postsCache = postsList;
+        return postsList.filter(p => !deletedPostIds.has(p.id));
       }
     } catch (e) {
       console.warn('Supabase fetch posts error, using local store:', e);
@@ -487,7 +497,18 @@ export async function getPostBySlug(slug: string): Promise<PostItem | null> {
   if (supabase) {
     try {
       const { data, error } = await supabase.from('posts').select('*').eq('slug', slug).single();
-      if (!error && data) return data as PostItem;
+      if (!error && data) {
+        const post = data as PostItem;
+        return {
+          ...post,
+          translations: post.translations || generatePostPreTranslations({
+            title: post.title || '',
+            summary: post.summary || '',
+            category: post.category || '',
+            content: post.content || '',
+          }),
+        };
+      }
     } catch (e) {
       console.warn('Supabase get post by slug error:', e);
     }
@@ -520,21 +541,39 @@ export async function savePost(post: Partial<PostItem>): Promise<PostItem> {
 
   deletedPostIds.delete(newPost.id);
 
-  if (supabase) {
-    try {
-      const { data, error } = await supabase.from('posts').upsert(newPost).select().single();
-      if (!error && data) return data as PostItem;
-    } catch (e) {
-      console.warn('Supabase save post error, falling back to local store:', e);
-    }
-  }
-
+  // 1. Update in-memory cache first
   const index = postsCache.findIndex(p => p.id === newPost.id);
   if (index >= 0) {
     postsCache[index] = newPost;
   } else {
     postsCache.unshift(newPost);
   }
+
+  // 2. Attempt Supabase upsert (sanitized payload omitting unsupported translations column)
+  if (supabase) {
+    try {
+      const supabasePostPayload = {
+        id: newPost.id,
+        slug: newPost.slug,
+        title: newPost.title,
+        summary: newPost.summary,
+        content: newPost.content,
+        category: newPost.category,
+        tags: newPost.tags,
+        cover_image: newPost.cover_image,
+        author: newPost.author,
+        read_time: newPost.read_time,
+        published: newPost.published,
+        created_at: newPost.created_at,
+      };
+
+      const { error } = await supabase.from('posts').upsert(supabasePostPayload);
+      if (error) console.warn('Supabase save post warning:', error.message);
+    } catch (e) {
+      console.warn('Supabase save post error, falling back to local store:', e);
+    }
+  }
+
   return newPost;
 }
 
