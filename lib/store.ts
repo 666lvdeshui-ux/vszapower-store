@@ -342,6 +342,21 @@ export async function removeVideo(id: string): Promise<boolean> {
 
 export async function fetchAllProducts(): Promise<ProductItem[]> {
   const deletedSet = getDeletedProductIds();
+
+  if (supabase) {
+    try {
+      const { data, error } = await supabase.from('products').select('*').order('created_at', { ascending: true });
+      if (!error && data && data.length > 0) {
+        const sbList = (data as ProductItem[]).filter(p => !deletedSet.has(p.id) && !deletedProductIds.has(p.id));
+        // Sync productsCache with Supabase
+        productsCache = sbList;
+        return sbList;
+      }
+    } catch (e) {
+      console.warn('Supabase fetch error, using local store:', e);
+    }
+  }
+
   const fileItems = loadProductsFromFile();
   if (fileItems.length > 0) {
     fileItems.forEach(item => {
@@ -354,30 +369,7 @@ export async function fetchAllProducts(): Promise<ProductItem[]> {
     });
   }
 
-  let mergedList = [...productsCache];
-
-  if (supabase) {
-    try {
-      const { data, error } = await supabase.from('products').select('*').order('created_at', { ascending: true });
-      if (!error && data && data.length > 0) {
-        const sbList = data as ProductItem[];
-        sbList.forEach(sbP => {
-          if (!deletedSet.has(sbP.id) && !deletedProductIds.has(sbP.id)) {
-            const idx = mergedList.findIndex(p => p.id === sbP.id);
-            if (idx >= 0) {
-              mergedList[idx] = { ...mergedList[idx], ...sbP };
-            } else {
-              mergedList.push(sbP);
-            }
-          }
-        });
-      }
-    } catch (e) {
-      console.warn('Supabase fetch error, using local store:', e);
-    }
-  }
-
-  return mergedList.filter(p => !deletedSet.has(p.id) && !deletedProductIds.has(p.id));
+  return productsCache.filter(p => !deletedSet.has(p.id) && !deletedProductIds.has(p.id));
 }
 
 export async function saveProduct(product: Partial<ProductItem>): Promise<ProductItem> {
@@ -426,13 +418,29 @@ export async function saveProduct(product: Partial<ProductItem>): Promise<Produc
   // 2. Persist to local disk file
   saveProductsToFile(productsCache);
 
-  // 3. Attempt Supabase upsert
+  // 3. Attempt Supabase upsert (sanitized payload without unsupported column names)
   if (supabase) {
     try {
-      const { data, error } = await supabase.from('products').upsert(newProduct).select().single();
-      if (!error && data) {
-        return data as ProductItem;
-      } else if (error) {
+      const supabasePayload = {
+        id: newProduct.id,
+        slug: newProduct.slug,
+        title: newProduct.title,
+        tagline: newProduct.tagline,
+        price: newProduct.price,
+        compare_at_price: newProduct.compare_at_price,
+        is_starter_kit: newProduct.is_starter_kit,
+        category: newProduct.category,
+        image_url: newProduct.image_url,
+        images: newProduct.images,
+        certifications: newProduct.certifications,
+        badge: newProduct.badge,
+        description: newProduct.description,
+        specs: newProduct.specs,
+        created_at: newProduct.created_at,
+      };
+
+      const { error } = await supabase.from('products').upsert(supabasePayload);
+      if (error) {
         console.warn('Supabase save product warning:', error.message);
       }
     } catch (e) {
@@ -451,7 +459,8 @@ export async function removeProduct(id: string): Promise<boolean> {
 
   if (supabase) {
     try {
-      await supabase.from('products').delete().eq('id', id);
+      const { error } = await supabase.from('products').delete().eq('id', id);
+      if (error) console.warn('Supabase delete error:', error.message);
     } catch (e) {
       console.warn('Supabase delete error:', e);
     }
