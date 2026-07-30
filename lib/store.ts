@@ -1,6 +1,31 @@
 import { MOCK_PRODUCTS, MOCK_POSTS, supabase } from './supabase';
 import { generatePostPreTranslations, generateProductPreTranslations } from './dynamicI18n';
 
+function loadProductsFromFile(): ProductItem[] {
+  if (typeof window !== 'undefined') return [];
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    const tmpFile = path.join('/tmp', 'vszapower_store_products.json');
+    if (fs.existsSync(tmpFile)) {
+      const jsonStr = fs.readFileSync(tmpFile, 'utf8');
+      const parsed = JSON.parse(jsonStr);
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+    }
+  } catch (e) {}
+  return [];
+}
+
+function saveProductsToFile(items: ProductItem[]) {
+  if (typeof window !== 'undefined') return;
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    const tmpFile = path.join('/tmp', 'vszapower_store_products.json');
+    fs.writeFileSync(tmpFile, JSON.stringify(items, null, 2), 'utf8');
+  } catch (e) {}
+}
+
 export interface CertificationItem {
   name: string;
   image_url: string;
@@ -277,22 +302,46 @@ export async function removeVideo(id: string): Promise<boolean> {
 }
 
 export async function fetchAllProducts(): Promise<ProductItem[]> {
+  const fileItems = loadProductsFromFile();
+  if (fileItems.length > 0) {
+    fileItems.forEach(item => {
+      const idx = productsCache.findIndex(p => p.id === item.id);
+      if (idx >= 0) {
+        productsCache[idx] = item;
+      } else {
+        productsCache.unshift(item);
+      }
+    });
+  }
+
+  let mergedList = [...productsCache];
+
   if (supabase) {
     try {
       const { data, error } = await supabase.from('products').select('*').order('created_at', { ascending: true });
       if (!error && data && data.length > 0) {
-        return (data as ProductItem[]).filter(p => !deletedProductIds.has(p.id));
+        const sbList = data as ProductItem[];
+        sbList.forEach(sbP => {
+          const idx = mergedList.findIndex(p => p.id === sbP.id);
+          if (idx >= 0) {
+            mergedList[idx] = { ...mergedList[idx], ...sbP };
+          } else {
+            mergedList.push(sbP);
+          }
+        });
       }
     } catch (e) {
       console.warn('Supabase fetch error, using local store:', e);
     }
   }
-  return productsCache.filter(p => !deletedProductIds.has(p.id));
+
+  return mergedList.filter(p => !deletedProductIds.has(p.id));
 }
 
 export async function saveProduct(product: Partial<ProductItem>): Promise<ProductItem> {
+  const targetId = (product.id && product.id.trim()) ? product.id.trim() : `prod_${Date.now()}`;
   const newProduct: ProductItem = {
-    id: product.id || `prod_${Date.now()}`,
+    id: targetId,
     slug: product.slug || (product.title ? product.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') : `item-${Date.now()}`),
     title: product.title || 'Untitled Product',
     tagline: product.tagline || '',
@@ -306,6 +355,10 @@ export async function saveProduct(product: Partial<ProductItem>): Promise<Produc
     badge: product.badge || '',
     description: product.description || '',
     specs: product.specs || {},
+    rating: product.rating || 4.93,
+    review_count: product.review_count || 1480,
+    temu_link: product.temu_link || 'https://www.temu.com/goods.html?_bg_fs=1&goods_id=606258002264728',
+    reviews: product.reviews || [],
     translations: product.translations || generateProductPreTranslations({
       title: product.title || '',
       tagline: product.tagline || '',
@@ -319,21 +372,31 @@ export async function saveProduct(product: Partial<ProductItem>): Promise<Produc
 
   deletedProductIds.delete(newProduct.id);
 
-  if (supabase) {
-    try {
-      const { data, error } = await supabase.from('products').upsert(newProduct).select().single();
-      if (!error && data) return data as ProductItem;
-    } catch (e) {
-      console.warn('Supabase save error, falling back to local store:', e);
-    }
-  }
-
+  // 1. Update in-memory cache first
   const index = productsCache.findIndex(p => p.id === newProduct.id);
   if (index >= 0) {
     productsCache[index] = newProduct;
   } else {
     productsCache.unshift(newProduct);
   }
+
+  // 2. Persist to local disk file
+  saveProductsToFile(productsCache);
+
+  // 3. Attempt Supabase upsert
+  if (supabase) {
+    try {
+      const { data, error } = await supabase.from('products').upsert(newProduct).select().single();
+      if (!error && data) {
+        return data as ProductItem;
+      } else if (error) {
+        console.warn('Supabase save product warning:', error.message);
+      }
+    } catch (e) {
+      console.warn('Supabase save error, falling back to local store:', e);
+    }
+  }
+
   return newProduct;
 }
 
