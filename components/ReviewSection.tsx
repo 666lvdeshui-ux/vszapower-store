@@ -605,9 +605,13 @@ export default function ReviewSection({
     }));
   };
 
+  const fiveStarCount = activeReviews.filter((r) => Number(r.rating) >= 4 || Number(r.rating) === 5).length;
+  const temuCount = activeReviews.filter((r) => !r.verified_source || String(r.verified_source).toLowerCase().includes('temu')).length;
+  const photoCount = activeReviews.filter((r) => Array.isArray(r.images) && r.images.length > 0).length;
+
   const filteredReviews = activeReviews.filter((r) => {
-    if (selectedFilter === '5star') return r.rating === 5;
-    if (selectedFilter === 'temu') return r.verified_source === 'Temu';
+    if (selectedFilter === '5star') return Number(r.rating) >= 4 || Number(r.rating) === 5;
+    if (selectedFilter === 'temu') return !r.verified_source || String(r.verified_source).toLowerCase().includes('temu');
     if (selectedFilter === 'photos') return Array.isArray(r.images) && r.images.length > 0;
     return true;
   });
@@ -748,7 +752,7 @@ export default function ReviewSection({
             cursor: 'pointer',
           }}
         >
-          ★ 5-Star Only
+          ★ 5-Star Only ({fiveStarCount})
         </button>
 
         <button
@@ -764,10 +768,10 @@ export default function ReviewSection({
             cursor: 'pointer',
           }}
         >
-          ✓ Temu Buyers
+          ✓ Temu Buyers ({temuCount})
         </button>
 
-        {activeReviews.some((r) => r.images && r.images.length > 0) && (
+        {photoCount > 0 && (
           <button
             onClick={() => setSelectedFilter('photos')}
             style={{
@@ -781,7 +785,7 @@ export default function ReviewSection({
               cursor: 'pointer',
             }}
           >
-            📷 With Photos
+            📷 With Photos ({photoCount})
           </button>
         )}
       </div>
