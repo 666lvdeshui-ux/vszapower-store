@@ -191,38 +191,6 @@ export default function Header({ onContactClick }: HeaderProps) {
           }}>
             <Zap size={15} color="var(--accent-green)" style={{ flexShrink: 0 }} /> {t('nav_certifications')}
           </Link>
-          <Link href="/#videos" style={{
-            color: 'var(--text-muted)',
-            textDecoration: 'none',
-            fontSize: 'clamp(0.78rem, 0.85vw, 0.9rem)',
-            fontWeight: 600,
-            display: 'flex',
-            alignItems: 'center',
-            gap: '4px',
-            whiteSpace: 'nowrap',
-            flexShrink: 0,
-            padding: '4px 8px',
-            borderRadius: '6px',
-            transition: 'all 0.2s',
-          }}>
-            <Video size={15} color="#f59e0b" style={{ flexShrink: 0 }} /> {t('nav_videos')}
-          </Link>
-          <Link href="/academy" style={{
-            color: 'var(--text-muted)',
-            textDecoration: 'none',
-            fontSize: 'clamp(0.78rem, 0.85vw, 0.9rem)',
-            fontWeight: 600,
-            display: 'flex',
-            alignItems: 'center',
-            gap: '4px',
-            whiteSpace: 'nowrap',
-            flexShrink: 0,
-            padding: '4px 8px',
-            borderRadius: '6px',
-            transition: 'all 0.2s',
-          }}>
-            <BookOpen size={15} style={{ flexShrink: 0 }} /> {t('nav_academy')}
-          </Link>
           <Link href="/#contact" onClick={() => onContactClick && onContactClick()} style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
