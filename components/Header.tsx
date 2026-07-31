@@ -103,119 +103,146 @@ export default function Header({ onContactClick }: HeaderProps) {
         <nav style={{
           display: 'flex',
           alignItems: 'center',
-          gap: 'clamp(8px, 1.2vw, 18px)',
+          gap: 'clamp(6px, 1vw, 14px)',
           overflowX: 'auto',
           scrollbarWidth: 'none',
-          padding: '4px 0',
+          padding: '4px 8px',
+          margin: '0 12px',
+          flex: 1,
+          minWidth: 0,
         }} className="desktop-nav custom-scrollbar-hidden">
           <Link href="/" style={{
             color: 'var(--text-main)',
             textDecoration: 'none',
-            fontSize: 'clamp(0.8rem, 0.88vw, 0.92rem)',
+            fontSize: 'clamp(0.78rem, 0.85vw, 0.9rem)',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
-            gap: '5px',
+            gap: '4px',
             whiteSpace: 'nowrap',
-            transition: 'color 0.2s',
+            flexShrink: 0,
+            padding: '4px 8px',
+            borderRadius: '6px',
+            transition: 'all 0.2s',
           }}>
             <Home size={15} style={{ flexShrink: 0 }} /> {t('nav_home')}
           </Link>
           <Link href="/#products?cat=charger" style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: 'clamp(0.8rem, 0.88vw, 0.92rem)',
+            fontSize: 'clamp(0.78rem, 0.85vw, 0.9rem)',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
-            gap: '5px',
+            gap: '4px',
             whiteSpace: 'nowrap',
-            transition: 'color 0.2s',
+            flexShrink: 0,
+            padding: '4px 8px',
+            borderRadius: '6px',
+            transition: 'all 0.2s',
           }}>
             <Zap size={15} color="var(--accent-green)" style={{ flexShrink: 0 }} /> {t('nav_chargers')}
           </Link>
           <Link href="/#products?cat=battery" style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: 'clamp(0.8rem, 0.88vw, 0.92rem)',
+            fontSize: 'clamp(0.78rem, 0.85vw, 0.9rem)',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
-            gap: '5px',
+            gap: '4px',
             whiteSpace: 'nowrap',
-            transition: 'color 0.2s',
+            flexShrink: 0,
+            padding: '4px 8px',
+            borderRadius: '6px',
+            transition: 'all 0.2s',
           }}>
             <Zap size={15} color="var(--accent-cyan)" style={{ flexShrink: 0 }} /> {t('nav_batteries')}
           </Link>
           <Link href="/#factory" style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: 'clamp(0.8rem, 0.88vw, 0.92rem)',
+            fontSize: 'clamp(0.78rem, 0.85vw, 0.9rem)',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
-            gap: '5px',
+            gap: '4px',
             whiteSpace: 'nowrap',
-            transition: 'color 0.2s',
+            flexShrink: 0,
+            padding: '4px 8px',
+            borderRadius: '6px',
+            transition: 'all 0.2s',
           }}>
             <Zap size={15} color="var(--kraft-gold)" style={{ flexShrink: 0 }} /> {t('nav_factory')}
           </Link>
           <Link href="/#certifications" style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: 'clamp(0.8rem, 0.88vw, 0.92rem)',
+            fontSize: 'clamp(0.78rem, 0.85vw, 0.9rem)',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
-            gap: '5px',
+            gap: '4px',
             whiteSpace: 'nowrap',
-            transition: 'color 0.2s',
+            flexShrink: 0,
+            padding: '4px 8px',
+            borderRadius: '6px',
+            transition: 'all 0.2s',
           }}>
             <Zap size={15} color="var(--accent-green)" style={{ flexShrink: 0 }} /> {t('nav_certifications')}
           </Link>
           <Link href="/#videos" style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: 'clamp(0.8rem, 0.88vw, 0.92rem)',
+            fontSize: 'clamp(0.78rem, 0.85vw, 0.9rem)',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
-            gap: '5px',
+            gap: '4px',
             whiteSpace: 'nowrap',
-            transition: 'color 0.2s',
+            flexShrink: 0,
+            padding: '4px 8px',
+            borderRadius: '6px',
+            transition: 'all 0.2s',
           }}>
             <Video size={15} color="#f59e0b" style={{ flexShrink: 0 }} /> {t('nav_videos')}
           </Link>
           <Link href="/academy" style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: 'clamp(0.8rem, 0.88vw, 0.92rem)',
+            fontSize: 'clamp(0.78rem, 0.85vw, 0.9rem)',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
-            gap: '5px',
+            gap: '4px',
             whiteSpace: 'nowrap',
-            transition: 'color 0.2s',
+            flexShrink: 0,
+            padding: '4px 8px',
+            borderRadius: '6px',
+            transition: 'all 0.2s',
           }}>
             <BookOpen size={15} style={{ flexShrink: 0 }} /> {t('nav_academy')}
           </Link>
           <Link href="/#contact" onClick={() => onContactClick && onContactClick()} style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
-            fontSize: 'clamp(0.8rem, 0.88vw, 0.92rem)',
+            fontSize: 'clamp(0.78rem, 0.85vw, 0.9rem)',
             fontWeight: 600,
             display: 'flex',
             alignItems: 'center',
-            gap: '5px',
+            gap: '4px',
             whiteSpace: 'nowrap',
-            transition: 'color 0.2s',
+            flexShrink: 0,
+            padding: '4px 8px',
+            borderRadius: '6px',
+            transition: 'all 0.2s',
           }}>
             <MessageSquare size={15} style={{ flexShrink: 0 }} /> {t('nav_contact')}
           </Link>
         </nav>
 
         {/* Action Controls: Theme Toggle + Language Switcher + Contact Button (Prevent Shrink) */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0, position: 'relative', zIndex: 10, paddingLeft: '6px' }}>
           {/* Light / Dark Mode Manual Switcher */}
           <ThemeToggle />
 

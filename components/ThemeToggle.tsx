@@ -25,7 +25,7 @@ export default function ThemeToggle() {
         cursor: 'pointer',
         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         backdropFilter: 'blur(10px)',
-        boxShadow: theme === 'dark' ? '0 0 12px rgba(251, 191, 36, 0.2)' : '0 0 12px rgba(59, 130, 246, 0.2)',
+        boxShadow: theme === 'dark' ? '0 2px 8px rgba(251, 191, 36, 0.15)' : '0 2px 8px rgba(59, 130, 246, 0.15)',
       }}
     >
       {theme === 'dark' ? (
