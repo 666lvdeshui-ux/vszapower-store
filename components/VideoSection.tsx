@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Play, Video, Tag, MessageSquare, ExternalLink } from 'lucide-react';
+import { Play, Video, Tag, MessageSquare, ExternalLink, X } from 'lucide-react';
 import { VideoItem, INITIAL_VIDEOS } from '@/lib/store';
 import { useLanguage } from '@/context/LanguageContext';
 import { translateDynamicContent } from '@/lib/dynamicI18n';
@@ -13,7 +13,7 @@ interface VideoSectionProps {
 export default function VideoSection({ onContactClick }: VideoSectionProps) {
   const { lang, t } = useLanguage();
   const [videos, setVideos] = useState<VideoItem[]>(INITIAL_VIDEOS);
-  const [playingId, setPlayingId] = useState<string | null>(null);
+  const [activeVideoModal, setActiveVideoModal] = useState<VideoItem | null>(null);
 
   useEffect(() => {
     fetch('/api/videos')
@@ -28,185 +28,255 @@ export default function VideoSection({ onContactClick }: VideoSectionProps) {
 
   return (
     <section id="videos" style={{
-      padding: '60px 24px 80px',
+      padding: '60px 24px',
       maxWidth: '1280px',
       margin: '0 auto',
     }}>
-      {/* Title */}
-      <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-        <span className="badge badge-gold" style={{ marginBottom: '12px', fontSize: '0.75rem' }}>
-          🎬 SHORT VIDEO SHOWCASE
-        </span>
-        <h2 style={{
-          fontFamily: 'var(--font-heading)',
-          fontSize: 'clamp(2rem, 4vw, 2.8rem)',
-          fontWeight: 800,
-          marginBottom: '12px',
-        }}>
-          {t('nav_videos')} <span className="gradient-text">Showcase</span>
-        </h2>
-        <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: '640px', margin: '0 auto', marginBottom: '16px', lineHeight: 1.6 }}>
-          {translateDynamicContent('直观视频展示 VSZAPOWER 纽扣电池充电座的真实充放电效果、智能指示灯切断与多设备场景应用。', lang)}
-        </p>
-
-        {/* TikTok Profile Badge */}
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <a
-            href="https://www.tiktok.com/@vszapower.3c"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '8px 18px',
-              borderRadius: '30px',
-              background: 'rgba(255, 44, 85, 0.12)',
-              border: '1px solid rgba(255, 44, 85, 0.4)',
-              color: '#ff2c55',
-              fontSize: '0.85rem',
-              fontWeight: 700,
-              textDecoration: 'none',
-            }}
-          >
-            🎵 TikTok @vszapower.3c <ExternalLink size={14} />
-          </a>
+      {/* Streamlined Section Header */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'flex-end',
+        marginBottom: '36px',
+        flexWrap: 'wrap',
+        gap: '20px',
+      }}>
+        <div>
+          <span className="badge badge-gold" style={{ marginBottom: '10px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+            <Video size={14} /> PRODUCT &amp; FACTORY DEMOS
+          </span>
+          <h2 style={{
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)',
+            fontWeight: 800,
+            lineHeight: 1.2,
+          }}>
+            Video Showcase &amp; Live Tests
+          </h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginTop: '6px', maxWidth: '580px' }}>
+            Watch live micro-chip safety, AirTag battery replacement, and multi-slot charging demonstrations.
+          </p>
         </div>
+
+        <a
+          href="https://www.tiktok.com/@vszapower.3c"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            padding: '8px 16px',
+            borderRadius: '20px',
+            background: 'rgba(255, 44, 85, 0.1)',
+            border: '1px solid rgba(255, 44, 85, 0.3)',
+            color: '#ff2c55',
+            fontSize: '0.85rem',
+            fontWeight: 700,
+            textDecoration: 'none',
+          }}
+        >
+          🎵 TikTok @vszapower.3c <ExternalLink size={13} />
+        </a>
       </div>
 
-      {/* Video Items List (Left Video, Right Title & Keywords) */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+      {/* Streamlined Grid Layout (3 Columns) */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))',
+        gap: '24px',
+      }}>
         {videos.map(video => {
           const translatedTitle = translateDynamicContent(video.title, lang);
-          const translatedDesc = translateDynamicContent(video.description, lang);
 
           return (
             <div
               key={video.id}
               className="glass-panel"
               style={{
-                borderRadius: '24px',
-                padding: '28px',
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                gap: '32px',
-                alignItems: 'center',
+                borderRadius: '16px',
+                padding: '16px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
                 border: '1px solid var(--border-color)',
-                boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+                transition: 'transform 0.2s ease, border-color 0.2s ease',
               }}
             >
-              {/* Left Column: Short Video Player */}
-              <div style={{
-                position: 'relative',
-                borderRadius: '16px',
-                overflow: 'hidden',
-                background: '#090d16',
-                border: '1px solid var(--border-color)',
-                aspectRatio: '16 / 9',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-                {playingId === video.id ? (
-                  <video
-                    src={video.video_url}
-                    poster={video.poster_url}
-                    controls
-                    autoPlay
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                ) : (
-                  <div
-                    onClick={() => setPlayingId(video.id)}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      position: 'absolute',
-                      inset: 0,
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <img
-                      src={video.poster_url || 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80'}
-                      alt={translatedTitle}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.8 }}
-                    />
-                    <div style={{
-                      position: 'absolute',
-                      width: '64px',
-                      height: '64px',
-                      borderRadius: '50%',
-                      background: 'rgba(0, 230, 153, 0.9)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      boxShadow: '0 0 30px rgba(0, 230, 153, 0.6)',
-                    }}>
-                      <Play size={28} color="#041410" style={{ marginLeft: '4px' }} />
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Right Column: Title, Description & Keywords */}
               <div>
+                {/* Video Thumbnail Box */}
+                <div
+                  onClick={() => setActiveVideoModal(video)}
+                  style={{
+                    position: 'relative',
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                    background: '#090d16',
+                    aspectRatio: '16 / 9',
+                    marginBottom: '14px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                  }}
+                >
+                  <img
+                    src={video.poster_url || 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80'}
+                    alt={translatedTitle}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85 }}
+                  />
+
+                  {/* Play Button Icon */}
+                  <div style={{
+                    position: 'absolute',
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '50%',
+                    background: 'rgba(0, 230, 153, 0.9)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 0 20px rgba(0, 230, 153, 0.5)',
+                    transition: 'transform 0.2s ease',
+                  }}>
+                    <Play size={22} color="#041410" style={{ marginLeft: '3px' }} />
+                  </div>
+
+                  {/* Duration Badge */}
+                  {video.duration && (
+                    <span style={{
+                      position: 'absolute',
+                      bottom: '8px',
+                      right: '8px',
+                      background: 'rgba(0,0,0,0.75)',
+                      color: '#fff',
+                      fontSize: '0.7rem',
+                      fontWeight: 700,
+                      padding: '2px 6px',
+                      borderRadius: '4px',
+                    }}>
+                      {video.duration}
+                    </span>
+                  )}
+                </div>
+
+                {/* Video Title */}
                 <h3 style={{
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '1.4rem',
-                  fontWeight: 800,
-                  marginBottom: '12px',
+                  fontSize: '1rem',
+                  fontWeight: 700,
+                  marginBottom: '10px',
                   lineHeight: 1.4,
                   color: '#fff',
                 }}>
                   {translatedTitle}
                 </h3>
 
-                {translatedDesc && (
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.65, marginBottom: '20px' }}>
-                    {translatedDesc}
-                  </p>
-                )}
-
                 {/* Keywords Chips */}
                 {video.keywords && video.keywords.length > 0 && (
-                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '24px' }}>
-                    {video.keywords.map((kw, idx) => (
+                  <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '16px' }}>
+                    {video.keywords.slice(0, 3).map((kw, idx) => (
                       <span
                         key={idx}
                         style={{
-                          fontSize: '0.78rem',
+                          fontSize: '0.72rem',
                           color: 'var(--accent-green)',
-                          background: 'rgba(0, 230, 153, 0.1)',
+                          background: 'rgba(0, 230, 153, 0.08)',
                           border: '1px solid rgba(0, 230, 153, 0.2)',
-                          padding: '4px 12px',
-                          borderRadius: '20px',
+                          padding: '2px 8px',
+                          borderRadius: '12px',
                           fontWeight: 600,
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '4px',
                         }}
                       >
-                        <Tag size={12} /> {translateDynamicContent(kw, lang)}
+                        {translateDynamicContent(kw, lang)}
                       </span>
                     ))}
                   </div>
                 )}
-
-                <button
-                  onClick={() => onContactClick(translatedTitle)}
-                  className="btn-primary"
-                  style={{ padding: '10px 22px', fontSize: '0.88rem', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                >
-                  <MessageSquare size={16} /> {t('btn_contact')}
-                </button>
               </div>
+
+              {/* Action Button */}
+              <button
+                onClick={() => onContactClick(translatedTitle)}
+                className="btn-secondary"
+                style={{ width: '100%', padding: '8px 12px', fontSize: '0.82rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
+              >
+                <MessageSquare size={14} /> Inquire Solution
+              </button>
             </div>
           );
         })}
       </div>
+
+      {/* Video Modal Lightbox Player */}
+      {activeVideoModal && (
+        <div style={{
+          position: 'fixed',
+          top: 0, left: 0, right: 0, bottom: 0,
+          background: 'rgba(0,0,0,0.9)',
+          backdropFilter: 'blur(12px)',
+          zIndex: 1050,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '24px',
+        }}>
+          <div className="glass-panel" style={{
+            width: '100%',
+            maxWidth: '800px',
+            borderRadius: '20px',
+            overflow: 'hidden',
+            background: 'rgba(10,13,20,0.95)',
+            position: 'relative',
+            border: '1px solid var(--border-color)',
+          }}>
+            <button
+              onClick={() => setActiveVideoModal(null)}
+              style={{
+                position: 'absolute',
+                top: '16px', right: '16px',
+                zIndex: 10,
+                background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff',
+                width: '36px', height: '36px', borderRadius: '50%',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
+              }}
+            >
+              <X size={20} />
+            </button>
+
+            <div style={{ width: '100%', aspectRatio: '16 / 9', background: '#000' }}>
+              <video
+                src={activeVideoModal.video_url}
+                poster={activeVideoModal.poster_url}
+                controls
+                autoPlay
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              />
+            </div>
+
+            <div style={{ padding: '20px' }}>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#fff', marginBottom: '8px' }}>
+                {translateDynamicContent(activeVideoModal.title, lang)}
+              </h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.5, marginBottom: '16px' }}>
+                {translateDynamicContent(activeVideoModal.description, lang)}
+              </p>
+              <button
+                onClick={() => {
+                  const title = activeVideoModal.title;
+                  setActiveVideoModal(null);
+                  onContactClick(title);
+                }}
+                className="btn-primary"
+                style={{ padding: '10px 20px', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+              >
+                <MessageSquare size={16} /> Request Wholesale Quote for this Product
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
