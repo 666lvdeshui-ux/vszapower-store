@@ -51,9 +51,10 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
         body: JSON.stringify({
           name: email.split('@')[0],
           contact: email,
-          company: company,
-          product: '2026 Wholesale Product Catalog PDF Download',
-          message: 'Requested PDF Product Catalog & Datasheets',
+          company: company || '未填写公司 (Not Specified)',
+          country: 'PDF Catalog Lead',
+          product: '2026 Wholesale Product Catalog & Datasheets (PDF)',
+          message: `【资料索取下载】买家下载了 2026 Wholesale Catalog (PDF 报价单)，公司: ${company || '未填写'}，邮箱: ${email}`,
         }),
       }).catch(console.error);
 
