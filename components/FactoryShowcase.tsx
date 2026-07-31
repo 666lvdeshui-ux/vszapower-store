@@ -96,7 +96,7 @@ export default function FactoryShowcase({ onContactClick }: FactoryShowcaseProps
         }}>
           <div>
             <span className="badge badge-green" style={{ marginBottom: '12px' }}>{translateDynamicContent('CUSTOM BRANDING & OEM', lang)}</span>
-            <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#fff', marginBottom: '12px' }}>
+            <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '12px' }}>
               {translateDynamicContent('Tailored OEM / ODM Solutions for Distributors', lang)}
             </h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '20px' }}>
@@ -114,22 +114,22 @@ export default function FactoryShowcase({ onContactClick }: FactoryShowcaseProps
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
             <div style={{ background: 'rgba(255,255,255,0.04)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
               <Wrench size={20} color="var(--accent-green)" style={{ marginBottom: '8px' }} />
-              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '4px' }}>{translateDynamicContent('Custom Logo', lang)}</h4>
+              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '4px' }}>{translateDynamicContent('Custom Logo', lang)}</h4>
               <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{translateDynamicContent('Precision laser etching or silk-screen branding.', lang)}</p>
             </div>
             <div style={{ background: 'rgba(255,255,255,0.04)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
               <PackageCheck size={20} color="var(--accent-cyan)" style={{ marginBottom: '8px' }} />
-              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '4px' }}>{translateDynamicContent('Custom Packaging', lang)}</h4>
+              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '4px' }}>{translateDynamicContent('Custom Packaging', lang)}</h4>
               <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{translateDynamicContent('Kraft papercard box with custom artwork & barcode.', lang)}</p>
             </div>
             <div style={{ background: 'rgba(255,255,255,0.04)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
               <Cpu size={20} color="var(--kraft-gold)" style={{ marginBottom: '8px' }} />
-              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '4px' }}>{translateDynamicContent('Custom Micro-Chip', lang)}</h4>
+              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '4px' }}>{translateDynamicContent('Custom Micro-Chip', lang)}</h4>
               <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{translateDynamicContent('Specialized 3.6V / 4.2V MCU cutoff profiles.', lang)}</p>
             </div>
             <div style={{ background: 'rgba(255,255,255,0.04)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
               <Sparkles size={20} color="#a855f7" style={{ marginBottom: '8px' }} />
-              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '4px' }}>{translateDynamicContent('Sample Fast Track', lang)}</h4>
+              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '4px' }}>{translateDynamicContent('Sample Fast Track', lang)}</h4>
               <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{translateDynamicContent('Customized sample delivery in 3 - 5 business days.', lang)}</p>
             </div>
           </div>

@@ -83,7 +83,7 @@ export default function AcademyArticleClient({ post, formattedDate }: AcademyArt
         fontWeight: 800,
         lineHeight: 1.3,
         marginBottom: '20px',
-        color: '#fff',
+        color: 'var(--text-main)',
       }}>
         {translatedTitle}
       </h1>
@@ -136,7 +136,7 @@ export default function AcademyArticleClient({ post, formattedDate }: AcademyArt
       <div className="kraft-card" style={{ padding: '32px', marginTop: '60px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
           <Zap size={24} color="var(--accent-green)" />
-          <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', fontWeight: 800, color: '#fff' }}>
+          <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-main)' }}>
             {translateDynamicContent('选购 VSZAPOWER 纽扣电池专用智能充电器', lang)}
           </h3>
         </div>

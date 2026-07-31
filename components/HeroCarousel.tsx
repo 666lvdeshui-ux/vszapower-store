@@ -149,7 +149,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
           zIndex: 1,
           maxWidth: '640px',
           padding: '48px 40px',
-          color: '#fff',
+          color: 'var(--text-main)',
         }}>
           <div style={{ display: 'inline-block', marginBottom: '16px' }}>
             <span className="badge badge-green" style={{ fontSize: '0.8rem', padding: '6px 14px' }}>
@@ -229,7 +229,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
                 background: 'rgba(10, 13, 20, 0.6)',
                 backdropFilter: 'blur(10px)',
                 border: '1px solid var(--border-color)',
-                color: '#fff',
+                color: 'var(--text-main)',
                 width: '44px',
                 height: '44px',
                 borderRadius: '50%',
@@ -255,7 +255,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
                 background: 'rgba(10, 13, 20, 0.6)',
                 backdropFilter: 'blur(10px)',
                 border: '1px solid var(--border-color)',
-                color: '#fff',
+                color: 'var(--text-main)',
                 width: '44px',
                 height: '44px',
                 borderRadius: '50%',

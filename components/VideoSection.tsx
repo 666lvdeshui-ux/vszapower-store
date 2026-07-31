@@ -150,7 +150,7 @@ export default function VideoSection({ onContactClick }: VideoSectionProps) {
                       bottom: '8px',
                       right: '8px',
                       background: 'rgba(0,0,0,0.75)',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       fontSize: '0.7rem',
                       fontWeight: 700,
                       padding: '2px 6px',
@@ -168,7 +168,7 @@ export default function VideoSection({ onContactClick }: VideoSectionProps) {
                   fontWeight: 700,
                   marginBottom: '10px',
                   lineHeight: 1.4,
-                  color: '#fff',
+                  color: 'var(--text-main)',
                 }}>
                   {translatedTitle}
                 </h3>
@@ -237,7 +237,7 @@ export default function VideoSection({ onContactClick }: VideoSectionProps) {
                 position: 'absolute',
                 top: '16px', right: '16px',
                 zIndex: 10,
-                background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff',
+                background: 'rgba(255,255,255,0.1)', border: 'none', color: 'var(--text-main)',
                 width: '36px', height: '36px', borderRadius: '50%',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
               }}
@@ -256,7 +256,7 @@ export default function VideoSection({ onContactClick }: VideoSectionProps) {
             </div>
 
             <div style={{ padding: '20px' }}>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#fff', marginBottom: '8px' }}>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '8px' }}>
                 {translateDynamicContent(activeVideoModal.title, lang)}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.5, marginBottom: '16px' }}>

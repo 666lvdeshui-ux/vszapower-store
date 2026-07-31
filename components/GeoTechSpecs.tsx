@@ -92,7 +92,7 @@ export default function GeoTechSpecs() {
           }}>
             <Box size={24} color="var(--kraft-gold)" />
           </div>
-          <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 700, marginBottom: '12px', color: '#fff' }}>
+          <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 700, marginBottom: '12px', color: 'var(--text-main)' }}>
             Branded Kraft Papercard Design
           </h3>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>

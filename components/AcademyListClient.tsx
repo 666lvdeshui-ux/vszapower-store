@@ -106,7 +106,7 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
                 borderRadius: '10px',
                 background: 'rgba(255, 255, 255, 0.04)',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
-                color: '#fff',
+                color: 'var(--text-main)',
                 fontSize: '0.95rem',
                 outline: 'none',
                 transition: 'all 0.25s ease',
@@ -328,7 +328,7 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
                       <Link
                         href={`/academy/${post.slug}`}
                         style={{
-                          color: '#fff',
+                          color: 'var(--text-main)',
                           textDecoration: 'none',
                           transition: 'color 0.2s ease',
                         }}
@@ -423,7 +423,7 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
                     </div>
 
                     <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 700, marginBottom: '12px', lineHeight: 1.4 }}>
-                      <Link href={`/academy/${post.slug}`} style={{ color: '#fff', textDecoration: 'none' }}>
+                      <Link href={`/academy/${post.slug}`} style={{ color: 'var(--text-main)', textDecoration: 'none' }}>
                         {translatedTitle}
                       </Link>
                     </h2>

@@ -73,7 +73,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
   };
 
   const formContent = (
-    <div style={{ color: '#fff' }}>
+    <div style={{ color: 'var(--text-main)' }}>
       <div style={{ textAlign: 'center', marginBottom: '32px' }}>
         <span className="badge badge-green" style={{ marginBottom: '12px' }}>
           DIRECT CONTACT &amp; INQUIRY
@@ -95,7 +95,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
           textAlign: 'center',
         }}>
           <CheckCircle2 size={48} color="var(--accent-green)" style={{ margin: '0 auto 16px' }} />
-          <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '8px' }}>
+          <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '8px' }}>
             {t('contact_success')}
           </h3>
         </div>
@@ -155,7 +155,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                 value={formData.name}
                 onChange={e => setFormData({ ...formData, name: e.target.value })}
                 placeholder="e.g. John Doe"
-                style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: '#fff' }}
+                style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
               />
             </div>
 
@@ -166,7 +166,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                 value={formData.company}
                 onChange={e => setFormData({ ...formData, company: e.target.value })}
                 placeholder="e.g. Acme Electronics Ltd / www.acme.com"
-                style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: '#fff' }}
+                style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
               />
             </div>
 
@@ -178,7 +178,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                   value={formData.country}
                   onChange={e => setFormData({ ...formData, country: e.target.value })}
                   placeholder="e.g. USA / Germany"
-                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: '#fff' }}
+                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
                 />
               </div>
 
@@ -190,7 +190,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                   value={formData.contact}
                   onChange={e => setFormData({ ...formData, contact: e.target.value })}
                   placeholder="john@company.com"
-                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: '#fff' }}
+                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
                 />
               </div>
             </div>
@@ -201,7 +201,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                 <select
                   value={formData.businessType}
                   onChange={e => setFormData({ ...formData, businessType: e.target.value })}
-                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(10,13,20,0.9)', border: '1px solid var(--border-color)', color: '#fff' }}
+                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(10,13,20,0.9)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
                 >
                   <option value="Distributor / Wholesaler">Distributor / Wholesaler</option>
                   <option value="Amazon / E-commerce Seller">Amazon / E-commerce Seller</option>
@@ -216,7 +216,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                 <select
                   value={formData.quantity}
                   onChange={e => setFormData({ ...formData, quantity: e.target.value })}
-                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(10,13,20,0.9)', border: '1px solid var(--border-color)', color: '#fff' }}
+                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(10,13,20,0.9)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
                 >
                   <option value="100 - 500 pcs (MOQ Trial)">100 - 500 pcs (MOQ Trial)</option>
                   <option value="500 - 2,000 pcs (Wholesale)">500 - 2,000 pcs (Wholesale)</option>
@@ -232,7 +232,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                 type="text"
                 value={formData.product}
                 onChange={e => setFormData({ ...formData, product: e.target.value })}
-                style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: '#fff' }}
+                style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
               />
             </div>
 
@@ -244,7 +244,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                 value={formData.message}
                 onChange={e => setFormData({ ...formData, message: e.target.value })}
                 placeholder="Tell us your questions, required quantity, or target device models..."
-                style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: '#fff', fontFamily: 'inherit' }}
+                style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: 'var(--text-main)', fontFamily: 'inherit' }}
               />
             </div>
 
@@ -293,7 +293,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                 right: '20px',
                 background: 'rgba(255,255,255,0.1)',
                 border: 'none',
-                color: '#fff',
+                color: 'var(--text-main)',
                 width: '36px',
                 height: '36px',
                 borderRadius: '50%',

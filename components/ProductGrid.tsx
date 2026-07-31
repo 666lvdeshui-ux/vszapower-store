@@ -358,7 +358,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
               background: 'rgba(10, 14, 23, 0.98)',
               border: '1px solid rgba(255, 255, 255, 0.1)',
               boxShadow: '0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 230, 153, 0.08)',
-              color: '#fff',
+              color: 'var(--text-main)',
             }}>
               {/* Close Button */}
               <button
@@ -370,7 +370,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                   right: '16px',
                   background: 'rgba(255, 255, 255, 0.08)',
                   border: '1px solid rgba(255, 255, 255, 0.15)',
-                  color: '#fff',
+                  color: 'var(--text-main)',
                   width: '40px',
                   height: '40px',
                   borderRadius: '50%',
@@ -424,7 +424,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                       padding: '4px 10px',
                       borderRadius: '8px',
                       fontSize: '0.75rem',
-                      color: '#fff',
+                      color: 'var(--text-main)',
                       display: 'flex',
                       alignItems: 'center',
                       gap: '4px',
@@ -450,7 +450,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                             transform: 'translateY(-50%)',
                             background: 'rgba(10,13,20,0.85)',
                             border: '1px solid var(--border-color)',
-                            color: '#fff',
+                            color: 'var(--text-main)',
                             width: '34px',
                             height: '34px',
                             borderRadius: '50%',
@@ -476,7 +476,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                             transform: 'translateY(-50%)',
                             background: 'rgba(10,13,20,0.85)',
                             border: '1px solid var(--border-color)',
-                            color: '#fff',
+                            color: 'var(--text-main)',
                             width: '34px',
                             height: '34px',
                             borderRadius: '50%',
@@ -609,7 +609,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     fontWeight: 800,
                     marginBottom: '10px',
                     lineHeight: 1.35,
-                    color: '#fff',
+                    color: 'var(--text-main)',
                   }}>
                     {selectedProduct.translations?.[lang]?.title || translateDynamicContent(selectedProduct.title, lang)}
                   </h3>
@@ -673,7 +673,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
 
               {/* Specs & Description Section */}
               <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '28px', marginBottom: '28px' }}>
-                <h4 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', color: '#fff' }}>
+                <h4 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-main)' }}>
                   <Zap size={20} color="var(--accent-green)" /> {translateDynamicContent('产品概述与详情描述 (Product Overview & Details)', lang)}
                 </h4>
 
@@ -728,7 +728,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                             <div style={{ color: 'var(--text-dim)', fontSize: '0.78rem', marginBottom: '4px' }}>
                               {translateDynamicContent(label, lang)}
                             </div>
-                            <div style={{ color: '#fff', fontSize: '0.88rem', fontWeight: 600 }}>
+                            <div style={{ color: 'var(--text-main)', fontSize: '0.88rem', fontWeight: 600 }}>
                               {translateDynamicContent(String(val), lang)}
                             </div>
                           </div>
@@ -741,7 +741,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
 
               {/* Certifications & Qualifications Section */}
               <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '28px' }}>
-                <h4 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', color: '#fff' }}>
+                <h4 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-main)' }}>
                   <Award size={20} color="var(--accent-cyan)" /> 资质与质量检测认证 (Qualifications &amp; Certifications)
                 </h4>
 
@@ -766,7 +766,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                           border: '1px solid rgba(0, 230, 153, 0.3)',
                           borderRadius: '10px',
                           padding: '10px 16px',
-                          color: '#fff',
+                          color: 'var(--text-main)',
                           fontSize: '0.9rem',
                           fontWeight: 700,
                           boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
@@ -824,7 +824,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
               zIndex: 10,
             }}
           >
-            <span style={{ color: '#fff', fontSize: '1.1rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ color: 'var(--text-main)', fontSize: '1.1rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Maximize2 size={18} color="var(--accent-green)" /> {lightboxImage.title} ({lightboxIndex + 1} / {lightboxList.length})
             </span>
             <button
@@ -832,7 +832,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
               style={{
                 background: 'rgba(255,255,255,0.2)',
                 border: 'none',
-                color: '#fff',
+                color: 'var(--text-main)',
                 width: '40px',
                 height: '40px',
                 borderRadius: '50%',
@@ -882,7 +882,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     transform: 'translateY(-50%)',
                     background: 'rgba(10,13,20,0.8)',
                     border: '1px solid var(--border-color)',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     width: '48px',
                     height: '48px',
                     borderRadius: '50%',
@@ -903,7 +903,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     transform: 'translateY(-50%)',
                     background: 'rgba(10,13,20,0.8)',
                     border: '1px solid var(--border-color)',
-                    color: '#fff',
+                    color: 'var(--text-main)',
                     width: '48px',
                     height: '48px',
                     borderRadius: '50%',

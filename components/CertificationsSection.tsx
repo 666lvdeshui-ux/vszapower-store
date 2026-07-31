@@ -147,7 +147,7 @@ export default function CertificationsSection() {
                 </span>
               </div>
 
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fff', marginBottom: '8px' }}>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '8px' }}>
                 {translateDynamicContent(cert.title, lang)}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', lineHeight: 1.5, marginBottom: '16px' }}>
@@ -192,7 +192,7 @@ export default function CertificationsSection() {
               onClick={() => setActiveCert(null)}
               style={{
                 position: 'absolute', top: '16px', right: '16px',
-                background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff',
+                background: 'rgba(255,255,255,0.1)', border: 'none', color: 'var(--text-main)',
                 width: '32px', height: '32px', borderRadius: '50%',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
               }}
@@ -203,7 +203,7 @@ export default function CertificationsSection() {
             <div style={{ textAlign: 'center', marginBottom: '20px' }}>
               <ShieldCheck size={48} color={activeCert.badgeColor} style={{ margin: '0 auto 12px' }} />
               <span className="badge badge-green" style={{ marginBottom: '8px' }}>{activeCert.code}</span>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff' }}>{translateDynamicContent(activeCert.title, lang)}</h3>
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-main)' }}>{translateDynamicContent(activeCert.title, lang)}</h3>
             </div>
 
             <div style={{ background: 'rgba(255,255,255,0.03)', padding: '16px', borderRadius: '12px', marginBottom: '20px', fontSize: '0.88rem', lineHeight: 1.6, color: 'var(--text-muted)' }}>

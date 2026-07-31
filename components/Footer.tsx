@@ -39,7 +39,7 @@ export default function Footer() {
 
         {/* Col 2: Quick Links */}
         <div>
-          <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', color: '#fff', marginBottom: '16px' }}>
+          <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', color: 'var(--text-main)', marginBottom: '16px' }}>
             {t('nav_home')} &amp; {t('nav_contact')}
           </h4>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.9rem' }}>
@@ -53,7 +53,7 @@ export default function Footer() {
 
         {/* Col 3: Battery Academy */}
         <div>
-          <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', color: '#fff', marginBottom: '16px' }}>
+          <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', color: 'var(--text-main)', marginBottom: '16px' }}>
             {t('nav_academy')}
           </h4>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.9rem' }}>
@@ -72,7 +72,7 @@ export default function Footer() {
 
         {/* Col 4: Technical Compliance & Certifications */}
         <div>
-          <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', color: '#fff', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', color: 'var(--text-main)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
             <Shield size={16} color="var(--accent-green)" /> Certifications &amp; Compliance
           </h4>
           <div style={{ background: 'rgba(255,255,255,0.03)', padding: '14px', borderRadius: '12px', border: '1px solid var(--border-color)', fontSize: '0.85rem' }}>

@@ -107,7 +107,7 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
             right: '20px',
             background: 'rgba(255,255,255,0.1)',
             border: 'none',
-            color: '#fff',
+            color: 'var(--text-main)',
             width: '36px',
             height: '36px',
             borderRadius: '50%',
@@ -123,7 +123,7 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
         {downloaded ? (
           <div style={{ textAlign: 'center', padding: '20px 0' }}>
             <CheckCircle2 size={56} color="var(--accent-green)" style={{ margin: '0 auto 16px' }} />
-            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '8px' }}>
+            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '8px' }}>
               {translateDynamicContent('Catalog PDF Download Started!', lang)}
             </h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
@@ -148,7 +148,7 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
               <span className="badge badge-green" style={{ marginBottom: '10px' }}>
                 LEAD MAGNET • 2026 EDITION
               </span>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 800, color: '#fff' }}>
+              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-main)' }}>
                 {translateDynamicContent('Download 2026 Wholesale Product Catalog & Datasheets (PDF)', lang)}
               </h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '8px', lineHeight: 1.5 }}>
@@ -165,7 +165,7 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   placeholder="e.g. buyer@company.com"
-                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: '#fff' }}
+                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
                 />
               </div>
 
@@ -176,7 +176,7 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
                   value={company}
                   onChange={e => setCompany(e.target.value)}
                   placeholder="e.g. Global Electronics Wholesale Ltd"
-                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: '#fff' }}
+                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
                 />
               </div>
 

@@ -142,7 +142,7 @@ export default function BlogPreview({ posts: initialPosts = MOCK_POSTS }) {
                     marginBottom: '10px',
                     lineHeight: 1.4,
                   }}>
-                    <Link href={`/academy/${post.slug}`} style={{ color: '#fff', textDecoration: 'none' }} className="preview-title-link">
+                    <Link href={`/academy/${post.slug}`} style={{ color: 'var(--text-main)', textDecoration: 'none' }} className="preview-title-link">
                       {translatedTitle}
                     </Link>
                   </h3>
