@@ -195,7 +195,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
                 gap: '8px',
               }}
             >
-              <MessageSquare size={18} /> {slide.cta_text || '联系我们 (Contact Us)'}
+              <MessageSquare size={18} /> {slide.cta_text ? slide.cta_text.replace(/联系我们\s*\(?Contact Us\)?/g, 'Request Wholesale Quote') : 'Request Wholesale Quote'}
             </button>
 
             {slide.highlight && (
