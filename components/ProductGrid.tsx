@@ -618,35 +618,33 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     {selectedProduct.tagline}
                   </p>
 
-                  {/* Price Section Box */}
+                  {/* B2B MOQ & Customization Box */}
                   <div style={{
-                    background: 'rgba(255, 255, 255, 0.03)',
-                    border: '1px solid var(--border-color)',
+                    background: 'rgba(16, 185, 129, 0.06)',
+                    border: '1px solid rgba(16, 185, 129, 0.25)',
                     padding: '16px 20px',
                     borderRadius: '16px',
                     marginBottom: '24px',
                     display: 'flex',
-                    alignItems: 'baseline',
+                    alignItems: 'center',
                     justifyContent: 'space-between',
+                    flexWrap: 'wrap',
+                    gap: '12px',
                   }}>
                     <div>
-                      <span style={{ fontSize: '0.78rem', color: 'var(--text-dim)', display: 'block', marginBottom: '2px' }}>
-                        批发出厂特惠价 / Wholesale Price
+                      <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
+                        Minimum Order Quantity (MOQ)
                       </span>
-                      <span style={{ fontSize: '1.9rem', fontWeight: 800, color: 'var(--accent-green)' }}>
-                        ${selectedProduct.price}
+                      <span style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-green)' }}>
+                        MOQ: 100 Pcs
                       </span>
-                      {selectedProduct.compare_at_price && (
-                        <span style={{ fontSize: '1.05rem', color: 'var(--text-dim)', textDecoration: 'line-through', marginLeft: '10px' }}>
-                          ${selectedProduct.compare_at_price}
-                        </span>
-                      )}
                     </div>
-                    {selectedProduct.is_starter_kit && (
-                      <span className="badge badge-green" style={{ fontSize: '0.7rem' }}>
-                        ALL-IN-ONE KIT
+
+                    <div style={{ textAlign: 'right' }}>
+                      <span className="badge badge-gold" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>
+                        OEM / ODM Custom Branding Available
                       </span>
-                    )}
+                    </div>
                   </div>
 
                   <button

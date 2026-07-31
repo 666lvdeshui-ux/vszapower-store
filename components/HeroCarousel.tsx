@@ -22,7 +22,7 @@ const DEFAULT_SLIDES: BannerSlide[] = [
     subtitle: 'High-precision LIR2032 / LIR2450 smart USB dual-slot charger dock. Eco-friendly kraft packaging, built for long lifecycle.',
     image_url: 'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1400&q=80',
     highlight: '500+ Recharge Cycles • Auto 4.2V Cutoff',
-    cta_text: 'Request Wholesale Price',
+    cta_text: 'Request Wholesale Quote',
     cta_link: '/#contact',
   },
   {
