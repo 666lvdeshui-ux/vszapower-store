@@ -594,11 +594,11 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                   <div style={{ display: 'flex', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
                     <span className="badge badge-green" style={{ fontSize: '0.72rem', padding: '4px 10px' }}>
-                      {selectedProduct.category || '纽扣电池充电器'}
+                      {selectedProduct.translations?.[lang]?.category || translateDynamicContent(selectedProduct.category || '纽扣电池充电器', lang)}
                     </span>
                     {selectedProduct.badge && (
                       <span className="badge badge-gold" style={{ fontSize: '0.72rem', padding: '4px 10px' }}>
-                        {selectedProduct.badge}
+                        {selectedProduct.translations?.[lang]?.badge || translateDynamicContent(selectedProduct.badge, lang)}
                       </span>
                     )}
                   </div>
@@ -611,11 +611,11 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     lineHeight: 1.35,
                     color: '#fff',
                   }}>
-                    {selectedProduct.title}
+                    {selectedProduct.translations?.[lang]?.title || translateDynamicContent(selectedProduct.title, lang)}
                   </h3>
 
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', marginBottom: '20px', lineHeight: 1.6 }}>
-                    {selectedProduct.tagline}
+                    {selectedProduct.translations?.[lang]?.tagline || translateDynamicContent(selectedProduct.tagline, lang)}
                   </p>
 
                   {/* B2B MOQ & Customization Box */}
@@ -633,7 +633,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                   }}>
                     <div>
                       <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
-                        Minimum Order Quantity (MOQ)
+                        {translateDynamicContent('Minimum Order Quantity (MOQ)', lang)}
                       </span>
                       <span style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-green)' }}>
                         MOQ: 100 Pcs
@@ -642,7 +642,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
 
                     <div style={{ textAlign: 'right' }}>
                       <span className="badge badge-gold" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>
-                        OEM / ODM Custom Branding Available
+                        {translateDynamicContent('OEM / ODM Custom Branding Available', lang)}
                       </span>
                     </div>
                   </div>
