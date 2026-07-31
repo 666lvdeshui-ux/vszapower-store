@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { Download, FileText, CheckCircle2, X, Lock } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
+import { translateDynamicContent } from '@/lib/dynamicI18n';
 
 interface CatalogDownloadModalProps {
   isOpen: boolean;
@@ -9,6 +11,7 @@ interface CatalogDownloadModalProps {
 }
 
 export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloadModalProps) {
+  const { lang, t } = useLanguage();
   const [email, setEmail] = useState('');
   const [company, setCompany] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -121,10 +124,10 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
           <div style={{ textAlign: 'center', padding: '20px 0' }}>
             <CheckCircle2 size={56} color="var(--accent-green)" style={{ margin: '0 auto 16px' }} />
             <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '8px' }}>
-              Catalog PDF Download Started!
+              {translateDynamicContent('Catalog PDF Download Started!', lang)}
             </h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-              Thank you! Your PDF catalog download has commenced. Check your downloads folder.
+              {translateDynamicContent('Thank you! Your PDF catalog download has commenced. Check your downloads folder.', lang)}
             </p>
           </div>
         ) : (
@@ -146,16 +149,16 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
                 LEAD MAGNET • 2026 EDITION
               </span>
               <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 800, color: '#fff' }}>
-                Download 2026 Wholesale Product Catalog &amp; Datasheets (PDF)
+                {translateDynamicContent('Download 2026 Wholesale Product Catalog & Datasheets (PDF)', lang)}
               </h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '8px', lineHeight: 1.5 }}>
-                Get instant access to complete technical specs, wholesale MOQ pricing tiers, CE/FCC/UN38.3 certification copies, and OEM branding options.
+                {translateDynamicContent('Get instant access to complete technical specs, wholesale MOQ pricing tiers, CE/FCC/UN38.3 certification copies, and OEM branding options.', lang)}
               </p>
             </div>
 
             <form onSubmit={handleDownload} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Work Email Address *</label>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>{t('contact_email')} *</label>
                 <input
                   type="email"
                   required
@@ -167,7 +170,7 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Company Name (Optional)</label>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>{translateDynamicContent('Company Name (Optional)', lang)}</label>
                 <input
                   type="text"
                   value={company}
@@ -183,11 +186,11 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
                 className="btn-primary"
                 style={{ padding: '14px', fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginTop: '8px' }}
               >
-                <Download size={18} /> {submitting ? 'Preparing PDF...' : 'Download PDF Catalog Now'}
+                <Download size={18} /> {submitting ? translateDynamicContent('Preparing PDF...', lang) : translateDynamicContent('Download PDF Catalog Now', lang)}
               </button>
 
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.75rem', color: 'var(--text-dim)', textAlign: 'center' }}>
-                <Lock size={12} /> We respect your privacy. No spam guarantee. Instant PDF trigger.
+                <Lock size={12} /> {translateDynamicContent('We respect your privacy. No spam guarantee. Instant PDF trigger.', lang)}
               </div>
             </form>
           </div>

@@ -49,6 +49,8 @@ export type TranslationKey =
   | 'nav_home'
   | 'nav_chargers'
   | 'nav_batteries'
+  | 'nav_factory'
+  | 'nav_certifications'
   | 'nav_videos'
   | 'nav_academy'
   | 'nav_contact'
@@ -105,6 +107,8 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     nav_home: '首页',
     nav_chargers: '纽扣电池充电器',
     nav_batteries: '可充电纽扣电池',
+    nav_factory: '源头工厂',
+    nav_certifications: '出口资质认证',
     nav_videos: '短视频',
     nav_academy: '电池学院',
     nav_contact: '联系我们',
@@ -269,6 +273,8 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     nav_home: 'ホーム',
     nav_chargers: 'ボタン電池充電器',
     nav_batteries: '充電式ボタン電池',
+    nav_factory: '自社工場・OEM',
+    nav_certifications: '国際認証',
     nav_videos: '動画',
     nav_academy: 'バッテリーアカデミー',
     nav_contact: 'お問い合わせ',
@@ -377,6 +383,8 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     nav_home: '홈',
     nav_chargers: '코인건전지 충전기',
     nav_batteries: '충전식 코인건전지',
+    nav_factory: '자체 공장 & OEM',
+    nav_certifications: '국제 인증',
     nav_videos: '비디오',
     nav_academy: '배터리 아카데미',
     nav_contact: '문의하기',
@@ -431,6 +439,8 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     nav_home: 'الرئيسية',
     nav_chargers: 'شواحن بطاريات الزر',
     nav_batteries: 'بطاريات زر قابلة للشحن',
+    nav_factory: 'المصنع وOEM',
+    nav_certifications: 'الشهادات',
     nav_videos: 'الفيديوهات',
     nav_academy: 'أكاديمية البطاريات',
     nav_contact: 'اتصل بنا',
@@ -485,6 +495,8 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     nav_home: 'ראשי',
     nav_chargers: 'מטעני סוללות כפתור',
     nav_batteries: 'סוללות כפתור נטענות',
+    nav_factory: 'מפעל ו-OEM',
+    nav_certifications: 'אישורים',
     nav_videos: 'סרטונים',
     nav_academy: 'אקדמיית סוללות',
     nav_contact: 'צור קשר',
@@ -593,6 +605,8 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     nav_home: 'Accueil',
     nav_chargers: 'Chargeurs de Piles Bouton',
     nav_batteries: 'Piles Bouton Rechargeables',
+    nav_factory: 'Usine & OEM',
+    nav_certifications: 'Certifications',
     nav_videos: 'Vidéos',
     nav_academy: 'Académie des Batteries',
     nav_contact: 'Contact',
@@ -647,6 +661,8 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     nav_home: 'Início',
     nav_chargers: 'Carregadores de Bateria Botão',
     nav_batteries: 'Baterias Botão Recarregáveis',
+    nav_factory: 'Fábrica e OEM',
+    nav_certifications: 'Certificações',
     nav_videos: 'Vídeos',
     nav_academy: 'Academia de Baterias',
     nav_contact: 'Contato',
@@ -701,6 +717,8 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     nav_home: 'Главная',
     nav_chargers: 'Зарядные устройства для дисковых батареек',
     nav_batteries: 'Перезаряжаемые дисковые батарейки',
+    nav_factory: 'Завод и OEM',
+    nav_certifications: 'Сертификаты',
     nav_videos: 'Видео',
     nav_academy: 'Академия аккумуляторов',
     nav_contact: 'Контакты',
@@ -755,6 +773,8 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     nav_home: 'Trang chủ',
     nav_chargers: 'Bộ sạc pin nút áo',
     nav_batteries: 'Pin nút áo sạc lại',
+    nav_factory: 'Nhà máy & OEM',
+    nav_certifications: 'Chứng nhận',
     nav_videos: 'Video',
     nav_academy: 'Học viện Pin',
     nav_contact: 'Liên hệ',
@@ -809,6 +829,8 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     nav_home: '主頁',
     nav_chargers: '鈕扣電池充電器',
     nav_batteries: '可充電鈕扣電池',
+    nav_factory: '源頭工廠',
+    nav_certifications: '出口資質認證',
     nav_videos: '短影片',
     nav_academy: '電池學院',
     nav_contact: '聯絡我們',

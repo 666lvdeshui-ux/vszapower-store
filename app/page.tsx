@@ -10,8 +10,11 @@ import ContactSection from '@/components/ContactSection';
 import BlogPreview from '@/components/BlogPreview';
 import CatalogDownloadModal from '@/components/CatalogDownloadModal';
 import { Download, FileText } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
+import { translateDynamicContent } from '@/lib/dynamicI18n';
 
 export default function HomePage() {
+  const { lang } = useLanguage();
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isCatalogModalOpen, setIsCatalogModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState('');
@@ -66,7 +69,7 @@ export default function HomePage() {
             gap: '8px',
           }}
         >
-          <FileText size={18} /> Download 2026 Catalog (PDF)
+          <FileText size={18} /> {translateDynamicContent('Download 2026 Catalog (PDF)', lang)}
         </button>
       </div>
 

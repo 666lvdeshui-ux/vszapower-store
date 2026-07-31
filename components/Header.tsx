@@ -158,7 +158,7 @@ export default function Header({ onContactClick }: HeaderProps) {
             whiteSpace: 'nowrap',
             transition: 'color 0.2s',
           }}>
-            <Zap size={15} color="var(--kraft-gold)" style={{ flexShrink: 0 }} /> Factory &amp; OEM
+            <Zap size={15} color="var(--kraft-gold)" style={{ flexShrink: 0 }} /> {t('nav_factory')}
           </Link>
           <Link href="/#certifications" style={{
             color: 'var(--text-muted)',
@@ -171,7 +171,7 @@ export default function Header({ onContactClick }: HeaderProps) {
             whiteSpace: 'nowrap',
             transition: 'color 0.2s',
           }}>
-            <Zap size={15} color="var(--accent-green)" style={{ flexShrink: 0 }} /> Certifications
+            <Zap size={15} color="var(--accent-green)" style={{ flexShrink: 0 }} /> {t('nav_certifications')}
           </Link>
           <Link href="/#videos" style={{
             color: 'var(--text-muted)',
