@@ -678,25 +678,6 @@ export default function ReviewSection({
             >
               <CheckCircle size={13} /> Temu Verified Reviews
             </span>
-
-            {temuLink && (
-              <a
-                href={temuLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontSize: '0.75rem',
-                  color: 'var(--accent-cyan)',
-                  textDecoration: 'none',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '4px',
-                  fontWeight: 600,
-                }}
-              >
-                View on Temu <ExternalLink size={12} />
-              </a>
-            )}
           </div>
         </div>
 
