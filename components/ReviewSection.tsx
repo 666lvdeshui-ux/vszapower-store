@@ -40,7 +40,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Essential charger for AirTags & car keys!",
     content: "Works amazingly well for my Apple AirTags and car key fobs! Charges LIR2032 in about 35 minutes. Clip design holds batteries firmly in place. LED turns from red to solid green when full.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-07-28",
     helpful_count: 34
   },
@@ -50,8 +50,8 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     country_code: "DE",
     rating: 5,
     title: "Sehr gutes Knopfbatterie-Ladegerät!",
-    content: "Absolut fantastisches Ladegerät für LIR2032 und LIR2450. Sehr schnelle Lieferung über Temu, hochwertige Verarbeitung und der automatische Überladeschutz funktioniert perfekt.",
-    verified_source: 'Temu',
+    content: "Absolut fantastisches Ladegerät für LIR2032 und LIR2450. Sehr schnelle Lieferung über den Shop, hochwertige Verarbeitung und der automatische Überladeschutz funktioniert perfekt.",
+    verified_source: 'Verified Purchase',
     date: "2026-07-25",
     helpful_count: 28
   },
@@ -61,8 +61,8 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     country_code: "JP",
     rating: 5,
     title: "CR2032の使い捨てを即座にストップ！",
-    content: "使い捨てボタン電池を毎回買わなくて済むようになり、大幅なコスト削減になりました。35分で満充電になり、LEDが緑に変わります。Temuでの配送も非常に早かったです！",
-    verified_source: 'Temu',
+    content: "使い捨てボタン電池を毎回買わなくて済むようになり、大幅なコスト削減になりました。35分で満充電になり、LEDが緑に変わります。配送も非常に早かったです！",
+    verified_source: 'Verified Purchase',
     date: "2026-07-22",
     helpful_count: 22
   },
@@ -72,8 +72,8 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     country_code: "GB",
     rating: 5,
     title: "Great value & micro-current protection",
-    content: "Fantastic little clip charger dock. Micro-current protection gives peace of mind. Great value for $7 on Temu. Highly recommend!",
-    verified_source: 'Temu',
+    content: "Fantastic little clip charger dock. Micro-current protection gives peace of mind. Great value for $7 online. Highly recommend!",
+    verified_source: 'Verified Purchase',
     date: "2026-07-19",
     helpful_count: 19
   },
@@ -84,7 +84,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Super chargeur intelligent pour piles bouton",
     content: "Très pratique et économique. Plus besoin d'acheter des piles jetables pour les télécommandes. La charge me dure des mois.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-07-15",
     helpful_count: 15
   },
@@ -95,7 +95,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Solid build quality & LED status light",
     content: "Solid build quality and clear LED status light. Perfect for AirTag battery replacements. Charged 4 LIR2032 batteries without any heat.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-07-10",
     helpful_count: 12
   },
@@ -105,8 +105,8 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     country_code: "MX",
     rating: 5,
     title: "Excelente cargador para LIR2032",
-    content: "Excelente cargador para pilas LIR2032. Funciona al 100% y llegó rapidísimo por Temu. Muy recomendable.",
-    verified_source: 'Temu',
+    content: "Excelente cargador para pilas LIR2032. Funciona al 100% y llegó rapidísimo por la tienda. Muy recomendable.",
+    verified_source: 'Verified Purchase',
     date: "2026-07-05",
     helpful_count: 9
   },
@@ -117,7 +117,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Saved so much money on AirTag batteries!",
     content: "I have 8 AirTags for luggage and keys. Buying disposable CR2032s was getting expensive. This LIR2032 charger kit paid for itself in two months!",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-07-02",
     helpful_count: 42
   },
@@ -128,7 +128,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Top quality clip charger dock",
     content: "Small, sleek, and charges fast via USB. Fits into my tech pouch easily. Used with LIR2032 and LIR2025.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-06-29",
     helpful_count: 18
   },
@@ -139,7 +139,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "No more flat key fob batteries",
     content: "My car key remote used to die every few months. Now I just pop the rechargeable LIR2032 into this charger once a month. Problem solved!",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-06-26",
     helpful_count: 25
   },
@@ -150,7 +150,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Love the papercard eco packaging",
     content: "Not only is the charger great, but the eco-friendly papercard box was impressive. Zero plastic waste. Kudos VSZAPOWER!",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-06-24",
     helpful_count: 16
   },
@@ -161,7 +161,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Perfekt laddare för LIR2032",
     content: "Smidig och säker laddare för mina uppladdningsbara knappcellsbatterier. Lyser rött när den laddar och grönt när den är klar.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-06-21",
     helpful_count: 14
   },
@@ -171,8 +171,8 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     country_code: "JP",
     rating: 5,
     title: "安心の過充電防止機能",
-    content: "4.2V自動遮断チップのおかげで、充電完了後に放っておいても熱を持たず安心です。 Temuで購入して大正解でした。",
-    verified_source: 'Temu',
+    content: "4.2V自動遮断チップのおかげで、充電完了後に放っておいても熱を持たず安心です。 購入して大正解でした。",
+    verified_source: 'Verified Purchase',
     date: "2026-06-19",
     helpful_count: 31
   },
@@ -183,7 +183,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "キーレスエントリーに最適",
     content: "車のスマートキー用に使用しています。充電スピードが早く、予備バッテリーもセットで便利です。",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-06-16",
     helpful_count: 11
   },
@@ -193,8 +193,8 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     country_code: "IT",
     rating: 5,
     title: "Caricabatterie per batterie a bottone perfetto",
-    content: "Funziona alla perfezione con le batterie LIR2032. Ricarica rapida e sicura tramite porta USB. Spedizione Temu super veloce.",
-    verified_source: 'Temu',
+    content: "Funziona alla perfezione con le batterie LIR2032. Ricarica rapida e sicura tramite porta USB. Spedizione super veloce.",
+    verified_source: 'Verified Purchase',
     date: "2026-06-14",
     helpful_count: 20
   },
@@ -205,7 +205,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Ideal für Garagentoröffner & Sensoren",
     content: "Verwende die LIR2032 Akkus für meine Smart-Home-Fenstersensoren. Funktioniert absolut zuverlässig seit Wochen.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-06-11",
     helpful_count: 27
   },
@@ -216,7 +216,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Excelente custo-benefício!",
     content: "Carregador muito bom e eficiente para baterias LIR2032. Parou com o desperdício de pilhas descartáveis na minha casa.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-06-08",
     helpful_count: 17
   },
@@ -227,7 +227,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Cargador compacto y potente",
     content: "Carga las pilas en media hora. Las luces LED rojas y verdes indican claramente el estado de carga.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-06-05",
     helpful_count: 22
   },
@@ -238,7 +238,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Veldig fornøyd med kjøpet",
     content: "Rask lading og god kvalitet. Flott at den automatisk kutter strømmen når batteriet er fulladet.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-06-02",
     helpful_count: 13
   },
@@ -249,7 +249,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Geweldige lader voor knoopcellen",
     content: "Laadt LIR2032 en LIR2450 snel op. Geen gedoe meer met lege batterijen voor de autosleutel.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-05-30",
     helpful_count: 19
   },
@@ -260,7 +260,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Design clip super pratique",
     content: "Le système de pince maintient parfaitement les piles bouton pendant la charge. Produit de qualité !",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-05-27",
     helpful_count: 15
   },
@@ -271,7 +271,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Works with all my micro devices",
     content: "Used for AirTags, kitchen scale, and LED candles. Extremely handy to have around the house.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-05-24",
     helpful_count: 38
   },
@@ -282,7 +282,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "A must-have for AirTag owners",
     content: "If you use AirTags, buy this immediately. Stop wasting money on disposable CR2032 batteries.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-05-21",
     helpful_count: 29
   },
@@ -293,7 +293,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Kompakt und zuverlässig",
     content: "Passt in jede Tasche und lädt über USB-C oder Standard-USB. Sehr zufrieden mit der Leistung.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-05-18",
     helpful_count: 16
   },
@@ -303,8 +303,8 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     country_code: "US",
     rating: 5,
     title: "5 stars all the way",
-    content: "Does exactly what it promises. Fast shipping on Temu, solid packaging, and cool LED lights.",
-    verified_source: 'Temu',
+    content: "Does exactly what it promises. Fast shipping online., solid packaging, and cool LED lights.",
+    verified_source: 'Verified Purchase',
     date: "2026-05-15",
     helpful_count: 21
   },
@@ -315,7 +315,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Great safety features",
     content: "Overcharge protection works as advertised. The battery doesn't get warm at all during charging.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-05-12",
     helpful_count: 33
   },
@@ -326,7 +326,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Brilliant little gadget",
     content: "Small footprint on my desk. Plugs into my laptop dock and charges batteries while I work.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-05-09",
     helpful_count: 18
   },
@@ -336,8 +336,8 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     country_code: "AU",
     rating: 5,
     title: "Fast delivery to Sydney",
-    content: "Arrived in less than a week via Temu. Charger and 4x LIR2032 batteries work great together.",
-    verified_source: 'Temu',
+    content: "Arrived in less than a week via Express. Charger and 4x LIR2032 batteries work great together.",
+    verified_source: 'Verified Purchase',
     date: "2026-05-06",
     helpful_count: 14
   },
@@ -348,7 +348,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Replaced 20+ batteries already",
     content: "We have lots of holiday lights and remote controls. This charger setup saved us over $50 already.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-05-03",
     helpful_count: 40
   },
@@ -359,7 +359,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Clean design & solid clip",
     content: "The spring clip holds the coin cells tightly so they don't fall off during charging.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-04-30",
     helpful_count: 22
   },
@@ -370,7 +370,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Excellent customer service",
     content: "Had a question about LIR2450 charging times and support responded within hours. Great product!",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-04-27",
     helpful_count: 17
   },
@@ -381,7 +381,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Works for LR44 / LIR2032",
     content: "Very versatile charger. Tested with multiple coin cell sizes and all charged without issue.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-04-24",
     helpful_count: 25
   },
@@ -392,7 +392,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "스마트키 배터리 걱정 끝",
     content: "자동차 스마트키에 사용하기 딱 좋습니다. 충전이 빠르고 LED 표시등이 직관적입니다.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-04-21",
     helpful_count: 30
   },
@@ -403,7 +403,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Super handy for IoT sensors",
     content: "Powering my home assistant BLE temperature sensors. Easy to rotate and recharge.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-04-18",
     helpful_count: 19
   },
@@ -414,7 +414,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Great eco alternative",
     content: "Love reducing single-use battery waste. The papercard gift packaging is a huge plus.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-04-15",
     helpful_count: 26
   },
@@ -425,7 +425,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Fast 35 min charge cycle",
     content: "Green light popped on in 35 mins. Verified voltage with a multimeter at 4.18V. Perfect!",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-04-12",
     helpful_count: 31
   },
@@ -435,8 +435,8 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     country_code: "GB",
     rating: 5,
     title: "Value for money",
-    content: "Bought 2 kits for the household. Best Temu purchase this year by far.",
-    verified_source: 'Temu',
+    content: "Bought 2 kits for the household. Best purchase this year by far.",
+    verified_source: 'Verified Purchase',
     date: "2026-04-09",
     helpful_count: 15
   },
@@ -447,7 +447,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Great build quality",
     content: "Feels sturdy in hand and the USB plug fits snugly into any phone charger wall brick.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-04-06",
     helpful_count: 12
   },
@@ -458,7 +458,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Seamless AirTag compatibility",
     content: "AirTag recognized the full charge level immediately. No low battery warnings since!",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-04-03",
     helpful_count: 37
   },
@@ -469,7 +469,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Five stars!",
     content: "Works like a charm. Lightweight, fast, safe, and convenient.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-03-31",
     helpful_count: 14
   },
@@ -480,7 +480,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Muy útil para mandos a distancia",
     content: "Ideal para no gastar más en pilas de botón. Cargador muy recomendado.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-03-28",
     helpful_count: 18
   },
@@ -490,8 +490,8 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     country_code: "MX",
     rating: 5,
     title: "Súper práctico",
-    content: "Llegó bien empaquetado por Temu. Funciona excelente para mis llaves de coche.",
-    verified_source: 'Temu',
+    content: "Llegó bien empaquetado por la tienda. Funciona excelente para mis llaves de coche.",
+    verified_source: 'Verified Purchase',
     date: "2026-03-25",
     helpful_count: 11
   },
@@ -502,7 +502,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Nice compact size",
     content: "Doesn't take up space in my travel bag. Plugs into my USB powerbank easily.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-03-22",
     helpful_count: 20
   },
@@ -513,7 +513,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Auto cut-off works great",
     content: "Red light when charging, turns solid green when done. Doesn't overcharge.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-03-19",
     helpful_count: 23
   },
@@ -524,7 +524,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Tolle Qualität zum kleinen Preis",
     content: "Sehr gutes Preis-Leistungs-Verhältnis. Kann ich jedem empfehlen!",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-03-16",
     helpful_count: 16
   },
@@ -535,7 +535,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Great for digital callipers",
     content: "My digital vernier caliper eats batteries. This rechargeable solution fixed that annoyance forever.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-03-13",
     helpful_count: 28
   },
@@ -546,7 +546,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Super easy to use",
     content: "Just slide the coin battery in and plug into USB. Simple and effective.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-03-10",
     helpful_count: 15
   },
@@ -557,7 +557,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "High quality product",
     content: "Well engineered clip contacts and solid LED indicators. Very happy.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-03-07",
     helpful_count: 13
   },
@@ -568,7 +568,7 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     rating: 5,
     title: "Works fantastic",
     content: "Charged 8 batteries so far, all holding charge great in my devices.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-03-04",
     helpful_count: 24
   },
@@ -577,9 +577,9 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
     reviewer_name: "Penelope Adams",
     country_code: "CA",
     rating: 5,
-    title: "Top Temu buy!",
+    title: "Top Verified buy!",
     content: "Fast shipping to Vancouver. Great product that does exactly what it says.",
-    verified_source: 'Temu',
+    verified_source: 'Verified Purchase',
     date: "2026-03-01",
     helpful_count: 19
   }
@@ -676,7 +676,7 @@ export default function ReviewSection({
                 gap: '4px',
               }}
             >
-              <CheckCircle size={13} /> Temu Verified Reviews
+              <CheckCircle size={13} /> Verified Customer Reviews
             </span>
           </div>
         </div>
@@ -759,7 +759,7 @@ export default function ReviewSection({
             cursor: 'pointer',
           }}
         >
-          ✓ Temu Buyers ({temuCount})
+          ✓ Verified Buyers ({temuCount})
         </button>
 
         {photoCount > 0 && (
@@ -841,9 +841,9 @@ export default function ReviewSection({
                     style={{
                       fontSize: '0.75rem',
                       fontWeight: 700,
-                      color: review.verified_source === 'Temu' ? '#f97316' : 'var(--accent-green)',
-                      background: review.verified_source === 'Temu' ? 'rgba(249, 115, 22, 0.1)' : 'rgba(16, 185, 129, 0.1)',
-                      border: review.verified_source === 'Temu' ? '1px solid rgba(249, 115, 22, 0.3)' : '1px solid rgba(16, 185, 129, 0.3)',
+                      color: 'var(--accent-green)',
+                      background: 'rgba(16, 185, 129, 0.1)',
+                      border: '1px solid rgba(16, 185, 129, 0.3)',
                       padding: '2px 8px',
                       borderRadius: '6px',
                       display: 'inline-flex',
@@ -851,7 +851,7 @@ export default function ReviewSection({
                       gap: '4px',
                     }}
                   >
-                    <ShieldCheck size={13} /> Verified {review.verified_source} Purchase
+                    <ShieldCheck size={13} /> Verified {review.verified_source || 'Purchase'}
                   </span>
                 </div>
 

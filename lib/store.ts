@@ -78,7 +78,7 @@ export interface ReviewItem {
   rating: number;
   title: string;
   content: string;
-  verified_source: 'Temu' | 'Amazon' | 'Direct';
+  verified_source: 'Verified Purchase' | 'Amazon' | 'Direct';
   images?: string[];
   date: string;
   helpful_count?: number;

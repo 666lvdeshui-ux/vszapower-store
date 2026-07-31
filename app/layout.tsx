@@ -7,20 +7,21 @@ import { LanguageProvider } from '@/context/LanguageContext';
 import { ThemeProvider } from '@/context/ThemeContext';
 
 export const metadata: Metadata = {
-  title: 'VSZAPOWER | Smart Coin Cell Charger & Rechargeable Batteries (LIR2032/LIR2450)',
-  description: 'Specialized smart coin cell chargers and rechargeable LIR series batteries for AirTags, car key fobs, and smart devices. Rated 4.93/5 by 1,480+ Temu buyers.',
+  title: 'VSZAPOWER Official | Smart Rechargeable Coin Cell Chargers & LIR Batteries (MOQ: 100 Pcs)',
+  description: 'Specialized smart coin cell chargers and rechargeable LIR series batteries for AirTags, car key fobs, and smart devices. Rated 4.93/5 by 1,480+ verified buyers.',
   keywords: [
+    'VSZAPOWER',
     'LIR2032 charger',
-    'rechargeable coin cell battery',
-    'CR2032 rechargeable replacement',
+    'LIR2450 charger',
+    'rechargeable coin cell charger',
     'AirTag battery charger',
-    'Car key fob rechargeable battery',
-    'LIR2450 charger kit',
-    'ML2032 charger',
-    'LIR1632 charger',
-    'LIR1220 charger',
-    'VSZAPOWER Temu customer reviews'
+    'rechargeable CR2032',
+    'button cell charger dock',
+    'VSZAPOWER wholesale',
+    'VSZAPOWER customer reviews',
+    'LIR2032 battery 3.6V',
   ],
+  authors: [{ name: 'VSZAPOWER Team' }],
   icons: {
     icon: [
       { url: '/favicon.png', type: 'image/png' },
@@ -30,12 +31,17 @@ export const metadata: Metadata = {
     apple: '/apple-icon.png',
   },
   openGraph: {
-    title: 'Vszapower Smart Coin Cell Charger & Rechargeable Batteries (4.93★ Temu Reviews)',
-    description: 'Rated 4.93/5.0 by 1,480+ verified Temu buyers. Reusable LIR2032 & LIR2450 charger kit with 35-min fast charge for AirTags & car key fobs.',
-    url: 'https://www.vszapower.com',
-    siteName: 'Vszapower',
+    title: 'VSZAPOWER Smart Rechargeable Coin Cell Chargers & LIR Batteries (MOQ: 100 Pcs)',
+    description: 'Rated 4.93/5.0 by 1,480+ verified buyers. Reusable LIR2032 & LIR2450 charger kit with 35-min fast charge for AirTags & car key fobs.',
+    url: 'https://vszapower.com',
+    siteName: 'VSZAPOWER Store',
     locale: 'en_US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vszapower Smart Coin Cell Charger & Rechargeable Batteries (4.93★ Customer Reviews)',
+    description: 'Rated 4.93/5.0 by 1,480+ verified buyers. Reusable LIR2032 & LIR2450 charger kit with 35-min fast charge for AirTags & car key fobs.',
   },
 };
 

@@ -76,7 +76,7 @@ export const MOCK_PRODUCTS = [
         rating: 5,
         title: 'Essential charger for AirTags & car keys!',
         content: 'Works amazingly well for my Apple AirTags and car key fobs! Charges LIR2032 in about 35 minutes. Clip design holds batteries firmly in place. LED turns from red to solid green when full.',
-        verified_source: 'Temu',
+        verified_source: 'Verified Purchase',
         date: '2026-07-28',
         helpful_count: 34
       },
@@ -86,8 +86,8 @@ export const MOCK_PRODUCTS = [
         country_code: 'DE',
         rating: 5,
         title: 'Sehr gutes Knopfbatterie-Ladegerät!',
-        content: 'Absolut fantastisches Ladegerät für LIR2032 und LIR2450. Sehr schnelle Lieferung über Temu, hochwertige Verarbeitung und der automatische Überladeschutz funktioniert perfekt.',
-        verified_source: 'Temu',
+        content: 'Absolut fantastisches Ladegerät für LIR2032 und LIR2450. Sehr schnelle Lieferung über den Shop, hochwertige Verarbeitung und der automatische Überladeschutz funktioniert perfekt.',
+        verified_source: 'Verified Purchase',
         date: '2026-07-25',
         helpful_count: 28
       },
@@ -97,8 +97,8 @@ export const MOCK_PRODUCTS = [
         country_code: 'JP',
         rating: 5,
         title: 'CR2032の使い捨てを即座にストップ！',
-        content: '使い捨てボタン電池を毎回買わなくて済むようになり、大幅なコスト削減になりました。35分で満充電になり、LEDが緑に変わります。Temuでの配送も非常に早かったです！',
-        verified_source: 'Temu',
+        content: '使い捨てボタン電池を毎回買わなくて済むようになり、大幅なコスト削減になりました。35分で満充電になり、LEDが緑に変わります。配送も非常に早かったです！',
+        verified_source: 'Verified Purchase',
         date: '2026-07-22',
         helpful_count: 22
       },
@@ -108,8 +108,8 @@ export const MOCK_PRODUCTS = [
         country_code: 'GB',
         rating: 5,
         title: 'Great value & micro-current protection',
-        content: 'Fantastic little clip charger dock. Micro-current protection gives peace of mind. Great value for $7 on Temu. Highly recommend!',
-        verified_source: 'Temu',
+        content: 'Fantastic little clip charger dock. Micro-current protection gives peace of mind. Great value for $7 online. Highly recommend!',
+        verified_source: 'Verified Purchase',
         date: '2026-07-19',
         helpful_count: 19
       },
@@ -120,7 +120,7 @@ export const MOCK_PRODUCTS = [
         rating: 5,
         title: 'Super chargeur intelligent pour piles bouton',
         content: 'Très pratique et économique. Plus besoin d\'acheter des piles jetables pour les télécommandes. La charge est rapide et sécurisée.',
-        verified_source: 'Temu',
+        verified_source: 'Verified Purchase',
         date: '2026-07-15',
         helpful_count: 15
       },
@@ -131,7 +131,7 @@ export const MOCK_PRODUCTS = [
         rating: 5,
         title: 'Solid build quality & LED status light',
         content: 'Solid build quality and clear LED status light. Perfect for AirTag battery replacements.',
-        verified_source: 'Temu',
+        verified_source: 'Verified Purchase',
         date: '2026-07-10',
         helpful_count: 12
       },
@@ -141,8 +141,8 @@ export const MOCK_PRODUCTS = [
         country_code: 'MX',
         rating: 5,
         title: 'Excelente cargador para LIR2032',
-        content: 'Excelente cargador para pilas LIR2032. Funciona al 100% y llegó rapidísimo por Temu.',
-        verified_source: 'Temu',
+        content: 'Excelente cargador para pilas LIR2032. Funciona al 100% y llegó rapidísimo por la tienda.',
+        verified_source: 'Verified Purchase',
         date: '2026-07-05',
         helpful_count: 9
       }

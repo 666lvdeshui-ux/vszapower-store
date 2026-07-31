@@ -256,7 +256,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     {translatedTitle}
                   </h3>
 
-                  {/* Temu Star Rating & Reviews Badge */}
+                  {/* Verified Star Rating & Reviews Badge */}
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '10px', flexWrap: 'wrap' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
                       {[1, 2, 3, 4, 5].map((s) => (
@@ -267,7 +267,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                       {product.rating ? product.rating.toFixed(2) : '4.93'}
                     </span>
                     <span style={{ fontSize: '0.75rem', color: '#f97316', background: 'rgba(249, 115, 22, 0.12)', border: '1px solid rgba(249, 115, 22, 0.3)', padding: '1px 6px', borderRadius: '4px', fontWeight: 600 }}>
-                      ✓ {product.review_count ? product.review_count.toLocaleString() : '1,480'}+ Temu Reviews
+                      ✓ {product.review_count ? product.review_count.toLocaleString() : '1,480'}+ Verified Reviews
                     </span>
                   </div>
 
@@ -780,7 +780,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                 )}
               </div>
 
-              {/* Temu Global Customer Reviews Section */}
+              {/* Global Customer Reviews Section */}
               <ReviewSection
                 rating={selectedProduct.rating || 4.93}
                 reviewCount={selectedProduct.review_count || 1480}

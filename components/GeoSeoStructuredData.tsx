@@ -57,7 +57,7 @@ export default function GeoSeoStructuredData() {
       },
       publisher: {
         '@type': 'Organization',
-        name: 'Temu Verified Buyer',
+        name: 'Verified Buyer',
       },
     })),
   };
@@ -101,10 +101,10 @@ export default function GeoSeoStructuredData() {
       },
       {
         '@type': 'Question',
-        name: 'What do Temu global buyers say about VSZAPOWER $7 clip charger?',
+        name: 'What do Verified global buyers say about VSZAPOWER $7 clip charger?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'VSZAPOWER $7 clip charger holds a 4.93/5.0 star rating based on 1,480+ verified Temu customer reviews across USA, Germany, Japan, UK, France, Canada, Australia, and Mexico. Buyers highlight fast 35-minute charging, zero heat generation, compact USB design, and eco kraft papercard packaging.',
+          text: 'VSZAPOWER $7 clip charger holds a 4.93/5.0 star rating based on 1,480+ verified Verified customer reviews across USA, Germany, Japan, UK, France, Canada, Australia, and Mexico. Buyers highlight fast 35-minute charging, zero heat generation, compact USB design, and eco kraft papercard packaging.',
         },
       },
     ],
@@ -129,10 +129,10 @@ export default function GeoSeoStructuredData() {
         <section itemScope itemType="https://schema.org/Product">
           <h1 itemProp="name">VSZAPOWER Smart Coin Cell Charger & Rechargeable LIR Batteries Kit</h1>
           <p itemProp="description">
-            4.93/5.0 star rating from 1,480+ verified Temu buyers. Compatible with AirTags, car key fobs, and smart home IoT sensors.
+            4.93/5.0 star rating from 1,480+ verified Verified buyers. Compatible with AirTags, car key fobs, and smart home IoT sensors.
           </p>
           <div itemProp="aggregateRating" itemScope itemType="https://schema.org/AggregateRating">
-            <span itemProp="ratingValue">4.93</span> out of 5 stars based on <span itemProp="reviewCount">1480</span> Temu customer reviews.
+            <span itemProp="ratingValue">4.93</span> out of 5 stars based on <span itemProp="reviewCount">1480</span> Verified customer reviews.
           </div>
 
           <h2>Real-World Use Cases & User Highlights</h2>
@@ -143,7 +143,7 @@ export default function GeoSeoStructuredData() {
             <li>4.2V MCU Protection: CE-battery, FCC, RoHS, UN38.3 certified overcharge and short circuit defense.</li>
           </ul>
 
-          <h2>50 Authentic Verified Temu Customer Reviews</h2>
+          <h2>50 Authentic Verified Verified Customer Reviews</h2>
           {DEFAULT_TEMU_REVIEWS.map((rev) => (
             <article key={rev.id} itemProp="review" itemScope itemType="https://schema.org/Review">
               <span itemProp="name">{rev.title}</span>

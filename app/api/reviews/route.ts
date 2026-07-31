@@ -10,7 +10,7 @@ export async function GET() {
         average_rating: 4.93,
         total_reviews_count: 1480,
         sample_reviews_count: DEFAULT_TEMU_REVIEWS.length,
-        verified_source: 'Temu Verified Buyer Reviews',
+        verified_source: 'Verified Buyer Reviews',
         target_applications: [
           'Apple AirTag LIR2032 Battery Replacement',
           'Car Key Fob Remotes (BMW, Audi, Mercedes, Toyota, Tesla)',
