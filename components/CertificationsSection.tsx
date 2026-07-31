@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { ShieldCheck, FileCheck, ExternalLink, CheckCircle2, X } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
+import { translateDynamicContent } from '@/lib/dynamicI18n';
 
 interface CertItem {
   code: string;
@@ -80,6 +82,7 @@ const CERTIFICATIONS_LIST: CertItem[] = [
 ];
 
 export default function CertificationsSection() {
+  const { lang, t } = useLanguage();
   const [activeCert, setActiveCert] = useState<CertItem | null>(null);
 
   return (
@@ -87,7 +90,7 @@ export default function CertificationsSection() {
       {/* Section Header */}
       <div style={{ textAlign: 'center', marginBottom: '48px' }}>
         <span className="badge badge-green" style={{ marginBottom: '12px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-          <ShieldCheck size={14} /> INTERNATIONAL COMPLIANCE &amp; SAFETY
+          <ShieldCheck size={14} /> {translateDynamicContent('INTERNATIONAL COMPLIANCE & SAFETY', lang)}
         </span>
         <h2 style={{
           fontFamily: 'var(--font-heading)',
@@ -95,10 +98,10 @@ export default function CertificationsSection() {
           fontWeight: 800,
           color: 'var(--text-main)',
         }}>
-          Global Safety &amp; Transport Certifications
+          {translateDynamicContent('Global Safety & Transport Certifications', lang)}
         </h2>
         <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', maxWidth: '680px', margin: '12px auto 0', lineHeight: 1.6 }}>
-          All VSZAPOWER charger docks and rechargeable button cells carry official international safety certifications required for Amazon FBA listing, customs clearance, and wholesale distribution.
+          {translateDynamicContent('All VSZAPOWER charger docks and rechargeable button cells carry official international safety certifications required for Amazon FBA listing, customs clearance, and wholesale distribution.', lang)}
         </p>
       </div>
 
@@ -140,24 +143,24 @@ export default function CertificationsSection() {
                 </span>
 
                 <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', background: 'rgba(255,255,255,0.05)', padding: '2px 6px', borderRadius: '4px' }}>
-                  {cert.scope}
+                  {translateDynamicContent(cert.scope, lang)}
                 </span>
               </div>
 
               <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fff', marginBottom: '8px' }}>
-                {cert.title}
+                {translateDynamicContent(cert.title, lang)}
               </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', lineHeight: 1.5, marginBottom: '16px' }}>
-                {cert.description}
+                {translateDynamicContent(cert.description, lang)}
               </p>
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.06)', fontSize: '0.8rem' }}>
               <span style={{ color: 'var(--accent-green)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <CheckCircle2 size={14} /> {cert.verifiedStatus}
+                <CheckCircle2 size={14} /> {translateDynamicContent(cert.verifiedStatus, lang)}
               </span>
               <span style={{ color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                View Preview <ExternalLink size={12} />
+                {translateDynamicContent('View Preview', lang)} <ExternalLink size={12} />
               </span>
             </div>
           </div>
@@ -200,14 +203,14 @@ export default function CertificationsSection() {
             <div style={{ textAlign: 'center', marginBottom: '20px' }}>
               <ShieldCheck size={48} color={activeCert.badgeColor} style={{ margin: '0 auto 12px' }} />
               <span className="badge badge-green" style={{ marginBottom: '8px' }}>{activeCert.code}</span>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff' }}>{activeCert.title}</h3>
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff' }}>{translateDynamicContent(activeCert.title, lang)}</h3>
             </div>
 
             <div style={{ background: 'rgba(255,255,255,0.03)', padding: '16px', borderRadius: '12px', marginBottom: '20px', fontSize: '0.88rem', lineHeight: 1.6, color: 'var(--text-muted)' }}>
-              <p style={{ marginBottom: '8px' }}><strong>Target Scope:</strong> {activeCert.scope} Assembly</p>
+              <p style={{ marginBottom: '8px' }}><strong>Target Scope:</strong> {translateDynamicContent(activeCert.scope, lang)} Assembly</p>
               <p style={{ marginBottom: '8px' }}><strong>Inspection Agency:</strong> International Accredited Testing Lab</p>
-              <p style={{ marginBottom: '8px' }}><strong>Status:</strong> {activeCert.verifiedStatus} for 2026 Export</p>
-              <p>{activeCert.description}</p>
+              <p style={{ marginBottom: '8px' }}><strong>Status:</strong> {translateDynamicContent(activeCert.verifiedStatus, lang)} for 2026 Export</p>
+              <p>{translateDynamicContent(activeCert.description, lang)}</p>
             </div>
 
             <button
@@ -219,7 +222,7 @@ export default function CertificationsSection() {
               className="btn-primary"
               style={{ width: '100%', padding: '12px', fontSize: '0.95rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
             >
-              <FileCheck size={16} /> Request Official Certification PDF Copies
+              <FileCheck size={16} /> {translateDynamicContent('Request Official Certification PDF Copies', lang)}
             </button>
           </div>
         </div>

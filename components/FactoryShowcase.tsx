@@ -3,13 +3,14 @@
 import React from 'react';
 import { Factory, ShieldCheck, Cpu, PackageCheck, Wrench, Sparkles, Send } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { translateDynamicContent } from '@/lib/dynamicI18n';
 
 interface FactoryShowcaseProps {
   onContactClick?: (productName?: string) => void;
 }
 
 export default function FactoryShowcase({ onContactClick }: FactoryShowcaseProps) {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
 
   const handleInquireOEM = () => {
     if (onContactClick) {
@@ -25,7 +26,7 @@ export default function FactoryShowcase({ onContactClick }: FactoryShowcaseProps
       {/* Section Header */}
       <div style={{ textAlign: 'center', marginBottom: '48px' }}>
         <span className="badge badge-gold" style={{ marginBottom: '12px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-          <Factory size={14} /> FACTORY &amp; OEM/ODM CAPACITY
+          <Factory size={14} /> {translateDynamicContent('FACTORY & OEM/ODM CAPACITY', lang)}
         </span>
         <h2 style={{
           fontFamily: 'var(--font-heading)',
@@ -33,10 +34,10 @@ export default function FactoryShowcase({ onContactClick }: FactoryShowcaseProps
           fontWeight: 800,
           color: 'var(--text-main)',
         }}>
-          Direct Manufacturer &amp; Customization Power
+          {translateDynamicContent('Direct Manufacturer & Customization Power', lang)}
         </h2>
         <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', maxWidth: '680px', margin: '12px auto 0', lineHeight: 1.6 }}>
-          VSZAPOWER operates dedicated automated SMT lines, micro-current IC testing labs, and eco-friendly packaging workshops to support global distributors and OEM/ODM clients.
+          {translateDynamicContent('VSZAPOWER operates dedicated automated SMT lines, micro-current IC testing labs, and eco-friendly packaging workshops to support global distributors and OEM/ODM clients.', lang)}
         </p>
       </div>
 
@@ -52,7 +53,7 @@ export default function FactoryShowcase({ onContactClick }: FactoryShowcaseProps
             <Factory size={24} color="var(--accent-green)" />
           </div>
           <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '4px' }}>10,000+ m²</h3>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Modern Production Facility</p>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{translateDynamicContent('Modern Production Facility', lang)}</p>
         </div>
 
         <div className="glass-panel" style={{ padding: '28px', borderRadius: '18px', textAlign: 'center' }}>
@@ -60,7 +61,7 @@ export default function FactoryShowcase({ onContactClick }: FactoryShowcaseProps
             <Cpu size={24} color="var(--accent-cyan)" />
           </div>
           <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '4px' }}>500,000+ Pcs</h3>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Monthly Charger Dock Capacity</p>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{translateDynamicContent('Monthly Charger Dock Capacity', lang)}</p>
         </div>
 
         <div className="glass-panel" style={{ padding: '28px', borderRadius: '18px', textAlign: 'center' }}>
@@ -68,7 +69,7 @@ export default function FactoryShowcase({ onContactClick }: FactoryShowcaseProps
             <ShieldCheck size={24} color="var(--kraft-gold)" />
           </div>
           <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '4px' }}>100% QC Test</h3>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Aging &amp; Auto 4.2V Cutoff Inspection</p>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{translateDynamicContent('Aging & Auto 4.2V Cutoff Inspection', lang)}</p>
         </div>
 
         <div className="glass-panel" style={{ padding: '28px', borderRadius: '18px', textAlign: 'center' }}>
@@ -76,7 +77,7 @@ export default function FactoryShowcase({ onContactClick }: FactoryShowcaseProps
             <PackageCheck size={24} color="#a855f7" />
           </div>
           <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '4px' }}>50+ Countries</h3>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Global Express &amp; Freight Export</p>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{translateDynamicContent('Global Express & Freight Export', lang)}</p>
         </div>
       </div>
 
@@ -94,42 +95,42 @@ export default function FactoryShowcase({ onContactClick }: FactoryShowcaseProps
           alignItems: 'center',
         }}>
           <div>
-            <span className="badge badge-green" style={{ marginBottom: '12px' }}>CUSTOM BRANDING &amp; OEM</span>
+            <span className="badge badge-green" style={{ marginBottom: '12px' }}>{translateDynamicContent('CUSTOM BRANDING & OEM', lang)}</span>
             <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#fff', marginBottom: '12px' }}>
-              Tailored OEM / ODM Solutions for Distributors
+              {translateDynamicContent('Tailored OEM / ODM Solutions for Distributors', lang)}
             </h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '20px' }}>
-              Whether you need customized silk-screen logos on charger housing, specialized kraft packaging with FBA barcodes, or customized voltage cut-off parameters, our engineering team provides end-to-end support.
+              {translateDynamicContent('Whether you need customized silk-screen logos on charger housing, specialized kraft packaging with FBA barcodes, or customized voltage cut-off parameters, our engineering team provides end-to-end support.', lang)}
             </p>
             <button
               onClick={handleInquireOEM}
               className="btn-primary"
               style={{ padding: '12px 24px', fontSize: '0.95rem', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
             >
-              <Send size={16} /> Request OEM / ODM Proposal
+              <Send size={16} /> {translateDynamicContent('Request OEM / ODM Proposal', lang)}
             </button>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
             <div style={{ background: 'rgba(255,255,255,0.04)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
               <Wrench size={20} color="var(--accent-green)" style={{ marginBottom: '8px' }} />
-              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '4px' }}>Custom Logo</h4>
-              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Precision laser etching or silk-screen branding.</p>
+              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '4px' }}>{translateDynamicContent('Custom Logo', lang)}</h4>
+              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{translateDynamicContent('Precision laser etching or silk-screen branding.', lang)}</p>
             </div>
             <div style={{ background: 'rgba(255,255,255,0.04)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
               <PackageCheck size={20} color="var(--accent-cyan)" style={{ marginBottom: '8px' }} />
-              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '4px' }}>Custom Packaging</h4>
-              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Kraft papercard box with custom artwork &amp; barcode.</p>
+              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '4px' }}>{translateDynamicContent('Custom Packaging', lang)}</h4>
+              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{translateDynamicContent('Kraft papercard box with custom artwork & barcode.', lang)}</p>
             </div>
             <div style={{ background: 'rgba(255,255,255,0.04)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
               <Cpu size={20} color="var(--kraft-gold)" style={{ marginBottom: '8px' }} />
-              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '4px' }}>Custom Micro-Chip</h4>
-              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Specialized 3.6V / 4.2V MCU cutoff profiles.</p>
+              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '4px' }}>{translateDynamicContent('Custom Micro-Chip', lang)}</h4>
+              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{translateDynamicContent('Specialized 3.6V / 4.2V MCU cutoff profiles.', lang)}</p>
             </div>
             <div style={{ background: 'rgba(255,255,255,0.04)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
               <Sparkles size={20} color="#a855f7" style={{ marginBottom: '8px' }} />
-              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '4px' }}>Sample Fast Track</h4>
-              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Customized sample delivery in 3 - 5 business days.</p>
+              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '4px' }}>{translateDynamicContent('Sample Fast Track', lang)}</h4>
+              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{translateDynamicContent('Customized sample delivery in 3 - 5 business days.', lang)}</p>
             </div>
           </div>
         </div>
