@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VSZAPOWER 2026 Official Wholesale Price List & Product Specifications (PDF)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+    
+    :root {
+      --primary: #0a0d14;
+      --accent-green: #059669;
+      --accent-cyan: #0284c7;
+      --text-dark: #0f172a;
+      --text-muted: #475569;
+      --border-color: #cbd5e1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: #f8fafc;
+      color: var(--text-dark);
+      padding: 40px 20px;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 1px solid var(--border-color);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 24px;
+      border-bottom: 3px solid var(--accent-green);
+      margin-bottom: 32px;
+    }
+
+    .brand-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #064e3b;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    .doc-meta {
+      text-align: right;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .doc-meta strong {
+      color: var(--text-dark);
+    }
+
+    .badge-strip {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #a7f3d0;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 32px 0 16px 0;
+      display: flex;
+      alignItems: center;
+      gap: 10px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .section-title span {
+      background: var(--accent-green);
+      color: #fff;
+      font-size: 0.85rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+      font-size: 0.88rem;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+      text-align: left;
+      padding: 12px 14px;
+      border: 1px solid #cbd5e1;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    td {
+      padding: 12px 14px;
+      border: 1px solid #e2e8f0;
+      vertical-align: middle;
+    }
+
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .price-col {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: #047857;
+    }
+
+    .formula-tag {
+      font-size: 0.75rem;
+      color: #64748b;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      background: #f8fafc;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px dashed #cbd5e1;
+      margin-top: 32px;
+      font-size: 0.85rem;
+    }
+
+    .terms-item strong {
+      color: #0f172a;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .footer-seal {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-top: 24px;
+      border-top: 2px solid #e2e8f0;
+    }
+
+    .stamp-box {
+      border: 2px solid #047857;
+      color: #047857;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-align: center;
+      transform: rotate(-2deg);
+    }
+
+    .btn-print {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      background: #059669;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(5, 150, 105, 0.4);
+      z-index: 100;
+    }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .container { box-shadow: none; border: none; padding: 0; }
+      .btn-print { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="btn-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div>
+        <div class="brand-title">VSZAPOWER</div>
+        <div class="brand-sub">Smart Coin Cell Charger Docks & Rechargeable LIR Batteries (Direct Manufacturer)</div>
+        <div class="badge-strip">
+          <span class="badge">ISO 9001 Certified</span>
+          <span class="badge">CE-LVD & EMC</span>
+          <span class="badge">FCC Part 15B</span>
+          <span class="badge">RoHS 2.0</span>
+          <span class="badge">UN38.3 Air/Sea Appraisal</span>
+          <span class="badge">MSDS</span>
+        </div>
+      </div>
+
+      <div class="doc-meta">
+        <p><strong>Official Quotation Ref:</strong> VSZ-2026-WHOLESALE-0731</p>
+        <p><strong>Issue Date:</strong> July 31, 2026</p>
+        <p><strong>Valid Until:</strong> December 31, 2026</p>
+        <p><strong>Currency:</strong> USD ($) | Exchange Rate: 1 USD = 7.20 RMB</p>
+        <p><strong>Price Term:</strong> FOB Shenzhen / Ningbo (EXW Available)</p>
+      </div>
+    </div>
+
+    <!-- Section 1: Single Slot Direct Plug Charger Combos -->
+    <div class="section-title">
+      <span>SERIES A</span> 1. Single Slot Direct Plug Charger Kit (8 Combos)
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Combo Code</th>
+          <th>Charger Model</th>
+          <th>Battery Model & Spec</th>
+          <th>Packaging Option</th>
+          <th>FOB Wholesale Price (USD)</th>
+          <th>MOQ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>VSZ-A2032-2P</strong></td>
+          <td>Single Slot Direct Plug Charger</td>
+          <td>LIR2032 (3.6V 32mAh)</td>
+          <td>2-Pack Eco Kraft Card</td>
+          <td class="price-col">$3.33 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-A2032-5P</strong></td>
+          <td>Single Slot Direct Plug Charger</td>
+          <td>LIR2032 (3.6V 32mAh)</td>
+          <td>5-Pack Eco Kraft Card</td>
+          <td class="price-col">$3.70 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-A2025-2P</strong></td>
+          <td>Single Slot Direct Plug Charger</td>
+          <td>LIR2025 (3.6V 25mAh)</td>
+          <td>2-Pack Eco Kraft Card</td>
+          <td class="price-col">$3.50 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-A2025-5P</strong></td>
+          <td>Single Slot Direct Plug Charger</td>
+          <td>LIR2025 (3.6V 25mAh)</td>
+          <td>5-Pack Eco Kraft Card</td>
+          <td class="price-col">$4.12 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-A2016-2P</strong></td>
+          <td>Single Slot Direct Plug Charger</td>
+          <td>LIR2016 (3.6V 10mAh)</td>
+          <td>2-Pack Eco Kraft Card</td>
+          <td class="price-col">$3.50 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-A2016-5P</strong></td>
+          <td>Single Slot Direct Plug Charger</td>
+          <td>LIR2016 (3.6V 10mAh)</td>
+          <td>5-Pack Eco Kraft Card</td>
+          <td class="price-col">$4.12 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-AML2032-2P</strong></td>
+          <td>Single Slot Direct Plug Charger</td>
+          <td>ML2032 (3.0V 65mAh)</td>
+          <td>2-Pack Eco Kraft Card</td>
+          <td class="price-col">$3.69 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-AML2032-5P</strong></td>
+          <td>Single Slot Direct Plug Charger</td>
+          <td>ML2032 (3.0V 65mAh)</td>
+          <td>5-Pack Eco Kraft Card</td>
+          <td class="price-col">$4.61 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Section 2: Universal Clip Charger Combos -->
+    <div class="section-title">
+      <span>SERIES B</span> 2. Universal Clip-On Single Slot Charger Kit (10 Combos)
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Combo Code</th>
+          <th>Charger Model</th>
+          <th>Battery Model & Spec</th>
+          <th>Packaging Option</th>
+          <th>FOB Wholesale Price (USD)</th>
+          <th>MOQ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>VSZ-B2032-2P</strong></td>
+          <td>Universal Clip-On Charger Dock</td>
+          <td>LIR2032 (3.6V 32mAh)</td>
+          <td>2-Pack Eco Kraft Card</td>
+          <td class="price-col">$3.33 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-B2032-5P</strong></td>
+          <td>Universal Clip-On Charger Dock</td>
+          <td>LIR2032 (3.6V 32mAh)</td>
+          <td>5-Pack Eco Kraft Card</td>
+          <td class="price-col">$3.70 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-B2025-2P</strong></td>
+          <td>Universal Clip-On Charger Dock</td>
+          <td>LIR2025 (3.6V 25mAh)</td>
+          <td>2-Pack Eco Kraft Card</td>
+          <td class="price-col">$3.50 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-B2025-5P</strong></td>
+          <td>Universal Clip-On Charger Dock</td>
+          <td>LIR2025 (3.6V 25mAh)</td>
+          <td>5-Pack Eco Kraft Card</td>
+          <td class="price-col">$4.13 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-B2016-2P</strong></td>
+          <td>Universal Clip-On Charger Dock</td>
+          <td>LIR2016 (3.6V 10mAh)</td>
+          <td>2-Pack Eco Kraft Card</td>
+          <td class="price-col">$3.50 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-B2016-5P</strong></td>
+          <td>Universal Clip-On Charger Dock</td>
+          <td>LIR2016 (3.6V 10mAh)</td>
+          <td>5-Pack Eco Kraft Card</td>
+          <td class="price-col">$4.13 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-BML2032-2P</strong></td>
+          <td>Universal Clip-On Charger Dock</td>
+          <td>ML2032 (3.0V 65mAh)</td>
+          <td>2-Pack Eco Kraft Card</td>
+          <td class="price-col">$3.69 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-BML2032-5P</strong></td>
+          <td>Universal Clip-On Charger Dock</td>
+          <td>ML2032 (3.0V 65mAh)</td>
+          <td>5-Pack Eco Kraft Card</td>
+          <td class="price-col">$4.61 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-B2450-2P</strong></td>
+          <td>Universal Clip-On Charger Dock</td>
+          <td>LIR2450 (3.6V 110mAh)</td>
+          <td>2-Pack Eco Kraft Card</td>
+          <td class="price-col">$3.53 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-B2450-5P</strong></td>
+          <td>Universal Clip-On Charger Dock</td>
+          <td>LIR2450 (3.6V 110mAh)</td>
+          <td>5-Pack Eco Kraft Card</td>
+          <td class="price-col">$4.19 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Section 3: Dual Slot Fast Charger Combos -->
+    <div class="section-title">
+      <span>SERIES C</span> 3. Dual Slot Fast Charger Dock Kit (10 Combos)
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Combo Code</th>
+          <th>Charger Model</th>
+          <th>Battery Model & Spec</th>
+          <th>Packaging Option</th>
+          <th>FOB Wholesale Price (USD)</th>
+          <th>MOQ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>VSZ-C2032-2P</strong></td>
+          <td>Dual Slot Fast Charger Dock</td>
+          <td>LIR2032 (3.6V 32mAh)</td>
+          <td>2-Pack Eco Kraft Card</td>
+          <td class="price-col">$3.51 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-C2032-5P</strong></td>
+          <td>Dual Slot Fast Charger Dock</td>
+          <td>LIR2032 (3.6V 32mAh)</td>
+          <td>5-Pack Eco Kraft Card</td>
+          <td class="price-col">$3.88 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-C2025-2P</strong></td>
+          <td>Dual Slot Fast Charger Dock</td>
+          <td>LIR2025 (3.6V 25mAh)</td>
+          <td>2-Pack Eco Kraft Card</td>
+          <td class="price-col">$3.68 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-C2025-5P</strong></td>
+          <td>Dual Slot Fast Charger Dock</td>
+          <td>LIR2025 (3.6V 25mAh)</td>
+          <td>5-Pack Eco Kraft Card</td>
+          <td class="price-col">$4.31 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-C2016-2P</strong></td>
+          <td>Dual Slot Fast Charger Dock</td>
+          <td>LIR2016 (3.6V 10mAh)</td>
+          <td>2-Pack Eco Kraft Card</td>
+          <td class="price-col">$3.68 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-C2016-5P</strong></td>
+          <td>Dual Slot Fast Charger Dock</td>
+          <td>LIR2016 (3.6V 10mAh)</td>
+          <td>5-Pack Eco Kraft Card</td>
+          <td class="price-col">$4.31 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-CML2032-2P</strong></td>
+          <td>Dual Slot Fast Charger Dock</td>
+          <td>ML2032 (3.0V 65mAh)</td>
+          <td>2-Pack Eco Kraft Card</td>
+          <td class="price-col">$3.88 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-CML2032-5P</strong></td>
+          <td>Dual Slot Fast Charger Dock</td>
+          <td>ML2032 (3.0V 65mAh)</td>
+          <td>5-Pack Eco Kraft Card</td>
+          <td class="price-col">$4.79 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-C2450-2P</strong></td>
+          <td>Dual Slot Fast Charger Dock</td>
+          <td>LIR2450 (3.6V 110mAh)</td>
+          <td>2-Pack Eco Kraft Card</td>
+          <td class="price-col">$3.71 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+        <tr>
+          <td><strong>VSZ-C2450-5P</strong></td>
+          <td>Dual Slot Fast Charger Dock</td>
+          <td>LIR2450 (3.6V 110mAh)</td>
+          <td>5-Pack Eco Kraft Card</td>
+          <td class="price-col">$4.38 / Set</td>
+          <td>100 Sets</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Commercial Terms & Conditions -->
+    <div class="terms-grid">
+      <div class="terms-item">
+        <strong>📦 Minimum Order Quantity (MOQ)</strong>
+        Standard MOQ is 100 Sets per item. Sample orders from 1-10 sets are supported for quality verification.
+      </div>
+
+      <div class="terms-item">
+        <strong>⚡ Lead Time & Delivery</strong>
+        Sample Orders: 3-5 Business Days.<br>
+        Wholesale Bulk: 7-12 Days (Air Express / Sea Shipping Available).
+      </div>
+
+      <div class="terms-item">
+        <strong>🏷️ OEM / ODM Customization</strong>
+        Custom Logo Printing & Package Packaging Branding supported for orders over 1,000 Pcs.
+      </div>
+
+      <div class="terms-item">
+        <strong>💳 Payment Terms</strong>
+        T/T Wire Transfer (30% Deposit, 70% Before Shipment), PayPal, Commercial L/C.
+      </div>
+    </div>
+
+    <!-- Footer Sign-off -->
+    <div class="footer-seal">
+      <div>
+        <p style="font-weight: 700; color: #0f172a;">VSZAPOWER International Trade Co., Ltd.</p>
+        <p style="font-size: 0.85rem; color: #64748b;">Factory Address: VSZAPOWER Intelligent Industrial Park, Guangdong, China</p>
+        <p style="font-size: 0.85rem; color: #64748b;">Official Website: www.vszapower.com | Email: export@vszapower.com</p>
+      </div>
+
+      <div class="stamp-box">
+        OFFICIAL QUOTATION<br>
+        ✓ APPROVED & SEALED
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
