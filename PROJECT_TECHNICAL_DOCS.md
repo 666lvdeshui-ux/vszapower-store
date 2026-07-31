@@ -1,105 +1,100 @@
-# VSZAPOWER 官网 (vszapower.com) B2B 架构与全站技术文档总览
+# VSZAPOWER 官网 (vszapower.com) 阶段性技术架构与 B2B 重构文档
 
-> **文档创建时间**：2026-07-31  
-> **项目定位**：VSZAPOWER 纯品牌官网展示 + 引导 B2B 批发/大宗采购/OEM/ODM 出口独立站  
-> **代码仓库**：[https://github.com/666lvdeshui-ux/vszapower-store](https://github.com/666lvdeshui-ux/vszapower-store)  
-> **线上域名**：[https://www.vszapower.com](https://www.vszapower.com)  
-
----
-
-## 一、 项目背景与 B2B 升级核心痛点
-
-针对原本独立站混杂 C 端零售感、$6-$7 低价标签影响品牌供应链层级信誉的问题，全站进行了深度 B2B 批发转型重构：
-1. **去掉 C 端零售价格**：隐藏或替换为 `MOQ: 100 Pcs` 与 `Get Wholesale Quote`（获取大宗报价），消除零售小杂货感。
-2. **移除 Temu 依赖**：全站产品卡片、买家评价、SEO 元数据、Modal 弹窗与过滤器中彻底清空 `Temu` 单词，重写为 `✓ 1,480+ Verified Reviews` / `Verified Purchase` / `Verified Buyers`。
-3. **强化源头工厂背书 (Factory & OEM Showcase)**：新增 10,000+ m² 研发生产基地、500,000+ 月产能、100% 全检 QC 及 50+ 国家出口实力展示。
-4. **全球安全与运输认证体系 (Global Certifications)**：全面上架 CE-LVD & EMC, FCC Part 15B, RoHS 2.0, UN38.3 (空运/海运鉴定报告), MSDS, 1.2m 包装跌落测试, PSE Exempt, UKCA, GPSR & 2026 EU Battery 新规认证。
-5. **14 种语言国际化体系 (14-Language i18n System)**：实现全站导航、核心板块、动态标题及 Modal 弹窗在 14 种语言下 100% 同步切换。
+> **生成时间**：2026年7月31日  
+> **项目名称**：VSZAPOWER Store (vszapower-store)  
+> **项目域名**：[vszapower.com](https://www.vszapower.com)  
+> **GitHub 仓库**：`666lvdeshui-ux/vszapower-store` (分支: `main`)  
+> **主要主体公司**：VSZAPOWER Limited (微贊控股（香港）有限公司)  
+> **联系邮箱**：`666lvdeshui@gmail.com`
 
 ---
 
-## 二、 核心技术栈与系统架构
+## 一、 项目背景与商业定位重构
 
-- **前端框架**：Next.js 14.2.5 (App Router) + React 18 + TypeScript 5
-- **样式与主题引擎**：Vanilla CSS Design Tokens (`app/globals.css`) + CSS Custom Variables (`[data-theme="light"]` / `[data-theme="dark"]`) + `ThemeContext`
-- **国际化引擎**：`LanguageContext` + `lib/i18n.ts` (静态 UI 字典) + `lib/dynamicI18n.ts` (板块与动态内容翻译引擎)
-- **后端 & 询盘线索收集**：Next.js Server Actions & API Routes (`/api/inquiries`, `/api/posts`, `/api/products`, `/api/videos`, `/api/reviews`) + FormSubmit.co 自动邮件转发与线索归档
-- **托管与 CI/CD**：Vercel Production Auto-Deploy (绑定 GitHub `main` 分支全自动构建上线)
+本项目为 **VSZAPOWER (微贊)** 品牌全球外贸 B2B 官方商城。为适应大宗批发与海外工厂直供定位，项目已全面抹去 C 端零售与代购标签，打造为兼具权威工厂背书、14 国语言动态切换、线索实时捕获与外贸标准报价 PDF 导出的工业级网站。
 
 ---
 
-## 三、 全站模块重构与功能细节
+## 二、 核心重构与功能完成清单
 
-### 1. 顶部 Header 与导航栏 (`components/Header.tsx`, `components/LanguageSwitcher.tsx`, `components/ThemeToggle.tsx`)
-- **14 种语言导航 Tabs**：全量绑定 `t('nav_factory')` 与 `t('nav_certifications')`，支持中文（`源头工厂` / `出口资质认证`）、英文（`Factory & OEM` / `Certifications`）、德语（`Fabrik & OEM`）、日语（`自社工場・OEM`）、西班牙语（`Fábrica y OEM`）等 14 国语言无缝同频。
-- **防止发光遮挡与排版溢出**：采用卡片式 Flex 布局，`<nav>` 设置 `margin: 0 12px`, `minWidth: 0`；右侧控制区增加 `paddingLeft` 隔离带；微调 `ThemeToggle` 发光阴影半径（`8px`），彻底消除按钮遮挡或文字重叠问题。
+### 1. B2B 商业定位与重构
+- **隐藏 C 端零售低价与小单标签**：全站移除单件低单价，统一改为 `MOQ: 100 Pcs` 大宗批发与 `Get Wholesale Quote` 询价模式。
+- **100% 清理 `Temu` 词汇**：全站所有产品列表、买家评价、规格 Modal、SEO 关键词及 Layout 元素中的 `Temu` 单词已全量替换为 `✓ 1,480+ Verified Reviews` / `Verified Purchase` / `Verified Buyers`。
+- **工厂与权威认证展示**：上线 10,000+ m² 源头工厂、4 大 OEM/ODM 定制能力及 8 大国际出口权威证书（CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, 1.2m 跌落测试, PSE, UKCA, GPSR）。
 
-### 2. B2B 产品展示与详情弹窗 (`components/ProductGrid.tsx`)
-- **询盘与 MOQ 机制**：产品列表标示 `MOQ: 100 Pcs` 与 `Get Wholesale Quote` 询价按钮。
-- **Modal 弹窗动态翻译**：弹窗顶部的分类徽章（`Coin Cell Charger` / `Rechargeable Coin Cells`）、产品 Title、Tagline、MOQ 提示及 OEM/ODM 按钮全量接入 `translateDynamicContent(..., lang)`。
+### 2. 顶部 Header 导航精简
+- **隐藏非核心 Tabs**：根据最新需求，已隐藏 Header 顶部的 `短视频 (Short Videos)` 与 `电池学院 (Battery Academy)` Tabs。
+- **核心 Tabs 结构**：
+  1. 首页 (Home)
+  2. 纽扣电池充电器 (Coin Cell Chargers)
+  3. 可充电纽扣电池 (Rechargeable Coin Cells)
+  4. 源头工厂 (Factory & OEM)
+  5. 出口资质认证 (Certifications)
+  6. 联系我们 (Contact Us)
 
-### 3. 源头工厂与定制实力 (`components/FactoryShowcase.tsx`)
-- 展示 4 大核心产能指标（10,000+ m², 500,000+ Pcs, 100% QC, 50+ Countries）。
-- 提供 Custom Logo、Custom Packaging、Custom Micro-Chip、Sample Fast Track 4 大 OEM 定制服务。全文文案全语言动态同频。
+### 3. 全英文 28 组产品 B2B 官方批发报价单 (PDF/HTML)
+- **文档地址**：[https://www.vszapower.com/VSZAPOWER_2026_Official_Wholesale_Quotation.html](https://www.vszapower.com/VSZAPOWER_2026_Official_Wholesale_Quotation.html)
+- **商业隐私保护**：彻底删除了所有 `BOM 零部件`、`裸电池单价`、`卡纸单价` 及内部成本叠加公式，换算为美元 FOB 批发价。
+- **价格换算规则**：
+  - 基础公式：$\text{FOB 单价 (USD)} = \frac{\text{基础成本 (RMB)} + 20.00\,\text{元}}{7.20\,\text{汇率}}$
+  - 5-Pack 调价规则：所有 **5 颗装 (5-Pack)** 套装报价额外叠加 **+$1.00 USD**（如 $3.70 \to \$4.70$, $4.12 \to \$5.12$, $3.88 \to \$4.88$）。
+- **图片双轮全匹配**：
+  - 每一行 `Product Photos` 均同框匹配展示对应的 **【充电器实拍图】 + 【对应型号 2PCS/5PCS 纸卡实物实拍图】**。
+- **VIP 欢迎通告与商业条款**：
+  - 顶部嵌入 `VIP ACCESS VERIFIED ✓` 专属欢迎通告。
+  - 公司抬头：`VSZAPOWER Limited (微贊控股（香港）有限公司)`
+  - 联系邮箱：`666lvdeshui@gmail.com`
+  - 离岸港口：`FOB Shenzhen / Hong Kong / Ningbo`
+  - 右上角支持 `🖨️ Print / Save as PDF` 一键导出打印。
 
-### 4. 全球安全与海陆空运出口认证 (`components/CertificationsSection.tsx`)
-- 集中展示 CE, FCC, RoHS, UN38.3, MSDS, Drop Test 等 8 大权威证书卡片。
-- 支持点击查看 Modal 证书摘要与一键索取 PDF 盖章副本。
+### 4. 自动跳转与线索实时同步
+- **自动弹窗跳转**：当买家在官网填写表单发送采购询盘，或点击索取 `Download 2026 Wholesale Catalog (PDF)` 时：
+  - 系统自动在后台捕捉线索发至邮箱 `666lvdeshui@gmail.com`，并存入后台系统。
+  - 同步自动在新标签页弹窗打开官方英文 B2B 报价单 [VSZAPOWER_2026_Official_Wholesale_Quotation.html](https://www.vszapower.com/VSZAPOWER_2026_Official_Wholesale_Quotation.html)。
+- **后台管理系统同步**：访问 [https://www.vszapower.com/admin](https://www.vszapower.com/admin)，可在【询盘线索管理】模块中实时查看买家的 Email、Company、下载时间及详细需求。
 
-### 5. 短视频展示板块 (`components/VideoSection.tsx`)
-- 优化精简短视频列表，全英文专业描述，聚焦工厂无尘车间、自动化焊脚、4.2V 防过充测试及耐力 Benchmark。
+### 5. 全站 14 种语言国际化 (`lib/i18n.ts` & `lib/dynamicI18n.ts`)
+- 支持 `zh-CN`, `en`, `de`, `ja`, `es`, `ko`, `he`, `ar`, `fr`, `pt`, `ru`, `vi`, `zh-HK`, `zh-TW` 14 国语言一键同频无缝切换。
 
-### 6. 电池学院与首页 3 条精简分页 (`components/BlogPreview.tsx`, `app/academy/page.tsx`)
-- **首页 3 条精简**：首页仅保留最新 3 篇文章的 3 列立体卡片展示。
-- **首页交互式 Pagination Bar**：底部集成 `Prev` / `1` / `2` / `3` / `4` / `Next` 翻页控制 Bar 与文章总数提示，点击平滑滚动。
-- **每日英文发布 API**：`/api/cron/publish-news` 定时生成全英文技术指南与行业白皮书。
-
-### 7. 亮色 / 暗色模式对比度优化 (`app/globals.css`, Components Color Audit)
-- 彻底扫清 hardcoded `color: '#fff'`，统一改为 CSS 变量 `color: 'var(--text-main)'`。
-- 暗色下呈现高质感亮白 (`#f8fafc`)，切换到亮色模式时自动转换为高对比度石墨黑 (`#0f172a`)，确保文字 100% 清晰可见。
-- 重构亮色模式下的 `.badge-green` (#047857), `.badge-gold` (#b45309), Glass Cards 及 Input 表单外观。
-
-### 8. PDF 产品目录 Lead Magnet (`components/CatalogDownloadModal.tsx`, `app/page.tsx`)
-- 右下角悬浮 `Download 2026 Catalog (PDF)` 磁铁按钮，一键调出 B2B 资料索取表单，自动捕获买家 Email 与 Company Name 并触发 PDF 下载。
+### 6. 高对比度 Theme 主题转换系统 (`app/globals.css`)
+- 扫清硬编码白色文字，统一使用 `color: 'var(--text-main)'` 变量。暗色模式下为白字（`#f8fafc`），亮色模式下自动转换为石墨黑（`#0f172a`）。
 
 ---
 
-## 四、 核心代码目录与配置文件清单
+## 三、 数据库与核心数据结构
 
-```
-vszapower/
-├── app/
-│   ├── layout.tsx                # 全局 HTML 布局与 SEO Metadata (无 Temu)
-│   ├── page.tsx                  # 官网首页主入口 (组装各个 B2B 板块)
-│   ├── globals.css               # 核心 CSS Variables、Light/Dark 主题响应式 rules
-│   ├── academy/                  # 电池学院文章列表与 slug 文章详情页
-│   └── api/                      # Inquiries, Posts, Products, Videos, Reviews API Routes
-├── components/
-│   ├── Header.tsx                # 14 语言响应式 Navigation Bar
-│   ├── HeroCarousel.tsx          # 轮播图 Hero Banner
-│   ├── ProductGrid.tsx           # B2B 产品目录与详情 Modal 弹窗
-│   ├── FactoryShowcase.tsx       # 源头工厂与 OEM 定制实力板块
-│   ├── CertificationsSection.tsx # 8 大国际安全与运输认证板块
-│   ├── VideoSection.tsx          # 实验室与工厂短视频 showcase
-│   ├── BlogPreview.tsx           # 电池学院首页 3 条精简卡片 + 翻页 Bar
-│   ├── ContactSection.tsx        # B2B 询盘与样品索取表单
-│   ├── CatalogDownloadModal.tsx  # PDF Catalog 线索收集 Modal
-│   ├── LanguageSwitcher.tsx      # 顶部 14 语言下拉选择器
-│   └── ThemeToggle.tsx           # 亮暗色模式手动切换按钮
-├── context/
-│   ├── LanguageContext.tsx       # 语言 State Context
-│   └── ThemeContext.tsx          # 主题 State Context
-├── lib/
-│   ├── i18n.ts                   # 14 语言静态 UI 字典 (SUPPORTED_LANGUAGES)
-│   ├── dynamicI18n.ts            # 动态内容与板块标题多语言翻译引擎
-│   ├── store.ts                  # 本地/内存数据 Store (Products, Posts, Reviews)
-│   └── supabase.ts               # Supabase 数据库客户端配置与 Mock 兜底数据
+### 1. 询盘线索模型 (`InquiryItem`)
+```typescript
+interface InquiryItem {
+  id: string;
+  name: string;
+  contact: string; // 买家邮箱 / 电话
+  company?: string; // 公司名称
+  country?: string; // 所属国家 / 线索类型
+  product?: string; // 意向产品 / 资料名称
+  message?: string; // 详细留言
+  created_at: string;
+  status: 'new' | 'contacted' | 'resolved';
+}
 ```
 
 ---
 
-## 五、 后续运维与迭代建议
+## 四、 部署与运行说明
 
-1. **线索收集**：定期检查 `666lvdeshui@gmail.com` 与 `/api/inquiries` 数据库记录，跟进海外买家的大宗报价与样品索取需求。
-2. **文章更新**：每日由定时任务触发 `/api/cron/publish-news` 全英文技术文章发布，持续提升 Google SEO 权重。
-3. **内容拓展**：如需上架新产品或新增认证证书，只需在 `lib/store.ts` 与 `CertificationsSection.tsx` 中添加标准格式条目，即可自动享有全站 14 语言翻译与亮暗色对比度支持。
+1. **类型检查与构建**：
+   ```bash
+   npx tsc --noEmit
+   npm run build
+   ```
+2. **Git 版本控制与 Vercel 部署**：
+   ```bash
+   git add .
+   git commit -m "docs: complete current B2B technical docs and lead workflow sync"
+   git push origin main
+   npx vercel --prod
+   ```
+
+---
+
+*文档完结*
