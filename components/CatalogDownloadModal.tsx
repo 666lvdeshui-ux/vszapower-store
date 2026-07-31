@@ -57,19 +57,14 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
         }),
       }).catch(console.error);
 
-      // 2. Trigger PDF Download
-      const link = document.createElement('a');
-      link.href = '/VSZAPOWER_2026_Wholesale_Product_Catalog.pdf';
-      link.download = 'VSZAPOWER_2026_Wholesale_Product_Catalog.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      // 2. Open official wholesale price quotation sheet in new tab
+      window.open('/VSZAPOWER_2026_Official_Wholesale_Quotation.html', '_blank');
 
       setDownloaded(true);
       setTimeout(() => {
         setDownloaded(false);
         onClose();
-      }, 4000);
+      }, 3000);
     } catch (err) {
       alert('Download error, please try again.');
     } finally {

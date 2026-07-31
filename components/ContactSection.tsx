@@ -61,6 +61,9 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
       });
 
       setSubmitted(true);
+      // Automatically open official wholesale price quotation sheet in new tab for buyer
+      window.open('/VSZAPOWER_2026_Official_Wholesale_Quotation.html', '_blank');
+
       setTimeout(() => {
         setSubmitted(false);
         if (onCloseModal) onCloseModal();
