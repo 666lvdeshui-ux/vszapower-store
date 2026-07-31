@@ -23,7 +23,7 @@ export const SUPPORTED_LANGUAGES: LanguageOption[] = [
 ];
 
 export function detectBrowserLanguage(): string {
-  if (typeof window === 'undefined' || !navigator) return 'zh-CN';
+  if (typeof window === 'undefined' || !navigator) return 'en';
 
   const browserLang = (navigator.language || (navigator.languages && navigator.languages[0]) || 'zh-CN').toLowerCase();
 

@@ -147,6 +147,32 @@ export default function Header({ onContactClick }: HeaderProps) {
           }}>
             <Zap size={15} color="var(--accent-cyan)" style={{ flexShrink: 0 }} /> {t('nav_batteries')}
           </Link>
+          <Link href="/#factory" style={{
+            color: 'var(--text-muted)',
+            textDecoration: 'none',
+            fontSize: 'clamp(0.8rem, 0.88vw, 0.92rem)',
+            fontWeight: 600,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
+            whiteSpace: 'nowrap',
+            transition: 'color 0.2s',
+          }}>
+            <Zap size={15} color="var(--kraft-gold)" style={{ flexShrink: 0 }} /> Factory &amp; OEM
+          </Link>
+          <Link href="/#certifications" style={{
+            color: 'var(--text-muted)',
+            textDecoration: 'none',
+            fontSize: 'clamp(0.8rem, 0.88vw, 0.92rem)',
+            fontWeight: 600,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
+            whiteSpace: 'nowrap',
+            transition: 'color 0.2s',
+          }}>
+            <Zap size={15} color="var(--accent-green)" style={{ flexShrink: 0 }} /> Certifications
+          </Link>
           <Link href="/#videos" style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',

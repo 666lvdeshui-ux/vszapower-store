@@ -14,9 +14,12 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
   const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
+    company: '',
     country: '',
     contact: '',
-    product: prefilledProduct || 'General Inquiry / Bulk Order',
+    businessType: 'Distributor / Wholesaler',
+    quantity: '100 - 500 pcs (MOQ Trial)',
+    product: prefilledProduct || 'General Inquiry / Wholesale Order',
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
@@ -34,14 +37,17 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
           'Accept': 'application/json',
         },
         body: JSON.stringify({
-          _subject: `【VSZAPOWER 网站新询价】来自 ${formData.name} 的产品咨询`,
+          _subject: `【VSZAPOWER 网站 B2B 询价】来自 ${formData.name} (${formData.company || '公司未填写'})`,
           _captcha: 'false',
           _template: 'table',
           email: senderEmail,
           _replyto: senderEmail,
           '客户姓名 Name': formData.name,
+          '公司名称 Company': formData.company || '未填写 (N/A)',
           '所属国家 Country': formData.country || '未填写 (Not Specified)',
           '联系方式 Contact': formData.contact,
+          '业务类型 Business Type': formData.businessType,
+          '预估采购量 Estimated Quantity': formData.quantity,
           '意向产品 Product': formData.product,
           '留言内容 Message': formData.message,
           '提交时间 Time': new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }),
@@ -148,32 +154,76 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                 required
                 value={formData.name}
                 onChange={e => setFormData({ ...formData, name: e.target.value })}
-                placeholder="e.g. John Doe / 张先生"
+                placeholder="e.g. John Doe"
                 style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: '#fff' }}
               />
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>{t('contact_country')}</label>
+              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Company Name / Website</label>
               <input
                 type="text"
-                value={formData.country}
-                onChange={e => setFormData({ ...formData, country: e.target.value })}
-                placeholder="e.g. United States / 中国 / Germany"
+                value={formData.company}
+                onChange={e => setFormData({ ...formData, company: e.target.value })}
+                placeholder="e.g. Acme Electronics Ltd / www.acme.com"
                 style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: '#fff' }}
               />
             </div>
 
-            <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>{t('contact_email')}</label>
-              <input
-                type="text"
-                required
-                value={formData.contact}
-                onChange={e => setFormData({ ...formData, contact: e.target.value })}
-                placeholder="john@example.com / +86 138..."
-                style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: '#fff' }}
-              />
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>{t('contact_country')}</label>
+                <input
+                  type="text"
+                  value={formData.country}
+                  onChange={e => setFormData({ ...formData, country: e.target.value })}
+                  placeholder="e.g. USA / Germany"
+                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: '#fff' }}
+                />
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>{t('contact_email')}</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.contact}
+                  onChange={e => setFormData({ ...formData, contact: e.target.value })}
+                  placeholder="john@company.com"
+                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: '#fff' }}
+                />
+              </div>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Business Type</label>
+                <select
+                  value={formData.businessType}
+                  onChange={e => setFormData({ ...formData, businessType: e.target.value })}
+                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(10,13,20,0.9)', border: '1px solid var(--border-color)', color: '#fff' }}
+                >
+                  <option value="Distributor / Wholesaler">Distributor / Wholesaler</option>
+                  <option value="Amazon / E-commerce Seller">Amazon / E-commerce Seller</option>
+                  <option value="Brand Retailer">Brand Retailer / Chain Store</option>
+                  <option value="OEM / ODM Client">OEM / ODM Custom Client</option>
+                  <option value="Personal Project">Personal / Engineering R&amp;D</option>
+                </select>
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Estimated Quantity (MOQ)</label>
+                <select
+                  value={formData.quantity}
+                  onChange={e => setFormData({ ...formData, quantity: e.target.value })}
+                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(10,13,20,0.9)', border: '1px solid var(--border-color)', color: '#fff' }}
+                >
+                  <option value="100 - 500 pcs (MOQ Trial)">100 - 500 pcs (MOQ Trial)</option>
+                  <option value="500 - 2,000 pcs (Wholesale)">500 - 2,000 pcs (Wholesale)</option>
+                  <option value="2,000+ pcs (OEM/ODM Bulk)">2,000+ pcs (OEM/ODM Bulk)</option>
+                  <option value="Sample Order (1 - 10 pcs)">Sample Order (1 - 10 pcs)</option>
+                </select>
+              </div>
             </div>
 
             <div>

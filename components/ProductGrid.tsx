@@ -281,16 +281,25 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     {translatedTagline}
                   </p>
 
-                  {/* Price Display */}
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '24px' }}>
-                    <span style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-green)' }}>
-                      ${product.price}
+                  {/* B2B Wholesale MOQ & Price Quote Display */}
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', marginBottom: '24px', flexWrap: 'wrap' }}>
+                    <div style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      background: 'rgba(16, 185, 129, 0.12)',
+                      border: '1px solid rgba(16, 185, 129, 0.3)',
+                      color: 'var(--accent-green)',
+                      padding: '6px 12px',
+                      borderRadius: '8px',
+                      fontWeight: 700,
+                      fontSize: '0.9rem',
+                    }}>
+                      <span>MOQ: 100 Pcs</span>
+                    </div>
+                    <span style={{ color: 'var(--accent-cyan)', fontSize: '0.85rem', fontWeight: 600 }}>
+                      Wholesale &amp; OEM Quote
                     </span>
-                    {product.compare_at_price && (
-                      <span style={{ color: 'var(--text-muted)', textDecoration: 'line-through', fontSize: '0.9rem' }}>
-                        ${product.compare_at_price}
-                      </span>
-                    )}
                   </div>
                 </div>
 
@@ -299,17 +308,17 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                   <button
                     onClick={() => openProductModal(product)}
                     className="btn-secondary"
-                    style={{ flex: 1, padding: '10px 14px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
+                    style={{ flex: 1, padding: '10px 12px', fontSize: '0.82rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px' }}
                   >
-                    <Info size={16} /> {t('btn_view_details')}
+                    <Info size={15} /> Tech Specs
                   </button>
 
                   <button
                     onClick={() => onContactClick(translatedTitle)}
                     className="btn-primary"
-                    style={{ flex: 1, padding: '10px 14px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
+                    style={{ flex: 1, padding: '10px 12px', fontSize: '0.82rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px' }}
                   >
-                    <MessageSquare size={16} /> {t('btn_inquire_now')}
+                    <MessageSquare size={15} /> Wholesale Quote
                   </button>
                 </div>
               </div>
