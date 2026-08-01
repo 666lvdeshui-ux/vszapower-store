@@ -197,6 +197,10 @@ export default function ProductManager() {
                     </span>
                   )}
                 </div>
+
+                <div style={{ fontSize: '0.78rem', color: 'var(--accent-green)', display: 'flex', alignItems: 'center', gap: '4px', background: 'rgba(0, 230, 153, 0.08)', padding: '6px 10px', borderRadius: '6px', marginBottom: '12px' }}>
+                  📋 技术参数规格表: {product.specs && Object.keys(product.specs).length > 0 ? `${Object.keys(product.specs).length} 项配置` : '使用智能保底参数模板'}
+                </div>
               </div>
 
               <div style={{
@@ -400,6 +404,101 @@ export default function ProductManager() {
                   />
                   Flag as Main Starter Kit Bundle
                 </label>
+              </div>
+
+              {/* Technical Specifications Table (specs) Editor */}
+              <div style={{
+                background: 'rgba(0, 230, 153, 0.04)',
+                padding: '16px',
+                borderRadius: '12px',
+                border: '1px solid rgba(0, 230, 153, 0.2)',
+                marginBottom: '16px',
+              }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                  <label style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--accent-green)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    📋 技术参数规格表编辑 (Technical Parameters & Specifications)
+                  </label>
+                </div>
+                <p style={{ fontSize: '0.78rem', color: 'var(--text-dim)', marginBottom: '12px' }}>
+                  前台产品详情弹窗展示的参数清单 (如: 输入/输出电压、适配型号、安全防护、循环寿命、包装等)。
+                </p>
+
+                {/* Spec Pairs List */}
+                {Object.entries(editingProduct.specs || {}).map(([key, val], sIdx) => (
+                  <div key={sIdx} style={{ display: 'grid', gridTemplateColumns: '1fr 2fr 40px', gap: '8px', marginBottom: '8px' }}>
+                    <input
+                      type="text"
+                      placeholder="参数键名 (如 voltage / battery_model)"
+                      value={key}
+                      onChange={e => {
+                        const newKey = e.target.value;
+                        const currentSpecs = { ...(editingProduct.specs || {}) };
+                        delete currentSpecs[key];
+                        currentSpecs[newKey] = val;
+                        setEditingProduct({ ...editingProduct, specs: currentSpecs });
+                      }}
+                      style={{
+                        padding: '8px 12px',
+                        borderRadius: '6px',
+                        background: '#121826',
+                        border: '1px solid var(--border-color)',
+                        color: '#fff',
+                        fontSize: '0.85rem',
+                      }}
+                    />
+                    <input
+                      type="text"
+                      placeholder="参数具体内容 (如 3.6V - 4.2V Auto Switch)"
+                      value={val}
+                      onChange={e => {
+                        const currentSpecs = { ...(editingProduct.specs || {}) };
+                        currentSpecs[key] = e.target.value;
+                        setEditingProduct({ ...editingProduct, specs: currentSpecs });
+                      }}
+                      style={{
+                        padding: '8px 12px',
+                        borderRadius: '6px',
+                        background: 'rgba(255,255,255,0.05)',
+                        border: '1px solid var(--border-color)',
+                        color: '#fff',
+                        fontSize: '0.85rem',
+                      }}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const currentSpecs = { ...(editingProduct.specs || {}) };
+                        delete currentSpecs[key];
+                        setEditingProduct({ ...editingProduct, specs: currentSpecs });
+                      }}
+                      style={{
+                        background: 'rgba(239,68,68,0.15)',
+                        border: '1px solid rgba(239,68,68,0.3)',
+                        color: '#ef4444',
+                        borderRadius: '6px',
+                        cursor: 'pointer',
+                      }}
+                      title="删除此项参数"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                ))}
+
+                <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const currentSpecs = { ...(editingProduct.specs || {}) };
+                      currentSpecs[`param_${Date.now()}`] = '';
+                      setEditingProduct({ ...editingProduct, specs: currentSpecs });
+                    }}
+                    className="btn-secondary"
+                    style={{ padding: '6px 14px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '4px' }}
+                  >
+                    <Plus size={14} /> 增加自定义规格参数
+                  </button>
+                </div>
               </div>
 
               {/* Main Cover Image Uploader */}
@@ -612,101 +711,6 @@ export default function ProductManager() {
                 >
                   <Plus size={14} /> 手动添加自定义资质名称
                 </button>
-              </div>
-
-              {/* Technical Specifications Table (specs) Editor */}
-              <div style={{
-                background: 'rgba(255,255,255,0.02)',
-                padding: '16px',
-                borderRadius: '12px',
-                border: '1px solid var(--border-color)',
-                marginBottom: '16px',
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                  <label style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--accent-green)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    📋 技术参数规格表编辑 (Technical Parameters & Specifications)
-                  </label>
-                </div>
-                <p style={{ fontSize: '0.78rem', color: 'var(--text-dim)', marginBottom: '12px' }}>
-                  前台产品详情弹窗展示的参数清单 (如: 输入/输出电压、适配型号、安全防护、循环寿命、包装等)。
-                </p>
-
-                {/* Spec Pairs List */}
-                {Object.entries(editingProduct.specs || {}).map(([key, val], sIdx) => (
-                  <div key={sIdx} style={{ display: 'grid', gridTemplateColumns: '1fr 2fr 40px', gap: '8px', marginBottom: '8px' }}>
-                    <input
-                      type="text"
-                      placeholder="参数键名 (如 voltage / battery_model)"
-                      value={key}
-                      onChange={e => {
-                        const newKey = e.target.value;
-                        const currentSpecs = { ...(editingProduct.specs || {}) };
-                        delete currentSpecs[key];
-                        currentSpecs[newKey] = val;
-                        setEditingProduct({ ...editingProduct, specs: currentSpecs });
-                      }}
-                      style={{
-                        padding: '8px 12px',
-                        borderRadius: '6px',
-                        background: '#121826',
-                        border: '1px solid var(--border-color)',
-                        color: '#fff',
-                        fontSize: '0.85rem',
-                      }}
-                    />
-                    <input
-                      type="text"
-                      placeholder="参数具体内容 (如 3.6V - 4.2V Auto Switch)"
-                      value={val}
-                      onChange={e => {
-                        const currentSpecs = { ...(editingProduct.specs || {}) };
-                        currentSpecs[key] = e.target.value;
-                        setEditingProduct({ ...editingProduct, specs: currentSpecs });
-                      }}
-                      style={{
-                        padding: '8px 12px',
-                        borderRadius: '6px',
-                        background: 'rgba(255,255,255,0.05)',
-                        border: '1px solid var(--border-color)',
-                        color: '#fff',
-                        fontSize: '0.85rem',
-                      }}
-                    />
-                    <button
-                      type="button"
-                      onClick={() => {
-                        const currentSpecs = { ...(editingProduct.specs || {}) };
-                        delete currentSpecs[key];
-                        setEditingProduct({ ...editingProduct, specs: currentSpecs });
-                      }}
-                      style={{
-                        background: 'rgba(239,68,68,0.15)',
-                        border: '1px solid rgba(239,68,68,0.3)',
-                        color: '#ef4444',
-                        borderRadius: '6px',
-                        cursor: 'pointer',
-                      }}
-                      title="删除此项参数"
-                    >
-                      ✕
-                    </button>
-                  </div>
-                ))}
-
-                <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      const currentSpecs = { ...(editingProduct.specs || {}) };
-                      currentSpecs[`param_${Date.now()}`] = '';
-                      setEditingProduct({ ...editingProduct, specs: currentSpecs });
-                    }}
-                    className="btn-secondary"
-                    style={{ padding: '6px 14px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '4px' }}
-                  >
-                    <Plus size={14} /> 增加自定义规格参数
-                  </button>
-                </div>
               </div>
 
               <div>
