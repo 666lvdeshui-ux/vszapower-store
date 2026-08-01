@@ -1,10 +1,44 @@
 # VSZAPOWER B2B Store — Codex & Agent Handover Documentation
-> **Document Version**: 2.0 (Full Handover Specs)  
-> **Last Updated**: August 1, 2026  
+> **Document Version**: 3.0 (Official Stable Backup Log)  
+> **Backup Version Tag**: `v2026.08.01-stable`  
+> **Git Commit Hash**: `0a167b7` (and tagged `v2026.08.01-stable`)  
+> **Last Updated**: August 1, 2026 (19:57:00 CST)  
 > **Repository**: `666lvdeshui-ux/vszapower-store` (Branch: `main`)  
 > **Official Domain**: [https://www.vszapower.com](https://www.vszapower.com)  
+> **Production Vercel Deployment**: `dpl_8JZay4ShcybAa3p6RBGjdzWCudHG`  
 > **Company Legal Entity**: VSZAPOWER Limited (微贊控股（香港）有限公司)  
 > **Official Contact Email**: `666lvdeshui@gmail.com`  
+
+---
+
+## 🏷️ OFFICIAL BACKUP LOG (2026-08-01 STABLE RELEASE)
+
+### 📌 Backup Version Details
+- **Version Tag**: `v2026.08.01-stable`
+- **Latest Commit**: `0a167b7` (`feat: add technical specs table to quotation HTML and update quotation links`)
+- **Live Production URL**: [https://www.vszapower.com](https://www.vszapower.com)
+- **Live Quotation Sheet**: [https://www.vszapower.com/VSZAPOWER_2026_Official_Wholesale_Quotation.html](https://www.vszapower.com/VSZAPOWER_2026_Official_Wholesale_Quotation.html)
+
+### ✅ Completed Work & Features Summary (2026-08-01):
+1. **Product Listings Onboarding (可充电纽扣电池品类上架)**:
+   - Successfully listed **LIR2450 (3.6V 110mAh)** in 2PCS & 5PCS original white-background blister card packs.
+   - Successfully listed **LIR2032 (3.6V 32mAh)** in 2PCS & 5PCS original white-background blister card packs.
+   - Successfully listed **ML2032 (3.0V 65mAh)** in 100% English title, subtitle, and description.
+2. **Precise Electrical Parameters Standardization (严格电气规格标准化)**:
+   - **Charger Input**: `5V DC / 500mA (2.5W Max)`
+   - **Single Slot / Clip Charger Output**: `4.2V DC / 30mA (0.126W Power)`
+   - **Dual Slot Charger Output**: `4.2V DC / 30mA x 2 Channel (0.252W Total Power)`
+   - **Micro-current Protection**: 4.2V Auto-Cutoff, Reverse Polarity Defense, Short Circuit Safety.
+3. **Admin Dashboard Specs Editor Enhancement (/admin)**:
+   - Placed green-bordered `📋 技术参数规格表编辑 (Technical Parameters & Specifications)` container at the **very top** of the Edit / Add product modal (under Product Title).
+   - Added 2-click preset template import buttons:
+     - `+ ⚡ 单充/直插/夹式参数模版 (0.126W)`
+     - `+ ⚡ 双槽充电器参数模版 (0.252W)`
+     - `+ 🔋 电池标准参数模版`
+   - Added `export const dynamic = 'force-dynamic'` on `/admin` to eliminate Edge CDN cache lagging.
+4. **Official Wholesale Quotation & PDF Generator**:
+   - Added Technical Specifications Table to `/VSZAPOWER_2026_Official_Wholesale_Quotation.html`.
+   - Verified live production JS bundles (`page-1c35d09f3bc52e1a.js`).
 
 ---
 
