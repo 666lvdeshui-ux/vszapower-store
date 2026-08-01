@@ -1,100 +1,108 @@
-# VSZAPOWER 官网 (vszapower.com) 阶段性技术架构与 B2B 重构文档
+# VSZAPOWER 官网 (vszapower.com) 技术架构与 Codex 无缝交接文档
 
-> **生成时间**：2026年7月31日  
-> **项目名称**：VSZAPOWER Store (vszapower-store)  
-> **项目域名**：[vszapower.com](https://www.vszapower.com)  
+> **更新时间**：2026年8月1日  
+> **项目名称**：VSZAPOWER Store (`vszapower-store`)  
+> **项目域名**：[https://www.vszapower.com](https://www.vszapower.com)  
 > **GitHub 仓库**：`666lvdeshui-ux/vszapower-store` (分支: `main`)  
 > **主要主体公司**：VSZAPOWER Limited (微贊控股（香港）有限公司)  
-> **联系邮箱**：`666lvdeshui@gmail.com`
+> **联系邮箱**：`666lvdeshui@gmail.com`  
+> **交接专用文档**：[`CODEX_HANDOVER_DOCS.md`](file:///Users/xiehui/.gemini/antigravity-ide/scratch/vszapower/CODEX_HANDOVER_DOCS.md)  
 
 ---
 
-## 一、 项目背景与商业定位重构
+## 一、 项目定位与商业目标
 
-本项目为 **VSZAPOWER (微贊)** 品牌全球外贸 B2B 官方商城。为适应大宗批发与海外工厂直供定位，项目已全面抹去 C 端零售与代购标签，打造为兼具权威工厂背书、14 国语言动态切换、线索实时捕获与外贸标准报价 PDF 导出的工业级网站。
+本项目为 **VSZAPOWER (微贊)** 品牌全球外贸 B2B 官方商城。专为承接来自 **TikTok 社媒引流** 及 **Google SEO/GEO 国际化检索流量** 而打造，实现从“社媒点击”到“源头工厂背书”再到“在线实时获取 2026 官方 FOB 报价单 (PDF)”的高高效询盘转化。
 
----
-
-## 二、 核心重构与功能完成清单
-
-### 1. B2B 商业定位与重构
-- **隐藏 C 端零售低价与小单标签**：全站移除单件低单价，统一改为 `MOQ: 100 Pcs` 大宗批发与 `Get Wholesale Quote` 询价模式。
-- **100% 清理 `Temu` 词汇**：全站所有产品列表、买家评价、规格 Modal、SEO 关键词及 Layout 元素中的 `Temu` 单词已全量替换为 `✓ 1,480+ Verified Reviews` / `Verified Purchase` / `Verified Buyers`。
-- **工厂与权威认证展示**：上线 10,000+ m² 源头工厂、4 大 OEM/ODM 定制能力及 8 大国际出口权威证书（CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, 1.2m 跌落测试, PSE, UKCA, GPSR）。
-
-### 2. 顶部 Header 导航精简
-- **隐藏非核心 Tabs**：根据最新需求，已隐藏 Header 顶部的 `短视频 (Short Videos)` 与 `电池学院 (Battery Academy)` Tabs。
-- **核心 Tabs 结构**：
-  1. 首页 (Home)
-  2. 纽扣电池充电器 (Coin Cell Chargers)
-  3. 可充电纽扣电池 (Rechargeable Coin Cells)
-  4. 源头工厂 (Factory & OEM)
-  5. 出口资质认证 (Certifications)
-  6. 联系我们 (Contact Us)
-
-### 3. 全英文 28 组产品 B2B 官方批发报价单 (PDF/HTML)
-- **文档地址**：[https://www.vszapower.com/VSZAPOWER_2026_Official_Wholesale_Quotation.html](https://www.vszapower.com/VSZAPOWER_2026_Official_Wholesale_Quotation.html)
-- **商业隐私保护**：彻底删除了所有 `BOM 零部件`、`裸电池单价`、`卡纸单价` 及内部成本叠加公式，换算为美元 FOB 批发价。
-- **价格换算规则**：
-  - 基础公式：$\text{FOB 单价 (USD)} = \frac{\text{基础成本 (RMB)} + 20.00\,\text{元}}{7.20\,\text{汇率}}$
-  - 5-Pack 调价规则：所有 **5 颗装 (5-Pack)** 套装报价额外叠加 **+$1.00 USD**（如 $3.70 \to \$4.70$, $4.12 \to \$5.12$, $3.88 \to \$4.88$）。
-- **图片双轮全匹配**：
-  - 每一行 `Product Photos` 均同框匹配展示对应的 **【充电器实拍图】 + 【对应型号 2PCS/5PCS 纸卡实物实拍图】**。
-- **VIP 欢迎通告与商业条款**：
-  - 顶部嵌入 `VIP ACCESS VERIFIED ✓` 专属欢迎通告。
-  - 公司抬头：`VSZAPOWER Limited (微贊控股（香港）有限公司)`
-  - 联系邮箱：`666lvdeshui@gmail.com`
-  - 离岸港口：`FOB Shenzhen / Hong Kong / Ningbo`
-  - 右上角支持 `🖨️ Print / Save as PDF` 一键导出打印。
-
-### 4. 自动跳转与线索实时同步
-- **自动弹窗跳转**：当买家在官网填写表单发送采购询盘，或点击索取 `Download 2026 Wholesale Catalog (PDF)` 时：
-  - 系统自动在后台捕捉线索发至邮箱 `666lvdeshui@gmail.com`，并存入后台系统。
-  - 同步自动在新标签页弹窗打开官方英文 B2B 报价单 [VSZAPOWER_2026_Official_Wholesale_Quotation.html](https://www.vszapower.com/VSZAPOWER_2026_Official_Wholesale_Quotation.html)。
-- **后台管理系统同步**：访问 [https://www.vszapower.com/admin](https://www.vszapower.com/admin)，可在【询盘线索管理】模块中实时查看买家的 Email、Company、下载时间及详细需求。
-
-### 5. 全站 14 种语言国际化 (`lib/i18n.ts` & `lib/dynamicI18n.ts`)
-- 支持 `zh-CN`, `en`, `de`, `ja`, `es`, `ko`, `he`, `ar`, `fr`, `pt`, `ru`, `vi`, `zh-HK`, `zh-TW` 14 国语言一键同频无缝切换。
-
-### 6. 高对比度 Theme 主题转换系统 (`app/globals.css`)
-- 扫清硬编码白色文字，统一使用 `color: 'var(--text-main)'` 变量。暗色模式下为白字（`#f8fafc`），亮色模式下自动转换为石墨黑（`#0f172a`）。
+### 核心设计原则（后续 Codex/AI 接手必须遵循）：
+1. **100% 工业级 B2B 批发定位**：屏蔽所有 C 端小单低价，全站起订量统一为 `MOQ: 100 Pcs`。
+2. **零 Temu/零售印记**：所有历史零售评价词汇已全量替换为 `✓ 1,480+ Verified Reviews` / `Verified Buyers`。
+3. **线索与 PDF 双轮同步获客**：买家提交询盘或点击索取 `Download Wholesale Catalog (PDF)` 时，前端自动向 `/api/inquiries` 提交线索，存入 Supabase 并邮件通知 `666lvdeshui@gmail.com`；同时自动在新标签页弹窗打开全英文 B2B 官方报价单。
 
 ---
 
-## 三、 数据库与核心数据结构
+## 二、 系统架构与技术栈
 
-### 1. 询盘线索模型 (`InquiryItem`)
+- **前端框架**：Next.js 14.2.5 (App Router 模式)
+- **开发语言**：TypeScript 5.5.3
+- **样式与设计系统**：Tailwind CSS + `app/globals.css` 高对比度主题变量（完美兼容暗色与亮色模式）
+- **数据库与后端服务**：Supabase Client (`@supabase/supabase-js`) + `lib/store.ts` 服务端本地 JSON 降级防护
+- **14 国语言国际化**：`lib/i18n.ts`（静态 UI 翻译） + `lib/dynamicI18n.ts`（产品/文章动态预翻译引擎）
+- **自动构建与部署**：Vercel (配置 `vercel.json` 自动化 Cron 每日定时发布新闻)
+
+---
+
+## 三、 关键文件索引与代码地图
+
+```
+vszapower-store/
+├── CODEX_HANDOVER_DOCS.md             # 🤖 Codex / AI Agent 无缝交接专属指南
+├── PROJECT_TECHNICAL_DOCS.md          # 📄 项目整体技术架构与重构文档
+├── app/
+│   ├── page.tsx                        # B2B 官网主页入口
+│   ├── admin/page.tsx                  # 后台线索与产品管理系统 (/admin)
+│   ├── academy/                        # 电池知识库与 SEO 博客 (支持 slug 动态路由)
+│   ├── sitemap.ts                      # SEO 动态 Sitemap 生成器
+│   └── api/                            # 8 大 RESTful API 路由 (inquiries, products, posts, etc.)
+├── components/
+│   ├── Header.tsx                      # 导航栏（精简为 6 大 B2B 核心 Tabs）
+│   ├── ProductGrid.tsx                 # 28 组产品网格与询盘 Modal
+│   ├── CatalogDownloadModal.tsx        # 1-Click 下载 Catalog & 自动弹窗 PDF 报价单
+│   ├── CertificationsSection.tsx       # 8 大国际出口权威认证展示
+│   ├── ContactSection.tsx              # B2B 专属询盘表单
+│   └── admin/InquiryManager.tsx        # 后台询盘线索实时跟踪面板
+├── lib/
+│   ├── supabase.ts                     # Supabase 连接配置与 Mock 数据降级逻辑
+│   ├── i18n.ts                         # 14 国语言字典与逻辑
+│   └── store.ts                        # 服务端持久化与产品/文章数据逻辑
+├── public/
+│   └── VSZAPOWER_2026_Official_Wholesale_Quotation.html # 官方 PDF 打印版 FOB 报价单
+└── supabase_schema.sql                 # Supabase 数据库 DDL 表结构定义
+```
+
+---
+
+## 四、 数据库与核心数据结构 (`supabase_schema.sql`)
+
+### 询盘线索模型 (`inquiries`)
 ```typescript
 interface InquiryItem {
   id: string;
   name: string;
-  contact: string; // 买家邮箱 / 电话
-  company?: string; // 公司名称
-  country?: string; // 所属国家 / 线索类型
-  product?: string; // 意向产品 / 资料名称
-  message?: string; // 详细留言
-  created_at: string;
+  contact: string;   // 买家邮箱 / 电话
+  company?: string;  // 公司名称
+  country?: string;  // 所属国家 / 需求标记
+  product?: string;  // 意向产品 / 资料名称
+  message?: string;  // 详细需求
   status: 'new' | 'contacted' | 'resolved';
+  created_at: string;
 }
 ```
 
 ---
 
-## 四、 部署与运行说明
+## 五、 测试、构建与无缝交接指令
 
-1. **类型检查与构建**：
-   ```bash
-   npx tsc --noEmit
-   npm run build
-   ```
-2. **Git 版本控制与 Vercel 部署**：
-   ```bash
-   git add .
-   git commit -m "docs: complete current B2B technical docs and lead workflow sync"
-   git push origin main
-   npx vercel --prod
-   ```
+为保证 Codex 或其他开发者接手后能顺利运行，请使用以下标准命令：
+
+### 1. 运行本地开发服务
+```bash
+npm run dev
+```
+
+### 2. 运行 TypeScript 类型检查与静态生产构建
+```bash
+npx tsc --noEmit
+npm run build
+```
+
+### 3. 代码提交与部署
+```bash
+git add .
+git commit -m "feat: your features"
+git push origin main
+```
 
 ---
 
-*文档完结*
+*文档完结，AI Agent / Codex 可直接阅读 `CODEX_HANDOVER_DOCS.md` 开展后续开发。*
