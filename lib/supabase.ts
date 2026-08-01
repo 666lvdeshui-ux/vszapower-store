@@ -59,11 +59,13 @@ export const MOCK_PRODUCTS = [
     badge: 'BEST SELLER / SAVE 37%',
     description: 'Complete Starter Pack with 1x Smart Dual-Slot Charger Dock + 4x High-Capacity LIR2032 Rechargeable Coin Cell Batteries in eco-friendly papercard gift packaging. Features dual-slot 3.6V/4.2V micro-chip control, overcharge protection, red/green LED charge status, and reverse polarity defense.',
     specs: {
-      voltage: '3.6V-4.2V Auto Switch',
-      supported: 'LIR2032, LIR2025, LIR2016, ML2032',
-      safety: 'Overcharge / Short Circuit / Reverse Polarity Protection',
+      input_power: '5V DC / 500mA (2.5W Max)',
+      output_power: '4.2V DC / 30mA x 2 Channel (Total Output Power: 0.252W)',
+      voltage: 'Input 5V 500mA (2.5W) | Charge 4.2V 30mA (0.252W Dual Channel Auto-Cutoff)',
+      supported: 'LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032',
+      safety: 'MCU Micro-current 4.2V Auto-Cutoff / Short Circuit / Reverse Polarity Defense',
       packaging: 'Eco-Friendly Kraft Papercard Pack',
-      warranty: '2 Years'
+      warranty: '2 Years Direct Factory Guarantee'
     },
     rating: 4.93,
     review_count: 1480,

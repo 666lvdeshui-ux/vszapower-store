@@ -341,16 +341,18 @@ export default function ProductManager() {
 
                 {/* Quick Add Preset Spec Template Buttons */}
                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '14px' }}>
-                  <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', alignSelf: 'center' }}>快速导入模版：</span>
+                  <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', alignSelf: 'center' }}>快速导入精密参数模版：</span>
                   <button
                     type="button"
                     onClick={() => {
                       setEditingProduct({
                         ...editingProduct,
                         specs: {
-                          voltage: '3.6V - 4.2V Auto Switch',
+                          input_power: '5V DC / 500mA (2.5W Max)',
+                          output_power: '4.2V DC / 30mA (Output Power: 0.126W)',
+                          voltage: 'Input 5V 500mA (2.5W) | Output 4.2V 30mA (0.126W Auto-Cutoff)',
                           supported: 'LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032',
-                          safety: 'MCU Micro-current Protection / Short Circuit / Reverse Polarity',
+                          safety: 'MCU Micro-current Protection / 4.2V Auto-Cutoff / Short Circuit / Reverse Polarity',
                           charging_speed: '30-35 Mins Fast 100% Full Charge',
                           packaging: 'Eco-Friendly Kraft Papercard Pack',
                           warranty: '2 Years Direct Factory Guarantee',
@@ -368,7 +370,38 @@ export default function ProductManager() {
                       cursor: 'pointer',
                     }}
                   >
-                    + ⚡ 充电器标准参数模版
+                    + ⚡ 单充/直插/夹式参数模版 (0.126W)
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEditingProduct({
+                        ...editingProduct,
+                        specs: {
+                          input_power: '5V DC / 500mA (2.5W Max)',
+                          output_power: '4.2V DC / 30mA x 2 Channel (Total Output Power: 0.252W)',
+                          voltage: 'Input 5V 500mA (2.5W) | Output 4.2V 30mA x 2 (0.252W Total Auto-Cutoff)',
+                          supported: 'LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032',
+                          safety: 'MCU Micro-current Protection / 4.2V Auto-Cutoff / Short Circuit / Reverse Polarity',
+                          charging_speed: '30-35 Mins Fast 100% Full Charge',
+                          packaging: 'Eco-Friendly Kraft Papercard Pack',
+                          warranty: '2 Years Direct Factory Guarantee',
+                        }
+                      });
+                    }}
+                    style={{
+                      padding: '6px 12px',
+                      borderRadius: '6px',
+                      background: 'rgba(234, 179, 8, 0.15)',
+                      border: '1px solid rgba(234, 179, 8, 0.4)',
+                      color: 'var(--kraft-gold)',
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    + ⚡ 双槽充电器参数模版 (0.252W)
                   </button>
 
                   <button

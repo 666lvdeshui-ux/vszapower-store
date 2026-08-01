@@ -700,9 +700,11 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                   const isCharger = selectedProduct.category === '纽扣电池充电器' || selectedProduct.is_starter_kit || selectedProduct.title.includes('Charger') || selectedProduct.title.includes('Dock') || selectedProduct.title.includes('充电器');
                   
                   const defaultSpecs: Record<string, string> = isCharger ? {
-                    voltage: '3.6V - 4.2V Auto Switch',
+                    input_power: '5V DC / 500mA (2.5W Max)',
+                    output_power: '4.2V DC / 30mA (Single: 0.126W | Dual Channel: 0.252W Total)',
+                    voltage: 'Input 5V 500mA (2.5W) | Charge 4.2V 30mA (0.126W / 0.252W Auto-Cutoff)',
                     supported: 'LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032',
-                    safety: 'MCU Micro-current Protection / Short Circuit / Reverse Polarity',
+                    safety: 'MCU Micro-current Protection / 4.2V Auto-Cutoff / Short Circuit / Reverse Polarity Defense',
                     charging_speed: '30-35 Mins Fast 100% Full Charge',
                     packaging: 'Eco-Friendly Kraft Papercard Pack',
                     warranty: '2 Years Direct Factory Guarantee',
