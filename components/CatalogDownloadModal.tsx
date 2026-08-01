@@ -77,7 +77,7 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
     <div style={{
       position: 'fixed',
       top: 0, left: 0, right: 0, bottom: 0,
-      background: 'rgba(0, 0, 0, 0.85)',
+      background: 'rgba(0, 0, 0, 0.75)',
       backdropFilter: 'blur(10px)',
       zIndex: 1100,
       display: 'flex',
@@ -91,9 +91,9 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
         padding: '36px',
         borderRadius: '24px',
         position: 'relative',
-        background: 'rgba(10, 13, 20, 0.95)',
+        background: 'var(--bg-secondary)',
         border: '1px solid var(--border-color)',
-        boxShadow: '0 25px 50px rgba(0,0,0,0.5)',
+        boxShadow: '0 25px 50px rgba(0,0,0,0.3), var(--accent-glow)',
       }}>
         <button
           onClick={onClose}
@@ -101,8 +101,8 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
             position: 'absolute',
             top: '20px',
             right: '20px',
-            background: 'rgba(255,255,255,0.1)',
-            border: 'none',
+            background: 'var(--bg-card)',
+            border: '1px solid var(--border-color)',
             color: 'var(--text-main)',
             width: '36px',
             height: '36px',
@@ -161,7 +161,7 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   placeholder="e.g. buyer@company.com"
-                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
+                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'var(--bg-primary)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
                 />
               </div>
 
@@ -172,7 +172,7 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
                   value={company}
                   onChange={e => setCompany(e.target.value)}
                   placeholder="e.g. Global Electronics Wholesale Ltd"
-                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
+                  style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'var(--bg-primary)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
                 />
               </div>
 
