@@ -343,6 +343,76 @@ export const MOCK_PRODUCTS = [
     },
     rating: 4.95,
     review_count: 1120
+  },
+  {
+    id: 'prod_lir2450_battery',
+    slug: 'vszapower-lir2450-rechargeable-coin-cell-battery',
+    title: 'VSZAPOWER LIR2450 3.6V 110mAh 可充电纽扣锂电池 (2PCS / 5PCS 纸卡挂牌包)',
+    tagline: '24.5mm x 5.0mm 大容量可充电锂电池 | 循环使用 500+ 次 | 替代一次性 CR2450 纽扣电池',
+    price: 3.20,
+    compare_at_price: 5.50,
+    is_starter_kit: false,
+    category: '可充电纽扣电池',
+    image_url: '/products/bat-lir2450-2p.png',
+    images: [
+      '/products/bat-lir2450-2p.png',
+      '/products/bat-lir2450-5p.png'
+    ],
+    certifications: [
+      { name: 'Battery 电池检测认证', image_url: '' },
+      { name: 'CE-Battery 欧盟电池指令认证', image_url: '' },
+      { name: 'GCC 认证', image_url: '' },
+      { name: 'UN38.3 锂电池运输安全认证', image_url: '' },
+      { name: 'RoHS 2.0 环保无毒认证', image_url: '' }
+    ],
+    badge: '3.6V 110mAh / 500+ CYCLES',
+    description: 'VSZAPOWER 官方原装 LIR2450 3.6V 110mAh 大容量可充电扣式锂离子电池，符合 24.5mm x 5.0mm 标准尺寸规范。配备 2PCS / 5PCS 挂卡吸塑密封防潮纸卡包装。广泛用于智能门锁、太阳能胎压监测器、血糖仪、LED 电子茶蜡与 IoT 智能设备。支持 500 次以上循环充电，替代一次性 CR2450 纽扣电池。',
+    specs: {
+      battery_model: 'LIR2450 (3.6V / 110mAh)',
+      dimensions: '直径 24.5mm x 厚度 5.0mm',
+      chemistry: 'Lithium-Ion Rechargeable (扣式锂离子电池)',
+      replaces_disposable: 'CR2450, DL2450, ECR2450, BR2450',
+      recharge_cycles: '500+ Full Cycles (循环充电 500+ 次)',
+      packaging: '2PCS / 5PCS Eco Blister Card Pack (双面吸塑挂卡包装)',
+      certifications: 'CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, 1.2m Drop Test'
+    },
+    rating: 4.97,
+    review_count: 1050
+  },
+  {
+    id: 'prod_lir2032_battery',
+    slug: 'vszapower-lir2032-rechargeable-coin-cell-battery',
+    title: 'VSZAPOWER LIR2032 3.6V 32mAh 可充电纽扣锂电池 (2PCS / 5PCS 纸卡挂牌包)',
+    tagline: '20.0mm x 3.2mm 标准尺寸可充电锂电池 | 循环使用 500+ 次 | 替代一次性 CR2032 纽扣电池',
+    price: 2.80,
+    compare_at_price: 4.90,
+    is_starter_kit: false,
+    category: '可充电纽扣电池',
+    image_url: '/products/bat-lir2032-2p.png',
+    images: [
+      '/products/bat-lir2032-2p.png',
+      '/products/bat-lir2032-5p.png'
+    ],
+    certifications: [
+      { name: 'Battery 电池检测认证', image_url: '' },
+      { name: 'CE-Battery 欧盟电池指令认证', image_url: '' },
+      { name: 'GCC 认证', image_url: '' },
+      { name: 'UN38.3 锂电池运输安全认证', image_url: '' },
+      { name: 'RoHS 2.0 环保无毒认证', image_url: '' }
+    ],
+    badge: '3.6V 32mAh / 500+ CYCLES',
+    description: 'VSZAPOWER 官方原装 LIR2032 3.6V 32mAh 可充电扣式锂离子电池，符合 20.0mm x 3.2mm 标准尺寸规范。配备高密度 2PCS / 5PCS 挂卡吸塑密封防潮纸卡包装。广泛适用于 Apple AirTag、车钥匙遥控器 (宝马、奥迪、奔驰、丰田等)、车库门遥控器、体脂秤与电子发光设备。支持 500 次以上循环充电，大幅降低使用成本并减少电子垃圾。',
+    specs: {
+      battery_model: 'LIR2032 (3.6V / 32mAh)',
+      dimensions: '直径 20.0mm x 厚度 3.2mm',
+      chemistry: 'Lithium-Ion Rechargeable (扣式锂离子电池)',
+      replaces_disposable: 'CR2032, DL2032, ECR2032, BR2032',
+      recharge_cycles: '500+ Full Cycles (循环充电 500+ 次)',
+      packaging: '2PCS / 5PCS Eco Blister Card Pack (双面吸塑挂卡包装)',
+      certifications: 'CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, 1.2m Drop Test'
+    },
+    rating: 4.98,
+    review_count: 1480
   }
 ];
 
