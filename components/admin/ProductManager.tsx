@@ -198,8 +198,31 @@ export default function ProductManager() {
                   )}
                 </div>
 
-                <div style={{ fontSize: '0.78rem', color: 'var(--accent-green)', display: 'flex', alignItems: 'center', gap: '4px', background: 'rgba(0, 230, 153, 0.08)', padding: '6px 10px', borderRadius: '6px', marginBottom: '12px' }}>
-                  📋 技术参数规格表: {product.specs && Object.keys(product.specs).length > 0 ? `${Object.keys(product.specs).length} 项配置` : '使用智能保底参数模板'}
+                {/* Technical Specifications Preview Table directly on Card */}
+                <div style={{
+                  background: 'rgba(0, 230, 153, 0.05)',
+                  border: '1px solid rgba(0, 230, 153, 0.25)',
+                  borderRadius: '10px',
+                  padding: '12px',
+                  marginBottom: '16px'
+                }}>
+                  <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--accent-green)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    📋 技术参数规格表 (Technical Parameters)
+                  </div>
+                  {(!product.specs || Object.keys(product.specs).length === 0) ? (
+                    <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)', fontStyle: 'italic' }}>
+                      使用前台默认保底参数模版
+                    </div>
+                  ) : (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '0.75rem' }}>
+                      {Object.entries(product.specs).map(([sk, sv]) => (
+                        <div key={sk} style={{ background: 'rgba(0,0,0,0.3)', padding: '4px 8px', borderRadius: '4px', display: 'flex', justifyContent: 'space-between', gap: '8px' }}>
+                          <span style={{ color: 'var(--text-dim)', flexShrink: 0 }}>{sk}:</span>
+                          <span style={{ color: '#fff', fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{String(sv)}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
 
