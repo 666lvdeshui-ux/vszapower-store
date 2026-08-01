@@ -413,6 +413,41 @@ export const MOCK_PRODUCTS = [
     },
     rating: 4.98,
     review_count: 1480
+  },
+  {
+    id: 'prod_ml2032_battery',
+    slug: 'vszapower-ml2032-rechargeable-coin-cell-battery',
+    title: 'VSZAPOWER ML2032 3.0V 65mAh Rechargeable Lithium Manganese Coin Cell Battery (2PCS / 5PCS Blister Card Pack)',
+    tagline: '20.0mm x 3.2mm Rechargeable Profile | 3.0V Voltage Match | Ideal for Solar Watches & Motherboard CMOS Backup',
+    price: 2.90,
+    compare_at_price: 5.00,
+    is_starter_kit: false,
+    category: '可充电纽扣电池',
+    image_url: '/products/bat-ml2032-2p.png',
+    images: [
+      '/products/bat-ml2032-2p.png',
+      '/products/bat-ml2032-5p.png'
+    ],
+    certifications: [
+      { name: 'Battery 电池检测认证', image_url: '' },
+      { name: 'CE-Battery 欧盟电池指令认证', image_url: '' },
+      { name: 'GCC 认证', image_url: '' },
+      { name: 'UN38.3 锂电池运输安全认证', image_url: '' },
+      { name: 'RoHS 2.0 环保无毒认证', image_url: '' }
+    ],
+    badge: '3.0V 65mAh / DIRECT 3.0V MATCH',
+    description: 'Official VSZAPOWER ML2032 3.0V 65mAh high-density rechargeable lithium manganese coin cell battery engineered in standard 20.0mm x 3.2mm form factor. Sealed in eco-friendly 2-Pack / 5-Pack blister papercard packaging. Features exact 3.0V nominal operating voltage, making it the ideal direct replacement for solar-powered watches (Seiko, Casio), motherboard CMOS RTC battery backup, solar keychains, and precision medical devices requiring strict 3.0V voltage compatibility. Supports over 500 recharge cycles.',
+    specs: {
+      battery_model: 'ML2032 (3.0V / 65mAh)',
+      dimensions: '20.0mm Diameter x 3.2mm Thickness',
+      chemistry: 'Lithium Manganese Rechargeable (ML Button Cell)',
+      replaces_disposable: 'CR2032, ML2032, Maxell ML2032, FDK ML2032',
+      recharge_cycles: '500+ Full Cycles',
+      packaging: '2PCS / 5PCS Eco Blister Card Pack',
+      certifications: 'CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS'
+    },
+    rating: 4.98,
+    review_count: 980
   }
 ];
 
