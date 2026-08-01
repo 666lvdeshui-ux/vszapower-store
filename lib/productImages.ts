@@ -297,5 +297,47 @@ export const SVG_IMAGES = {
       <text x="220" y="348" text-anchor="middle" fill="%23cbd5e1" font-family="Arial" font-weight="bold" font-size="13">✓ CE-Battery • UN38.3 • GCC • Battery Verified</text>
       <text x="220" y="368" text-anchor="middle" fill="%2310b981" font-family="Arial" font-size="11">Replaces Disposable CR2016 • 500+ Recharge Cycles</text>
     </g>
+  </svg>`,
+
+  // 8. LIR2025 3.6V 25mAh Battery Pack
+  lir2025_pack: `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+    <defs>
+      <linearGradient id="bg_lir2025" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="%23060a12"/>
+        <stop offset="100%" stop-color="%230f172a"/>
+      </linearGradient>
+      <linearGradient id="silver_coin25" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="%23ffffff"/>
+        <stop offset="50%" stop-color="%23cbd5e1"/>
+        <stop offset="100%" stop-color="%2394a3b8"/>
+      </linearGradient>
+    </defs>
+    <rect width="800" height="600" fill="url(%23bg_lir2025)"/>
+    <g transform="translate(180, 80)">
+      <rect x="0" y="0" width="440" height="420" rx="24" fill="%230f172a" stroke="%23334155" stroke-width="4"/>
+      <rect x="20" y="20" width="400" height="80" rx="12" fill="%23000000"/>
+      <text x="220" y="55" text-anchor="middle" fill="%23ffffff" font-family="Arial" font-weight="900" font-size="24" letter-spacing="2">VSZAPOWER ®</text>
+      <text x="220" y="80" text-anchor="middle" fill="%2310b981" font-family="Arial" font-weight="bold" font-size="14">LIR2025 3.6V 25mAh RECHARGEABLE</text>
+      
+      <!-- Blister Pack Coins -->
+      <g transform="translate(130, 210)">
+        <circle cx="0" cy="0" r="68" fill="%231e293b" stroke="%2310b981" stroke-width="3"/>
+        <circle cx="0" cy="0" r="58" fill="url(%23silver_coin25)"/>
+        <text x="0" y="-8" text-anchor="middle" fill="%230f172a" font-family="Arial" font-weight="900" font-size="16">LIR2025</text>
+        <text x="0" y="10" text-anchor="middle" fill="%23059669" font-family="Arial" font-weight="bold" font-size="12">3.6V 25mAh</text>
+        <text x="0" y="26" text-anchor="middle" fill="%23475569" font-family="Arial" font-size="9">RECHARGEABLE</text>
+      </g>
+      <g transform="translate(310, 210)">
+        <circle cx="0" cy="0" r="68" fill="%231e293b" stroke="%2310b981" stroke-width="3"/>
+        <circle cx="0" cy="0" r="58" fill="url(%23silver_coin25)"/>
+        <text x="0" y="-8" text-anchor="middle" fill="%230f172a" font-family="Arial" font-weight="900" font-size="16">LIR2025</text>
+        <text x="0" y="10" text-anchor="middle" fill="%23059669" font-family="Arial" font-weight="bold" font-size="12">3.6V 25mAh</text>
+        <text x="0" y="26" text-anchor="middle" fill="%23475569" font-family="Arial" font-size="9">RECHARGEABLE</text>
+      </g>
+
+      <rect x="40" y="320" width="360" height="60" rx="8" fill="%231e293b"/>
+      <text x="220" y="348" text-anchor="middle" fill="%23cbd5e1" font-family="Arial" font-weight="bold" font-size="13">✓ CE-Battery • UN38.3 • GCC • Battery Verified</text>
+      <text x="220" y="368" text-anchor="middle" fill="%2310b981" font-family="Arial" font-size="11">Replaces Disposable CR2025 • 500+ Recharge Cycles</text>
+    </g>
   </svg>`
 };

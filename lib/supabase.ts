@@ -306,6 +306,43 @@ export const MOCK_PRODUCTS = [
     },
     rating: 4.96,
     review_count: 920
+  },
+  {
+    id: 'prod_lir2025_battery',
+    slug: 'vszapower-lir2025-rechargeable-coin-cell-battery',
+    title: 'VSZAPOWER LIR2025 3.6V 25mAh Rechargeable Lithium Ion Coin Cell Battery (2PCS / 5PCS Blister Card Pack)',
+    tagline: '20mm x 2.5mm Rechargeable Profile | 500+ Recharge Cycles | Eco Replacement for Disposable CR2025',
+    price: 2.70,
+    compare_at_price: 4.80,
+    is_starter_kit: false,
+    category: '可充电纽扣电池',
+    image_url: '/products/bat-lir2025-2p.png',
+    images: [
+      '/products/bat-lir2025-2p.png',
+      '/products/bat-lir2025-5p.png',
+      SVG_IMAGES.lir2025_pack,
+      'https://img.kwcdn.com/product/fancy/0cfe312f-e3dd-484e-9e38-f0c3b5016346.jpg'
+    ],
+    certifications: [
+      { name: 'Battery 电池检测认证', image_url: '' },
+      { name: 'CE-Battery 欧盟电池指令认证', image_url: '' },
+      { name: 'GCC 认证', image_url: '' },
+      { name: 'UN38.3 锂电池运输安全认证', image_url: '' },
+      { name: 'RoHS 2.0 环保无毒认证', image_url: '' }
+    ],
+    badge: '3.6V 25mAh / 500+ CYCLES',
+    description: 'Official VSZAPOWER LIR2025 3.6V 25mAh high-density rechargeable lithium coin cell battery engineered in standard 20.0mm x 2.5mm form factor. Sealed in eco-friendly 2-Pack / 5-Pack blister papercard packaging. Specifically designed for slim car key fobs (Mercedes-Benz, Lexus, Audi, BMW), digital scales, TV remote controls, and smart wearables. Supports over 500 recharge cycles.',
+    specs: {
+      battery_model: 'LIR2025 (3.6V / 25mAh)',
+      dimensions: '20.0mm Diameter x 2.5mm Thickness',
+      chemistry: 'Lithium-Ion Rechargeable (Li-ion Button Cell)',
+      replaces_disposable: 'CR2025, DL2025, ECR2025, BR2025',
+      recharge_cycles: '500+ Full Discharge/Charge Cycles',
+      packaging: '2-Pack / 5-Pack Eco Blister Papercard',
+      certifications: 'CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, 1.2m Drop Test'
+    },
+    rating: 4.95,
+    review_count: 1120
   }
 ];
 
