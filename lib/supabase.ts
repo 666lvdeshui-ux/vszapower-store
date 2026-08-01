@@ -270,6 +270,42 @@ export const MOCK_PRODUCTS = [
       output: '4.2V 80mA CC/CV Fast Charger',
       safety: 'Auto Cutoff 4.2V, Reverse Polarity Protection'
     }
+  },
+  {
+    id: 'prod_lir2016_battery',
+    slug: 'vszapower-lir2016-rechargeable-coin-cell-battery',
+    title: 'VSZAPOWER LIR2016 3.6V 10mAh 可充电纽扣锂电池 (2PCS / 5PCS 纸卡挂牌包)',
+    tagline: '20mm x 1.6mm 超薄可充电锂电池 | 循环使用 500+ 次 | 替代一次性 CR2016 纽扣电池',
+    price: 2.50,
+    compare_at_price: 4.50,
+    is_starter_kit: false,
+    category: '可充电纽扣电池',
+    image_url: '/products/bat-lir2016-2p.png',
+    images: [
+      '/products/bat-lir2016-2p.png',
+      '/products/bat-lir2016-5p.png',
+      SVG_IMAGES.lir2016_pack,
+      'https://img.kwcdn.com/product/fancy/0cfe312f-e3dd-484e-9e38-f0c3b5016346.jpg'
+    ],
+    certifications: [
+      { name: 'Battery 电池检测认证', image_url: '' },
+      { name: 'CE-Battery 欧盟电池指令认证', image_url: '' },
+      { name: 'GCC 认证', image_url: '' },
+      { name: 'UN38.3 锂电池运输安全认证', image_url: '' }
+    ],
+    badge: '3.6V 10mAh / 500+ CYCLES',
+    description: 'VSZAPOWER 官方原装 LIR2016 3.6V 10mAh 可充电扣式锂离子电池，符合 20.0mm x 1.6mm 标准尺寸规范。配备高密度 2PCS / 5PCS 挂卡吸塑密封防潮纸卡包装。广泛用于手表遥控器、薄型车钥匙、发光发饰、微型电子秤与计算器。支持 500 次以上循环充电，大幅节省一次性电池采购开销。',
+    specs: {
+      battery_model: 'LIR2016 (3.6V / 10mAh)',
+      dimensions: '直径 20.0mm x 厚度 1.6mm',
+      chemistry: 'Lithium-Ion Rechargeable (扣式锂离子电池)',
+      replaces_disposable: 'CR2016, DL2016, ECR2016',
+      recharge_cycles: '500+ Full Cycles (循环充电 500+ 次)',
+      packaging: '2PCS / 5PCS Eco Blister Card Pack (双面吸塑挂卡包装)',
+      certifications: 'Battery, CE-Battery, GCC, UN38.3'
+    },
+    rating: 4.96,
+    review_count: 920
   }
 ];
 
