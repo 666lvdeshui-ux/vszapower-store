@@ -339,7 +339,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
           <div style={{
             position: 'fixed',
             inset: 0,
-            background: 'rgba(4, 7, 13, 0.92)',
+            background: 'rgba(0, 0, 0, 0.75)',
             backdropFilter: 'blur(16px)',
             zIndex: 1000,
             display: 'flex',
@@ -355,9 +355,9 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
               padding: 'clamp(20px, 4vw, 36px)',
               borderRadius: '24px',
               position: 'relative',
-              background: 'rgba(10, 14, 23, 0.98)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              boxShadow: '0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 230, 153, 0.08)',
+              background: 'var(--bg-secondary)',
+              border: '1px solid var(--border-color)',
+              boxShadow: '0 25px 60px rgba(0, 0, 0, 0.4), var(--accent-glow)',
               color: 'var(--text-main)',
             }}>
               {/* Close Button */}
@@ -368,8 +368,8 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                   position: 'absolute',
                   top: '16px',
                   right: '16px',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-color)',
                   color: 'var(--text-main)',
                   width: '40px',
                   height: '40px',
@@ -400,7 +400,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     overflow: 'hidden',
                     aspectRatio: '4 / 3',
                     maxHeight: '340px',
-                    background: '#070a12',
+                    background: 'var(--bg-primary)',
                     border: '1px solid var(--border-color)',
                     position: 'relative',
                     cursor: 'zoom-in',
@@ -420,7 +420,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                       position: 'absolute',
                       bottom: '12px',
                       right: '12px',
-                      background: 'rgba(0,0,0,0.75)',
+                      background: 'var(--bg-card)',
                       padding: '4px 10px',
                       borderRadius: '8px',
                       fontSize: '0.75rem',
@@ -429,7 +429,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                       alignItems: 'center',
                       gap: '4px',
                       backdropFilter: 'blur(4px)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      border: '1px solid var(--border-color)',
                     }}>
                       <Maximize2 size={12} /> 点击全屏放大
                     </div>
@@ -539,7 +539,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     </div>
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '10px' }}>
-                      <div style={{ background: 'rgba(10, 13, 20, 0.75)', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
+                      <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
                           <span style={{ fontSize: '1rem' }}>🏷️</span>
                           <strong style={{ color: 'var(--accent-green)', fontSize: '0.84rem' }}>
@@ -551,7 +551,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                         </p>
                       </div>
 
-                      <div style={{ background: 'rgba(10, 13, 20, 0.75)', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
+                      <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
                           <span style={{ fontSize: '1rem' }}>🔑</span>
                           <strong style={{ color: 'var(--accent-green)', fontSize: '0.84rem' }}>
@@ -563,7 +563,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                         </p>
                       </div>
 
-                      <div style={{ background: 'rgba(10, 13, 20, 0.75)', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
+                      <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
                           <span style={{ fontSize: '1rem' }}>🏠</span>
                           <strong style={{ color: 'var(--accent-green)', fontSize: '0.84rem' }}>
@@ -575,7 +575,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                         </p>
                       </div>
 
-                      <div style={{ background: 'rgba(10, 13, 20, 0.75)', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
+                      <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
                           <span style={{ fontSize: '1rem' }}>🛡️</span>
                           <strong style={{ color: 'var(--accent-green)', fontSize: '0.84rem' }}>
@@ -719,7 +719,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
 
                   return (
                     <div style={{
-                      background: 'rgba(255,255,255,0.025)',
+                      background: 'var(--bg-card)',
                       padding: '20px',
                       borderRadius: '16px',
                       border: '1px solid var(--border-color)',
@@ -748,10 +748,11 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                             <div
                               key={key}
                               style={{
-                                background: 'rgba(10, 13, 20, 0.6)',
+                                background: 'var(--bg-card)',
                                 padding: '12px 14px',
                                 borderRadius: '10px',
                                 borderLeft: '3px solid var(--accent-green)',
+                                border: '1px solid var(--border-color)',
                               }}
                             >
                               <div style={{ color: 'var(--text-dim)', fontSize: '0.78rem', marginBottom: '4px' }}>
