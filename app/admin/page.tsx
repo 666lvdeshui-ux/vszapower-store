@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import React, { useState, useEffect } from 'react';
 import ProductManager from '@/components/admin/ProductManager';
 import PostManager from '@/components/admin/PostManager';

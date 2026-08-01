@@ -446,6 +446,69 @@ export default function ProductManager() {
                   前台产品详情弹窗展示的参数清单 (如: 输入/输出电压、适配型号、安全防护、循环寿命、包装等)。
                 </p>
 
+                {/* Quick Add Preset Spec Template Buttons */}
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '12px' }}>
+                  <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', alignSelf: 'center' }}>快速导入模版：</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEditingProduct({
+                        ...editingProduct,
+                        specs: {
+                          voltage: '3.6V - 4.2V Auto Switch',
+                          supported: 'LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032',
+                          safety: 'MCU Micro-current Protection / Short Circuit / Reverse Polarity',
+                          charging_speed: '30-35 Mins Fast 100% Full Charge',
+                          packaging: 'Eco-Friendly Kraft Papercard Pack',
+                          warranty: '2 Years Direct Factory Guarantee',
+                        }
+                      });
+                    }}
+                    style={{
+                      padding: '4px 10px',
+                      borderRadius: '6px',
+                      background: 'rgba(0, 230, 153, 0.1)',
+                      border: '1px solid rgba(0, 230, 153, 0.3)',
+                      color: 'var(--accent-green)',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    + ⚡ 充电器标准参数模版
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEditingProduct({
+                        ...editingProduct,
+                        specs: {
+                          battery_model: 'LIR2032 (3.6V / 32mAh)',
+                          dimensions: '直径 20.0mm x 厚度 3.2mm',
+                          chemistry: 'Lithium-Ion Rechargeable (扣式锂离子电池)',
+                          replaces_disposable: 'CR2032, DL2032, ECR2032',
+                          recharge_cycles: '500+ Full Cycles',
+                          packaging: '2PCS / 5PCS Eco Blister Card Pack',
+                          certifications: 'CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS',
+                        }
+                      });
+                    }}
+                    style={{
+                      padding: '4px 10px',
+                      borderRadius: '6px',
+                      background: 'rgba(6, 182, 212, 0.1)',
+                      border: '1px solid rgba(6, 182, 212, 0.3)',
+                      color: 'var(--accent-cyan)',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    + 🔋 电池标准参数模版
+                  </button>
+                </div>
+
                 {/* Spec Pairs List */}
                 {Object.entries(editingProduct.specs || {}).map(([key, val], sIdx) => (
                   <div key={sIdx} style={{ display: 'grid', gridTemplateColumns: '1fr 2fr 40px', gap: '8px', marginBottom: '8px' }}>
