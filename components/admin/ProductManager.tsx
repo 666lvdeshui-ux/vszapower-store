@@ -321,6 +321,165 @@ export default function ProductManager() {
                 />
               </div>
 
+              {/* Technical Specifications Table (specs) Editor - Placed at VERY TOP */}
+              <div style={{
+                background: 'rgba(0, 230, 153, 0.06)',
+                padding: '20px',
+                borderRadius: '14px',
+                border: '2px solid var(--accent-green)',
+                boxShadow: '0 0 20px rgba(0, 230, 153, 0.15)',
+                margin: '8px 0',
+              }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                  <label style={{ fontSize: '0.96rem', fontWeight: 800, color: 'var(--accent-green)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    📋 技术参数规格表编辑 (Technical Parameters & Specifications)
+                  </label>
+                </div>
+                <p style={{ fontSize: '0.8rem', color: 'var(--text-dim)', marginBottom: '14px' }}>
+                  前台产品详情弹窗展示的参数清单 (如: 输入/输出电压、适配型号、安全防护、循环寿命、包装等)。
+                </p>
+
+                {/* Quick Add Preset Spec Template Buttons */}
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '14px' }}>
+                  <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', alignSelf: 'center' }}>快速导入模版：</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEditingProduct({
+                        ...editingProduct,
+                        specs: {
+                          voltage: '3.6V - 4.2V Auto Switch',
+                          supported: 'LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032',
+                          safety: 'MCU Micro-current Protection / Short Circuit / Reverse Polarity',
+                          charging_speed: '30-35 Mins Fast 100% Full Charge',
+                          packaging: 'Eco-Friendly Kraft Papercard Pack',
+                          warranty: '2 Years Direct Factory Guarantee',
+                        }
+                      });
+                    }}
+                    style={{
+                      padding: '6px 12px',
+                      borderRadius: '6px',
+                      background: 'rgba(0, 230, 153, 0.15)',
+                      border: '1px solid rgba(0, 230, 153, 0.4)',
+                      color: 'var(--accent-green)',
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    + ⚡ 充电器标准参数模版
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEditingProduct({
+                        ...editingProduct,
+                        specs: {
+                          battery_model: 'LIR2032 (3.6V / 32mAh)',
+                          dimensions: '直径 20.0mm x 厚度 3.2mm',
+                          chemistry: 'Lithium-Ion Rechargeable (扣式锂离子电池)',
+                          replaces_disposable: 'CR2032, DL2032, ECR2032',
+                          recharge_cycles: '500+ Full Cycles',
+                          packaging: '2PCS / 5PCS Eco Blister Card Pack',
+                          certifications: 'CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS',
+                        }
+                      });
+                    }}
+                    style={{
+                      padding: '6px 12px',
+                      borderRadius: '6px',
+                      background: 'rgba(6, 182, 212, 0.15)',
+                      border: '1px solid rgba(6, 182, 212, 0.4)',
+                      color: 'var(--accent-cyan)',
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    + 🔋 电池标准参数模版
+                  </button>
+                </div>
+
+                {/* Spec Pairs List */}
+                {Object.entries(editingProduct.specs || {}).map(([key, val], sIdx) => (
+                  <div key={sIdx} style={{ display: 'grid', gridTemplateColumns: '1fr 2fr 40px', gap: '8px', marginBottom: '8px' }}>
+                    <input
+                      type="text"
+                      placeholder="参数键名 (如 voltage / battery_model)"
+                      value={key}
+                      onChange={e => {
+                        const newKey = e.target.value;
+                        const currentSpecs = { ...(editingProduct.specs || {}) };
+                        delete currentSpecs[key];
+                        currentSpecs[newKey] = val;
+                        setEditingProduct({ ...editingProduct, specs: currentSpecs });
+                      }}
+                      style={{
+                        padding: '8px 12px',
+                        borderRadius: '6px',
+                        background: '#121826',
+                        border: '1px solid var(--border-color)',
+                        color: '#fff',
+                        fontSize: '0.85rem',
+                      }}
+                    />
+                    <input
+                      type="text"
+                      placeholder="参数具体内容 (如 3.6V - 4.2V Auto Switch)"
+                      value={val}
+                      onChange={e => {
+                        const currentSpecs = { ...(editingProduct.specs || {}) };
+                        currentSpecs[key] = e.target.value;
+                        setEditingProduct({ ...editingProduct, specs: currentSpecs });
+                      }}
+                      style={{
+                        padding: '8px 12px',
+                        borderRadius: '6px',
+                        background: 'rgba(255,255,255,0.05)',
+                        border: '1px solid var(--border-color)',
+                        color: '#fff',
+                        fontSize: '0.85rem',
+                      }}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const currentSpecs = { ...(editingProduct.specs || {}) };
+                        delete currentSpecs[key];
+                        setEditingProduct({ ...editingProduct, specs: currentSpecs });
+                      }}
+                      style={{
+                        background: 'rgba(239,68,68,0.15)',
+                        border: '1px solid rgba(239,68,68,0.3)',
+                        color: '#ef4444',
+                        borderRadius: '6px',
+                        cursor: 'pointer',
+                      }}
+                      title="删除此项参数"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                ))}
+
+                <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const currentSpecs = { ...(editingProduct.specs || {}) };
+                      currentSpecs[`param_${Date.now()}`] = '';
+                      setEditingProduct({ ...editingProduct, specs: currentSpecs });
+                    }}
+                    className="btn-secondary"
+                    style={{ padding: '6px 14px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '4px' }}
+                  >
+                    <Plus size={14} /> 增加自定义规格参数
+                  </button>
+                </div>
+              </div>
+
               <div>
                 <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Tagline / Short Subtitle</label>
                 <input
@@ -427,164 +586,6 @@ export default function ProductManager() {
                   />
                   Flag as Main Starter Kit Bundle
                 </label>
-              </div>
-
-              {/* Technical Specifications Table (specs) Editor */}
-              <div style={{
-                background: 'rgba(0, 230, 153, 0.04)',
-                padding: '16px',
-                borderRadius: '12px',
-                border: '1px solid rgba(0, 230, 153, 0.2)',
-                marginBottom: '16px',
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                  <label style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--accent-green)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    📋 技术参数规格表编辑 (Technical Parameters & Specifications)
-                  </label>
-                </div>
-                <p style={{ fontSize: '0.78rem', color: 'var(--text-dim)', marginBottom: '12px' }}>
-                  前台产品详情弹窗展示的参数清单 (如: 输入/输出电压、适配型号、安全防护、循环寿命、包装等)。
-                </p>
-
-                {/* Quick Add Preset Spec Template Buttons */}
-                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '12px' }}>
-                  <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', alignSelf: 'center' }}>快速导入模版：</span>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setEditingProduct({
-                        ...editingProduct,
-                        specs: {
-                          voltage: '3.6V - 4.2V Auto Switch',
-                          supported: 'LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032',
-                          safety: 'MCU Micro-current Protection / Short Circuit / Reverse Polarity',
-                          charging_speed: '30-35 Mins Fast 100% Full Charge',
-                          packaging: 'Eco-Friendly Kraft Papercard Pack',
-                          warranty: '2 Years Direct Factory Guarantee',
-                        }
-                      });
-                    }}
-                    style={{
-                      padding: '4px 10px',
-                      borderRadius: '6px',
-                      background: 'rgba(0, 230, 153, 0.1)',
-                      border: '1px solid rgba(0, 230, 153, 0.3)',
-                      color: 'var(--accent-green)',
-                      fontSize: '0.75rem',
-                      fontWeight: 600,
-                      cursor: 'pointer',
-                    }}
-                  >
-                    + ⚡ 充电器标准参数模版
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setEditingProduct({
-                        ...editingProduct,
-                        specs: {
-                          battery_model: 'LIR2032 (3.6V / 32mAh)',
-                          dimensions: '直径 20.0mm x 厚度 3.2mm',
-                          chemistry: 'Lithium-Ion Rechargeable (扣式锂离子电池)',
-                          replaces_disposable: 'CR2032, DL2032, ECR2032',
-                          recharge_cycles: '500+ Full Cycles',
-                          packaging: '2PCS / 5PCS Eco Blister Card Pack',
-                          certifications: 'CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS',
-                        }
-                      });
-                    }}
-                    style={{
-                      padding: '4px 10px',
-                      borderRadius: '6px',
-                      background: 'rgba(6, 182, 212, 0.1)',
-                      border: '1px solid rgba(6, 182, 212, 0.3)',
-                      color: 'var(--accent-cyan)',
-                      fontSize: '0.75rem',
-                      fontWeight: 600,
-                      cursor: 'pointer',
-                    }}
-                  >
-                    + 🔋 电池标准参数模版
-                  </button>
-                </div>
-
-                {/* Spec Pairs List */}
-                {Object.entries(editingProduct.specs || {}).map(([key, val], sIdx) => (
-                  <div key={sIdx} style={{ display: 'grid', gridTemplateColumns: '1fr 2fr 40px', gap: '8px', marginBottom: '8px' }}>
-                    <input
-                      type="text"
-                      placeholder="参数键名 (如 voltage / battery_model)"
-                      value={key}
-                      onChange={e => {
-                        const newKey = e.target.value;
-                        const currentSpecs = { ...(editingProduct.specs || {}) };
-                        delete currentSpecs[key];
-                        currentSpecs[newKey] = val;
-                        setEditingProduct({ ...editingProduct, specs: currentSpecs });
-                      }}
-                      style={{
-                        padding: '8px 12px',
-                        borderRadius: '6px',
-                        background: '#121826',
-                        border: '1px solid var(--border-color)',
-                        color: '#fff',
-                        fontSize: '0.85rem',
-                      }}
-                    />
-                    <input
-                      type="text"
-                      placeholder="参数具体内容 (如 3.6V - 4.2V Auto Switch)"
-                      value={val}
-                      onChange={e => {
-                        const currentSpecs = { ...(editingProduct.specs || {}) };
-                        currentSpecs[key] = e.target.value;
-                        setEditingProduct({ ...editingProduct, specs: currentSpecs });
-                      }}
-                      style={{
-                        padding: '8px 12px',
-                        borderRadius: '6px',
-                        background: 'rgba(255,255,255,0.05)',
-                        border: '1px solid var(--border-color)',
-                        color: '#fff',
-                        fontSize: '0.85rem',
-                      }}
-                    />
-                    <button
-                      type="button"
-                      onClick={() => {
-                        const currentSpecs = { ...(editingProduct.specs || {}) };
-                        delete currentSpecs[key];
-                        setEditingProduct({ ...editingProduct, specs: currentSpecs });
-                      }}
-                      style={{
-                        background: 'rgba(239,68,68,0.15)',
-                        border: '1px solid rgba(239,68,68,0.3)',
-                        color: '#ef4444',
-                        borderRadius: '6px',
-                        cursor: 'pointer',
-                      }}
-                      title="删除此项参数"
-                    >
-                      ✕
-                    </button>
-                  </div>
-                ))}
-
-                <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      const currentSpecs = { ...(editingProduct.specs || {}) };
-                      currentSpecs[`param_${Date.now()}`] = '';
-                      setEditingProduct({ ...editingProduct, specs: currentSpecs });
-                    }}
-                    className="btn-secondary"
-                    style={{ padding: '6px 14px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '4px' }}
-                  >
-                    <Plus size={14} /> 增加自定义规格参数
-                  </button>
-                </div>
               </div>
 
               {/* Main Cover Image Uploader */}
