@@ -341,35 +341,34 @@ export async function removeVideo(id: string): Promise<boolean> {
 }
 
 export function getCleanImageUrl(product: Partial<ProductItem>): string {
-  const url = product.image_url || '';
-  const title = (product.title || '').toLowerCase();
   const id = (product.id || '').toLowerCase();
+  const title = (product.title || '').toLowerCase();
+  const url = product.image_url || '';
+
+  if (id === 'prod_1785144575937') return '/products/clip-single-charger.png';
+  if (id === 'prod_1785382687464') return '/products/lir2025-30min-charger.jpg';
+  if (id === 'prod_1785382945991') return '/products/clip-dual-charger.png';
+  if (id === 'prod_lir2016_battery') return '/products/bat-lir2016-2p.png';
+  if (id === 'prod_lir2025_battery') return '/products/bat-lir2025-2p.png';
+  if (id === 'prod_lir2450_battery') return '/products/bat-lir2450-2p.png';
+  if (id === 'prod_lir2032_battery') return '/products/bat-lir2032-2p.png';
+  if (id === 'prod_ml2032_battery') return '/products/bat-ml2032-2p.png';
 
   if (!url || url.startsWith('data:image') || url.includes('kwcdn.com')) {
-    if (id.includes('clip_charger') || title.includes('夹式') || (title.includes('clip') && title.includes('7usd'))) {
+    if (title.includes('single') || title.includes('clip') || title.includes('单充') || title.includes('夹式')) {
       return '/products/clip-single-charger.png';
     }
-    if (id.includes('6') || title.includes('lir2025') || title.includes('30-min') || title.includes('ml2032')) {
-      return '/products/lir2025-30min-charger.jpg';
-    }
-    if (id.includes('1') || title.includes('starter kit') || title.includes('dual') || title.includes('4x')) {
+    if (title.includes('dual') || title.includes('双充') || title.includes('starter')) {
       return '/products/clip-dual-charger.png';
     }
-    if (id.includes('lir2016') || title.includes('lir2016')) {
-      return '/products/bat-lir2016-2p.png';
+    if (title.includes('30-min') || title.includes('30 minute') || title.includes('fast charger')) {
+      return '/products/lir2025-30min-charger.jpg';
     }
-    if (id.includes('lir2025') || title.includes('lir2025')) {
-      return '/products/bat-lir2025-2p.png';
-    }
-    if (id.includes('lir2032') || title.includes('lir2032')) {
-      return '/products/bat-lir2032-2p.png';
-    }
-    if (id.includes('lir2450') || title.includes('lir2450')) {
-      return '/products/bat-lir2450-2p.png';
-    }
-    if (id.includes('ml2032') || title.includes('ml2032')) {
-      return '/products/bat-ml2032-2p.png';
-    }
+    if (title.includes('2016')) return '/products/bat-lir2016-2p.png';
+    if (title.includes('2025')) return '/products/bat-lir2025-2p.png';
+    if (title.includes('2450')) return '/products/bat-lir2450-2p.png';
+    if (title.includes('ml2032')) return '/products/bat-ml2032-2p.png';
+    if (title.includes('2032')) return '/products/bat-lir2032-2p.png';
     return '/products/clip-dual-charger.png';
   }
 
