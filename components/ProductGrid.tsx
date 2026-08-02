@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ProductItem, CertificationItem } from '@/lib/store';
+import { ProductItem, CertificationItem, getCleanImageUrl } from '@/lib/store';
 import { MessageSquare, Info, Zap, X, Filter, ShieldCheck, ChevronLeft, ChevronRight, Maximize2, Award, Star, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { translateDynamicContent } from '@/lib/dynamicI18n';
@@ -231,7 +231,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     justifyContent: 'center',
                   }}>
                     <img
-                      src={product.image_url}
+                      src={getCleanImageUrl(product)}
                       alt={translatedTitle}
                       style={{
                         width: '100%',

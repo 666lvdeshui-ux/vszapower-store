@@ -340,6 +340,56 @@ export async function removeVideo(id: string): Promise<boolean> {
   return true;
 }
 
+export function getCleanImageUrl(product: Partial<ProductItem>): string {
+  const url = product.image_url || '';
+  const title = (product.title || '').toLowerCase();
+  const id = (product.id || '').toLowerCase();
+
+  if (!url || url.startsWith('data:image') || url.includes('kwcdn.com')) {
+    if (id.includes('clip_charger') || title.includes('夹式') || (title.includes('clip') && title.includes('7usd'))) {
+      return '/products/clip-single-charger.png';
+    }
+    if (id.includes('6') || title.includes('lir2025') || title.includes('30-min') || title.includes('ml2032')) {
+      return '/products/lir2025-30min-charger.jpg';
+    }
+    if (id.includes('1') || title.includes('starter kit') || title.includes('dual') || title.includes('4x')) {
+      return '/products/clip-dual-charger.png';
+    }
+    if (id.includes('lir2016') || title.includes('lir2016')) {
+      return '/products/bat-lir2016-2p.png';
+    }
+    if (id.includes('lir2025') || title.includes('lir2025')) {
+      return '/products/bat-lir2025-2p.png';
+    }
+    if (id.includes('lir2032') || title.includes('lir2032')) {
+      return '/products/bat-lir2032-2p.png';
+    }
+    if (id.includes('lir2450') || title.includes('lir2450')) {
+      return '/products/bat-lir2450-2p.png';
+    }
+    if (id.includes('ml2032') || title.includes('ml2032')) {
+      return '/products/bat-ml2032-2p.png';
+    }
+    return '/products/clip-dual-charger.png';
+  }
+
+  return url;
+}
+
+export function sanitizeProductList(list: ProductItem[]): ProductItem[] {
+  return list.map(p => {
+    const cleanMain = getCleanImageUrl(p);
+    const cleanImages = (Array.isArray(p.images) && p.images.length > 0)
+      ? p.images.map(img => (img.startsWith('data:image') || img.includes('kwcdn.com')) ? cleanMain : img)
+      : [cleanMain];
+    return {
+      ...p,
+      image_url: cleanMain,
+      images: cleanImages,
+    };
+  });
+}
+
 export async function fetchAllProducts(): Promise<ProductItem[]> {
   const deletedSet = getDeletedProductIds();
 
@@ -348,9 +398,9 @@ export async function fetchAllProducts(): Promise<ProductItem[]> {
       const { data, error } = await supabase.from('products').select('*').order('created_at', { ascending: true });
       if (!error && data && data.length > 0) {
         const sbList = (data as ProductItem[]).filter(p => !deletedSet.has(p.id) && !deletedProductIds.has(p.id));
-        // Sync productsCache with Supabase
-        productsCache = sbList;
-        return sbList;
+        const sanitized = sanitizeProductList(sbList);
+        productsCache = sanitized;
+        return sanitized;
       }
     } catch (e) {
       console.warn('Supabase fetch error, using local store:', e);
@@ -369,7 +419,8 @@ export async function fetchAllProducts(): Promise<ProductItem[]> {
     });
   }
 
-  return productsCache.filter(p => !deletedSet.has(p.id) && !deletedProductIds.has(p.id));
+  const result = productsCache.filter(p => !deletedSet.has(p.id) && !deletedProductIds.has(p.id));
+  return sanitizeProductList(result);
 }
 
 export async function saveProduct(product: Partial<ProductItem>): Promise<ProductItem> {
