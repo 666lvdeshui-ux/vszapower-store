@@ -233,7 +233,14 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     <img
                       src={product.image_url}
                       alt={translatedTitle}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', padding: 0 }}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        padding: 0,
+                        transform: 'scale(1.15)',
+                        transition: 'transform 0.3s ease',
+                      }}
                     />
                   </div>
 
@@ -400,19 +407,19 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     overflow: 'hidden',
                     aspectRatio: '4 / 3',
                     maxHeight: '340px',
-                    background: 'var(--bg-primary)',
+                    background: '#ffffff',
                     border: '1px solid var(--border-color)',
                     position: 'relative',
                     cursor: 'zoom-in',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    padding: '16px',
+                    padding: 0,
                   }} onClick={() => openLightbox(galleryImages, activeImageIndex, selectedProduct.title)}>
                     <img
                       src={currentGalleryImage}
                       alt={selectedProduct.title}
-                      style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.15)' }}
                     />
                     
                     {/* Zoom Hint */}
@@ -505,15 +512,15 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                             borderRadius: '12px',
                             overflow: 'hidden',
                             border: activeImageIndex === idx ? '2px solid var(--accent-green)' : '1px solid var(--border-color)',
-                            padding: '4px',
-                            background: '#070a12',
+                            padding: '0',
+                            background: '#ffffff',
                             cursor: 'pointer',
                             opacity: activeImageIndex === idx ? 1 : 0.6,
                             transition: 'all 0.2s',
                             boxShadow: activeImageIndex === idx ? '0 0 12px rgba(0, 230, 153, 0.3)' : 'none',
                           }}
                         >
-                          <img src={imgUrl} alt={`Thumbnail ${idx + 1}`} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                          <img src={imgUrl} alt={`Thumbnail ${idx + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.15)' }} />
                         </button>
                       ))}
                     </div>
