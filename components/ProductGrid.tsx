@@ -223,7 +223,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     borderRadius: '16px',
                     overflow: 'hidden',
                     marginBottom: '20px',
-                    background: '#0a0e17',
+                    background: '#ffffff',
                     border: '1px solid var(--border-color)',
                     position: 'relative',
                     display: 'flex',
@@ -233,7 +233,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     <img
                       src={product.image_url}
                       alt={translatedTitle}
-                      style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '12px' }}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', padding: 0 }}
                     />
                   </div>
 
