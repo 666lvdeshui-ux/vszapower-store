@@ -341,50 +341,19 @@ export async function removeVideo(id: string): Promise<boolean> {
 }
 
 export function getCleanImageUrl(product: Partial<ProductItem>): string {
-  const id = (product.id || '').toLowerCase();
-  const title = (product.title || '').toLowerCase();
   const url = product.image_url || '';
-
-  if (id === 'prod_1785144575937') return '/products/clip-single-charger.png';
-  if (id === 'prod_1785382687464') return '/products/lir2025-30min-charger.jpg';
-  if (id === 'prod_1785382945991') return '/products/clip-dual-charger.png';
-  if (id === 'prod_lir2016_battery') return '/products/bat-lir2016-2p.png';
-  if (id === 'prod_lir2025_battery') return '/products/bat-lir2025-2p.png';
-  if (id === 'prod_lir2450_battery') return '/products/bat-lir2450-2p.png';
-  if (id === 'prod_lir2032_battery') return '/products/bat-lir2032-2p.png';
-  if (id === 'prod_ml2032_battery') return '/products/bat-ml2032-2p.png';
-
-  if (!url || url.startsWith('data:image') || url.includes('kwcdn.com')) {
-    if (title.includes('single') || title.includes('clip') || title.includes('单充') || title.includes('夹式')) {
-      return '/products/clip-single-charger.png';
-    }
-    if (title.includes('dual') || title.includes('双充') || title.includes('starter')) {
-      return '/products/clip-dual-charger.png';
-    }
-    if (title.includes('30-min') || title.includes('30 minute') || title.includes('fast charger')) {
-      return '/products/lir2025-30min-charger.jpg';
-    }
-    if (title.includes('2016')) return '/products/bat-lir2016-2p.png';
-    if (title.includes('2025')) return '/products/bat-lir2025-2p.png';
-    if (title.includes('2450')) return '/products/bat-lir2450-2p.png';
-    if (title.includes('ml2032')) return '/products/bat-ml2032-2p.png';
-    if (title.includes('2032')) return '/products/bat-lir2032-2p.png';
-    return '/products/clip-dual-charger.png';
-  }
-
-  return url;
+  if (url) return url;
+  return '/products/clip-dual-charger.png';
 }
 
 export function sanitizeProductList(list: ProductItem[]): ProductItem[] {
   return list.map(p => {
-    const cleanMain = getCleanImageUrl(p);
-    const cleanImages = (Array.isArray(p.images) && p.images.length > 0)
-      ? p.images.map(img => (img.startsWith('data:image') || img.includes('kwcdn.com')) ? cleanMain : img)
-      : [cleanMain];
+    const mainImg = p.image_url || '/products/clip-dual-charger.png';
+    const imgList = (Array.isArray(p.images) && p.images.length > 0) ? p.images : [mainImg];
     return {
       ...p,
-      image_url: cleanMain,
-      images: cleanImages,
+      image_url: mainImg,
+      images: imgList,
     };
   });
 }
