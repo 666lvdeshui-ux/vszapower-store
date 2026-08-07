@@ -763,6 +763,7 @@ export const DEFAULT_OEM_HERO_MEDIA: OEMHeroMediaSettings = {
 };
 
 let oemHeroCache: OEMHeroMediaSettings = { ...DEFAULT_OEM_HERO_MEDIA };
+let oemVideoBuffer: { buffer: Buffer; mimeType: string } | null = null;
 
 function loadOEMHeroFromFile(): OEMHeroMediaSettings {
   if (typeof window !== 'undefined') return DEFAULT_OEM_HERO_MEDIA;
@@ -789,6 +790,27 @@ function saveOEMHeroToFile(settings: OEMHeroMediaSettings) {
   } catch (e) {}
 }
 
+export function getOEMVideoBuffer(): { buffer: Buffer; mimeType: string } | null {
+  if (oemVideoBuffer) return oemVideoBuffer;
+
+  if (typeof window === 'undefined') {
+    try {
+      const fs = require('fs');
+      const path = require('path');
+      const tmpVideo = path.join('/tmp', 'vszapower_oem_video.bin');
+      const tmpMime = path.join('/tmp', 'vszapower_oem_video_mime.txt');
+
+      if (fs.existsSync(tmpVideo)) {
+        const buffer = fs.readFileSync(tmpVideo);
+        const mimeType = fs.existsSync(tmpMime) ? fs.readFileSync(tmpMime, 'utf8') : 'video/mp4';
+        oemVideoBuffer = { buffer, mimeType };
+        return oemVideoBuffer;
+      }
+    } catch (e) {}
+  }
+  return null;
+}
+
 export async function fetchOEMHeroMedia(): Promise<OEMHeroMediaSettings> {
   if (supabase) {
     try {
@@ -812,9 +834,33 @@ export async function fetchOEMHeroMedia(): Promise<OEMHeroMediaSettings> {
 }
 
 export async function saveOEMHeroMedia(media: Partial<OEMHeroMediaSettings>): Promise<OEMHeroMediaSettings> {
+  let targetVideoUrl = media.tile2_video !== undefined ? media.tile2_video : oemHeroCache.tile2_video;
+
+  // Handle Base64 Data URL video: Extract binary, store in buffer & disk, map to streaming endpoint
+  if (targetVideoUrl && targetVideoUrl.startsWith('data:video/')) {
+    try {
+      const parts = targetVideoUrl.split(',');
+      const mimeType = parts[0].match(/:(.*?);/)?.[1] || 'video/mp4';
+      const buffer = Buffer.from(parts[1], 'base64');
+      oemVideoBuffer = { buffer, mimeType };
+
+      if (typeof window === 'undefined') {
+        const fs = require('fs');
+        const path = require('path');
+        fs.writeFileSync(path.join('/tmp', 'vszapower_oem_video.bin'), buffer);
+        fs.writeFileSync(path.join('/tmp', 'vszapower_oem_video_mime.txt'), mimeType, 'utf8');
+      }
+
+      targetVideoUrl = '/api/oem-hero?video=true';
+    } catch (e) {
+      console.error('Failed to process video Data URL buffer:', e);
+    }
+  }
+
   oemHeroCache = {
     ...oemHeroCache,
     ...media,
+    tile2_video: targetVideoUrl,
   };
 
   saveOEMHeroToFile(oemHeroCache);
