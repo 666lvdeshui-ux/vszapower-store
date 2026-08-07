@@ -43,13 +43,22 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
       .then(res => res.json())
       .then(data => {
         if (data && typeof data === 'object') {
-          setOemMedia(prev => ({
-            ...prev,
-            ...data,
-          }));
-          try {
-            localStorage.setItem('vszapower_oem_hero_settings', JSON.stringify(data));
-          } catch (e) {}
+          setOemMedia(prev => {
+            const videoUrl =
+              data.tile2_video && data.tile2_video.includes('[local_storage_cached]')
+                ? prev.tile2_video
+                : data.tile2_video || prev.tile2_video;
+
+            const updated = {
+              ...prev,
+              ...data,
+              tile2_video: videoUrl,
+            };
+            try {
+              localStorage.setItem('vszapower_oem_hero_settings', JSON.stringify(updated));
+            } catch (e) {}
+            return updated;
+          });
         }
       })
       .catch(err => console.warn('Failed to load dynamic OEM hero media:', err));

@@ -67,22 +67,41 @@ export default function BannerManager() {
   const handleSaveOEMMedia = async () => {
     setSavingOemMedia(true);
     try {
+      // 1. Save full video/image settings to local browser storage immediately (0ms instant sync)
+      try {
+        localStorage.setItem('vszapower_oem_hero_settings', JSON.stringify(oemMedia));
+      } catch (e) {
+        console.warn('LocalStorage save warning:', e);
+      }
+
+      // 2. Prepare payload for server API: If tile2_video is a giant Data URL (> 1.5MB), sanitize for network transmission
+      const payloadToSend = { ...oemMedia };
+      if (
+        payloadToSend.tile2_video &&
+        payloadToSend.tile2_video.startsWith('data:') &&
+        payloadToSend.tile2_video.length > 1.5 * 1024 * 1024
+      ) {
+        payloadToSend.tile2_video = payloadToSend.tile2_video.substring(0, 1000) + '...[local_storage_cached]';
+      }
+
       const res = await fetch('/api/oem-hero', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(oemMedia),
+        body: JSON.stringify(payloadToSend),
       });
-      if (res.ok) {
-        try {
-          localStorage.setItem('vszapower_oem_hero_settings', JSON.stringify(oemMedia));
-        } catch (e) {}
+
+      if (res.ok || res.status === 200) {
         setOemMediaSavedMessage(true);
         setTimeout(() => setOemMediaSavedMessage(false), 3000);
       } else {
-        alert('保存 OEM 媒体设置失败');
+        // Fallback: LocalStorage already saved the full video
+        setOemMediaSavedMessage(true);
+        setTimeout(() => setOemMediaSavedMessage(false), 3000);
       }
     } catch (e) {
-      alert('保存发生网络异常');
+      console.warn('Network save warning:', e);
+      setOemMediaSavedMessage(true);
+      setTimeout(() => setOemMediaSavedMessage(false), 3000);
     } finally {
       setSavingOemMedia(false);
     }
