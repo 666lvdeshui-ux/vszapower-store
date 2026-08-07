@@ -32,6 +32,7 @@ export default function UniversalVideoPlayer({
   style = {},
   fallbackImage = '/oem/oem_charger_pcb.png',
 }: UniversalVideoPlayerProps) {
+  const [useIframeFallback, setUseIframeFallback] = useState(false);
   const [hasError, setHasError] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
@@ -59,38 +60,78 @@ export default function UniversalVideoPlayer({
     );
   }
 
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play().catch(() => {});
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  };
+
   // 1. Google Drive Video Link Handler
   const googleDriveFileId = parseGoogleDriveFileId(src);
   if (googleDriveFileId) {
+    const directCdnUrl = `https://lh3.googleusercontent.com/d/${googleDriveFileId}`;
     const iframePreviewUrl = `https://drive.google.com/file/d/${googleDriveFileId}/preview`;
+
+    if (useIframeFallback) {
+      return (
+        <div
+          style={{
+            position: 'relative',
+            width: '100%',
+            height: '100%',
+            overflow: 'hidden',
+            background: '#0a0d14',
+            borderRadius: '16px',
+            ...style,
+          }}
+          className={className}
+        >
+          <iframe
+            src={iframePreviewUrl}
+            title="Google Drive Video Player"
+            style={{
+              width: '100%',
+              height: '100%',
+              border: 'none',
+              pointerEvents: 'auto',
+            }}
+            allow="autoplay; encrypted-media; picture-in-picture"
+          />
+        </div>
+      );
+    }
+
     return (
-      <div
+      <video
+        ref={(el) => {
+          videoRef.current = el;
+          if (el) {
+            el.muted = true;
+            el.play().catch(() => setUseIframeFallback(true));
+          }
+        }}
+        src={directCdnUrl}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        onClick={handleVideoClick}
+        onError={() => setUseIframeFallback(true)}
+        className={className}
         style={{
-          position: 'relative',
           width: '100%',
           height: '100%',
-          overflow: 'hidden',
-          background: '#0a0d14',
-          borderRadius: '16px',
+          objectFit: 'cover',
+          cursor: 'pointer',
+          transition: 'transform 0.5s ease',
           ...style,
         }}
-        className={className}
-      >
-        <iframe
-          src={iframePreviewUrl}
-          title="Google Drive Video Player"
-          style={{
-            width: '150%',
-            height: '150%',
-            position: 'absolute',
-            top: '-25%',
-            left: '-25%',
-            border: 'none',
-            pointerEvents: 'none',
-          }}
-          allow="autoplay; encrypted-media; picture-in-picture"
-        />
-      </div>
+      />
     );
   }
 
@@ -120,7 +161,7 @@ export default function UniversalVideoPlayer({
             top: '-20%',
             left: '-20%',
             border: 'none',
-            pointerEvents: 'none',
+            pointerEvents: 'auto',
           }}
           allow="autoplay; encrypted-media"
         />
@@ -145,16 +186,6 @@ export default function UniversalVideoPlayer({
       />
     );
   }
-
-  const handleVideoClick = () => {
-    if (videoRef.current) {
-      if (videoRef.current.paused) {
-        videoRef.current.play().catch(() => {});
-      } else {
-        videoRef.current.pause();
-      }
-    }
-  };
 
   return (
     <video
