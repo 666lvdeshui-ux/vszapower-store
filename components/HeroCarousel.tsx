@@ -1,304 +1,369 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, MessageSquare, Sparkles } from 'lucide-react';
-
-export interface BannerSlide {
-  id: string;
-  badge: string;
-  title: string;
-  subtitle: string;
-  image_url: string;
-  cta_text?: string;
-  cta_link?: string;
-  highlight: string;
-}
-
-const DEFAULT_SLIDES: BannerSlide[] = [
-  {
-    id: '1',
-    badge: 'WHOLESALE & OEM/ODM MANUFACTURER',
-    title: 'Precision Intelligent Coin Cell Charger Docks',
-    subtitle: 'High-precision LIR2032 / LIR2450 smart USB dual-slot charger dock. Eco-friendly kraft packaging, built for long lifecycle.',
-    image_url: 'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1400&q=80',
-    highlight: '500+ Recharge Cycles • Auto 4.2V Cutoff',
-    cta_text: 'Request Wholesale Quote',
-    cta_link: '/#contact',
-  },
-  {
-    id: '2',
-    badge: 'AIRTAG & KEY FOB POWERED',
-    title: 'Rechargeable LIR2032 Starter Kit',
-    subtitle: 'Perfect replacement for Apple AirTags, BMW/Audi/Toyota key fobs, and smart home sensors. Save money & eliminate e-waste.',
-    image_url: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=1400&q=80',
-    highlight: 'MOQ: 100 Sets • Includes 1x Charger Dock + 4x LIR2032 Cells',
-    cta_text: 'Explore Wholesale Catalog',
-    cta_link: '/#products',
-  },
-  {
-    id: '3',
-    badge: 'GLOBAL OEM / ODM SERVICE',
-    title: 'Certified Micro-Chip Protection & Custom Branding',
-    subtitle: 'Dual-color LED charging indicator, reverse polarity guard, and CE/FCC/RoHS global safety compliance.',
-    image_url: 'https://images.unsplash.com/photo-1609592424074-954930b8098c?auto=format&fit=crop&w=1400&q=80',
-    highlight: 'Custom Logo • Custom Kraft Box • Fast Delivery',
-    cta_text: 'Inquire for OEM / ODM',
-    cta_link: '/#contact',
-  },
-];
+import React from 'react';
+import { MessageSquare, Sparkles, PhoneCall, CheckCircle2 } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
+import { translateDynamicContent } from '@/lib/dynamicI18n';
 
 interface HeroCarouselProps {
   onContactClick: (productName?: string) => void;
 }
 
 export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
-  const [slides, setSlides] = useState<BannerSlide[]>(DEFAULT_SLIDES);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const { lang } = useLanguage();
 
-  useEffect(() => {
-    fetch('/api/banners')
-      .then(res => res.json())
-      .then(data => {
-        if (Array.isArray(data) && data.length > 0) {
-          setSlides(data);
-        }
-      })
-      .catch(err => console.warn('Failed to fetch dynamic banners:', err));
-  }, []);
-
-  useEffect(() => {
-    if (slides.length <= 1) return;
-    const timer = setInterval(() => {
-      setCurrentSlide(prev => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [slides]);
-
-  const prevSlide = () => {
-    setCurrentSlide(prev => (prev === 0 ? slides.length - 1 : prev - 1));
+  const handlePrimaryClick = () => {
+    onContactClick('OEM/ODM Custom Battery & Charger Manufacturing Inquiry');
   };
 
-  const nextSlide = () => {
-    setCurrentSlide(prev => (prev + 1) % slides.length);
-  };
-
-  if (slides.length === 0) return null;
-
-  const activeIndex = currentSlide >= slides.length ? 0 : currentSlide;
-  const slide = slides[activeIndex];
-
-  const handleCtaClick = () => {
-    if (slide.cta_link && slide.cta_link.startsWith('/#')) {
-      const sectionId = slide.cta_link.replace('/#', '');
-      const el = document.getElementById(sectionId);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-        return;
-      }
+  const handleWhatsAppClick = () => {
+    if (typeof window !== 'undefined') {
+      window.open('https://wa.me/8613800000000?text=Hi%20VSZAPOWER%20Team%2C%20I%20am%20interested%20in%20OEM%2FODM%20custom%20battery%20and%20charger%20solutions.', '_blank');
     }
-    onContactClick(slide.title);
   };
+
+  const pillBadges = [
+    'MOQ From 100 Pieces',
+    '7-Day Silk Screen Branding OEM',
+    'OEM / ODM Customization',
+    'Private Label Packaging',
+    'Worldwide Express Shipping',
+    'CE / FCC / RoHS Certified',
+  ];
 
   return (
     <section style={{
       position: 'relative',
       maxWidth: '1280px',
-      margin: '24px auto 40px',
-      padding: '0 24px',
+      margin: '20px auto 40px',
+      padding: '0 20px',
     }}>
-      <div className="glass-panel" style={{
+      {/* VSZAPOWER Brand Theme OEM Manufacturing Hero Banner */}
+      <div style={{
         position: 'relative',
-        borderRadius: '24px',
+        borderRadius: '32px',
         overflow: 'hidden',
-        minHeight: '440px',
-        display: 'flex',
-        alignItems: 'center',
-        border: '1px solid var(--border-color)',
-        boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
-      }}>
-        {/* Background Slide Image with overlay */}
+        background: 'var(--bg-card, #121824)',
+        border: '1px solid var(--border-glow, rgba(16, 185, 129, 0.3))',
+        boxShadow: '0 24px 60px rgba(0, 0, 0, 0.35)',
+        padding: '56px 48px',
+        transition: 'all 0.3s ease-in-out',
+      }} className="oem-hero-container">
+
+        {/* Ambient Glow Gradient */}
         <div style={{
           position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
+          top: '-100px',
+          left: '-100px',
+          width: '350px',
+          height: '350px',
+          background: 'radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, transparent 70%)',
+          pointerEvents: 'none',
           zIndex: 0,
-        }}>
-          <img
-            src={slide.image_url}
-            alt={slide.title}
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              filter: 'brightness(0.35)',
-              transition: 'all 0.8s ease-in-out',
-            }}
-          />
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(90deg, rgba(10,13,20,0.95) 0%, rgba(10,13,20,0.6) 60%, transparent 100%)',
-          }} />
-        </div>
+        }} />
 
-        {/* Content Box */}
         <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gap: '48px',
+          alignItems: 'center',
           position: 'relative',
           zIndex: 1,
-          maxWidth: '640px',
-          padding: '48px 40px',
-          color: 'var(--text-main)',
         }}>
-          <div style={{ display: 'inline-block', marginBottom: '16px' }}>
-            <span className="badge badge-green" style={{ fontSize: '0.8rem', padding: '6px 14px' }}>
-              <Sparkles size={14} style={{ marginRight: '6px', display: 'inline' }} />
-              {slide.badge}
-            </span>
-          </div>
-
-          <h1 style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(2.2rem, 4vw, 3.2rem)',
-            fontWeight: 800,
-            lineHeight: 1.15,
-            letterSpacing: '-1px',
-            marginBottom: '16px',
-          }}>
-            {slide.title}
-          </h1>
-
-          <p style={{
-            color: 'rgba(255,255,255,0.85)',
-            fontSize: '1.1rem',
-            lineHeight: 1.6,
-            marginBottom: '28px',
-          }}>
-            {slide.subtitle}
-          </p>
-
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '16px',
-            flexWrap: 'wrap',
-          }}>
-            <button
-              onClick={handleCtaClick}
-              className="btn-primary"
-              style={{
-                padding: '14px 28px',
-                fontSize: '1rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-              }}
-            >
-              <MessageSquare size={18} /> {slide.cta_text ? slide.cta_text.replace(/联系我们\s*\(?Contact Us\)?/g, 'Request Wholesale Quote') : 'Request Wholesale Quote'}
-            </button>
-
-            {slide.highlight && (
-              <span style={{
-                fontSize: '0.85rem',
-                color: 'var(--accent-green)',
-                background: 'rgba(16, 185, 129, 0.15)',
-                border: '1px solid rgba(16, 185, 129, 0.3)',
-                padding: '8px 14px',
-                borderRadius: '20px',
-                fontWeight: 600,
-              }}>
-                {slide.highlight.startsWith('✓') ? slide.highlight : `✓ ${slide.highlight}`}
-              </span>
-            )}
-          </div>
-        </div>
-
-        {/* Carousel Navigation Arrows */}
-        {slides.length > 1 && (
-          <>
-            <button
-              onClick={prevSlide}
-              aria-label="Previous Slide"
-              style={{
-                position: 'absolute',
-                left: '20px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 2,
-                background: 'rgba(10, 13, 20, 0.6)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid var(--border-color)',
-                color: 'var(--text-main)',
-                width: '44px',
-                height: '44px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-              }}
-            >
-              <ChevronLeft size={24} />
-            </button>
-
-            <button
-              onClick={nextSlide}
-              aria-label="Next Slide"
-              style={{
-                position: 'absolute',
-                right: '20px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 2,
-                background: 'rgba(10, 13, 20, 0.6)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid var(--border-color)',
-                color: 'var(--text-main)',
-                width: '44px',
-                height: '44px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-              }}
-            >
-              <ChevronRight size={24} />
-            </button>
-
-            {/* Indicator Dots */}
+          {/* Left Column: Headline, Description & OEM Capabilities */}
+          <div>
+            {/* Top Subheader Tag */}
             <div style={{
-              position: 'absolute',
-              bottom: '20px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              zIndex: 2,
-              display: 'flex',
+              display: 'inline-flex',
+              alignItems: 'center',
               gap: '8px',
+              color: 'var(--accent-green, #10b981)',
+              fontSize: '0.9rem',
+              fontWeight: 800,
+              letterSpacing: '1.5px',
+              textTransform: 'uppercase',
+              marginBottom: '16px',
             }}>
-              {slides.map((_, idx) => (
-                <button
+              <Sparkles size={16} />
+              {translateDynamicContent('OEM & ODM BATTERY & CHARGER MANUFACTURING', lang)}
+            </div>
+
+            {/* Main Headline */}
+            <h1 style={{
+              fontFamily: 'var(--font-heading, sans-serif)',
+              fontSize: 'clamp(2.4rem, 4.2vw, 3.6rem)',
+              fontWeight: 900,
+              lineHeight: 1.12,
+              letterSpacing: '-1.5px',
+              color: 'var(--text-main, #f8fafc)',
+              marginBottom: '20px',
+            }}>
+              {translateDynamicContent('Launch Your Battery Brand With Low MOQ Manufacturing', lang)}
+            </h1>
+
+            {/* Description Paragraph */}
+            <p style={{
+              color: 'var(--text-muted, #94a3b8)',
+              fontSize: '1.08rem',
+              lineHeight: 1.65,
+              marginBottom: '32px',
+              maxWidth: '560px',
+            }}>
+              {translateDynamicContent(
+                'VSZAPOWER helps hardware brands, IoT startups, and B2B electronics distributors produce custom rechargeable coin cell batteries (LIR2032/LIR2450), micro-current smart chargers, and private label power solutions in China.',
+                lang
+              )}
+            </p>
+
+            {/* Tag Pills Grid */}
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '10px',
+              marginBottom: '36px',
+            }}>
+              {pillBadges.map((badge, idx) => (
+                <span
                   key={idx}
-                  onClick={() => setCurrentSlide(idx)}
-                  aria-label={`Go to slide ${idx + 1}`}
                   style={{
-                    width: activeIndex === idx ? '28px' : '10px',
-                    height: '10px',
-                    borderRadius: '5px',
-                    background: activeIndex === idx ? 'var(--accent-green)' : 'rgba(255,255,255,0.3)',
-                    border: 'none',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '8px 16px',
+                    borderRadius: '24px',
+                    background: 'var(--bg-card-hover, rgba(255, 255, 255, 0.06))',
+                    border: '1px solid var(--border-color, rgba(255, 255, 255, 0.12))',
+                    color: 'var(--text-main, #f8fafc)',
+                    fontSize: '0.85rem',
+                    fontWeight: 700,
+                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
+                    transition: 'transform 0.2s ease, box-shadow 0.2s ease',
                   }}
-                />
+                  className="pill-badge"
+                >
+                  <CheckCircle2 size={14} style={{ color: 'var(--accent-green, #10b981)' }} />
+                  {translateDynamicContent(badge, lang)}
+                </span>
               ))}
             </div>
-          </>
-        )}
+
+            {/* Action CTAs */}
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '16px',
+              flexWrap: 'wrap',
+            }}>
+              <button
+                onClick={handlePrimaryClick}
+                className="btn-oem-primary"
+                style={{
+                  padding: '16px 36px',
+                  borderRadius: '30px',
+                  background: 'var(--accent-gradient, linear-gradient(135deg, #10b981 0%, #06b6d4 100%))',
+                  color: '#FFFFFF',
+                  fontSize: '1.02rem',
+                  fontWeight: 800,
+                  border: 'none',
+                  cursor: 'pointer',
+                  boxShadow: '0 10px 25px rgba(16, 185, 129, 0.4)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  transition: 'all 0.2s ease',
+                }}
+              >
+                <MessageSquare size={18} />
+                {translateDynamicContent('Get Free Quote', lang)}
+              </button>
+
+              <button
+                onClick={handleWhatsAppClick}
+                className="btn-oem-secondary"
+                style={{
+                  padding: '16px 30px',
+                  borderRadius: '30px',
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  backdropFilter: 'blur(10px)',
+                  color: 'var(--text-main, #ffffff)',
+                  fontSize: '1.02rem',
+                  fontWeight: 800,
+                  border: '1px solid var(--border-color, rgba(255, 255, 255, 0.2))',
+                  cursor: 'pointer',
+                  boxShadow: '0 8px 20px rgba(0, 0, 0, 0.2)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  transition: 'all 0.2s ease',
+                }}
+              >
+                <PhoneCall size={18} />
+                {translateDynamicContent('WhatsApp Us', lang)}
+              </button>
+            </div>
+          </div>
+
+          {/* Right Column: 2x2 OEM Factory Showcase Grid Collage */}
+          <div style={{
+            position: 'relative',
+            width: '100%',
+            aspectRatio: '1 / 1',
+            maxHeight: '520px',
+            borderRadius: '28px',
+            overflow: 'hidden',
+            boxShadow: '0 20px 45px rgba(0, 0, 0, 0.4)',
+            border: '2px solid var(--border-glow, rgba(16, 185, 129, 0.3))',
+            background: 'var(--bg-secondary, #121824)',
+          }}>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gridTemplateRows: '1fr 1fr',
+              gap: '6px',
+              width: '100%',
+              height: '100%',
+              background: 'rgba(10, 13, 20, 0.8)',
+              padding: '6px',
+            }}>
+              {/* Tile 1: Cleanroom Assembly Line */}
+              <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '18px' }} className="collage-tile">
+                <img
+                  src="/oem/oem_factory_assembly.png"
+                  alt="OEM Factory Assembly Line"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.5s ease',
+                  }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  bottom: '10px',
+                  left: '10px',
+                  background: 'rgba(10, 13, 20, 0.85)',
+                  backdropFilter: 'blur(8px)',
+                  color: '#FFFFFF',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  padding: '4px 10px',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(16, 185, 129, 0.4)',
+                }}>
+                  {translateDynamicContent('Cleanroom Assembly', lang)}
+                </div>
+              </div>
+
+              {/* Tile 2: SMT Charger PCB */}
+              <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '18px' }} className="collage-tile">
+                <img
+                  src="/oem/oem_charger_pcb.png"
+                  alt="SMT Charger Circuit Board Production"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.5s ease',
+                  }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  bottom: '10px',
+                  left: '10px',
+                  background: 'rgba(10, 13, 20, 0.85)',
+                  backdropFilter: 'blur(8px)',
+                  color: '#FFFFFF',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  padding: '4px 10px',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(16, 185, 129, 0.4)',
+                }}>
+                  {translateDynamicContent('SMT Micro-Chip PCB', lang)}
+                </div>
+              </div>
+
+              {/* Tile 3: Battery Quality QA */}
+              <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '18px' }} className="collage-tile">
+                <img
+                  src="/oem/oem_battery_testing.png"
+                  alt="LIR Coin Cell Quality Testing"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.5s ease',
+                  }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  bottom: '10px',
+                  left: '10px',
+                  background: 'rgba(10, 13, 20, 0.85)',
+                  backdropFilter: 'blur(8px)',
+                  color: '#FFFFFF',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  padding: '4px 10px',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(16, 185, 129, 0.4)',
+                }}>
+                  {translateDynamicContent('Precision Quality QA', lang)}
+                </div>
+              </div>
+
+              {/* Tile 4: Custom Private Label Packaging */}
+              <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '18px' }} className="collage-tile">
+                <img
+                  src="/oem/oem_custom_packaging.png"
+                  alt="OEM Custom Packaging & Warehouse"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.5s ease',
+                  }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  bottom: '10px',
+                  left: '10px',
+                  background: 'rgba(10, 13, 20, 0.85)',
+                  backdropFilter: 'blur(8px)',
+                  color: '#FFFFFF',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  padding: '4px 10px',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(16, 185, 129, 0.4)',
+                }}>
+                  {translateDynamicContent('OEM Export Box', lang)}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <style jsx>{`
+        .collage-tile:hover img {
+          transform: scale(1.08);
+        }
+        .btn-oem-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 14px 30px rgba(16, 185, 129, 0.55) !important;
+        }
+        .btn-oem-secondary:hover {
+          transform: translateY(-2px);
+          background: rgba(255, 255, 255, 0.18) !important;
+          box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3) !important;
+        }
+        .pill-badge:hover {
+          transform: translateY(-1px);
+          border-color: var(--accent-green, #10b981) !important;
+          box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2) !important;
+        }
+      `}</style>
     </section>
   );
 }

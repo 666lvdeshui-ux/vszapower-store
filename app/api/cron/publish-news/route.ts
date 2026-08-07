@@ -152,6 +152,14 @@ Equipping your business or retail inventory with **VSZAPOWER Coin Cell Charger D
 
 export async function POST(request: Request) {
   try {
+    if (process.env.ENABLE_AUTO_PUBLISH !== 'true') {
+      return NextResponse.json({
+        success: false,
+        message: 'Daily auto-publishing plan is currently PAUSED.',
+        paused: true
+      });
+    }
+
     const existingPosts = await fetchAllPosts();
     const existingSlugs = new Set(existingPosts.map(p => p.slug));
 
