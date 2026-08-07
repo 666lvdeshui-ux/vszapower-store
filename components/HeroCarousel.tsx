@@ -5,6 +5,7 @@ import { MessageSquare, Sparkles, PhoneCall, CheckCircle2, Play } from 'lucide-r
 import { useLanguage } from '@/context/LanguageContext';
 import { translateDynamicContent } from '@/lib/dynamicI18n';
 import UniversalVideoPlayer from '@/components/UniversalVideoPlayer';
+import { supabase } from '@/lib/supabase';
 
 interface HeroCarouselProps {
   onContactClick: (productName?: string) => void;
@@ -38,6 +39,26 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
         }
       }
     } catch (e) {}
+
+    // Direct Supabase query from browser client (Bypasses serverless proxy delays)
+    if (supabase) {
+      supabase
+        .from('banners')
+        .select('*')
+        .eq('id', 'oem_hero_2x2')
+        .single()
+        .then(({ data, error }) => {
+          if (!error && data && data.subtitle) {
+            try {
+              const parsed = JSON.parse(data.subtitle);
+              if (parsed && typeof parsed === 'object') {
+                setOemMedia(prev => ({ ...prev, ...parsed }));
+                localStorage.setItem('vszapower_oem_hero_settings', JSON.stringify(parsed));
+              }
+            } catch (e) {}
+          }
+        });
+    }
 
     fetch('/api/oem-hero')
       .then(res => res.json())

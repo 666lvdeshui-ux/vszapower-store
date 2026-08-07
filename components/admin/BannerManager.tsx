@@ -5,6 +5,7 @@ import { BannerItem } from '@/lib/store';
 import { Plus, Edit2, Trash2, Image, Sparkles, RefreshCw, Video, CheckCircle2, Save } from 'lucide-react';
 import ImageUploader from '@/components/admin/ImageUploader';
 import MediaUploader from '@/components/admin/MediaUploader';
+import { supabase } from '@/lib/supabase';
 
 interface OEMHeroMediaSettings {
   tile1_image: string;
@@ -74,20 +75,38 @@ export default function BannerManager() {
         console.warn('LocalStorage save warning:', e);
       }
 
-      const res = await fetch('/api/oem-hero', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(oemMedia),
-      });
-
-      if (res.ok || res.status === 200) {
-        setOemMediaSavedMessage(true);
-        setTimeout(() => setOemMediaSavedMessage(false), 3000);
-      } else {
-        // Fallback: LocalStorage already saved the full video
-        setOemMediaSavedMessage(true);
-        setTimeout(() => setOemMediaSavedMessage(false), 3000);
+      // 2. Direct client-side Supabase Cloud DB save (Bypasses Vercel 4.5MB Serverless limit)
+      if (supabase) {
+        try {
+          const payload = {
+            id: 'oem_hero_2x2',
+            badge: 'OEM HERO MEDIA',
+            title: 'OEM Hero 2x2 Collage Settings',
+            subtitle: JSON.stringify(oemMedia),
+            image_url: oemMedia.tile2_video || oemMedia.tile1_image || '/oem/oem_factory_assembly.png',
+            cta_text: 'OEM Quote',
+            cta_link: '/#contact',
+            highlight: '✓ Factory Media',
+            created_at: new Date().toISOString(),
+          };
+          await supabase.from('banners').upsert(payload);
+        } catch (sErr) {
+          console.warn('Direct Supabase upsert error:', sErr);
+        }
       }
+
+      try {
+        await fetch('/api/oem-hero', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(oemMedia),
+        });
+      } catch (e) {
+        console.warn('Server API POST notice:', e);
+      }
+
+      setOemMediaSavedMessage(true);
+      setTimeout(() => setOemMediaSavedMessage(false), 3000);
     } catch (e) {
       console.warn('Network save warning:', e);
       setOemMediaSavedMessage(true);
