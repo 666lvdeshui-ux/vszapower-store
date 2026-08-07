@@ -307,6 +307,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
                   position: 'absolute',
                   bottom: '10px',
                   left: '10px',
+                  zIndex: 10,
                   background: 'rgba(10, 13, 20, 0.85)',
                   backdropFilter: 'blur(8px)',
                   color: '#FFFFFF',

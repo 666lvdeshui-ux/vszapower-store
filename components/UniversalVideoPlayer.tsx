@@ -32,14 +32,13 @@ export default function UniversalVideoPlayer({
   style = {},
   fallbackImage = '/oem/oem_charger_pcb.png',
 }: UniversalVideoPlayerProps) {
-  const [useIframeFallback, setUseIframeFallback] = useState(false);
   const [hasError, setHasError] = useState(false);
 
   if (!src) {
     return (
       <img
         src={fallbackImage}
-        alt="SMT Charger Circuit Board Production"
+        alt="OEM Charger Production"
         className={className}
         style={{
           width: '100%',
@@ -55,47 +54,35 @@ export default function UniversalVideoPlayer({
   // 1. Google Drive Video Link Handler
   const googleDriveFileId = parseGoogleDriveFileId(src);
   if (googleDriveFileId) {
-    const directVideoUrl = `https://drive.google.com/uc?export=download&id=${googleDriveFileId}`;
-    const iframePreviewUrl = `https://drive.google.com/file/d/${googleDriveFileId}/preview?autoplay=1`;
-
-    if (useIframeFallback) {
-      return (
-        <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', ...style }}>
-          <iframe
-            src={iframePreviewUrl}
-            title="Google Drive Video Player"
-            style={{
-              width: '150%',
-              height: '150%',
-              position: 'absolute',
-              top: '-25%',
-              left: '-25%',
-              border: 'none',
-              pointerEvents: 'none',
-            }}
-            allow="autoplay; encrypted-media"
-          />
-        </div>
-      );
-    }
-
+    const iframePreviewUrl = `https://drive.google.com/file/d/${googleDriveFileId}/preview`;
     return (
-      <video
-        src={directVideoUrl}
-        autoPlay
-        loop
-        muted
-        playsInline
-        onError={() => setUseIframeFallback(true)}
-        className={className}
+      <div
         style={{
+          position: 'relative',
           width: '100%',
           height: '100%',
-          objectFit: 'cover',
-          transition: 'transform 0.5s ease',
+          overflow: 'hidden',
+          background: '#0a0d14',
+          borderRadius: '16px',
           ...style,
         }}
-      />
+        className={className}
+      >
+        <iframe
+          src={iframePreviewUrl}
+          title="Google Drive Video Player"
+          style={{
+            width: '150%',
+            height: '150%',
+            position: 'absolute',
+            top: '-25%',
+            left: '-25%',
+            border: 'none',
+            pointerEvents: 'none',
+          }}
+          allow="autoplay; encrypted-media; picture-in-picture"
+        />
+      </div>
     );
   }
 
@@ -103,7 +90,18 @@ export default function UniversalVideoPlayer({
   const youtubeId = parseYouTubeVideoId(src);
   if (youtubeId) {
     return (
-      <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', ...style }}>
+      <div
+        style={{
+          position: 'relative',
+          width: '100%',
+          height: '100%',
+          overflow: 'hidden',
+          background: '#0a0d14',
+          borderRadius: '16px',
+          ...style,
+        }}
+        className={className}
+      >
         <iframe
           src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeId}`}
           title="YouTube Video Player"
@@ -147,6 +145,7 @@ export default function UniversalVideoPlayer({
       loop
       muted
       playsInline
+      preload="auto"
       onError={() => setHasError(true)}
       className={className}
       style={{
