@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { fetchOEMHeroMedia, saveOEMHeroMedia } from '@/lib/store';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   const settings = await fetchOEMHeroMedia();
   return NextResponse.json(settings);

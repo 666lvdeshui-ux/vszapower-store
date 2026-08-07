@@ -790,6 +790,22 @@ function saveOEMHeroToFile(settings: OEMHeroMediaSettings) {
 }
 
 export async function fetchOEMHeroMedia(): Promise<OEMHeroMediaSettings> {
+  if (supabase) {
+    try {
+      const { data, error } = await supabase.from('banners').select('*').eq('id', 'oem_hero_2x2').single();
+      if (!error && data && data.subtitle) {
+        const parsed = JSON.parse(data.subtitle);
+        if (parsed && typeof parsed === 'object') {
+          oemHeroCache = { ...DEFAULT_OEM_HERO_MEDIA, ...parsed };
+          saveOEMHeroToFile(oemHeroCache);
+          return oemHeroCache;
+        }
+      }
+    } catch (e) {
+      console.warn('Supabase fetch OEM hero media warning:', e);
+    }
+  }
+
   const fromFile = loadOEMHeroFromFile();
   oemHeroCache = { ...DEFAULT_OEM_HERO_MEDIA, ...fromFile, ...oemHeroCache };
   return oemHeroCache;
@@ -800,7 +816,29 @@ export async function saveOEMHeroMedia(media: Partial<OEMHeroMediaSettings>): Pr
     ...oemHeroCache,
     ...media,
   };
+
   saveOEMHeroToFile(oemHeroCache);
+
+  if (supabase) {
+    try {
+      const payload = {
+        id: 'oem_hero_2x2',
+        badge: 'OEM HERO MEDIA',
+        title: 'OEM Hero 2x2 Collage Settings',
+        subtitle: JSON.stringify(oemHeroCache),
+        image_url: oemHeroCache.tile2_video || oemHeroCache.tile1_image || DEFAULT_OEM_HERO_MEDIA.tile1_image,
+        cta_text: 'OEM Quote',
+        cta_link: '/#contact',
+        highlight: '✓ Factory Media',
+        created_at: new Date().toISOString(),
+      };
+      await supabase.from('banners').upsert(payload);
+    } catch (e) {
+      console.warn('Supabase save OEM hero media error:', e);
+    }
+  }
+
   return oemHeroCache;
 }
+
 

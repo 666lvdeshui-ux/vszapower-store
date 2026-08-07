@@ -25,7 +25,14 @@ export default function MediaUploader({
 
   const isVideoUrl = (url: string) => {
     if (!url) return false;
-    return url.startsWith('data:video/') || url.endsWith('.mp4') || url.endsWith('.webm') || url.endsWith('.mov') || url.includes('video');
+    return (
+      url.startsWith('data:video/') ||
+      url.endsWith('.mp4') ||
+      url.endsWith('.webm') ||
+      url.endsWith('.mov') ||
+      url.includes('video') ||
+      Boolean(parseGoogleDriveFileId(url))
+    );
   };
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {

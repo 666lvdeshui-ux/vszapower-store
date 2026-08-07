@@ -73,6 +73,9 @@ export default function BannerManager() {
         body: JSON.stringify(oemMedia),
       });
       if (res.ok) {
+        try {
+          localStorage.setItem('vszapower_oem_hero_settings', JSON.stringify(oemMedia));
+        } catch (e) {}
         setOemMediaSavedMessage(true);
         setTimeout(() => setOemMediaSavedMessage(false), 3000);
       } else {

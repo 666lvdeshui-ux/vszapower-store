@@ -29,6 +29,16 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
   const [oemMedia, setOemMedia] = useState<OEMHeroMedia>(DEFAULT_MEDIA);
 
   useEffect(() => {
+    try {
+      const saved = localStorage.getItem('vszapower_oem_hero_settings');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed && typeof parsed === 'object') {
+          setOemMedia(prev => ({ ...prev, ...parsed }));
+        }
+      }
+    } catch (e) {}
+
     fetch('/api/oem-hero')
       .then(res => res.json())
       .then(data => {
@@ -37,6 +47,9 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
             ...prev,
             ...data,
           }));
+          try {
+            localStorage.setItem('vszapower_oem_hero_settings', JSON.stringify(data));
+          } catch (e) {}
         }
       })
       .catch(err => console.warn('Failed to load dynamic OEM hero media:', err));
