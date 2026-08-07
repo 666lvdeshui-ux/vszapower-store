@@ -3,6 +3,7 @@
 import React, { useState, useRef } from 'react';
 import { Upload, Check, Loader2, Video, Image as ImageIcon } from 'lucide-react';
 import UniversalVideoPlayer, { parseGoogleDriveFileId } from '@/components/UniversalVideoPlayer';
+import { supabase } from '@/lib/supabase';
 
 interface MediaUploaderProps {
   value: string;
@@ -20,6 +21,7 @@ export default function MediaUploader({
   mediaType = 'any',
 }: MediaUploaderProps) {
   const [uploading, setUploading] = useState(false);
+  const [uploadProgressMsg, setUploadProgressMsg] = useState('');
   const [showUrlInput, setShowUrlInput] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -43,24 +45,72 @@ export default function MediaUploader({
 
   const processFile = async (file: File) => {
     setUploading(true);
+    const sizeMb = (file.size / (1024 * 1024)).toFixed(1);
+    setUploadProgressMsg(`正在处理与上传文件 (${sizeMb} MB)...`);
+
     try {
-      const formData = new FormData();
-      formData.append('file', file);
+      // 1. Client-Side Supabase Direct Upload (Bypasses Vercel 4.5MB Serverless limit)
+      if (supabase) {
+        try {
+          const ext = file.name.split('.').pop() || (file.type.startsWith('video/') ? 'mp4' : 'png');
+          const fileName = `media_${Date.now()}_${Math.random().toString(36).substring(2, 6)}.${ext}`;
+          const filePath = `uploads/${fileName}`;
 
-      const res = await fetch('/api/upload', {
-        method: 'POST',
-        body: formData,
+          let uploadRes = await supabase.storage.from('videos').upload(filePath, file, { upsert: true });
+          let targetBucket = 'videos';
+
+          if (uploadRes.error) {
+            uploadRes = await supabase.storage.from('public').upload(filePath, file, { upsert: true });
+            targetBucket = 'public';
+          }
+
+          if (!uploadRes.error && uploadRes.data) {
+            const { data: pUrl } = supabase.storage.from(targetBucket).getPublicUrl(filePath);
+            if (pUrl?.publicUrl) {
+              onChange(pUrl.publicUrl);
+              setUploading(false);
+              return;
+            }
+          }
+        } catch (sErr) {
+          console.warn('Supabase direct upload warning, falling back:', sErr);
+        }
+      }
+
+      // 2. Fallback to /api/upload for small files (<= 4MB)
+      if (file.size <= 4 * 1024 * 1024) {
+        const formData = new FormData();
+        formData.append('file', file);
+
+        const res = await fetch('/api/upload', {
+          method: 'POST',
+          body: formData,
+        });
+        const json = await res.json();
+
+        if (json.success && json.url) {
+          onChange(json.url);
+          setUploading(false);
+          return;
+        }
+      }
+
+      // 3. Fallback to FileReader Data URL (100% Client-Side for large video files)
+      const dataUrl = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result as string);
+        reader.onerror = (e) => reject(e);
+        reader.readAsDataURL(file);
       });
-      const json = await res.json();
 
-      if (json.success && json.url) {
-        onChange(json.url);
+      if (dataUrl) {
+        onChange(dataUrl);
       } else {
-        alert('文件上传失败，请重试');
+        alert('视频文件处理失败，请重试');
       }
     } catch (err) {
       console.error('Media upload error:', err);
-      alert('文件上传发生异常');
+      alert('文件上传发生异常，请重试或尝试粘贴视频 URL');
     } finally {
       setUploading(false);
     }
@@ -136,7 +186,7 @@ export default function MediaUploader({
 
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '6px' }}>
             <div style={{ fontSize: '0.8rem', color: 'var(--accent-green)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
-              <Check size={14} /> {isVideoUrl(value) ? '📹 1:1 展示视频就绪' : '🖼️ 图片就绪 (已设置)'}
+              <Check size={14} /> {isVideoUrl(value) ? '📹 1:1 展示视频就绪' : '🖼️ 媒体文件就绪 (已设置)'}
             </div>
 
             <div style={{ display: 'flex', gap: '8px' }}>
@@ -159,7 +209,7 @@ export default function MediaUploader({
                   </>
                 ) : (
                   <>
-                    <Upload size={12} /> 重新上传文件
+                    <Upload size={12} /> 重新选择/上传视频文件
                   </>
                 )}
               </button>
@@ -200,7 +250,7 @@ export default function MediaUploader({
         >
           {uploading ? (
             <div style={{ color: 'var(--accent-green)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-              <Loader2 size={20} className="animate-spin" /> 正在上传文件...
+              <Loader2 size={20} className="animate-spin" /> {uploadProgressMsg || '正在处理与上传文件...'}
             </div>
           ) : (
             <div>
@@ -222,7 +272,7 @@ export default function MediaUploader({
               </div>
               <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
                 {mediaType === 'video'
-                  ? '点击上传 MP4/WebM 视频，建议 1:1 比例'
+                  ? '点击从电脑/手机上传本地 MP4/MOV 视频文件 (自动适配 1:1 格式)'
                   : '点击选择电脑本地文件，或拖拽文件至此处'}
               </div>
             </div>
@@ -237,7 +287,7 @@ export default function MediaUploader({
             type="text"
             value={value}
             onChange={e => onChange(e.target.value)}
-            placeholder={mediaType === 'video' ? '粘贴 1:1 视频网络 URL (如 https://.../video.mp4)' : '粘贴外部图片/视频 URL 链接'}
+            placeholder={mediaType === 'video' ? '粘贴 1:1 视频网络 URL 或 Google Drive 视频链接' : '粘贴外部图片/视频 URL 链接'}
             style={{
               width: '100%',
               padding: '8px 12px',
