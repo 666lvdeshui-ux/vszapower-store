@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 export function parseGoogleDriveFileId(url: string): string | null {
   if (!url) return null;
@@ -33,6 +33,14 @@ export default function UniversalVideoPlayer({
   fallbackImage = '/oem/oem_charger_pcb.png',
 }: UniversalVideoPlayerProps) {
   const [hasError, setHasError] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, [src]);
 
   if (!src) {
     return (
@@ -120,7 +128,7 @@ export default function UniversalVideoPlayer({
     );
   }
 
-  // 3. Direct HTML5 Video Link (MP4, WebM, Data URL)
+  // 3. Direct HTML5 Uploaded Video File (MP4, WebM, MOV, Data URL, Supabase CDN)
   if (hasError) {
     return (
       <img
@@ -138,20 +146,39 @@ export default function UniversalVideoPlayer({
     );
   }
 
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play().catch(() => {});
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  };
+
   return (
     <video
+      ref={(el) => {
+        videoRef.current = el;
+        if (el) {
+          el.muted = true;
+          el.play().catch(() => {});
+        }
+      }}
       src={src}
       autoPlay
       loop
       muted
       playsInline
       preload="auto"
+      onClick={handleVideoClick}
       onError={() => setHasError(true)}
       className={className}
       style={{
         width: '100%',
         height: '100%',
         objectFit: 'cover',
+        cursor: 'pointer',
         transition: 'transform 0.5s ease',
         ...style,
       }}
