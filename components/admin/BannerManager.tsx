@@ -74,20 +74,10 @@ export default function BannerManager() {
         console.warn('LocalStorage save warning:', e);
       }
 
-      // 2. Prepare payload for server API: If tile2_video is a giant Data URL (> 1.5MB), sanitize for network transmission
-      const payloadToSend = { ...oemMedia };
-      if (
-        payloadToSend.tile2_video &&
-        payloadToSend.tile2_video.startsWith('data:') &&
-        payloadToSend.tile2_video.length > 1.5 * 1024 * 1024
-      ) {
-        payloadToSend.tile2_video = payloadToSend.tile2_video.substring(0, 1000) + '...[local_storage_cached]';
-      }
-
       const res = await fetch('/api/oem-hero', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payloadToSend),
+        body: JSON.stringify(oemMedia),
       });
 
       if (res.ok || res.status === 200) {
