@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import { Upload, Check, Loader2, Video, Image as ImageIcon } from 'lucide-react';
+import UniversalVideoPlayer, { parseGoogleDriveFileId } from '@/components/UniversalVideoPlayer';
 
 interface MediaUploaderProps {
   value: string;
@@ -117,16 +118,10 @@ export default function MediaUploader({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            position: 'relative',
           }}>
-            {isVideoUrl(value) ? (
-              <video
-                src={value}
-                autoPlay
-                loop
-                muted
-                playsInline
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
+            {mediaType === 'video' || isVideoUrl(value) || parseGoogleDriveFileId(value) ? (
+              <UniversalVideoPlayer src={value} />
             ) : (
               <img src={value} alt="Preview" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             )}

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { MessageSquare, Sparkles, PhoneCall, CheckCircle2, Play } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { translateDynamicContent } from '@/lib/dynamicI18n';
+import UniversalVideoPlayer from '@/components/UniversalVideoPlayer';
 
 interface HeroCarouselProps {
   onContactClick: (productName?: string) => void;
@@ -285,32 +286,10 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
 
               {/* Tile 2: SMT Charger PCB (1:1 Video or Image Fallback) */}
               <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '18px' }} className="collage-tile">
-                {oemMedia.tile2_video ? (
-                  <video
-                    src={oemMedia.tile2_video}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      transition: 'transform 0.5s ease',
-                    }}
-                  />
-                ) : (
-                  <img
-                    src="/oem/oem_charger_pcb.png"
-                    alt="SMT Charger Circuit Board Production"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      transition: 'transform 0.5s ease',
-                    }}
-                  />
-                )}
+                <UniversalVideoPlayer
+                  src={oemMedia.tile2_video}
+                  fallbackImage="/oem/oem_charger_pcb.png"
+                />
                 <div style={{
                   position: 'absolute',
                   bottom: '10px',
