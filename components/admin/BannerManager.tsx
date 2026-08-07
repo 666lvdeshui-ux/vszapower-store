@@ -2,8 +2,23 @@
 
 import React, { useState, useEffect } from 'react';
 import { BannerItem } from '@/lib/store';
-import { Plus, Edit2, Trash2, Image, Sparkles, ExternalLink, RefreshCw } from 'lucide-react';
+import { Plus, Edit2, Trash2, Image, Sparkles, RefreshCw, Video, CheckCircle2, Save } from 'lucide-react';
 import ImageUploader from '@/components/admin/ImageUploader';
+import MediaUploader from '@/components/admin/MediaUploader';
+
+interface OEMHeroMediaSettings {
+  tile1_image: string;
+  tile2_video: string;
+  tile3_image: string;
+  tile4_image: string;
+}
+
+const DEFAULT_OEM_MEDIA: OEMHeroMediaSettings = {
+  tile1_image: '/oem/oem_factory_assembly.png',
+  tile2_video: '',
+  tile3_image: '/oem/oem_battery_testing.png',
+  tile4_image: '/oem/oem_custom_packaging.png',
+};
 
 export default function BannerManager() {
   const [banners, setBanners] = useState<BannerItem[]>([]);
@@ -11,6 +26,11 @@ export default function BannerManager() {
   const [editingBanner, setEditingBanner] = useState<Partial<BannerItem> | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [saving, setSaving] = useState(false);
+
+  // OEM 2x2 Collage Media State
+  const [oemMedia, setOemMedia] = useState<OEMHeroMediaSettings>(DEFAULT_OEM_MEDIA);
+  const [savingOemMedia, setSavingOemMedia] = useState(false);
+  const [oemMediaSavedMessage, setOemMediaSavedMessage] = useState(false);
 
   const fetchBanners = async () => {
     setLoading(true);
@@ -27,9 +47,43 @@ export default function BannerManager() {
     }
   };
 
+  const fetchOEMMedia = async () => {
+    try {
+      const res = await fetch('/api/oem-hero');
+      const data = await res.json();
+      if (data && typeof data === 'object') {
+        setOemMedia(prev => ({ ...prev, ...data }));
+      }
+    } catch (e) {
+      console.error('Failed to fetch OEM hero media settings:', e);
+    }
+  };
+
   useEffect(() => {
     fetchBanners();
+    fetchOEMMedia();
   }, []);
+
+  const handleSaveOEMMedia = async () => {
+    setSavingOemMedia(true);
+    try {
+      const res = await fetch('/api/oem-hero', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(oemMedia),
+      });
+      if (res.ok) {
+        setOemMediaSavedMessage(true);
+        setTimeout(() => setOemMediaSavedMessage(false), 3000);
+      } else {
+        alert('保存 OEM 媒体设置失败');
+      }
+    } catch (e) {
+      alert('保存发生网络异常');
+    } finally {
+      setSavingOemMedia(false);
+    }
+  };
 
   const handleCreateNew = () => {
     setEditingBanner({
@@ -89,7 +143,148 @@ export default function BannerManager() {
 
   return (
     <div>
-      {/* Header Bar */}
+      {/* SECTION 1: OEM 2x2 HERO COLLAGE & 1:1 VIDEO MANAGER */}
+      <div className="glass-panel" style={{
+        padding: '28px',
+        borderRadius: '24px',
+        marginBottom: '36px',
+        border: '1px solid var(--accent-green)',
+        boxShadow: '0 10px 30px rgba(16, 185, 129, 0.15)',
+      }}>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '20px',
+          flexWrap: 'wrap',
+          gap: '12px',
+        }}>
+          <div>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Video size={24} color="var(--accent-green)" /> 首页 OEM 2x2 实景媒体与 1:1 视频管理 (OEM Hero Collage & 1:1 Video)
+            </h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', marginTop: '4px' }}>
+              在此实时更新首页右上角 2x2 拼图中的 1:1 SMT 贴片视频及其余 3 位置实景图片，修改后立即在网站首页生效。
+            </p>
+          </div>
+
+          <button
+            onClick={handleSaveOEMMedia}
+            disabled={savingOemMedia}
+            className="btn-primary"
+            style={{
+              padding: '12px 24px',
+              fontSize: '0.95rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              borderRadius: '20px',
+            }}
+          >
+            <Save size={18} />
+            {savingOemMedia ? '保存中...' : '💾 保存 OEM 2x2 媒体设置'}
+          </button>
+        </div>
+
+        {oemMediaSavedMessage && (
+          <div style={{
+            padding: '10px 16px',
+            borderRadius: '10px',
+            background: 'rgba(16, 185, 129, 0.2)',
+            border: '1px solid var(--accent-green)',
+            color: 'var(--accent-green)',
+            fontSize: '0.88rem',
+            fontWeight: 700,
+            marginBottom: '20px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+          }}>
+            <CheckCircle2 size={16} /> ✅ OEM 首页 2x2 实景媒体与 1:1 视频设置已成功保存并同步！
+          </div>
+        )}
+
+        {/* 2x2 Media Slots Grid */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+          {/* Position 1 (Top Left Image) */}
+          <div style={{
+            background: 'rgba(255,255,255,0.03)',
+            padding: '16px',
+            borderRadius: '16px',
+            border: '1px solid var(--border-color)',
+          }}>
+            <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#fff', marginBottom: '10px' }}>
+              📍 位置 1 (左上图): 无尘组装车间图片
+            </div>
+            <MediaUploader
+              label="位置 1 实景图片 (Cleanroom Assembly)"
+              value={oemMedia.tile1_image}
+              onChange={url => setOemMedia({ ...oemMedia, tile1_image: url })}
+              placeholder="点击上传位置 1 工厂组装车间图片"
+              mediaType="image"
+            />
+          </div>
+
+          {/* Position 2 (Top Right 1:1 Video) */}
+          <div style={{
+            background: 'rgba(16, 185, 129, 0.08)',
+            padding: '16px',
+            borderRadius: '16px',
+            border: '2px solid var(--accent-green)',
+          }}>
+            <div style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--accent-green)', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <Video size={16} /> 📍 位置 2 (右上 1:1 视频): SMT 贴片芯片展示视频
+            </div>
+            <MediaUploader
+              label="位置 2 1:1 展示视频 (SMT Micro-Chip PCB 1:1 Video)"
+              value={oemMedia.tile2_video}
+              onChange={url => setOemMedia({ ...oemMedia, tile2_video: url })}
+              placeholder="点击上传 1:1 视频文件 (MP4/WebM) 或输入视频 URL"
+              mediaType="video"
+            />
+          </div>
+
+          {/* Position 3 (Bottom Left Image) */}
+          <div style={{
+            background: 'rgba(255,255,255,0.03)',
+            padding: '16px',
+            borderRadius: '16px',
+            border: '1px solid var(--border-color)',
+          }}>
+            <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#fff', marginBottom: '10px' }}>
+              📍 位置 3 (左下图): 电池质检与焊接图片
+            </div>
+            <MediaUploader
+              label="位置 3 实景图片 (Precision Quality QA)"
+              value={oemMedia.tile3_image}
+              onChange={url => setOemMedia({ ...oemMedia, tile3_image: url })}
+              placeholder="点击上传位置 3 电池检测图片"
+              mediaType="image"
+            />
+          </div>
+
+          {/* Position 4 (Bottom Right Image) */}
+          <div style={{
+            background: 'rgba(255,255,255,0.03)',
+            padding: '16px',
+            borderRadius: '16px',
+            border: '1px solid var(--border-color)',
+          }}>
+            <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#fff', marginBottom: '10px' }}>
+              📍 位置 4 (右下图): OEM 私有品牌打包出货图片
+            </div>
+            <MediaUploader
+              label="位置 4 实景图片 (OEM Export Box)"
+              value={oemMedia.tile4_image}
+              onChange={url => setOemMedia({ ...oemMedia, tile4_image: url })}
+              placeholder="点击上传位置 4 打包仓库图片"
+              mediaType="image"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* SECTION 2: OTHER HERO BANNERS MANAGEMENT */}
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
@@ -99,11 +294,11 @@ export default function BannerManager() {
         gap: '16px',
       }}>
         <div>
-          <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#fff', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Image size={22} color="var(--accent-green)" /> 首页 Hero 轮播图管理 (Banner Slide CMS)
+          <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Image size={22} color="var(--accent-cyan)" /> 品牌宣传 Carousel 幻灯片管理
           </h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>
-            在此添加、编辑或修改首页顶部的品牌轮播 Banner 及其背景图片与按钮跳转链接。
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', marginTop: '4px' }}>
+            在此添加或修改品牌备用 Carousel 幻灯片列表。
           </p>
         </div>
 
@@ -113,14 +308,14 @@ export default function BannerManager() {
             className="btn-secondary"
             style={{ padding: '10px 16px', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px' }}
           >
-            <RefreshCw size={16} /> 刷新
+            <RefreshCw size={16} /> 刷新列表
           </button>
           <button
             onClick={handleCreateNew}
             className="btn-primary"
             style={{ padding: '10px 20px', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px' }}
           >
-            <Plus size={18} /> 添加新轮播图 (Add Banner Slide)
+            <Plus size={18} /> 添加新幻灯片 (Add Banner Slide)
           </button>
         </div>
       </div>
@@ -132,7 +327,7 @@ export default function BannerManager() {
         </div>
       ) : banners.length === 0 ? (
         <div className="glass-panel" style={{ padding: '40px', textAlign: 'center', color: 'var(--text-muted)' }}>
-          暂无轮播图，点击右上角“添加新轮播图”创建第一个幻灯片。
+          暂无轮播图，点击右上角“添加新幻灯片”创建备用幻灯片。
         </div>
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '24px' }}>

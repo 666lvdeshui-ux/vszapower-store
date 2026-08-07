@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { MessageSquare, Sparkles, PhoneCall, CheckCircle2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { MessageSquare, Sparkles, PhoneCall, CheckCircle2, Play } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { translateDynamicContent } from '@/lib/dynamicI18n';
 
@@ -9,8 +9,37 @@ interface HeroCarouselProps {
   onContactClick: (productName?: string) => void;
 }
 
+interface OEMHeroMedia {
+  tile1_image: string;
+  tile2_video: string;
+  tile3_image: string;
+  tile4_image: string;
+}
+
+const DEFAULT_MEDIA: OEMHeroMedia = {
+  tile1_image: '/oem/oem_factory_assembly.png',
+  tile2_video: '',
+  tile3_image: '/oem/oem_battery_testing.png',
+  tile4_image: '/oem/oem_custom_packaging.png',
+};
+
 export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
   const { lang } = useLanguage();
+  const [oemMedia, setOemMedia] = useState<OEMHeroMedia>(DEFAULT_MEDIA);
+
+  useEffect(() => {
+    fetch('/api/oem-hero')
+      .then(res => res.json())
+      .then(data => {
+        if (data && typeof data === 'object') {
+          setOemMedia(prev => ({
+            ...prev,
+            ...data,
+          }));
+        }
+      })
+      .catch(err => console.warn('Failed to load dynamic OEM hero media:', err));
+  }, []);
 
   const handlePrimaryClick = () => {
     onContactClick('OEM/ODM Custom Battery & Charger Manufacturing Inquiry');
@@ -225,10 +254,10 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
               background: 'rgba(10, 13, 20, 0.8)',
               padding: '6px',
             }}>
-              {/* Tile 1: Cleanroom Assembly Line */}
+              {/* Tile 1: Cleanroom Assembly Line (Image) */}
               <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '18px' }} className="collage-tile">
                 <img
-                  src="/oem/oem_factory_assembly.png"
+                  src={oemMedia.tile1_image || DEFAULT_MEDIA.tile1_image}
                   alt="OEM Factory Assembly Line"
                   style={{
                     width: '100%',
@@ -254,18 +283,34 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
                 </div>
               </div>
 
-              {/* Tile 2: SMT Charger PCB */}
+              {/* Tile 2: SMT Charger PCB (1:1 Video or Image Fallback) */}
               <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '18px' }} className="collage-tile">
-                <img
-                  src="/oem/oem_charger_pcb.png"
-                  alt="SMT Charger Circuit Board Production"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    transition: 'transform 0.5s ease',
-                  }}
-                />
+                {oemMedia.tile2_video ? (
+                  <video
+                    src={oemMedia.tile2_video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      transition: 'transform 0.5s ease',
+                    }}
+                  />
+                ) : (
+                  <img
+                    src="/oem/oem_charger_pcb.png"
+                    alt="SMT Charger Circuit Board Production"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      transition: 'transform 0.5s ease',
+                    }}
+                  />
+                )}
                 <div style={{
                   position: 'absolute',
                   bottom: '10px',
@@ -278,15 +323,19 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
                   padding: '4px 10px',
                   borderRadius: '12px',
                   border: '1px solid rgba(16, 185, 129, 0.4)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
                 }}>
+                  {oemMedia.tile2_video && <Play size={10} style={{ color: 'var(--accent-green, #10b981)', fill: 'var(--accent-green, #10b981)' }} />}
                   {translateDynamicContent('SMT Micro-Chip PCB', lang)}
                 </div>
               </div>
 
-              {/* Tile 3: Battery Quality QA */}
+              {/* Tile 3: Battery Quality QA (Image) */}
               <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '18px' }} className="collage-tile">
                 <img
-                  src="/oem/oem_battery_testing.png"
+                  src={oemMedia.tile3_image || DEFAULT_MEDIA.tile3_image}
                   alt="LIR Coin Cell Quality Testing"
                   style={{
                     width: '100%',
@@ -312,10 +361,10 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
                 </div>
               </div>
 
-              {/* Tile 4: Custom Private Label Packaging */}
+              {/* Tile 4: Custom Private Label Packaging (Image) */}
               <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '18px' }} className="collage-tile">
                 <img
-                  src="/oem/oem_custom_packaging.png"
+                  src={oemMedia.tile4_image || DEFAULT_MEDIA.tile4_image}
                   alt="OEM Custom Packaging & Warehouse"
                   style={{
                     width: '100%',
@@ -346,7 +395,8 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
       </div>
 
       <style jsx>{`
-        .collage-tile:hover img {
+        .collage-tile:hover img,
+        .collage-tile:hover video {
           transform: scale(1.08);
         }
         .btn-oem-primary:hover {

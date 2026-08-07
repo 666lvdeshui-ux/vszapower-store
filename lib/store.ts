@@ -747,3 +747,60 @@ export async function updateInquiryStatus(id: string, status: 'new' | 'contacted
   }
   return true;
 }
+
+export interface OEMHeroMediaSettings {
+  tile1_image: string;
+  tile2_video: string;
+  tile3_image: string;
+  tile4_image: string;
+}
+
+export const DEFAULT_OEM_HERO_MEDIA: OEMHeroMediaSettings = {
+  tile1_image: '/oem/oem_factory_assembly.png',
+  tile2_video: '',
+  tile3_image: '/oem/oem_battery_testing.png',
+  tile4_image: '/oem/oem_custom_packaging.png',
+};
+
+let oemHeroCache: OEMHeroMediaSettings = { ...DEFAULT_OEM_HERO_MEDIA };
+
+function loadOEMHeroFromFile(): OEMHeroMediaSettings {
+  if (typeof window !== 'undefined') return DEFAULT_OEM_HERO_MEDIA;
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    const tmpFile = path.join('/tmp', 'vszapower_oem_hero_media.json');
+    if (fs.existsSync(tmpFile)) {
+      const jsonStr = fs.readFileSync(tmpFile, 'utf8');
+      const parsed = JSON.parse(jsonStr);
+      if (parsed && typeof parsed === 'object') return { ...DEFAULT_OEM_HERO_MEDIA, ...parsed };
+    }
+  } catch (e) {}
+  return DEFAULT_OEM_HERO_MEDIA;
+}
+
+function saveOEMHeroToFile(settings: OEMHeroMediaSettings) {
+  if (typeof window !== 'undefined') return;
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    const tmpFile = path.join('/tmp', 'vszapower_oem_hero_media.json');
+    fs.writeFileSync(tmpFile, JSON.stringify(settings, null, 2), 'utf8');
+  } catch (e) {}
+}
+
+export async function fetchOEMHeroMedia(): Promise<OEMHeroMediaSettings> {
+  const fromFile = loadOEMHeroFromFile();
+  oemHeroCache = { ...DEFAULT_OEM_HERO_MEDIA, ...fromFile, ...oemHeroCache };
+  return oemHeroCache;
+}
+
+export async function saveOEMHeroMedia(media: Partial<OEMHeroMediaSettings>): Promise<OEMHeroMediaSettings> {
+  oemHeroCache = {
+    ...oemHeroCache,
+    ...media,
+  };
+  saveOEMHeroToFile(oemHeroCache);
+  return oemHeroCache;
+}
+
