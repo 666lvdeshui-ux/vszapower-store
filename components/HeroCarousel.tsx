@@ -13,14 +13,14 @@ interface HeroCarouselProps {
 
 interface OEMHeroMedia {
   tile1_image: string;
-  tile2_video: string;
+  tile2_image: string;
   tile3_image: string;
   tile4_image: string;
 }
 
 const DEFAULT_MEDIA: OEMHeroMedia = {
   tile1_image: '/oem/oem_factory_assembly.png',
-  tile2_video: '',
+  tile2_image: '/oem/oem_charger_pcb.png',
   tile3_image: '/oem/oem_battery_testing.png',
   tile4_image: '/oem/oem_custom_packaging.png',
 };
@@ -64,23 +64,13 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
       .then(res => res.json())
       .then(data => {
         if (data && typeof data === 'object') {
-          let videoUrl = data.tile2_video;
-          if (videoUrl && videoUrl.startsWith('data:video/')) {
-            videoUrl = '/api/oem-hero?video=true';
-          }
-
-          const updated = {
-            ...data,
-            tile2_video: videoUrl || data.tile2_video,
-          };
-
           setOemMedia(prev => ({
             ...prev,
-            ...updated,
+            ...data,
           }));
 
           try {
-            localStorage.setItem('vszapower_oem_hero_settings', JSON.stringify(updated));
+            localStorage.setItem('vszapower_oem_hero_settings', JSON.stringify(data));
           } catch (e) {}
         }
       })
@@ -329,17 +319,22 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
                 </div>
               </div>
 
-              {/* Tile 2: SMT Charger PCB (1:1 Video or Image Fallback) */}
+              {/* Tile 2: SMT Charger PCB (Image) */}
               <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '18px' }} className="collage-tile">
-                <UniversalVideoPlayer
-                  src={oemMedia.tile2_video}
-                  fallbackImage="/oem/oem_charger_pcb.png"
+                <img
+                  src={oemMedia.tile2_image || DEFAULT_MEDIA.tile2_image}
+                  alt="SMT Charger Circuit Board Production"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.5s ease',
+                  }}
                 />
                 <div style={{
                   position: 'absolute',
                   bottom: '10px',
                   left: '10px',
-                  zIndex: 10,
                   background: 'rgba(10, 13, 20, 0.85)',
                   backdropFilter: 'blur(8px)',
                   color: '#FFFFFF',
@@ -348,11 +343,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
                   padding: '4px 10px',
                   borderRadius: '12px',
                   border: '1px solid rgba(16, 185, 129, 0.4)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '4px',
                 }}>
-                  {oemMedia.tile2_video && <Play size={10} style={{ color: 'var(--accent-green, #10b981)', fill: 'var(--accent-green, #10b981)' }} />}
                   {translateDynamicContent('SMT Micro-Chip PCB', lang)}
                 </div>
               </div>

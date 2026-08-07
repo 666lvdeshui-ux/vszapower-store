@@ -9,14 +9,14 @@ import { supabase } from '@/lib/supabase';
 
 interface OEMHeroMediaSettings {
   tile1_image: string;
-  tile2_video: string;
+  tile2_image: string;
   tile3_image: string;
   tile4_image: string;
 }
 
 const DEFAULT_OEM_MEDIA: OEMHeroMediaSettings = {
   tile1_image: '/oem/oem_factory_assembly.png',
-  tile2_video: '',
+  tile2_image: '/oem/oem_charger_pcb.png',
   tile3_image: '/oem/oem_battery_testing.png',
   tile4_image: '/oem/oem_custom_packaging.png',
 };
@@ -83,7 +83,7 @@ export default function BannerManager() {
             badge: 'OEM HERO MEDIA',
             title: 'OEM Hero 2x2 Collage Settings',
             subtitle: JSON.stringify(oemMedia),
-            image_url: oemMedia.tile2_video || oemMedia.tile1_image || '/oem/oem_factory_assembly.png',
+            image_url: oemMedia.tile2_image || oemMedia.tile1_image || '/oem/oem_factory_assembly.png',
             cta_text: 'OEM Quote',
             cta_link: '/#contact',
             highlight: '✓ Factory Media',
@@ -256,22 +256,22 @@ export default function BannerManager() {
             />
           </div>
 
-          {/* Position 2 (Top Right 1:1 Video) */}
+          {/* Position 2 (Top Right Image) */}
           <div style={{
-            background: 'rgba(16, 185, 129, 0.08)',
+            background: 'rgba(255,255,255,0.03)',
             padding: '16px',
             borderRadius: '16px',
-            border: '2px solid var(--accent-green)',
+            border: '1px solid var(--border-color)',
           }}>
-            <div style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--accent-green)', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <Video size={16} /> 📍 位置 2 (右上 1:1 视频): SMT 贴片芯片展示视频
+            <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#fff', marginBottom: '10px' }}>
+              📍 位置 2 (右上图): SMT 贴片芯片/电路板生产图片
             </div>
             <MediaUploader
-              label="位置 2 1:1 展示视频 (SMT Micro-Chip PCB 1:1 Video)"
-              value={oemMedia.tile2_video}
-              onChange={url => setOemMedia({ ...oemMedia, tile2_video: url })}
-              placeholder="点击上传 1:1 视频文件 (MP4/WebM) 或输入视频 URL"
-              mediaType="video"
+              label="位置 2 实景图片 (SMT Micro-Chip PCB)"
+              value={oemMedia.tile2_image}
+              onChange={url => setOemMedia({ ...oemMedia, tile2_image: url })}
+              placeholder="点击上传位置 2 SMT 贴片电路板图片"
+              mediaType="image"
             />
           </div>
 

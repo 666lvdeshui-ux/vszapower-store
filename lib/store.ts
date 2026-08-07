@@ -750,14 +750,14 @@ export async function updateInquiryStatus(id: string, status: 'new' | 'contacted
 
 export interface OEMHeroMediaSettings {
   tile1_image: string;
-  tile2_video: string;
+  tile2_image: string;
   tile3_image: string;
   tile4_image: string;
 }
 
 export const DEFAULT_OEM_HERO_MEDIA: OEMHeroMediaSettings = {
   tile1_image: '/oem/oem_factory_assembly.png',
-  tile2_video: '',
+  tile2_image: '/oem/oem_charger_pcb.png',
   tile3_image: '/oem/oem_battery_testing.png',
   tile4_image: '/oem/oem_custom_packaging.png',
 };
@@ -834,33 +834,9 @@ export async function fetchOEMHeroMedia(): Promise<OEMHeroMediaSettings> {
 }
 
 export async function saveOEMHeroMedia(media: Partial<OEMHeroMediaSettings>): Promise<OEMHeroMediaSettings> {
-  let targetVideoUrl = media.tile2_video !== undefined ? media.tile2_video : oemHeroCache.tile2_video;
-
-  // Handle Base64 Data URL video: Extract binary, store in buffer & disk, map to streaming endpoint
-  if (targetVideoUrl && targetVideoUrl.startsWith('data:video/')) {
-    try {
-      const parts = targetVideoUrl.split(',');
-      const mimeType = parts[0].match(/:(.*?);/)?.[1] || 'video/mp4';
-      const buffer = Buffer.from(parts[1], 'base64');
-      oemVideoBuffer = { buffer, mimeType };
-
-      if (typeof window === 'undefined') {
-        const fs = require('fs');
-        const path = require('path');
-        fs.writeFileSync(path.join('/tmp', 'vszapower_oem_video.bin'), buffer);
-        fs.writeFileSync(path.join('/tmp', 'vszapower_oem_video_mime.txt'), mimeType, 'utf8');
-      }
-
-      targetVideoUrl = '/api/oem-hero?video=true';
-    } catch (e) {
-      console.error('Failed to process video Data URL buffer:', e);
-    }
-  }
-
   oemHeroCache = {
     ...oemHeroCache,
     ...media,
-    tile2_video: targetVideoUrl,
   };
 
   saveOEMHeroToFile(oemHeroCache);
@@ -872,7 +848,7 @@ export async function saveOEMHeroMedia(media: Partial<OEMHeroMediaSettings>): Pr
         badge: 'OEM HERO MEDIA',
         title: 'OEM Hero 2x2 Collage Settings',
         subtitle: JSON.stringify(oemHeroCache),
-        image_url: oemHeroCache.tile2_video || oemHeroCache.tile1_image || DEFAULT_OEM_HERO_MEDIA.tile1_image,
+        image_url: oemHeroCache.tile2_image || oemHeroCache.tile1_image || DEFAULT_OEM_HERO_MEDIA.tile1_image,
         cta_text: 'OEM Quote',
         cta_link: '/#contact',
         highlight: '✓ Factory Media',
