@@ -7,8 +7,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
-        disallow: ['/api/admin/', '/api/inquiries'],
+        disallow: ['/admin', '/admin/', '/api/admin/', '/api/inquiries'],
+
       },
       // Explicitly allow Googlebot & AI Crawlers (Generative Engine Optimization)
       {
