@@ -11,10 +11,7 @@ import {
   Compass,
   Clock,
   Calendar,
-  Sparkles,
   RefreshCw,
-  ArrowUpRight,
-  ShieldCheck,
   FileText
 } from 'lucide-react';
 
@@ -59,8 +56,8 @@ export default function AnalyticsManager() {
   if (loading && !data) {
     return (
       <div style={{ padding: '60px 0', textAlign: 'center', color: '#94a3b8' }}>
-        <RefreshCw size={28} className="animate-spin" style={{ margin: '0 auto 12px' }} />
-        <div>正在实时聚合计算全维度流量与来源数据...</div>
+        <RefreshCw size={28} style={{ margin: '0 auto 12px' }} />
+        <div>正在实时计算 100% 真实访客与流量来源数据...</div>
       </div>
     );
   }
@@ -90,7 +87,7 @@ export default function AnalyticsManager() {
             <TrendingUp color="#00ffb2" size={26} /> 流量来源与访问监控控制台
           </h2>
           <p style={{ color: '#94a3b8', fontSize: '0.88rem', margin: '4px 0 0 0' }}>
-            实时监控 VSZAPOWER 官方商城的全网访客来源、访问深度、地理区域与受访热度
+            100% 真实数据监控：精确记录访客来源、受访深度、国家地区与受访热度（演示数据已全部清空）
           </p>
         </div>
 
@@ -111,7 +108,7 @@ export default function AnalyticsManager() {
             gap: '8px'
           }}
         >
-          <RefreshCw size={16} className={loading ? 'animate-spin' : ''} /> 刷新实时数据
+          <RefreshCw size={16} /> 刷新真实数据
         </button>
       </div>
 
@@ -124,7 +121,7 @@ export default function AnalyticsManager() {
         {/* Card 1: Today Visits */}
         <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px', border: '1px solid rgba(0, 255, 178, 0.2)' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-            <span style={{ color: '#94a3b8', fontSize: '0.8rem', fontWeight: 600 }}>今日访问 (Today)</span>
+            <span style={{ color: '#94a3b8', fontSize: '0.8rem', fontWeight: 600 }}>今日真实访问</span>
             <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(0, 255, 178, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Eye size={18} color="#00ffb2" />
             </div>
@@ -136,7 +133,7 @@ export default function AnalyticsManager() {
         {/* Card 2: 7 Days Total */}
         <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-            <span style={{ color: '#94a3b8', fontSize: '0.8rem', fontWeight: 600 }}>近 7 日访问 (7D)</span>
+            <span style={{ color: '#94a3b8', fontSize: '0.8rem', fontWeight: 600 }}>近 7 日真实访问</span>
             <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(56, 189, 248, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <TrendingUp size={18} color="#38bdf8" />
             </div>
@@ -148,7 +145,7 @@ export default function AnalyticsManager() {
         {/* Card 3: 30 Days Total */}
         <div className="glass-panel" style={{ padding: '20px', borderRadius: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-            <span style={{ color: '#94a3b8', fontSize: '0.8rem', fontWeight: 600 }}>近 30 日访问 (30D)</span>
+            <span style={{ color: '#94a3b8', fontSize: '0.8rem', fontWeight: 600 }}>近 30 日真实访问</span>
             <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(168, 85, 247, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Users size={18} color="#a855f7" />
             </div>
@@ -166,7 +163,7 @@ export default function AnalyticsManager() {
             </div>
           </div>
           <div style={{ fontSize: '1.75rem', fontWeight: 800, color: '#fff' }}>{data.avgPageDepth} <span style={{ fontSize: '0.8rem', color: '#94a3b8', fontWeight: 400 }}>页/次</span></div>
-          <div style={{ fontSize: '0.85rem', color: '#fb923c', marginTop: '4px' }}>受访交互深度高</div>
+          <div style={{ fontSize: '0.85rem', color: '#fb923c', marginTop: '4px' }}>真实单次访问深度</div>
         </div>
 
         {/* Card 5: Peak Popularity Date */}
@@ -177,8 +174,12 @@ export default function AnalyticsManager() {
               <Calendar size={18} color="#f43f5e" />
             </div>
           </div>
-          <div style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff' }}>{data.peakPopularityDate.date.slice(5)}</div>
-          <div style={{ fontSize: '0.85rem', color: '#f43f5e', marginTop: '4px' }}>最高单日 {data.peakPopularityDate.pv} PV</div>
+          <div style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff' }}>
+            {data.peakPopularityDate.pv > 0 ? data.peakPopularityDate.date.slice(5) : '暂无记录'}
+          </div>
+          <div style={{ fontSize: '0.85rem', color: '#f43f5e', marginTop: '4px' }}>
+            {data.peakPopularityDate.pv > 0 ? `最高单日 ${data.peakPopularityDate.pv} PV` : '等待访客访问'}
+          </div>
         </div>
 
         {/* Card 6: Peak Time Slot */}
@@ -190,7 +191,7 @@ export default function AnalyticsManager() {
             </div>
           </div>
           <div style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff' }}>{data.peakTimeSlot}</div>
-          <div style={{ fontSize: '0.85rem', color: '#eab308', marginTop: '4px' }}>全天流量峰值区间</div>
+          <div style={{ fontSize: '0.85rem', color: '#eab308', marginTop: '4px' }}>真实峰值区间</div>
         </div>
       </div>
 
@@ -198,8 +199,8 @@ export default function AnalyticsManager() {
       <div className="glass-panel" style={{ padding: '24px', borderRadius: '20px' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
           <div>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff', margin: 0 }}>访问量趋势图</h3>
-            <p style={{ color: '#94a3b8', fontSize: '0.82rem', margin: '4px 0 0 0' }}>页面浏览量 (PV) 与 独立访客 (UV) 每日分布走势</p>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff', margin: 0 }}>真实访问量趋势图</h3>
+            <p style={{ color: '#94a3b8', fontSize: '0.82rem', margin: '4px 0 0 0' }}>页面浏览量 (PV) 与 独立访客 (UV) 真实每日分布走势</p>
           </div>
           <div style={{ display: 'flex', background: 'rgba(255,255,255,0.05)', borderRadius: '10px', padding: '4px' }}>
             <button
@@ -238,18 +239,17 @@ export default function AnalyticsManager() {
         {/* Dynamic Bar Chart */}
         <div style={{ height: '220px', display: 'flex', alignItems: 'flex-end', gap: trendRange === '7d' ? '24px' : '6px', paddingTop: '20px' }}>
           {currentTrend.map((item, idx) => {
-            const heightPercent = Math.max((item.pv / maxTrendPV) * 100, 8);
+            const heightPercent = maxTrendPV > 1 ? Math.max((item.pv / maxTrendPV) * 100, item.pv > 0 ? 8 : 4) : item.pv > 0 ? 100 : 4;
             return (
               <div key={idx} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', height: '100%', justifyContent: 'flex-end' }}>
-                <div style={{ fontSize: '0.7rem', color: '#00ffb2', fontWeight: 600 }}>{item.pv}</div>
+                <div style={{ fontSize: '0.7rem', color: item.pv > 0 ? '#00ffb2' : '#64748b', fontWeight: 600 }}>{item.pv}</div>
                 <div
                   title={`${item.date}: ${item.pv} PV / ${item.uv} UV`}
                   style={{
                     width: '100%',
                     maxWidth: '32px',
-
                     height: `${heightPercent}%`,
-                    background: 'linear-gradient(180deg, #00ffb2 0%, rgba(0, 184, 212, 0.4) 100%)',
+                    background: item.pv > 0 ? 'linear-gradient(180deg, #00ffb2 0%, rgba(0, 184, 212, 0.4) 100%)' : 'rgba(255,255,255,0.05)',
                     borderRadius: '6px 6px 2px 2px',
                     transition: 'all 0.3s ease'
                   }}
@@ -274,20 +274,26 @@ export default function AnalyticsManager() {
             <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#fff', margin: 0 }}>近 30 日首访来源</h3>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-            {data.firstVisitSources30d.map((src, idx) => {
-              const pct = ((src.count / totalReferrerCount) * 100).toFixed(1);
-              return (
-                <div key={idx}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '4px' }}>
-                    <span style={{ color: '#e2e8f0', fontWeight: 500 }}>{src.source}</span>
-                    <span style={{ color: '#00ffb2', fontWeight: 700 }}>{src.count.toLocaleString()} ({pct}%)</span>
+            {data.firstVisitSources30d.length === 0 ? (
+              <div style={{ color: '#64748b', fontSize: '0.88rem', padding: '20px 0', textAlign: 'center' }}>
+                暂无真实来源数据，等待用户访问
+              </div>
+            ) : (
+              data.firstVisitSources30d.map((src, idx) => {
+                const pct = ((src.count / totalReferrerCount) * 100).toFixed(1);
+                return (
+                  <div key={idx}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '4px' }}>
+                      <span style={{ color: '#e2e8f0', fontWeight: 500 }}>{src.source}</span>
+                      <span style={{ color: '#00ffb2', fontWeight: 700 }}>{src.count.toLocaleString()} ({pct}%)</span>
+                    </div>
+                    <div style={{ width: '100%', height: '7px', background: 'rgba(255,255,255,0.06)', borderRadius: '4px', overflow: 'hidden' }}>
+                      <div style={{ width: `${pct}%`, height: '100%', background: 'linear-gradient(90deg, #00ffb2, #00b8d4)', borderRadius: '4px' }} />
+                    </div>
                   </div>
-                  <div style={{ width: '100%', height: '7px', background: 'rgba(255,255,255,0.06)', borderRadius: '4px', overflow: 'hidden' }}>
-                    <div style={{ width: `${pct}%`, height: '100%', background: 'linear-gradient(90deg, #00ffb2, #00b8d4)', borderRadius: '4px' }} />
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })
+            )}
           </div>
         </div>
 
@@ -298,20 +304,26 @@ export default function AnalyticsManager() {
             <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#fff', margin: 0 }}>流量国家与地区</h3>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-            {data.countryDistribution.map((item, idx) => {
-              const pct = ((item.count / totalCountryCount) * 100).toFixed(1);
-              return (
-                <div key={idx}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '4px' }}>
-                    <span style={{ color: '#e2e8f0', fontWeight: 500 }}>{item.country}</span>
-                    <span style={{ color: '#38bdf8', fontWeight: 700 }}>{item.count.toLocaleString()} ({pct}%)</span>
+            {data.countryDistribution.length === 0 ? (
+              <div style={{ color: '#64748b', fontSize: '0.88rem', padding: '20px 0', textAlign: 'center' }}>
+                暂无真实国家与地区记录
+              </div>
+            ) : (
+              data.countryDistribution.map((item, idx) => {
+                const pct = ((item.count / totalCountryCount) * 100).toFixed(1);
+                return (
+                  <div key={idx}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '4px' }}>
+                      <span style={{ color: '#e2e8f0', fontWeight: 500 }}>{item.country}</span>
+                      <span style={{ color: '#38bdf8', fontWeight: 700 }}>{item.count.toLocaleString()} ({pct}%)</span>
+                    </div>
+                    <div style={{ width: '100%', height: '7px', background: 'rgba(255,255,255,0.06)', borderRadius: '4px', overflow: 'hidden' }}>
+                      <div style={{ width: `${pct}%`, height: '100%', background: 'linear-gradient(90deg, #38bdf8, #818cf8)', borderRadius: '4px' }} />
+                    </div>
                   </div>
-                  <div style={{ width: '100%', height: '7px', background: 'rgba(255,255,255,0.06)', borderRadius: '4px', overflow: 'hidden' }}>
-                    <div style={{ width: `${pct}%`, height: '100%', background: 'linear-gradient(90deg, #38bdf8, #818cf8)', borderRadius: '4px' }} />
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })
+            )}
           </div>
         </div>
 
@@ -322,20 +334,26 @@ export default function AnalyticsManager() {
             <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#fff', margin: 0 }}>访问语言分布</h3>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-            {data.visitorLanguages.map((lang, idx) => {
-              const pct = ((lang.count / totalLangCount) * 100).toFixed(1);
-              return (
-                <div key={idx}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '4px' }}>
-                    <span style={{ color: '#e2e8f0', fontWeight: 500 }}>{lang.language}</span>
-                    <span style={{ color: '#a855f7', fontWeight: 700 }}>{lang.count.toLocaleString()} ({pct}%)</span>
+            {data.visitorLanguages.length === 0 ? (
+              <div style={{ color: '#64748b', fontSize: '0.88rem', padding: '20px 0', textAlign: 'center' }}>
+                暂无真实访客语言记录
+              </div>
+            ) : (
+              data.visitorLanguages.map((lang, idx) => {
+                const pct = ((lang.count / totalLangCount) * 100).toFixed(1);
+                return (
+                  <div key={idx}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '4px' }}>
+                      <span style={{ color: '#e2e8f0', fontWeight: 500 }}>{lang.language}</span>
+                      <span style={{ color: '#a855f7', fontWeight: 700 }}>{lang.count.toLocaleString()} ({pct}%)</span>
+                    </div>
+                    <div style={{ width: '100%', height: '7px', background: 'rgba(255,255,255,0.06)', borderRadius: '4px', overflow: 'hidden' }}>
+                      <div style={{ width: `${pct}%`, height: '100%', background: 'linear-gradient(90deg, #a855f7, #ec4899)', borderRadius: '4px' }} />
+                    </div>
                   </div>
-                  <div style={{ width: '100%', height: '7px', background: 'rgba(255,255,255,0.06)', borderRadius: '4px', overflow: 'hidden' }}>
-                    <div style={{ width: `${pct}%`, height: '100%', background: 'linear-gradient(90deg, #a855f7, #ec4899)', borderRadius: '4px' }} />
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })
+            )}
           </div>
         </div>
       </div>
@@ -356,8 +374,8 @@ export default function AnalyticsManager() {
 
           <div style={{ height: '180px', display: 'flex', alignItems: 'flex-end', gap: '4px', paddingTop: '10px' }}>
             {data.hourlyDistribution.map((h, idx) => {
-              const heightPct = Math.max((h.count / maxHourlyCount) * 100, 6);
-              const isPeak = h.hour.startsWith(data.peakTimeSlot.split(':')[0]);
+              const heightPct = maxHourlyCount > 1 ? Math.max((h.count / maxHourlyCount) * 100, h.count > 0 ? 8 : 4) : h.count > 0 ? 100 : 4;
+              const isPeak = data.peakTimeSlot !== '暂无数据' && h.hour.startsWith(data.peakTimeSlot.split(':')[0]);
               return (
                 <div key={idx} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100%', justifyContent: 'flex-end' }}>
                   <div
@@ -365,7 +383,7 @@ export default function AnalyticsManager() {
                     style={{
                       width: '100%',
                       height: `${heightPct}%`,
-                      background: isPeak ? '#eab308' : 'rgba(255,255,255,0.15)',
+                      background: isPeak ? '#eab308' : h.count > 0 ? 'rgba(0,255,178,0.5)' : 'rgba(255,255,255,0.08)',
                       borderRadius: '3px 3px 0 0',
                       transition: 'height 0.3s ease'
                     }}
@@ -387,50 +405,56 @@ export default function AnalyticsManager() {
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            {data.mostViewedPages.map((page, idx) => (
-              <div
-                key={idx}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '10px 14px',
-                  background: 'rgba(255,255,255,0.03)',
-                  borderRadius: '10px',
-                  border: '1px solid rgba(255,255,255,0.05)'
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0 }}>
-                  <span style={{
-                    width: '24px',
-                    height: '24px',
-                    borderRadius: '6px',
-                    background: idx === 0 ? '#00ffb2' : idx === 1 ? '#38bdf8' : idx === 2 ? '#a855f7' : 'rgba(255,255,255,0.1)',
-                    color: idx < 3 ? '#041410' : '#94a3b8',
-                    fontWeight: 800,
-                    fontSize: '0.75rem',
+            {data.mostViewedPages.length === 0 ? (
+              <div style={{ color: '#64748b', fontSize: '0.88rem', padding: '20px 0', textAlign: 'center' }}>
+                暂无真实受访页面记录，访客浏览后自动排名
+              </div>
+            ) : (
+              data.mostViewedPages.map((page, idx) => (
+                <div
+                  key={idx}
+                  style={{
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}>
-                    {idx + 1}
-                  </span>
-                  <div style={{ minWidth: 0 }}>
-                    <div style={{ fontSize: '0.88rem', fontWeight: 600, color: '#fff', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                      {page.title}
-                    </div>
-                    <div style={{ fontSize: '0.75rem', color: '#64748b', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                      {page.path}
+                    justifyContent: 'space-between',
+                    padding: '10px 14px',
+                    background: 'rgba(255,255,255,0.03)',
+                    borderRadius: '10px',
+                    border: '1px solid rgba(255,255,255,0.05)'
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0 }}>
+                    <span style={{
+                      width: '24px',
+                      height: '24px',
+                      borderRadius: '6px',
+                      background: idx === 0 ? '#00ffb2' : idx === 1 ? '#38bdf8' : idx === 2 ? '#a855f7' : 'rgba(255,255,255,0.1)',
+                      color: idx < 3 ? '#041410' : '#94a3b8',
+                      fontWeight: 800,
+                      fontSize: '0.75rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0
+                    }}>
+                      {idx + 1}
+                    </span>
+                    <div style={{ minWidth: 0 }}>
+                      <div style={{ fontSize: '0.88rem', fontWeight: 600, color: '#fff', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                        {page.title}
+                      </div>
+                      <div style={{ fontSize: '0.75rem', color: '#64748b', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                        {page.path}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#00ffb2', fontWeight: 700, fontSize: '0.9rem', flexShrink: 0, marginLeft: '12px' }}>
-                  {page.pv.toLocaleString()} <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 400 }}>PV</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#00ffb2', fontWeight: 700, fontSize: '0.9rem', flexShrink: 0, marginLeft: '12px' }}>
+                    {page.pv.toLocaleString()} <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 400 }}>PV</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
       </div>
