@@ -1,11 +1,29 @@
 import { MOCK_PRODUCTS, MOCK_POSTS, supabase } from './supabase';
 import { generatePostPreTranslations, generateProductPreTranslations } from './dynamicI18n';
 
-function loadProductsFromFile(): ProductItem[] {
-  if (typeof window !== 'undefined') return [];
+function getFsModule() {
+  if (typeof window !== 'undefined') return null;
   try {
-    const fs = require('fs');
-    const path = require('path');
+    return eval('require')('fs');
+  } catch (e) {
+    return null;
+  }
+}
+
+function getPathModule() {
+  if (typeof window !== 'undefined') return null;
+  try {
+    return eval('require')('path');
+  } catch (e) {
+    return null;
+  }
+}
+
+function loadProductsFromFile(): ProductItem[] {
+  const fs = getFsModule();
+  const path = getPathModule();
+  if (!fs || !path) return [];
+  try {
     const tmpFile = path.join('/tmp', 'vszapower_store_products.json');
     if (fs.existsSync(tmpFile)) {
       const jsonStr = fs.readFileSync(tmpFile, 'utf8');
@@ -17,10 +35,10 @@ function loadProductsFromFile(): ProductItem[] {
 }
 
 function saveProductsToFile(items: ProductItem[]) {
-  if (typeof window !== 'undefined') return;
+  const fs = getFsModule();
+  const path = getPathModule();
+  if (!fs || !path) return;
   try {
-    const fs = require('fs');
-    const path = require('path');
     const tmpFile = path.join('/tmp', 'vszapower_store_products.json');
     fs.writeFileSync(tmpFile, JSON.stringify(items, null, 2), 'utf8');
   } catch (e) {}
@@ -28,24 +46,24 @@ function saveProductsToFile(items: ProductItem[]) {
 
 function getDeletedProductIds(): Set<string> {
   const set = new Set<string>();
-  if (typeof window !== 'undefined') return set;
+  const fs = getFsModule();
+  const path = getPathModule();
+  if (!fs || !path) return set;
   try {
-    const fs = require('fs');
-    const path = require('path');
     const file = path.join('/tmp', 'vszapower_deleted_product_ids.json');
     if (fs.existsSync(file)) {
       const arr = JSON.parse(fs.readFileSync(file, 'utf8'));
-      if (Array.isArray(arr)) arr.forEach(id => set.add(id));
+      if (Array.isArray(arr)) arr.forEach((id: string) => set.add(id));
     }
   } catch (e) {}
   return set;
 }
 
 function saveDeletedProductId(id: string) {
-  if (typeof window !== 'undefined') return;
+  const fs = getFsModule();
+  const path = getPathModule();
+  if (!fs || !path) return;
   try {
-    const fs = require('fs');
-    const path = require('path');
     const file = path.join('/tmp', 'vszapower_deleted_product_ids.json');
     const set = getDeletedProductIds();
     set.add(id);
@@ -54,16 +72,17 @@ function saveDeletedProductId(id: string) {
 }
 
 function removeDeletedProductId(id: string) {
-  if (typeof window !== 'undefined') return;
+  const fs = getFsModule();
+  const path = getPathModule();
+  if (!fs || !path) return;
   try {
-    const fs = require('fs');
-    const path = require('path');
     const file = path.join('/tmp', 'vszapower_deleted_product_ids.json');
     const set = getDeletedProductIds();
     set.delete(id);
     fs.writeFileSync(file, JSON.stringify(Array.from(set)), 'utf8');
   } catch (e) {}
 }
+
 
 export interface CertificationItem {
   name: string;
@@ -766,10 +785,10 @@ let oemHeroCache: OEMHeroMediaSettings = { ...DEFAULT_OEM_HERO_MEDIA };
 let oemVideoBuffer: { buffer: Buffer; mimeType: string } | null = null;
 
 function loadOEMHeroFromFile(): OEMHeroMediaSettings {
-  if (typeof window !== 'undefined') return DEFAULT_OEM_HERO_MEDIA;
+  const fs = getFsModule();
+  const path = getPathModule();
+  if (!fs || !path) return DEFAULT_OEM_HERO_MEDIA;
   try {
-    const fs = require('fs');
-    const path = require('path');
     const tmpFile = path.join('/tmp', 'vszapower_oem_hero_media.json');
     if (fs.existsSync(tmpFile)) {
       const jsonStr = fs.readFileSync(tmpFile, 'utf8');
@@ -781,10 +800,10 @@ function loadOEMHeroFromFile(): OEMHeroMediaSettings {
 }
 
 function saveOEMHeroToFile(settings: OEMHeroMediaSettings) {
-  if (typeof window !== 'undefined') return;
+  const fs = getFsModule();
+  const path = getPathModule();
+  if (!fs || !path) return;
   try {
-    const fs = require('fs');
-    const path = require('path');
     const tmpFile = path.join('/tmp', 'vszapower_oem_hero_media.json');
     fs.writeFileSync(tmpFile, JSON.stringify(settings, null, 2), 'utf8');
   } catch (e) {}
@@ -793,10 +812,10 @@ function saveOEMHeroToFile(settings: OEMHeroMediaSettings) {
 export function getOEMVideoBuffer(): { buffer: Buffer; mimeType: string } | null {
   if (oemVideoBuffer) return oemVideoBuffer;
 
-  if (typeof window === 'undefined') {
+  const fs = getFsModule();
+  const path = getPathModule();
+  if (fs && path) {
     try {
-      const fs = require('fs');
-      const path = require('path');
       const tmpVideo = path.join('/tmp', 'vszapower_oem_video.bin');
       const tmpMime = path.join('/tmp', 'vszapower_oem_video_mime.txt');
 
@@ -810,6 +829,7 @@ export function getOEMVideoBuffer(): { buffer: Buffer; mimeType: string } | null
   }
   return null;
 }
+
 
 export async function fetchOEMHeroMedia(): Promise<OEMHeroMediaSettings> {
   if (supabase) {

@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import GeoSeoStructuredData from '@/components/GeoSeoStructuredData';
+import StorefrontShell from '@/components/StorefrontShell';
 import { LanguageProvider } from '@/context/LanguageContext';
 import { ThemeProvider } from '@/context/ThemeContext';
+
 
 export const metadata: Metadata = {
   title: 'VSZAPOWER Official | Smart Rechargeable Coin Cell Chargers & LIR Batteries (MOQ: 100 Pcs)',
@@ -74,12 +73,10 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <LanguageProvider>
-            <GeoSeoStructuredData />
-            <Header />
-            <main>{children}</main>
-            <Footer />
+            <StorefrontShell>{children}</StorefrontShell>
           </LanguageProvider>
         </ThemeProvider>
+
       </body>
     </html>
   );

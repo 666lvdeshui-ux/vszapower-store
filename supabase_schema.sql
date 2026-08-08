@@ -287,4 +287,19 @@ CREATE POLICY "Allow public insert videos" ON public.videos FOR INSERT WITH CHEC
 CREATE POLICY "Allow public update videos" ON public.videos FOR UPDATE USING (true);
 CREATE POLICY "Allow public delete videos" ON public.videos FOR DELETE USING (true);
 
+-- 11. Create Traffic Logs table (Visitor Analytics & Source Monitoring)
+CREATE TABLE IF NOT EXISTS public.traffic_logs (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  session_id TEXT NOT NULL,
+  path TEXT NOT NULL,
+  referrer TEXT,
+  first_visit_source TEXT,
+  country TEXT,
+  language TEXT,
+  user_agent TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
 
+ALTER TABLE public.traffic_logs ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Allow public insert traffic_logs" ON public.traffic_logs FOR INSERT WITH CHECK (true);
+CREATE POLICY "Allow public read traffic_logs" ON public.traffic_logs FOR SELECT USING (true);

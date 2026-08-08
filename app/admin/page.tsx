@@ -3,23 +3,49 @@
 export const dynamic = 'force-dynamic';
 
 import React, { useState, useEffect } from 'react';
-import ProductManager from '@/components/admin/ProductManager';
-import PostManager from '@/components/admin/PostManager';
-import BannerManager from '@/components/admin/BannerManager';
+import { useRouter } from 'next/navigation';
+import AnalyticsManager from '@/components/admin/AnalyticsManager';
 import InquiryManager from '@/components/admin/InquiryManager';
+import ProductManager from '@/components/admin/ProductManager';
 import VideoManager from '@/components/admin/VideoManager';
-import { Shield, Zap, Lock, LogOut, Package, BookOpen, Database, ExternalLink, CheckCircle, Image, MessageSquare, Video } from 'lucide-react';
+import BannerManager from '@/components/admin/BannerManager';
+import PostManager from '@/components/admin/PostManager';
+import {
+  Shield,
+  TrendingUp,
+  MessageSquare,
+  Package,
+  Video,
+  Image as ImageIcon,
+  BookOpen,
+  Settings,
+  LogOut,
+  ExternalLink,
+  Lock,
+  CheckCircle2,
+  Database,
+  BarChart3,
+  ChevronRight,
+  Menu,
+  X
+} from 'lucide-react';
+
+type TabType = 'analytics' | 'inquiries' | 'products' | 'videos' | 'banners' | 'posts' | 'settings';
 
 export default function AdminDashboardPage() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [passcode, setPasscode] = useState('');
-  const [authError, setAuthError] = useState(false);
-  const [activeTab, setActiveTab] = useState<'inquiries' | 'products' | 'videos' | 'banners' | 'posts' | 'settings'>('inquiries');
+  const router = useRouter();
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  const [activeTab, setActiveTab] = useState<TabType>('analytics');
   const [todayInquiryCount, setTodayInquiryCount] = useState<number>(0);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [dbStatus, setDbStatus] = useState<'checking' | 'connected' | 'mock'>('checking');
 
   useEffect(() => {
     const savedAuth = localStorage.getItem('vszapower_admin_auth');
-    if (savedAuth === 'true') {
+    if (savedAuth !== 'true') {
+      setIsAuthenticated(false);
+      router.push('/admin/login');
+    } else {
       setIsAuthenticated(true);
     }
 
@@ -32,341 +58,328 @@ export default function AdminDashboardPage() {
         }
       })
       .catch(console.error);
-  }, []);
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (passcode === 'vszapower2026' || passcode === 'admin' || passcode === '123456') {
-      setIsAuthenticated(true);
-      localStorage.setItem('vszapower_admin_auth', 'true');
-      setAuthError(false);
-    } else {
-      setAuthError(true);
-    }
-  };
+    // Check DB Status
+    fetch('/api/products')
+      .then(res => res.json())
+      .then(res => {
+        setDbStatus('connected');
+      })
+      .catch(() => {
+        setDbStatus('mock');
+      });
+  }, [router]);
 
   const handleLogout = () => {
-    setIsAuthenticated(false);
     localStorage.removeItem('vszapower_admin_auth');
+    document.cookie = 'vszapower_admin_auth=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    setIsAuthenticated(false);
+    router.push('/admin/login');
   };
 
-  // Render Login Screen if not authenticated
-  if (!isAuthenticated) {
+  if (isAuthenticated === null || isAuthenticated === false) {
     return (
       <div style={{
         minHeight: '100vh',
-        background: 'var(--bg-main)',
+        background: '#04080c',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '24px'
+        color: '#94a3b8',
+        fontFamily: 'system-ui, sans-serif'
       }}>
-        <div className="glass-panel" style={{
-          width: '100%',
-          maxWidth: '440px',
-          padding: '40px',
-          borderRadius: '20px',
-          textAlign: 'center',
-          boxShadow: 'var(--accent-glow)'
-        }}>
-          <div style={{
-            width: '56px',
-            height: '56px',
-            borderRadius: '14px',
-            background: 'var(--accent-gradient)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            margin: '0 auto 20px',
-            boxShadow: 'var(--accent-glow)'
-          }}>
-            <Shield size={30} color="#041410" />
-          </div>
-
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', fontWeight: 800, color: '#fff', marginBottom: '8px' }}>
-            VSZAPOWER Admin
-          </h1>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '28px' }}>
-            Enter your admin passcode to access customer inquiries, products, short videos, hero banners & CMS.
-          </p>
-
-          <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <div style={{ position: 'relative' }}>
-              <input
-                type="password"
-                required
-                value={passcode}
-                onChange={e => setPasscode(e.target.value)}
-                placeholder="Enter Admin Passcode (Default: vszapower2026)"
-                style={{
-                  width: '100%',
-                  padding: '14px 16px',
-                  borderRadius: '12px',
-                  background: 'rgba(255,255,255,0.05)',
-                  border: authError ? '1px solid #ef4444' : '1px solid var(--border-color)',
-                  color: '#fff',
-                  fontSize: '0.95rem',
-                  textAlign: 'center'
-                }}
-              />
-            </div>
-
-            {authError && (
-              <div style={{ color: '#ef4444', fontSize: '0.85rem' }}>
-                Incorrect passcode. Try <code>vszapower2026</code>
-              </div>
-            )}
-
-            <button type="submit" className="btn-primary" style={{ width: '100%', padding: '14px', fontSize: '1rem' }}>
-              Unlock Dashboard <Lock size={16} style={{ marginLeft: '6px' }} />
-            </button>
-          </form>
-
-          <div style={{ marginTop: '24px', fontSize: '0.8rem', color: 'var(--text-dim)' }}>
-            Protected Web Portal • VSZAPOWER Inc.
-          </div>
+        <div style={{ textAlign: 'center' }}>
+          <Shield size={36} color="#00ffb2" className="animate-bounce" style={{ margin: '0 auto 12px' }} />
+          <div>正在验证安全管理口令并初始化端口...</div>
         </div>
       </div>
     );
   }
 
-  // Render Admin Portal UI
+  const tabsConfig = [
+    { id: 'analytics' as TabType, label: '流量监控', icon: BarChart3, badge: 'REALTIME' },
+    { id: 'inquiries' as TabType, label: '询盘管理', icon: MessageSquare, badgeCount: todayInquiryCount },
+    { id: 'products' as TabType, label: '产品中心', icon: Package },
+    { id: 'videos' as TabType, label: '短视频 CMS', icon: Video },
+    { id: 'banners' as TabType, label: 'Hero 轮播', icon: ImageIcon },
+    { id: 'posts' as TabType, label: '电池学院 CMS', icon: BookOpen },
+    { id: 'settings' as TabType, label: '系统与安全', icon: Settings },
+  ];
+
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-main)', color: '#fff' }}>
-      {/* Top Header */}
+    <div style={{
+      minHeight: '100vh',
+      background: 'radial-gradient(circle at 50% 0%, #0d1b18 0%, #05080c 100%)',
+      color: '#fff',
+      display: 'flex',
+      flexDirection: 'column',
+      fontFamily: 'system-ui, -apple-system, sans-serif'
+    }}>
+      {/* 1. Independent Top Admin Header */}
       <header style={{
-        background: 'rgba(10, 13, 20, 0.9)',
+        background: 'rgba(10, 15, 24, 0.85)',
         backdropFilter: 'blur(20px)',
-        borderBottom: '1px solid var(--border-color)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
         position: 'sticky',
         top: 0,
-        zIndex: 100
+        zIndex: 100,
+        padding: '14px 24px'
       }}>
         <div style={{
-          maxWidth: '1280px',
+          maxWidth: '1540px',
           margin: '0 auto',
-          padding: '16px 24px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <img src="/logo.svg" alt="VSzapower" style={{ height: '30px', width: 'auto' }} />
-            <span className="badge badge-green" style={{ fontSize: '0.65rem' }}>
-              ADMIN PORTAL
-            </span>
+          {/* Brand Logo & Status */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <button
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              style={{
+                display: 'none', // Mobile toggle
+                background: 'transparent',
+                border: 'none',
+                color: '#fff',
+                cursor: 'pointer'
+              }}
+            >
+              {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div style={{
+                width: '34px',
+                height: '34px',
+                borderRadius: '10px',
+                background: 'linear-gradient(135deg, #00ffb2 0%, #00b8d4 100%)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 4px 14px rgba(0,255,178,0.3)'
+              }}>
+                <Shield size={20} color="#041410" strokeWidth={2.5} />
+              </div>
+              <span style={{ fontWeight: 800, fontSize: '1.2rem', letterSpacing: '-0.3px', color: '#fff' }}>
+                VSZAPOWER <span style={{ color: '#00ffb2', fontSize: '0.85rem', fontWeight: 600 }}>CONTROL PORTAL</span>
+              </span>
+            </div>
+
+            <div style={{
+              background: 'rgba(0, 255, 178, 0.1)',
+              border: '1px solid rgba(0, 255, 178, 0.25)',
+              color: '#00ffb2',
+              fontSize: '0.72rem',
+              padding: '3px 10px',
+              borderRadius: '20px',
+              fontWeight: 600,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px'
+            }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#00ffb2' }} />
+              独立控制台在线
+            </div>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          {/* Quick Actions */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <a
               href="/"
               target="_blank"
-              className="btn-secondary"
-              style={{ padding: '8px 14px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px' }}
+              rel="noopener noreferrer"
+              style={{
+                background: 'rgba(255,255,255,0.06)',
+                border: '1px solid rgba(255,255,255,0.12)',
+                color: '#e2e8f0',
+                padding: '8px 14px',
+                borderRadius: '10px',
+                fontSize: '0.85rem',
+                fontWeight: 600,
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                transition: 'all 0.2s ease'
+              }}
             >
-              <ExternalLink size={14} /> View Storefront
+              <ExternalLink size={15} color="#00ffb2" /> 查看前台商城
             </a>
+
             <button
               onClick={handleLogout}
               style={{
-                background: 'rgba(255,255,255,0.05)',
-                border: '1px solid var(--border-color)',
-                color: 'var(--text-muted)',
-                borderRadius: '8px',
+                background: 'rgba(239, 68, 68, 0.1)',
+                border: '1px solid rgba(239, 68, 68, 0.25)',
+                color: '#f87171',
                 padding: '8px 14px',
+                borderRadius: '10px',
                 fontSize: '0.85rem',
+                fontWeight: 600,
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '6px'
+                gap: '6px',
+                transition: 'all 0.2s ease'
               }}
             >
-              <LogOut size={14} /> Exit Admin
+              <LogOut size={15} /> 退出登录
             </button>
           </div>
         </div>
       </header>
 
-      {/* Navigation Tabs & Main Container */}
-      <main style={{ maxWidth: '1280px', margin: '0 auto', padding: '32px 24px' }}>
-        {/* Tab Buttons */}
-        <div style={{
+      {/* 2. Main Admin Layout Container (Sidebar + Content Body) */}
+      <div style={{
+        maxWidth: '1540px',
+        width: '100%',
+        margin: '0 auto',
+        flex: 1,
+        display: 'flex',
+        padding: '24px'
+      }}>
+        {/* Left Sidebar Navigation */}
+        <aside style={{
+          width: '240px',
+          flexShrink: 0,
+          marginRight: '28px',
           display: 'flex',
-          gap: '12px',
-          marginBottom: '32px',
-          borderBottom: '1px solid var(--border-color)',
-          paddingBottom: '16px',
-          flexWrap: 'wrap'
+          flexDirection: 'column',
+          gap: '6px'
         }}>
-          <button
-            onClick={() => setActiveTab('inquiries')}
-            style={{
-              padding: '10px 20px',
-              borderRadius: '10px',
-              fontFamily: 'var(--font-heading)',
-              fontWeight: 700,
-              fontSize: '0.95rem',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              background: activeTab === 'inquiries' ? 'var(--accent-gradient)' : 'rgba(255,255,255,0.05)',
-              color: activeTab === 'inquiries' ? '#041410' : 'var(--text-main)',
-              border: 'none',
-              boxShadow: activeTab === 'inquiries' ? 'var(--accent-glow)' : 'none'
-            }}
-          >
-            <MessageSquare size={18} /> 客户咨询管理 (Inquiries)
-            {todayInquiryCount > 0 && (
-              <span className="badge badge-gold" style={{ marginLeft: '4px', fontSize: '0.65rem' }}>
-                今日 {todayInquiryCount} 条
-              </span>
-            )}
-          </button>
+          <div style={{
+            fontSize: '0.75rem',
+            fontWeight: 700,
+            color: '#64748b',
+            textTransform: 'uppercase',
+            letterSpacing: '1px',
+            padding: '8px 12px',
+            marginBottom: '4px'
+          }}>
+            后台管理模块
+          </div>
 
-          <button
-            onClick={() => setActiveTab('products')}
-            style={{
-              padding: '10px 20px',
-              borderRadius: '10px',
-              fontFamily: 'var(--font-heading)',
-              fontWeight: 700,
-              fontSize: '0.95rem',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              background: activeTab === 'products' ? 'var(--accent-gradient)' : 'rgba(255,255,255,0.05)',
-              color: activeTab === 'products' ? '#041410' : 'var(--text-main)',
-              border: 'none',
-              boxShadow: activeTab === 'products' ? 'var(--accent-glow)' : 'none'
-            }}
-          >
-            <Package size={18} /> 产品目录管理 (Products)
-          </button>
+          {tabsConfig.map(tab => {
+            const Icon = tab.icon;
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '12px 14px',
+                  borderRadius: '12px',
+                  border: isActive ? '1px solid rgba(0, 255, 178, 0.3)' : '1px solid transparent',
+                  background: isActive
+                    ? 'linear-gradient(90deg, rgba(0, 255, 178, 0.12) 0%, rgba(0, 184, 212, 0.05) 100%)'
+                    : 'transparent',
+                  color: isActive ? '#00ffb2' : '#94a3b8',
+                  fontWeight: isActive ? 700 : 500,
+                  fontSize: '0.92rem',
+                  cursor: 'pointer',
+                  textAlign: 'left',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <Icon size={18} color={isActive ? '#00ffb2' : '#64748b'} />
+                  <span>{tab.label}</span>
+                </div>
 
-          <button
-            onClick={() => setActiveTab('videos')}
-            style={{
-              padding: '10px 20px',
-              borderRadius: '10px',
-              fontFamily: 'var(--font-heading)',
-              fontWeight: 700,
-              fontSize: '0.95rem',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              background: activeTab === 'videos' ? 'var(--accent-gradient)' : 'rgba(255,255,255,0.05)',
-              color: activeTab === 'videos' ? '#041410' : 'var(--text-main)',
-              border: 'none',
-              boxShadow: activeTab === 'videos' ? 'var(--accent-glow)' : 'none'
-            }}
-          >
-            <Video size={18} /> 短视频栏目管理 (Videos)
-          </button>
+                {tab.badge && (
+                  <span style={{
+                    fontSize: '0.65rem',
+                    fontWeight: 700,
+                    color: '#041410',
+                    background: '#00ffb2',
+                    padding: '2px 6px',
+                    borderRadius: '4px'
+                  }}>
+                    {tab.badge}
+                  </span>
+                )}
 
-          <button
-            onClick={() => setActiveTab('banners')}
-            style={{
-              padding: '10px 20px',
-              borderRadius: '10px',
-              fontFamily: 'var(--font-heading)',
-              fontWeight: 700,
-              fontSize: '0.95rem',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              background: activeTab === 'banners' ? 'var(--accent-gradient)' : 'rgba(255,255,255,0.05)',
-              color: activeTab === 'banners' ? '#041410' : 'var(--text-main)',
-              border: 'none',
-              boxShadow: activeTab === 'banners' ? 'var(--accent-glow)' : 'none'
-            }}
-          >
-            <Image size={18} /> 首页轮播图管理 (Banner Slides)
-          </button>
+                {tab.badgeCount !== undefined && tab.badgeCount > 0 && (
+                  <span style={{
+                    fontSize: '0.72rem',
+                    fontWeight: 700,
+                    color: '#fff',
+                    background: '#ef4444',
+                    padding: '2px 8px',
+                    borderRadius: '10px'
+                  }}>
+                    {tab.badgeCount}
+                  </span>
+                )}
+              </button>
+            );
+          })}
 
-          <button
-            onClick={() => setActiveTab('posts')}
-            style={{
-              padding: '10px 20px',
-              borderRadius: '10px',
-              fontFamily: 'var(--font-heading)',
-              fontWeight: 700,
-              fontSize: '0.95rem',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              background: activeTab === 'posts' ? 'var(--accent-gradient)' : 'rgba(255,255,255,0.05)',
-              color: activeTab === 'posts' ? '#041410' : 'var(--text-main)',
-              border: 'none',
-              boxShadow: activeTab === 'posts' ? 'var(--accent-glow)' : 'none'
-            }}
-          >
-            <BookOpen size={18} /> 电池学院文章 (CMS)
-          </button>
-
-          <button
-            onClick={() => setActiveTab('settings')}
-            style={{
-              padding: '10px 20px',
-              borderRadius: '10px',
-              fontFamily: 'var(--font-heading)',
-              fontWeight: 700,
-              fontSize: '0.95rem',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              background: activeTab === 'settings' ? 'var(--accent-gradient)' : 'rgba(255,255,255,0.05)',
-              color: activeTab === 'settings' ? '#041410' : 'var(--text-main)',
-              border: 'none',
-              boxShadow: activeTab === 'settings' ? 'var(--accent-glow)' : 'none'
-            }}
-          >
-            <Database size={18} /> 云端数据库状态 (Database)
-          </button>
-        </div>
-
-        {/* Tab Content */}
-        {activeTab === 'inquiries' && <InquiryManager />}
-        {activeTab === 'products' && <ProductManager />}
-        {activeTab === 'videos' && <VideoManager />}
-        {activeTab === 'banners' && <BannerManager />}
-        {activeTab === 'posts' && <PostManager />}
-        {activeTab === 'settings' && (
-          <div className="glass-panel" style={{ padding: '32px' }}>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '16px' }}>
-              Database & Cloud Sync Configuration
-            </h2>
-            <p style={{ color: 'var(--text-muted)', marginBottom: '24px' }}>
-              Your VSZAPOWER admin dashboard automatically syncs changes to Supabase when configured, and maintains high-speed local fallback storage.
-            </p>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
-              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '20px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
-                <h4 style={{ color: 'var(--accent-green)', fontWeight: 700, marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <CheckCircle size={16} /> Notification Email Target
-                </h4>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                  Active Notification Recipient: <code>666lvdeshui@gmail.com</code>
-                </p>
-              </div>
-
-              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '20px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
-                <h4 style={{ color: 'var(--accent-cyan)', fontWeight: 700, marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Database size={16} /> Supabase Schema SQL
-                </h4>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                  Included file <code>supabase_schema.sql</code> contains schema for products, posts, banners & inquiries.
-                </p>
-              </div>
+          {/* Database Status Card in Sidebar */}
+          <div style={{
+            marginTop: 'auto',
+            padding: '16px',
+            borderRadius: '14px',
+            background: 'rgba(255,255,255,0.03)',
+            border: '1px solid rgba(255,255,255,0.06)'
+          }}>
+            <div style={{ fontSize: '0.78rem', color: '#64748b', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <Database size={14} color="#00ffb2" /> 数据库状态
+            </div>
+            <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#e2e8f0' }}>
+              {dbStatus === 'connected' ? 'Supabase 云数据库已就绪' : '本地全能数据服务激活中'}
             </div>
           </div>
-        )}
-      </main>
+        </aside>
+
+        {/* Right Main Content Area */}
+        <main style={{ flex: 1, minWidth: 0 }}>
+          {activeTab === 'analytics' && <AnalyticsManager />}
+
+          {activeTab === 'inquiries' && <InquiryManager />}
+
+          {activeTab === 'products' && <ProductManager />}
+
+          {activeTab === 'videos' && <VideoManager />}
+
+          {activeTab === 'banners' && <BannerManager />}
+
+          {activeTab === 'posts' && <PostManager />}
+
+          {activeTab === 'settings' && (
+            <div className="glass-panel" style={{ padding: '32px', borderRadius: '20px' }}>
+              <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <Settings color="#00ffb2" size={24} /> 系统与安全配置
+              </h2>
+              <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '28px' }}>
+                查看与维护 VSZAPOWER 独立后台管理口令、Supabase 云连接及 API 状态
+              </p>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
+                <div style={{ padding: '20px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '14px' }}>
+                  <h4 style={{ color: '#fff', margin: '0 0 8px 0', fontSize: '1rem', fontWeight: 700 }}>独立登录口令设置</h4>
+                  <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '0 0 16px 0' }}>当前管理口令为系统的第一道安全防护线。</p>
+                  <div style={{ fontSize: '0.9rem', color: '#00ffb2', fontFamily: 'monospace', background: 'rgba(0,0,0,0.4)', padding: '10px 14px', borderRadius: '8px', border: '1px solid rgba(0,255,178,0.2)' }}>
+                    口令: vszapower2026
+                  </div>
+                </div>
+
+                <div style={{ padding: '20px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '14px' }}>
+                  <h4 style={{ color: '#fff', margin: '0 0 8px 0', fontSize: '1rem', fontWeight: 700 }}>API 与数据库连接</h4>
+                  <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '0 0 16px 0' }}>Supabase PostgreSQL 服务与 Next.js API 接入点。</p>
+                  <div style={{ fontSize: '0.88rem', color: '#38bdf8', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <CheckCircle2 size={16} color="#38bdf8" /> 状态: {dbStatus === 'connected' ? '云数据库在线连接' : '高性能内置内存缓存就绪'}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </main>
+      </div>
     </div>
   );
 }
