@@ -84,8 +84,8 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
       alignItems: 'center',
       justifyContent: 'center',
       padding: '24px',
-    }}>
-      <div className="glass-panel" style={{
+    }} className="mobile-bottom-sheet">
+      <div className="glass-panel mobile-bottom-sheet-content" style={{
         width: '100%',
         maxWidth: '520px',
         padding: '36px',

@@ -219,7 +219,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
               alignItems: 'center',
               gap: '16px',
               flexWrap: 'wrap',
-            }}>
+            }} className="mobile-stack-buttons">
               <button
                 onClick={handlePrimaryClick}
                 className="btn-oem-primary"

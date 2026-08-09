@@ -115,7 +115,10 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
         gap: '12px',
         marginBottom: '40px',
         flexWrap: 'wrap',
-      }}>
+        overflowX: 'auto',
+        maxWidth: '100%',
+        paddingBottom: '8px',
+      }} className="no-scrollbar">
         <button
           onClick={() => setSelectedCategory('all')}
           style={{
@@ -352,8 +355,8 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
             alignItems: 'center',
             justifyContent: 'center',
             padding: '16px',
-          }}>
-            <div className="glass-panel" style={{
+          }} className="mobile-bottom-sheet">
+            <div className="glass-panel mobile-bottom-sheet-content" style={{
               width: '100%',
               maxWidth: '880px',
               maxHeight: '92vh',

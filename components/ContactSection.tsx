@@ -105,8 +105,8 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
       ) : (
         <div style={{
           display: 'grid',
-          gridTemplateColumns: isOpenModal ? '1fr' : '1fr 1fr',
-          gap: '40px',
+          gridTemplateColumns: isOpenModal ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '32px',
           alignItems: 'start',
         }}>
           {/* Contact Details Card */}
@@ -178,7 +178,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
               />
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px' }}>
               <div>
                 <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>{t('contact_country')}</label>
                 <input

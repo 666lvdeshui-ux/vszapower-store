@@ -115,7 +115,8 @@ export default function AcademyArticleClient({ post, formattedDate }: AcademyArt
       <div style={{
         borderRadius: '16px',
         overflow: 'hidden',
-        height: '380px',
+        width: '100%',
+        aspectRatio: '16 / 9',
         marginBottom: '40px',
         border: '1px solid var(--border-color)',
         background: '#070a12',

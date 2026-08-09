@@ -305,3 +305,79 @@ html, body {
   border-radius: 0 12px 12px 0;
   margin: 1.5rem 0;
 }
+
+/* Mobile Responsive Utility Classes & Global Tweaks */
+.markdown-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5rem 0;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (max-width: 768px) {
+  html, body {
+    font-size: 15px;
+  }
+
+  /* Prevent iOS Safari input auto-zoom */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+
+  /* Stacked buttons on small screens */
+  .mobile-stack-buttons {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .mobile-stack-buttons > button,
+  .mobile-stack-buttons > a {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Full-width Modal Sheet on Mobile */
+  .mobile-bottom-sheet {
+    align-items: flex-end !important;
+    padding: 0 !important;
+  }
+
+  .mobile-bottom-sheet-content {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    max-height: 92vh !important;
+    border-top: 1px solid var(--accent-green) !important;
+  }
+
+  .oem-hero-container {
+    padding: 28px 20px !important;
+    border-radius: 20px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-cert-row2 {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-cert-strip {
+    display: none !important;
+  }
+}
+
+

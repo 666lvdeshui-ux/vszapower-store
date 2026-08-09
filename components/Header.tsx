@@ -46,16 +46,16 @@ export default function Header({ onContactClick }: HeaderProps) {
               src="/logo.svg"
               alt="VSZAPOWER"
               style={{
-                height: '32px',
+                height: '30px',
                 width: 'auto',
                 display: 'block',
               }}
             />
           </Link>
 
-          {/* Certifications Badges (2 Rows of 4 Items Each) */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', marginTop: '3px' }}>
-            <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+          {/* Certifications Badges (2 Rows of 4 Items Each - Hidden on narrow mobile screens) */}
+          <div className="header-cert-strip" style={{ display: 'flex', flexDirection: 'column', gap: '3px', marginTop: '3px' }}>
+            <div style={{ display: 'flex', gap: '4px', alignItems: 'center', flexWrap: 'wrap' }}>
               {['Battery', 'CE', 'FCC', 'RoHS'].map((cert) => (
                 <span
                   key={cert}
@@ -76,7 +76,7 @@ export default function Header({ onContactClick }: HeaderProps) {
               ))}
             </div>
 
-            <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+            <div className="header-cert-row2" style={{ display: 'flex', gap: '4px', alignItems: 'center', flexWrap: 'wrap' }}>
               {['CE-Battery', 'GPSR-Test Report', 'PSE Exempt', 'UN38.3'].map((cert) => (
                 <span
                   key={cert}
