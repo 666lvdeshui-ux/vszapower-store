@@ -126,15 +126,20 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                 </div>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <a 
+                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '85260716913'}?text=Hi%20VSZAPOWER%20Team%2C%20I%20am%20interested%20in%20battery%20and%20charger%20solutions.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: 'flex', alignItems: 'center', gap: '14px', textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
+              >
                 <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(6, 182, 212, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Phone size={20} color="var(--accent-cyan)" />
                 </div>
                 <div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>WhatsApp / Direct Call</div>
-                  <div style={{ fontSize: '1rem', fontWeight: 700 }}>+8618879620636</div>
+                  <div style={{ fontSize: '1rem', fontWeight: 700 }}>+852 6071 6913</div>
                 </div>
-              </div>
+              </a>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                 <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(229, 169, 104, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
