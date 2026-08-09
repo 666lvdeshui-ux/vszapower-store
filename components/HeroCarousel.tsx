@@ -83,7 +83,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
 
   const handleWhatsAppClick = () => {
     if (typeof window !== 'undefined') {
-      const waNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '85260716913';
+      const waNumber = '85260716913';
       window.open(`https://wa.me/${waNumber}?text=Hi%20VSZAPOWER%20Team%2C%20I%20am%20interested%20in%20OEM%2FODM%20custom%20battery%20and%20charger%20solutions.`, '_blank');
     }
   };

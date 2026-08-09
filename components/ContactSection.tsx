@@ -127,7 +127,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
               </div>
 
               <a 
-                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '85260716913'}?text=Hi%20VSZAPOWER%20Team%2C%20I%20am%20interested%20in%20battery%20and%20charger%20solutions.`}
+                href="https://wa.me/85260716913?text=Hi%20VSZAPOWER%20Team%2C%20I%20am%20interested%20in%20battery%20and%20charger%20solutions."
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ display: 'flex', alignItems: 'center', gap: '14px', textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
