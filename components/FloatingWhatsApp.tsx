@@ -65,8 +65,8 @@ export default function FloatingWhatsApp() {
       <div
         style={{
           position: 'fixed',
-          bottom: '30px',
-          right: '30px',
+          bottom: '90px',
+          right: '28px',
           zIndex: 9999,
           display: 'flex',
           alignItems: 'center',
