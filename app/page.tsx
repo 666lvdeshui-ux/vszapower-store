@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import HeroCarousel from '@/components/HeroCarousel';
 import ProductGrid from '@/components/ProductGrid';
+import CustomizationSection from '@/components/CustomizationSection';
 import FactoryShowcase from '@/components/FactoryShowcase';
 import CertificationsSection from '@/components/CertificationsSection';
 import VideoSection from '@/components/VideoSection';
@@ -34,7 +35,10 @@ export default function HomePage() {
       {/* 2. B2B Product Catalog Grid (MOQ: 100 Pcs / Wholesale Quotes) */}
       <ProductGrid onContactClick={handleOpenContact} />
 
-      {/* 3. Factory Showcase & OEM/ODM Customization Base */}
+      {/* 3. Interactive OEM/ODM Battery & Packaging Customization Hub */}
+      <CustomizationSection onContactClick={handleOpenContact} />
+
+      {/* 4. Factory Showcase & OEM/ODM Capabilities */}
       <FactoryShowcase onContactClick={handleOpenContact} />
 
       {/* 4. Global Safety & Transport Certifications (CE, FCC, RoHS, UN38.3, MSDS) */}

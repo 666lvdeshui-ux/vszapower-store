@@ -2,10 +2,11 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Zap, BookOpen, Home, MessageSquare, Menu, X, Video } from 'lucide-react';
+import { Zap, BookOpen, Home, MessageSquare, Menu, X, Video, Sparkles } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeToggle from './ThemeToggle';
 import { useLanguage } from '@/context/LanguageContext';
+import { translateDynamicContent } from '@/lib/dynamicI18n';
 
 interface HeaderProps {
   onContactClick?: () => void;
@@ -13,7 +14,7 @@ interface HeaderProps {
 
 export default function Header({ onContactClick }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <header style={{
@@ -158,6 +159,22 @@ export default function Header({ onContactClick }: HeaderProps) {
             transition: 'all 0.2s',
           }}>
             <Zap size={15} color="var(--accent-cyan)" style={{ flexShrink: 0 }} /> {t('nav_batteries')}
+          </Link>
+          <Link href="/#customization" style={{
+            color: 'var(--text-muted)',
+            textDecoration: 'none',
+            fontSize: 'clamp(0.78rem, 0.85vw, 0.9rem)',
+            fontWeight: 600,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+            whiteSpace: 'nowrap',
+            flexShrink: 0,
+            padding: '4px 8px',
+            borderRadius: '6px',
+            transition: 'all 0.2s',
+          }}>
+            <Sparkles size={15} color="var(--accent-green)" style={{ flexShrink: 0 }} /> {translateDynamicContent('OEM Customization', lang)}
           </Link>
           <Link href="/#factory" style={{
             color: 'var(--text-muted)',
