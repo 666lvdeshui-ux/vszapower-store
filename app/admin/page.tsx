@@ -41,40 +41,31 @@ export default function AdminDashboardPage() {
   const [dbStatus, setDbStatus] = useState<'checking' | 'connected' | 'mock'>('checking');
 
   useEffect(() => {
-    const savedAuth = localStorage.getItem('vszapower_admin_auth');
-    if (savedAuth !== 'true') {
-      setIsAuthenticated(false);
-      router.push('/admin/login');
-    } else {
-      setIsAuthenticated(true);
-    }
-
-    // Fetch initial inquiry stats for tab badge
-    fetch('/api/inquiries')
-      .then(res => res.json())
-      .then(data => {
-        if (data.todayCount !== undefined) {
-          setTodayInquiryCount(data.todayCount);
+    const loadAdmin = async () => {
+      try {
+        const session = await fetch('/api/admin/session').then(res => res.json());
+        if (!session.authenticated) {
+          setIsAuthenticated(false);
+          router.push('/admin/login');
+          return;
         }
-      })
-      .catch(console.error);
 
-    // Check DB Status
-    fetch('/api/products')
-      .then(res => res.json())
-      .then(res => {
+        setIsAuthenticated(true);
+        const inquiries = await fetch('/api/inquiries').then(res => res.json());
+        if (inquiries.todayCount !== undefined) setTodayInquiryCount(inquiries.todayCount);
         setDbStatus('connected');
-      })
-      .catch(() => {
+      } catch {
         setDbStatus('mock');
-      });
+      }
+    };
+    loadAdmin();
   }, [router]);
 
   const handleLogout = () => {
-    localStorage.removeItem('vszapower_admin_auth');
-    document.cookie = 'vszapower_admin_auth=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-    setIsAuthenticated(false);
-    router.push('/admin/login');
+    fetch('/api/admin/session', { method: 'DELETE' }).finally(() => {
+      setIsAuthenticated(false);
+      router.push('/admin/login');
+    });
   };
 
   if (isAuthenticated === null || isAuthenticated === false) {
@@ -364,7 +355,7 @@ export default function AdminDashboardPage() {
                   <h4 style={{ color: '#fff', margin: '0 0 8px 0', fontSize: '1rem', fontWeight: 700 }}>独立登录口令设置</h4>
                   <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: '0 0 16px 0' }}>当前管理口令为系统的第一道安全防护线。</p>
                   <div style={{ fontSize: '0.9rem', color: '#00ffb2', fontFamily: 'monospace', background: 'rgba(0,0,0,0.4)', padding: '10px 14px', borderRadius: '8px', border: '1px solid rgba(0,255,178,0.2)' }}>
-                    口令: vszapower2026
+                    已启用服务端会话验证
                   </div>
                 </div>
 

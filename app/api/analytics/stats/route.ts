@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { isAdminRequest, unauthorizedResponse } from '@/lib/adminAuth';
 import { supabase } from '@/lib/supabase';
 import { inMemoryTrafficLogs } from '@/lib/analyticsStore';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET(req: NextRequest) {
+  if (!isAdminRequest(req)) return unauthorizedResponse();
   try {
     let logs: Array<any> = [];
 

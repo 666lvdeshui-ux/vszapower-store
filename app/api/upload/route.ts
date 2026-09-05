@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
+import { isAdminRequest, unauthorizedResponse } from '@/lib/adminAuth';
 
 export async function POST(request: Request) {
+  if (!isAdminRequest(request)) return unauthorizedResponse();
   try {
     const formData = await request.formData();
     const file = formData.get('file') as File | null;

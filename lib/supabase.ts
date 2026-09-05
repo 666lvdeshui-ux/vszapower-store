@@ -2,6 +2,7 @@ import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
 export const isSupabaseConfigured =
   Boolean(supabaseUrl) &&
@@ -11,6 +12,12 @@ export const isSupabaseConfigured =
 export const supabase = isSupabaseConfigured
   ? createClient(supabaseUrl, supabaseAnonKey)
   : null;
+
+// This client is server-only. Never expose SUPABASE_SERVICE_ROLE_KEY to browser code.
+export const serverSupabase =
+  typeof window === 'undefined' && isSupabaseConfigured && supabaseServiceRoleKey
+    ? createClient(supabaseUrl, supabaseServiceRoleKey, { auth: { persistSession: false } })
+    : null;
 
 // Mock Fallback Data when Supabase is not connected yet
 import { SVG_IMAGES } from './productImages';

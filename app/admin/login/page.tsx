@@ -11,11 +11,12 @@ export default function AdminLoginPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    // If already logged in, redirect straight to dashboard
-    const savedAuth = localStorage.getItem('vszapower_admin_auth');
-    if (savedAuth === 'true') {
-      router.push('/admin');
-    }
+    fetch('/api/admin/session')
+      .then(response => response.json())
+      .then(data => {
+        if (data.authenticated) router.push('/admin');
+      })
+      .catch(() => undefined);
   }, [router]);
 
   const handleLogin = (e: React.FormEvent) => {
@@ -23,16 +24,25 @@ export default function AdminLoginPage() {
     setIsSubmitting(true);
     setError('');
 
-    setTimeout(() => {
-      if (passcode === 'vszapower2026' || passcode === 'admin' || passcode === '123456') {
-        localStorage.setItem('vszapower_admin_auth', 'true');
-        document.cookie = 'vszapower_admin_auth=true; path=/; max-age=86400';
-        router.push('/admin');
-      } else {
-        setError('登录口令错误！默认验证码：vszapower2026');
+    fetch('/api/admin/session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: passcode }),
+    })
+      .then(async response => ({ ok: response.ok, body: await response.json() }))
+      .then(({ ok, body }) => {
+        if (ok) {
+          router.push('/admin');
+          return;
+        }
+        setError(body.error || '登录失败，请重试。');
+      })
+      .catch(() => {
+        setError('无法连接到认证服务，请稍后重试。');
+      })
+      .finally(() => {
         setIsSubmitting(false);
-      }
-    }, 400);
+      });
   };
 
   return (
@@ -128,7 +138,7 @@ export default function AdminLoginPage() {
                 required
                 value={passcode}
                 onChange={e => setPasscode(e.target.value)}
-                placeholder="默认口令: vszapower2026"
+                placeholder="请输入管理员口令"
                 style={{
                   width: '100%',
                   padding: '14px 16px 14px 44px',

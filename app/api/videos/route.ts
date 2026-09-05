@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { isAdminRequest, unauthorizedResponse } from '@/lib/adminAuth';
 import { fetchAllVideos, saveVideo, removeVideo } from '@/lib/store';
 
 export async function GET() {
@@ -11,6 +12,7 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  if (!isAdminRequest(request)) return unauthorizedResponse();
   try {
     const body = await request.json();
     const video = await saveVideo(body);
@@ -21,6 +23,7 @@ export async function POST(request: Request) {
 }
 
 export async function DELETE(request: Request) {
+  if (!isAdminRequest(request)) return unauthorizedResponse();
   try {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get('id');

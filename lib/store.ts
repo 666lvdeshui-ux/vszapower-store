@@ -1,5 +1,9 @@
-import { MOCK_PRODUCTS, MOCK_POSTS, supabase } from './supabase';
+import { MOCK_PRODUCTS, MOCK_POSTS, serverSupabase, supabase } from './supabase';
 import { generatePostPreTranslations, generateProductPreTranslations } from './dynamicI18n';
+
+// API route handlers run on the server and prefer the privileged client. The anon
+// client remains as a local-development fallback until SUPABASE_SERVICE_ROLE_KEY is set.
+const database = serverSupabase ?? supabase;
 
 function getFsModule() {
   if (typeof window !== 'undefined') return null;
@@ -300,9 +304,9 @@ let videosCache: VideoItem[] = [...INITIAL_VIDEOS];
 const deletedVideoIds = new Set<string>();
 
 export async function fetchAllVideos(): Promise<VideoItem[]> {
-  if (supabase) {
+  if (database) {
     try {
-      const { data, error } = await supabase.from('videos').select('*').order('created_at', { ascending: false });
+      const { data, error } = await database.from('videos').select('*').order('created_at', { ascending: false });
       if (!error && data && data.length > 0) {
         return (data as VideoItem[]).filter(v => !deletedVideoIds.has(v.id));
       }
@@ -327,9 +331,9 @@ export async function saveVideo(video: Partial<VideoItem>): Promise<VideoItem> {
 
   deletedVideoIds.delete(newVideo.id);
 
-  if (supabase) {
+  if (database) {
     try {
-      const { data, error } = await supabase.from('videos').upsert(newVideo).select().single();
+      const { data, error } = await database.from('videos').upsert(newVideo).select().single();
       if (!error && data) return data as VideoItem;
     } catch (e) {
       console.warn('Supabase save video error, falling back to local store:', e);
@@ -349,9 +353,9 @@ export async function removeVideo(id: string): Promise<boolean> {
   deletedVideoIds.add(id);
   videosCache = videosCache.filter(v => v.id !== id);
 
-  if (supabase) {
+  if (database) {
     try {
-      await supabase.from('videos').delete().eq('id', id);
+      await database.from('videos').delete().eq('id', id);
     } catch (e) {
       console.warn('Supabase delete video error:', e);
     }
@@ -380,9 +384,9 @@ export function sanitizeProductList(list: ProductItem[]): ProductItem[] {
 export async function fetchAllProducts(): Promise<ProductItem[]> {
   const deletedSet = getDeletedProductIds();
 
-  if (supabase) {
+  if (database) {
     try {
-      const { data, error } = await supabase.from('products').select('*').order('created_at', { ascending: true });
+      const { data, error } = await database.from('products').select('*').order('created_at', { ascending: true });
       if (!error && data && data.length > 0) {
         const sbList = (data as ProductItem[]).filter(p => !deletedSet.has(p.id) && !deletedProductIds.has(p.id));
         const sanitized = sanitizeProductList(sbList);
@@ -457,7 +461,7 @@ export async function saveProduct(product: Partial<ProductItem>): Promise<Produc
   saveProductsToFile(productsCache);
 
   // 3. Attempt Supabase upsert (sanitized payload without unsupported column names)
-  if (supabase) {
+  if (database) {
     try {
       const supabasePayload = {
         id: newProduct.id,
@@ -477,7 +481,7 @@ export async function saveProduct(product: Partial<ProductItem>): Promise<Produc
         created_at: newProduct.created_at,
       };
 
-      const { error } = await supabase.from('products').upsert(supabasePayload);
+      const { error } = await database.from('products').upsert(supabasePayload);
       if (error) {
         console.warn('Supabase save product warning:', error.message);
       }
@@ -495,9 +499,9 @@ export async function removeProduct(id: string): Promise<boolean> {
   productsCache = productsCache.filter(p => p.id !== id);
   saveProductsToFile(productsCache);
 
-  if (supabase) {
+  if (database) {
     try {
-      const { error } = await supabase.from('products').delete().eq('id', id);
+      const { error } = await database.from('products').delete().eq('id', id);
       if (error) console.warn('Supabase delete error:', error.message);
     } catch (e) {
       console.warn('Supabase delete error:', e);
@@ -508,9 +512,9 @@ export async function removeProduct(id: string): Promise<boolean> {
 }
 
 export async function fetchAllPosts(): Promise<PostItem[]> {
-  if (supabase) {
+  if (database) {
     try {
-      const { data, error } = await supabase.from('posts').select('*').order('created_at', { ascending: false });
+      const { data, error } = await database.from('posts').select('*').order('created_at', { ascending: false });
       if (!error && data && data.length > 0) {
         const postsList = (data as PostItem[]).map(p => ({
           ...p,
@@ -532,9 +536,9 @@ export async function fetchAllPosts(): Promise<PostItem[]> {
 }
 
 export async function getPostBySlug(slug: string): Promise<PostItem | null> {
-  if (supabase) {
+  if (database) {
     try {
-      const { data, error } = await supabase.from('posts').select('*').eq('slug', slug).single();
+      const { data, error } = await database.from('posts').select('*').eq('slug', slug).single();
       if (!error && data) {
         const post = data as PostItem;
         return {
@@ -588,7 +592,7 @@ export async function savePost(post: Partial<PostItem>): Promise<PostItem> {
   }
 
   // 2. Attempt Supabase upsert (sanitized payload omitting unsupported translations column)
-  if (supabase) {
+  if (database) {
     try {
       const supabasePostPayload = {
         id: newPost.id,
@@ -605,7 +609,7 @@ export async function savePost(post: Partial<PostItem>): Promise<PostItem> {
         created_at: newPost.created_at,
       };
 
-      const { error } = await supabase.from('posts').upsert(supabasePostPayload);
+      const { error } = await database.from('posts').upsert(supabasePostPayload);
       if (error) console.warn('Supabase save post warning:', error.message);
     } catch (e) {
       console.warn('Supabase save post error, falling back to local store:', e);
@@ -619,9 +623,9 @@ export async function removePost(id: string): Promise<boolean> {
   deletedPostIds.add(id);
   postsCache = postsCache.filter(p => p.id !== id);
 
-  if (supabase) {
+  if (database) {
     try {
-      await supabase.from('posts').delete().eq('id', id);
+      await database.from('posts').delete().eq('id', id);
     } catch (e) {
       console.warn('Supabase delete post error:', e);
     }
@@ -630,9 +634,9 @@ export async function removePost(id: string): Promise<boolean> {
 }
 
 export async function fetchAllBanners(): Promise<BannerItem[]> {
-  if (supabase) {
+  if (database) {
     try {
-      const { data, error } = await supabase.from('banners').select('*').order('created_at', { ascending: true });
+      const { data, error } = await database.from('banners').select('*').order('created_at', { ascending: true });
       if (!error && data && data.length > 0) {
         return (data as BannerItem[]).filter(b => !deletedBannerIds.has(b.id));
       }
@@ -658,9 +662,9 @@ export async function saveBanner(banner: Partial<BannerItem>): Promise<BannerIte
 
   deletedBannerIds.delete(newBanner.id);
 
-  if (supabase) {
+  if (database) {
     try {
-      const { data, error } = await supabase.from('banners').upsert(newBanner).select().single();
+      const { data, error } = await database.from('banners').upsert(newBanner).select().single();
       if (!error && data) return data as BannerItem;
     } catch (e) {
       console.warn('Supabase save banner error, falling back to local store:', e);
@@ -680,9 +684,9 @@ export async function removeBanner(id: string): Promise<boolean> {
   deletedBannerIds.add(id);
   bannersCache = bannersCache.filter(b => b.id !== id);
 
-  if (supabase) {
+  if (database) {
     try {
-      await supabase.from('banners').delete().eq('id', id);
+      await database.from('banners').delete().eq('id', id);
     } catch (e) {
       console.warn('Supabase delete banner error:', e);
     }
@@ -691,9 +695,9 @@ export async function removeBanner(id: string): Promise<boolean> {
 }
 
 export async function fetchAllInquiries(): Promise<InquiryItem[]> {
-  if (supabase) {
+  if (database) {
     try {
-      const { data, error } = await supabase.from('inquiries').select('*').order('created_at', { ascending: false });
+      const { data, error } = await database.from('inquiries').select('*').order('created_at', { ascending: false });
       if (!error && data && data.length > 0) {
         return (data as InquiryItem[]).filter(i => !deletedInquiryIds.has(i.id));
       }
@@ -718,9 +722,9 @@ export async function saveInquiry(inquiry: Partial<InquiryItem>): Promise<Inquir
 
   deletedInquiryIds.delete(newInquiry.id);
 
-  if (supabase) {
+  if (database) {
     try {
-      const { data, error } = await supabase.from('inquiries').upsert(newInquiry).select().single();
+      const { data, error } = await database.from('inquiries').upsert(newInquiry).select().single();
       if (!error && data) return data as InquiryItem;
     } catch (e) {
       console.warn('Supabase save inquiry error, falling back to local store:', e);
@@ -740,9 +744,9 @@ export async function removeInquiry(id: string): Promise<boolean> {
   deletedInquiryIds.add(id);
   inquiriesCache = inquiriesCache.filter(i => i.id !== id);
 
-  if (supabase) {
+  if (database) {
     try {
-      await supabase.from('inquiries').delete().eq('id', id);
+      await database.from('inquiries').delete().eq('id', id);
     } catch (e) {
       console.warn('Supabase delete inquiry error:', e);
     }
@@ -751,9 +755,9 @@ export async function removeInquiry(id: string): Promise<boolean> {
 }
 
 export async function updateInquiryStatus(id: string, status: 'new' | 'contacted' | 'resolved'): Promise<boolean> {
-  if (supabase) {
+  if (database) {
     try {
-      const { error } = await supabase.from('inquiries').update({ status }).eq('id', id);
+      const { error } = await database.from('inquiries').update({ status }).eq('id', id);
       if (!error) return true;
     } catch (e) {
       console.warn('Supabase update inquiry status error:', e);
@@ -832,9 +836,9 @@ export function getOEMVideoBuffer(): { buffer: Buffer; mimeType: string } | null
 
 
 export async function fetchOEMHeroMedia(): Promise<OEMHeroMediaSettings> {
-  if (supabase) {
+  if (database) {
     try {
-      const { data, error } = await supabase.from('banners').select('*').eq('id', 'oem_hero_2x2').single();
+      const { data, error } = await database.from('banners').select('*').eq('id', 'oem_hero_2x2').single();
       if (!error && data && data.subtitle) {
         const parsed = JSON.parse(data.subtitle);
         if (parsed && typeof parsed === 'object') {
@@ -861,7 +865,7 @@ export async function saveOEMHeroMedia(media: Partial<OEMHeroMediaSettings>): Pr
 
   saveOEMHeroToFile(oemHeroCache);
 
-  if (supabase) {
+  if (database) {
     try {
       const payload = {
         id: 'oem_hero_2x2',
@@ -874,7 +878,7 @@ export async function saveOEMHeroMedia(media: Partial<OEMHeroMediaSettings>): Pr
         highlight: '✓ Factory Media',
         created_at: new Date().toISOString(),
       };
-      await supabase.from('banners').upsert(payload);
+      await database.from('banners').upsert(payload);
     } catch (e) {
       console.warn('Supabase save OEM hero media error:', e);
     }
@@ -882,5 +886,4 @@ export async function saveOEMHeroMedia(media: Partial<OEMHeroMediaSettings>): Pr
 
   return oemHeroCache;
 }
-
 

@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { isAdminRequest, unauthorizedResponse } from '@/lib/adminAuth';
 import { fetchAllInquiries, saveInquiry, removeInquiry, updateInquiryStatus, InquiryItem } from '@/lib/store';
 import fs from 'fs';
 import path from 'path';
@@ -24,7 +25,8 @@ function persistInquiries(list: InquiryItem[]) {
   } catch (e) {}
 }
 
-export async function GET() {
+export async function GET(request: Request) {
+  if (!isAdminRequest(request)) return unauthorizedResponse();
   const storeInquiries = await fetchAllInquiries();
   const fileInquiries = getStoredInquiries();
 
@@ -134,6 +136,7 @@ export async function POST(request: Request) {
 }
 
 export async function PATCH(request: Request) {
+  if (!isAdminRequest(request)) return unauthorizedResponse();
   try {
     const { id, status } = await request.json();
     if (!id || !status) {
@@ -155,6 +158,7 @@ export async function PATCH(request: Request) {
 }
 
 export async function DELETE(request: Request) {
+  if (!isAdminRequest(request)) return unauthorizedResponse();
   try {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get('id');
