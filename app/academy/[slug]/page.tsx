@@ -4,7 +4,8 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import AcademyArticleClient from '@/components/AcademyArticleClient';
 
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = await getPostBySlug(params.slug);
