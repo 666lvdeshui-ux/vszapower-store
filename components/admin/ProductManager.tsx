@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { ProductItem } from '@/lib/store';
 import { Plus, Edit2, Trash2, Package, Tag, DollarSign, Image as ImageIcon, Sparkles, Check, AlertCircle, Shield } from 'lucide-react';
 import ImageUploader from '@/components/admin/ImageUploader';
+import ProductTranslationEditor from '@/components/admin/ProductTranslationEditor';
 
 export default function ProductManager() {
   const [products, setProducts] = useState<ProductItem[]>([]);
@@ -851,6 +852,8 @@ export default function ProductManager() {
                   }}
                 />
               </div>
+
+              <ProductTranslationEditor value={editingProduct.translations} specs={editingProduct.specs} onChange={translations => setEditingProduct({ ...editingProduct, translations })} />
 
               {saveStatus && (
                 <div style={{ color: saveStatus.includes('Error') ? '#ef4444' : 'var(--accent-green)', fontSize: '0.85rem' }}>

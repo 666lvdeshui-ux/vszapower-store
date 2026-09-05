@@ -1,6 +1,6 @@
 import { normalizeTranslations } from './postI18n';
 import { MOCK_PRODUCTS, MOCK_POSTS, serverSupabase, supabase } from './supabase';
-import { generateProductPreTranslations } from './dynamicI18n';
+import { normalizeProductTranslations, ProductTranslation } from './productI18n';
 
 // API route handlers run on the server and prefer the privileged client. The anon
 // client remains as a local-development fallback until SUPABASE_SERVICE_ROLE_KEY is set.
@@ -123,7 +123,7 @@ export interface ProductItem {
   badge?: string;
   description: string;
   specs?: Record<string, string>;
-  translations?: Record<string, any>;
+  translations?: Record<string, ProductTranslation>;
   rating?: number;
   review_count?: number;
   temu_link?: string;
@@ -417,6 +417,17 @@ export async function fetchAllProducts(): Promise<ProductItem[]> {
 
 export async function saveProduct(product: Partial<ProductItem>): Promise<ProductItem> {
   const targetId = (product.id && product.id.trim()) ? product.id.trim() : `prod_${Date.now()}`;
+  let translations = product.translations;
+  if (translations === undefined && product.id) {
+    // Older clients may edit a product without sending its translations.
+    if (database) {
+      const { data, error } = await database.from('products').select('translations').eq('id', targetId).maybeSingle();
+      if (error) throw new Error(`Product could not be loaded: ${error.message}`);
+      translations = data?.translations;
+    } else {
+      translations = productsCache.find(p => p.id === targetId)?.translations;
+    }
+  }
   const newProduct: ProductItem = {
     id: targetId,
     slug: product.slug || (product.title ? product.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') : `item-${Date.now()}`),
@@ -436,32 +447,11 @@ export async function saveProduct(product: Partial<ProductItem>): Promise<Produc
     review_count: product.review_count || 1480,
     temu_link: product.temu_link || 'https://www.temu.com/goods.html?_bg_fs=1&goods_id=606258002264728',
     reviews: product.reviews || [],
-    translations: product.translations || generateProductPreTranslations({
-      title: product.title || '',
-      tagline: product.tagline || '',
-      description: product.description || '',
-      badge: product.badge || '',
-      category: product.category || '',
-      specs: product.specs || {},
-    }),
+    translations: normalizeProductTranslations(translations),
     created_at: product.created_at || new Date().toISOString(),
   };
 
-  deletedProductIds.delete(newProduct.id);
-  removeDeletedProductId(newProduct.id);
-
-  // 1. Update in-memory cache first
-  const index = productsCache.findIndex(p => p.id === newProduct.id);
-  if (index >= 0) {
-    productsCache[index] = newProduct;
-  } else {
-    productsCache.unshift(newProduct);
-  }
-
-  // 2. Persist to local disk file
-  saveProductsToFile(productsCache);
-
-  // 3. Attempt Supabase upsert (sanitized payload without unsupported column names)
+  // Confirm database persistence before changing local state or reporting success.
   if (database) {
     try {
       const supabasePayload = {
@@ -478,18 +468,24 @@ export async function saveProduct(product: Partial<ProductItem>): Promise<Produc
         certifications: newProduct.certifications,
         badge: newProduct.badge,
         description: newProduct.description,
+        translations: newProduct.translations,
         specs: newProduct.specs,
         created_at: newProduct.created_at,
       };
 
       const { error } = await database.from('products').upsert(supabasePayload);
-      if (error) {
-        console.warn('Supabase save product warning:', error.message);
-      }
+      if (error) throw new Error(error.message);
     } catch (e) {
-      console.warn('Supabase save error, falling back to local store:', e);
+      throw new Error(`Product could not be saved: ${e instanceof Error ? e.message : String(e)}`);
     }
   }
+
+  deletedProductIds.delete(newProduct.id);
+  removeDeletedProductId(newProduct.id);
+  const index = productsCache.findIndex(p => p.id === newProduct.id);
+  if (index >= 0) productsCache[index] = newProduct;
+  else productsCache.unshift(newProduct);
+  saveProductsToFile(productsCache);
 
   return newProduct;
 }
@@ -873,4 +869,3 @@ export async function saveOEMHeroMedia(media: Partial<OEMHeroMediaSettings>): Pr
 
   return oemHeroCache;
 }
-

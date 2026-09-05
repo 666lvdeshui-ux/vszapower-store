@@ -1,0 +1,1876 @@
+[
+  {
+    "id": "prod_1785144575937",
+    "translations": {
+      "ar": {
+        "badge": "وصول جديد",
+        "specs": {
+          "safety": "حماية التيار الصغير MCU / قطع تلقائي 4.2 فولت / ماس كهربائى / قطبية عكسية",
+          "voltage": "الإدخال 5 فولت 500 مللي أمبير (2.5 وات) | الإخراج 4.2 فولت 30 مللي أمبير (0.126 واط قطع تلقائي)",
+          "warranty": "ضمان مباشر من المصنع لمدة 2 سنوات",
+          "packaging": "حزمة بطاقات ورق كرافت صديقة للبيئة",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5 فولت تيار مستمر / 500 مللي أمبير (2.5 واط كحد أقصى)",
+          "output_power": "4.2 فولت تيار مستمر / 30 مللي أمبير (طاقة الإخراج: 0.126 واط)",
+          "charging_speed": "30-35 دقيقة شحن كامل سريع بنسبة 100%"
+        },
+        "title": "مشبك VSZAPOWER على شاحن بطارية الزر، يدعم LIR2016، LIR1220، LIR1632، LIR2032، LIR2025، ML2032، LIR2450، شحن سريع لمدة 30 دقيقة، سهل الحمل، شاحن منخفض الجهد، مصنع مملوك ذاتيًا",
+        "tagline": "شاحن بطارية بزر/مشبك على الشاحن/شحن كامل لمدة 30 دقيقة/سهل الحمل",
+        "category": "شواحن الخلايا المعدنية",
+        "description": "شاحن بطارية بمشبك على زر VSZAPOWER، يدعم LIR2016، LIR1220، LIR1632، LIR2032، LIR2025، ML2032، LIR2450، شحن سريع لمدة 30 دقيقة، سهل الحمل، شاحن منخفض الجهد، مصنع مملوك ذاتيًا، اتصال عبر البريد الإلكتروني في أي وقت، جميع أنواع المؤهلات كاملة، علامة تجارية حصرية على الشبكة بأكملها، علامة تجارية OEM، مرخصة بالبيع على Amazon، TIKTOK، مرحبا بكم في الاستفسار عن منصات التجارة الإلكترونية المختلفة."
+      },
+      "de": {
+        "badge": "Neu eingetroffen",
+        "specs": {
+          "safety": "MCU-Mikrostromschutz / 4,2 V automatische Abschaltung / Kurzschluss / Verpolung",
+          "voltage": "Eingang 5V 500mA (2,5W) | Ausgang 4,2 V 30 mA (0,126 W automatische Abschaltung)",
+          "warranty": "2 Jahre direkte Werksgarantie",
+          "packaging": "Umweltfreundliches Kraftpapier-Kartenpaket",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5 V DC / 500 mA (maximal 2,5 W)",
+          "output_power": "4,2 V DC / 30 mA (Ausgangsleistung: 0,126 W)",
+          "charging_speed": "30–35 Minuten schnell, 100 % volle Ladung"
+        },
+        "title": "VSZAPOWER Clip-on-Knopf-Batterieladegerät, unterstützt LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, schnelles 30-Minuten-Laden, leicht zu transportieren, Niederspannungsladegerät, eigene Fabrik",
+        "tagline": "Knopf-Akkuladegerät/Clip-on-Ladegerät/30 Minuten vollständige Aufladung/einfach zu transportieren",
+        "category": "Knopfzellen-Ladegeräte",
+        "description": "VSZAPOWER Clip-on-Knopf-Batterieladegerät, unterstützt LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, schnelles 30-Minuten-Laden, einfach zu transportieren, Niederspannungsladegerät, eigene Fabrik, E-Mail-Kontakt jederzeit, alle Arten von Qualifikationen sind vollständig, exklusive Marke im gesamten Netzwerk, OEM-Marke, autorisiert zum Verkauf auf Amazon, TIKTOK, Willkommen bei Anfragen über verschiedene E-Commerce-Plattformen."
+      },
+      "en": {
+        "badge": "NEW ARRIVAL",
+        "specs": {
+          "safety": "MCU Micro-current Protection / 4.2V Auto-Cutoff / Short Circuit / Reverse Polarity",
+          "voltage": "Input 5V 500mA (2.5W) | Output 4.2V 30mA (0.126W Auto-Cutoff)",
+          "warranty": "2 Years Direct Factory Guarantee",
+          "packaging": "Eco-Friendly Kraft Papercard Pack",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V DC / 500mA (2.5W Max)",
+          "output_power": "4.2V DC / 30mA (Output Power: 0.126W)",
+          "charging_speed": "30-35 Mins Fast 100% Full Charge"
+        },
+        "title": "VSZAPOWER clip on button battery charger, supports LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, fast 30 minute charging, easy to carry, low voltage charger, self owned factory",
+        "tagline": "Button battery charger/clip on charger/30 minute full charge/easy to carry",
+        "category": "Coin Cell Chargers",
+        "description": "VSZAPOWER clip on button battery charger, supports LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, fast 30 minute charging, easy to carry, low voltage charger, self owned factory, email contact at any time, all kinds of qualifications are complete, exclusive brand on the whole network, OEM brand, authorized to sell on Amazon, TIKTOK， Welcome to inquire about various e-commerce platforms."
+      },
+      "es": {
+        "badge": "NUEVA LLEGADA",
+        "specs": {
+          "safety": "Protección de microcorriente MCU / Corte automático de 4,2 V / Cortocircuito / Polaridad inversa",
+          "voltage": "Entrada 5V 500mA (2,5W) | Salida 4,2 V 30 mA (corte automático de 0,126 W)",
+          "warranty": "2 años de garantía directa de fábrica",
+          "packaging": "Paquete de tarjetas de papel Kraft ecológico",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5 V CC/500 mA (2,5 W máx.)",
+          "output_power": "4,2 V CC/30 mA (potencia de salida: 0,126 W)",
+          "charging_speed": "30-35 minutos rápido 100% carga completa"
+        },
+        "title": "Cargador de batería con botón con clip VSZAPOWER, compatible con LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, carga rápida de 30 minutos, fácil de transportar, cargador de bajo voltaje, fábrica propia",
+        "tagline": "Cargador de batería de botón/cargador con clip/carga completa de 30 minutos/fácil de llevar",
+        "category": "Cargadores de pilas de botón",
+        "description": "Cargador de batería con botón con clip VSZAPOWER, compatible con LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, carga rápida de 30 minutos, fácil de transportar, cargador de bajo voltaje, fábrica propia, contacto por correo electrónico en cualquier momento, todo tipo de calificaciones están completas, marca exclusiva en toda la red, marca OEM, autorizada para vender en Amazon, TIKTOK, bienvenido a consultar sobre diversas plataformas de comercio electrónico."
+      },
+      "fr": {
+        "badge": "NOUVEAUTÉ",
+        "specs": {
+          "safety": "Protection contre les micro-courants MCU / Coupure automatique 4,2 V / Court-circuit / Polarité inversée",
+          "voltage": "Entrée 5 V 500 mA (2,5 W) | Sortie 4,2 V 30 mA (coupure automatique 0,126 W)",
+          "warranty": "2 ans de garantie directe d'usine",
+          "packaging": "Pack de cartes en papier kraft écologique",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5 V CC / 500 mA (2,5 W maximum)",
+          "output_power": "4,2 V CC / 30 mA (Puissance de sortie : 0,126 W)",
+          "charging_speed": "30-35 minutes de charge rapide à 100 %"
+        },
+        "title": "Chargeur de batterie bouton à clipser VSZAPOWER, prend en charge LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, charge rapide de 30 minutes, facile à transporter, chargeur basse tension, usine indépendante",
+        "tagline": "Chargeur de batterie bouton/chargeur à clipser/charge complète de 30 minutes/facile à transporter",
+        "category": "Chargeurs de piles boutons",
+        "description": "Chargeur de batterie bouton à clipser VSZAPOWER, prend en charge LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, charge rapide de 30 minutes, facile à transporter, chargeur basse tension, usine indépendante, contact par e-mail à tout moment, toutes sortes de qualifications sont complètes, marque exclusive sur tout le réseau, marque OEM, autorisée à vendre sur Amazon, TIKTOK ， Bienvenue pour vous renseigner sur divers plateformes de commerce électronique."
+      },
+      "he": {
+        "badge": "הגעה חדשה",
+        "specs": {
+          "safety": "הגנת מיקרו-זרם MCU / חיתוך אוטומטי של 4.2V / קצר חשמלי / קוטביות הפוכה",
+          "voltage": "קלט 5V 500mA (2.5W) | פלט 4.2V 30mA (0.126W חיתוך אוטומטי)",
+          "warranty": "אחריות ישירה מהמפעל למשך 2 שנים",
+          "packaging": "חבילת קרפט נייר קארד ידידותית לסביבה",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V DC / 500mA (2.5W מקסימום)",
+          "output_power": "4.2V DC / 30mA (הספק פלט: 0.126W)",
+          "charging_speed": "30-35 דקות מהיר 100% טעינה מלאה"
+        },
+        "title": "מטען סוללה VSZAPOWER קליפס על כפתור, תומך LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, טעינה מהירה 30 דקות, קל לנשיאה, מטען מתח נמוך, מפעל בבעלות עצמית",
+        "tagline": "מטען סוללה כפתור/קליפס על מטען/30 דקות טעינה מלאה/קל לנשיאה",
+        "category": "מטענים לתא מטבעות",
+        "description": "VSZAPOWER מטען סוללה עם תפס על כפתור, תומך LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, טעינה מהירה של 30 דקות, קל לנשיאה, מטען מתח נמוך, מפעל בבעלות עצמית, יצירת קשר בדוא\"ל בכל עת, כל הסוגים של מותגי המותג, כל הסוגים הינם מלאים במותג, כל הסוגים למכור באמזון, TIKTOK， ברוכים הבאים לברר לגבי פלטפורמות מסחר אלקטרוני שונות."
+      },
+      "ja": {
+        "badge": "新着情報",
+        "specs": {
+          "safety": "MCU微小電流保護 / 4.2Vオートカットオフ / 短絡 / 逆極性",
+          "voltage": "入力 5V 500mA (2.5W) |出力 4.2V 30mA (0.126W オートカットオフ)",
+          "warranty": "2年間の工場直接保証",
+          "packaging": "環境に優しいクラフト紙カードパック",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V DC / 500mA (最大2.5W)",
+          "output_power": "DC4.2V / 30mA（出力電力：0.126W）",
+          "charging_speed": "30～35 分で高速 100% フル充電"
+        },
+        "title": "VSZAPOWER クリップオンボタンバッテリー充電器、LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032、LIR2450 をサポート、30 分の高速充電、持ち運びが簡単、低電圧充電器、自社工場",
+        "tagline": "ボタン電池充電器/クリップオン充電器/30 分のフル充電/持ち運びが簡単",
+        "category": "コイン型電池充電器",
+        "description": "VSZAPOWER クリップオンボタンバッテリー充電器、LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032、LIR2450をサポート、30分の急速充電、持ち運びが簡単、低電圧充電器、自社工場、いつでもメールで連絡可能、あらゆる種類の資格が完備、ネットワーク全体の独占ブランド、OEMブランド、Amazon、TIKTOKでの販売を許可されています。各種ECプラットフォームに関するお問い合わせをお待ちしております。"
+      },
+      "ko": {
+        "badge": "새로운 도착",
+        "specs": {
+          "safety": "MCU 미세전류 보호 / 4.2V 자동 차단 / 단락 / 역극성",
+          "voltage": "입력 5V 500mA(2.5W) | 출력 4.2V 30mA (0.126W 자동 차단)",
+          "warranty": "2년 직접 공장 보증",
+          "packaging": "친환경 크래프트 종이카드 팩",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V DC / 500mA(최대 2.5W)",
+          "output_power": "4.2V DC / 30mA (출력 전력: 0.126W)",
+          "charging_speed": "30~35분 빠른 100% 완전 충전"
+        },
+        "title": "VSZAPOWER 클립 온 버튼 배터리 충전기, LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450 지원, 30분 고속 충전, 휴대 용이, 저전압 충전기, 자체 소유 공장",
+        "tagline": "버튼 배터리 충전기/클립 온 충전기/30분 완전 충전/휴대 용이",
+        "category": "코인셀 충전기",
+        "description": "버튼 배터리 충전기의 VSZAPOWER 클립, LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450 지원, 빠른 30분 충전, 휴대 용이, 저전압 충전기, 자체 소유 공장, 언제든지 이메일 연락, 모든 종류의 자격이 완전하고 전체 네트워크의 독점 브랜드, OEM 브랜드, Amazon에서 판매하도록 승인됨, TIKTOK, 환영합니다 다양한 전자상거래 플랫폼에 대해 문의하세요."
+      },
+      "pt": {
+        "badge": "NOVA CHEGADA",
+        "specs": {
+          "safety": "Proteção de microcorrente MCU / Corte automático de 4,2 V / Curto-circuito / Polaridade reversa",
+          "voltage": "Entrada 5V 500mA (2,5W) | Saída 4,2 V 30 mA (corte automático de 0,126 W)",
+          "warranty": "2 anos de garantia direta de fábrica",
+          "packaging": "Pacote de cartão de papel Kraft ecológico",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V CC / 500mA (2,5W máx.)",
+          "output_power": "4,2 V CC / 30 mA (potência de saída: 0,126 W)",
+          "charging_speed": "30-35 minutos de carga rápida 100% completa"
+        },
+        "title": "Carregador de bateria com clipe VSZAPOWER, suporta LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, carregamento rápido de 30 minutos, fácil de transportar, carregador de baixa tensão, fábrica própria",
+        "tagline": "Carregador de bateria de botão/carregador com clipe/carga completa em 30 minutos/fácil de transportar",
+        "category": "Carregadores de célula tipo moeda",
+        "description": "Carregador de bateria com clipe VSZAPOWER, suporta LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, carregamento rápido de 30 minutos, fácil de transportar, carregador de baixa tensão, fábrica própria, contato por e-mail a qualquer momento, todos os tipos de qualificações estão completos, marca exclusiva em toda a rede, marca OEM, autorizada a vender na Amazon, TIKTOK, Bem-vindo ao pergunte sobre várias plataformas de comércio eletrônico."
+      },
+      "ru": {
+        "badge": "НОВОЕ ПРИБЫТИЕ",
+        "specs": {
+          "safety": "Микротоковая защита MCU / автоматическое отключение 4,2 В / короткое замыкание / обратная полярность",
+          "voltage": "Вход 5 В, 500 мА (2,5 Вт) | Выход 4,2 В, 30 мА (автоматическое отключение 0,126 Вт)",
+          "warranty": "2 года прямой заводской гарантии",
+          "packaging": "Экологичная упаковка из крафт-бумаги",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5 В постоянного тока / 500 мА (макс. 2,5 Вт)",
+          "output_power": "4,2 В постоянного тока / 30 мА (выходная мощность: 0,126 Вт)",
+          "charging_speed": "30-35 минут быстрая полная зарядка на 100%"
+        },
+        "title": "VSZAPOWER кнопочное зарядное устройство, поддерживает LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, быстрая 30-минутная зарядка, легко носить с собой, низковольтное зарядное устройство, собственный завод",
+        "tagline": "Зарядное устройство с кнопкой/зажимное устройство/30-минутная полная зарядка/удобство переноски",
+        "category": "Зарядные устройства для монетоприемников",
+        "description": "VSZAPOWER кнопочное зарядное устройство, поддерживает LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, быстрая 30-минутная зарядка, легко носить с собой, низковольтное зарядное устройство, собственный завод, контакт по электронной почте в любое время, все виды квалификации завершены, эксклюзивный бренд во всей сети, бренд OEM, разрешено продавать на Amazon, TIKTOK， Добро пожаловать, чтобы узнать о различных платформах электронной коммерции."
+      },
+      "vi": {
+        "badge": "HÀNG MỚI VỀ",
+        "specs": {
+          "safety": "MCU Bảo vệ dòng điện siêu nhỏ / Tự động cắt 4.2V / Đoản mạch / Phân cực ngược",
+          "voltage": "Đầu vào 5V 500mA (2.5W) | Đầu ra 4.2V 30mA (Tự động cắt 0.126W)",
+          "warranty": "Bảo hành trực tiếp tại nhà máy 2 năm",
+          "packaging": "Gói giấy kraft thân thiện với môi trường",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V DC / 500mA (Tối đa 2,5W)",
+          "output_power": "4.2V DC / 30mA (Công suất đầu ra: 0,126W)",
+          "charging_speed": "30-35 phút sạc đầy nhanh 100%"
+        },
+        "title": "Bộ sạc pin nút kẹp VSZAPOWER, hỗ trợ LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, sạc nhanh 30 phút, dễ mang theo, sạc điện áp thấp, nhà máy tự sở hữu",
+        "tagline": "Nút sạc pin/kẹp trên bộ sạc/sạc đầy 30 phút/dễ mang theo",
+        "category": "Bộ sạc di động bằng đồng xu",
+        "description": "Bộ sạc pin nút kẹp VSZAPOWER, hỗ trợ LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, sạc nhanh 30 phút, dễ dàng mang theo, sạc điện áp thấp, nhà máy tự sở hữu, liên hệ qua email bất cứ lúc nào, tất cả các loại bằng cấp hoàn chỉnh, thương hiệu độc quyền trên toàn mạng, thương hiệu OEM, được ủy quyền bán trên Amazon, TIKTOK, Chào mừng bạn đến hỏi về nhiều loại các nền tảng thương mại điện tử."
+      },
+      "zh-CN": {
+        "badge": "新品上市",
+        "specs": {
+          "safety": "MCU微电流保护/4.2V自动切断/短路/反接",
+          "voltage": "输入5V 500mA（2.5W）|输出4.2V 30mA（0.126W自动切断）",
+          "warranty": "原厂直保 2 年",
+          "packaging": "环保牛皮纸卡包装",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V 直流/500mA（最大 2.5W）",
+          "output_power": "4.2V DC / 30mA（输出功率：0.126W）",
+          "charging_speed": "30-35 分钟快速 100% 充满电"
+        },
+        "title": "VSZAPOWER 夹式纽扣电池充电器，支持LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032、LIR2450，快速30分钟充电，方便携带，低压充电器，自有工厂",
+        "tagline": "纽扣电池充电器/夹式充电器/30分钟充满电/方便携带",
+        "category": "纽扣电池充电器",
+        "description": "VSZAPOWER夹扣式纽扣电池充电器，支持LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032、LIR2450，快速30分钟充电，携带方便，低压充电器，自有工厂，随时邮件联系，各类资质齐全，全网独家品牌，OEM品牌，亚马逊授权销售，TIKTOK，欢迎光临查询各个电商平台。"
+      },
+      "zh-HK": {
+        "badge": "新品上市",
+        "specs": {
+          "safety": "MCU微電流保護/4.2V自動切斷/短路/反接",
+          "voltage": "輸入5V 500mA（2.5W）|輸出4.2V 30mA（0.126W自動切斷）",
+          "warranty": "2 年工廠直接保證",
+          "packaging": "環保牛皮紙卡包",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V 直流/500mA（最大 2.5W）",
+          "output_power": "4.2V DC / 30mA（輸出功率：0.126W）",
+          "charging_speed": "30-35 分鐘快速 100% 充滿電"
+        },
+        "title": "VSZAPOWER 夾式鈕扣電池充電器，支援LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032、LIR2450，快速30分鐘充電，方便攜帶，低壓充電器，自有工廠",
+        "tagline": "鈕扣電池充電器/夾式充電器/30分鐘充滿電/方便攜帶",
+        "category": "鈕扣電池充電器",
+        "description": "VSZAPOWER夾扣式鈕扣電池充電器，支援LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032、LIR2450，快速30分鐘充電，攜帶方便，低壓充電器，自有工廠，隨時郵件聯繫，各類資質齊全，全網獨家品牌，OEM品牌，亞馬遜授權銷售，TIKTOK，歡迎光臨查詢各個電商平台。"
+      },
+      "zh-TW": {
+        "badge": "新品上市",
+        "specs": {
+          "safety": "MCU微電流保護/4.2V自動切斷/短路/反接",
+          "voltage": "輸入5V 500mA（2.5W）|輸出4.2V 30mA（0.126W自動切斷）",
+          "warranty": "2 年工廠直接保證",
+          "packaging": "環保牛皮紙卡包",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V 直流/500mA（最大 2.5W）",
+          "output_power": "4.2V DC / 30mA（輸出功率：0.126W）",
+          "charging_speed": "30-35 分鐘快速 100% 充滿電"
+        },
+        "title": "VSZAPOWER 夾式鈕扣電池充電器，支援LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032、LIR2450，快速30分鐘充電，方便攜帶，低壓充電器，自有工廠",
+        "tagline": "鈕扣電池充電器/夾式充電器/30分鐘充滿電/方便攜帶",
+        "category": "鈕扣電池充電器",
+        "description": "VSZAPOWER夾扣式鈕扣電池充電器，支援LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032、LIR2450，快速30分鐘充電，攜帶方便，低壓充電器，自有工廠，隨時郵件聯繫，各類資質齊全，全網獨家品牌，OEM品牌，亞馬遜授權銷售，TIKTOK，歡迎光臨查詢各個電商平台。"
+      }
+    }
+  },
+  {
+    "id": "prod_1785382687464",
+    "translations": {
+      "ar": {
+        "badge": "وصول جديد",
+        "specs": {
+          "safety": "حماية التيار الصغير MCU / قطع تلقائي 4.2 فولت / ماس كهربائى / قطبية عكسية",
+          "voltage": "الإدخال 5 فولت 500 مللي أمبير (2.5 وات) | الإخراج 4.2 فولت 30 مللي أمبير (0.126 واط قطع تلقائي)",
+          "warranty": "ضمان مباشر من المصنع لمدة 2 سنوات",
+          "packaging": "حزمة بطاقات ورق كرافت صديقة للبيئة",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5 فولت تيار مستمر / 500 مللي أمبير (2.5 واط كحد أقصى)",
+          "output_power": "4.2 فولت تيار مستمر / 30 مللي أمبير (طاقة الإخراج: 0.126 واط)",
+          "charging_speed": "30-35 دقيقة شحن كامل سريع بنسبة 100%"
+        },
+        "title": "شاحن خلية العملة المعدنية VSZAPOWER، يدعم LIR2016، LIR1220، LIR1632، LIR2032، LIR2025، ML2032، شحن كامل سريع لمدة 30 دقيقة، سهل الحمل، إعادة شحن الجهد المنخفض، مصنع مملوك ذاتيًا",
+        "tagline": "شحن واحد/شحن سريع/سهل الحمل/مصدر طاقة USB",
+        "category": "شواحن الخلايا المعدنية",
+        "description": "VSZAPOWER شاحن خلوي للعملة المعدنية بفتحة واحدة، يدعم LIR2016، LIR1220، LIR1632، LIR2032، LIR2025، ML2032، شحن كامل سريع لمدة 30 دقيقة، سهل الحمل، شاحن منخفض الجهد، مصنع مملوك ذاتيًا، اتصال عبر البريد الإلكتروني في أي وقت، جميع أنواع المؤهلات كاملة، علامة تجارية حصرية على الشبكة بأكملها، علامة تجارية OEM متاحة، مرخصة للبيع على Amazon، TIKTOK. مرحبا بكم في الاستفسار عن منصات التجارة الإلكترونية المختلفة."
+      },
+      "de": {
+        "badge": "Neu eingetroffen",
+        "specs": {
+          "safety": "MCU-Mikrostromschutz / 4,2 V automatische Abschaltung / Kurzschluss / Verpolung",
+          "voltage": "Eingang 5V 500mA (2,5W) | Ausgang 4,2 V 30 mA (0,126 W automatische Abschaltung)",
+          "warranty": "2 Jahre direkte Werksgarantie",
+          "packaging": "Umweltfreundliches Kraftpapier-Kartenpaket",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5 V DC / 500 mA (maximal 2,5 W)",
+          "output_power": "4,2 V DC / 30 mA (Ausgangsleistung: 0,126 W)",
+          "charging_speed": "30–35 Minuten schnell, 100 % volle Ladung"
+        },
+        "title": "VSZAPOWER Einzellade-Knopfzellen-Ladegerät, unterstützt LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, schnelle 30-minütige Vollladung, leicht zu transportieren, Niederspannungsaufladung, eigene Fabrik",
+        "tagline": "Einzelladung/Schnellladung/einfach zu transportieren/USB-Stromversorgung",
+        "category": "Knopfzellen-Ladegeräte",
+        "description": "VSZAPOWER-Knopfzellen-Ladegerät mit einem Steckplatz, unterstützt LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, schnelles vollständiges Aufladen in 30 Minuten, leicht zu transportieren, Niederspannungsladegerät, eigene Fabrik, E-Mail-Kontakt jederzeit, alle Arten von Qualifikationen sind vollständig, exklusive Marke im gesamten Netzwerk, OEM-Marke verfügbar, autorisiert zum Verkauf auf Amazon, TIKTOK. Gerne können Sie sich über verschiedene E-Commerce-Plattformen erkundigen."
+      },
+      "en": {
+        "badge": "NEW ARRIVAL",
+        "specs": {
+          "safety": "MCU Micro-current Protection / 4.2V Auto-Cutoff / Short Circuit / Reverse Polarity",
+          "voltage": "Input 5V 500mA (2.5W) | Output 4.2V 30mA (0.126W Auto-Cutoff)",
+          "warranty": "2 Years Direct Factory Guarantee",
+          "packaging": "Eco-Friendly Kraft Papercard Pack",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V DC / 500mA (2.5W Max)",
+          "output_power": "4.2V DC / 30mA (Output Power: 0.126W)",
+          "charging_speed": "30-35 Mins Fast 100% Full Charge"
+        },
+        "title": "VSZAPOWER Single Charge Coin Cell Charger, supports LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, fast 30 minute full charge, easy to carry, low voltage Recharge, self owned factory",
+        "tagline": "Single charging/fast charging/easy to carry/USB power supply",
+        "category": "Coin Cell Chargers",
+        "description": "VSZAPOWER single-slot Coin Cell Charger, supports LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, fast 30 minute full charge, easy to carry, low voltage charger, self owned factory, email contact at any time, all kinds of qualifications are complete, exclusive brand on the whole network, OEM brand available, authorized to sell on Amazon, TIKTOK. Welcome to inquire about various e-commerce platforms."
+      },
+      "es": {
+        "badge": "NUEVA LLEGADA",
+        "specs": {
+          "safety": "Protección de microcorriente MCU / Corte automático de 4,2 V / Cortocircuito / Polaridad inversa",
+          "voltage": "Entrada 5V 500mA (2,5W) | Salida 4,2 V 30 mA (corte automático de 0,126 W)",
+          "warranty": "2 años de garantía directa de fábrica",
+          "packaging": "Paquete de tarjetas de papel Kraft ecológico",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5 V CC/500 mA (2,5 W máx.)",
+          "output_power": "4,2 V CC/30 mA (potencia de salida: 0,126 W)",
+          "charging_speed": "30-35 minutos rápido 100% carga completa"
+        },
+        "title": "Cargador de pila de botón de carga única VSZAPOWER, compatible con LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, carga completa rápida de 30 minutos, fácil de transportar, recarga de bajo voltaje, fábrica propia",
+        "tagline": "Carga única/carga rápida/fácil de transportar/fuente de alimentación USB",
+        "category": "Cargadores de pilas de botón",
+        "description": "Cargador de pila de moneda de ranura única VSZAPOWER, compatible con LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, carga completa rápida de 30 minutos, fácil de transportar, cargador de bajo voltaje, fábrica propia, contacto por correo electrónico en cualquier momento, todo tipo de calificaciones están completas, marca exclusiva en toda la red, marca OEM disponible, autorizado para vender en Amazon, TIKTOK. Bienvenido a consultar sobre varias plataformas de comercio electrónico."
+      },
+      "fr": {
+        "badge": "NOUVEAUTÉ",
+        "specs": {
+          "safety": "Protection contre les micro-courants MCU / Coupure automatique 4,2 V / Court-circuit / Polarité inversée",
+          "voltage": "Entrée 5 V 500 mA (2,5 W) | Sortie 4,2 V 30 mA (coupure automatique 0,126 W)",
+          "warranty": "2 ans de garantie directe d'usine",
+          "packaging": "Pack de cartes en papier kraft écologique",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5 V CC / 500 mA (2,5 W maximum)",
+          "output_power": "4,2 V CC / 30 mA (Puissance de sortie : 0,126 W)",
+          "charging_speed": "30-35 minutes de charge rapide à 100 %"
+        },
+        "title": "VSZAPOWER Chargeur de pile bouton à charge unique, prend en charge LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, charge complète rapide de 30 minutes, facile à transporter, recharge basse tension, usine indépendante",
+        "tagline": "Chargement unique/chargement rapide/facile à transporter/alimentation USB",
+        "category": "Chargeurs de piles boutons",
+        "description": "Chargeur de pile bouton VSZAPOWER à emplacement unique, prend en charge LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, charge complète rapide de 30 minutes, facile à transporter, chargeur basse tension, usine indépendante, contact par e-mail à tout moment, toutes sortes de qualifications sont complètes, marque exclusive sur l'ensemble du réseau, marque OEM disponible, autorisée à vendre sur Amazon, TIKTOK. Bienvenue pour vous renseigner sur diverses plateformes de commerce électronique."
+      },
+      "he": {
+        "badge": "הגעה חדשה",
+        "specs": {
+          "safety": "הגנת מיקרו-זרם MCU / חיתוך אוטומטי של 4.2V / קצר חשמלי / קוטביות הפוכה",
+          "voltage": "קלט 5V 500mA (2.5W) | פלט 4.2V 30mA (0.126W חיתוך אוטומטי)",
+          "warranty": "אחריות ישירה מהמפעל למשך 2 שנים",
+          "packaging": "חבילת קרפט נייר קארד ידידותית לסביבה",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V DC / 500mA (2.5W מקסימום)",
+          "output_power": "4.2V DC / 30mA (הספק פלט: 0.126W)",
+          "charging_speed": "30-35 דקות מהיר 100% טעינה מלאה"
+        },
+        "title": "VSZAPOWER מטען מטבעות חד פעמי, תומך LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, טעינה מלאה מהירה של 30 דקות, קל לנשיאה, טעינה במתח נמוך, מפעל בבעלות עצמית",
+        "tagline": "טעינה בודדת/טעינה מהירה/קל לנשיאה/ספק כוח USB",
+        "category": "מטענים לתא מטבעות",
+        "description": "VSZAPOWER מטען מטבעות יחיד עם חריץ יחיד, תומך ב-LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, טעינה מלאה מהירה של 30 דקות, קל לנשיאה, מטען מתח נמוך, מפעל בבעלות עצמית, יצירת קשר בדוא\"ל בכל עת, כל סוגי המותגים הבלעדיים של אמזון זמינים, מותגים שלמים, מכירת OEM, מותגים מלאים, מכירה, מותגים, מותגים, OEM TIKTOK. ברוכים הבאים לברר לגבי פלטפורמות מסחר אלקטרוני שונות."
+      },
+      "ja": {
+        "badge": "新着情報",
+        "specs": {
+          "safety": "MCU微小電流保護 / 4.2Vオートカットオフ / 短絡 / 逆極性",
+          "voltage": "入力 5V 500mA (2.5W) |出力 4.2V 30mA (0.126W オートカットオフ)",
+          "warranty": "2年間の工場直接保証",
+          "packaging": "環境に優しいクラフト紙カードパック",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V DC / 500mA (最大2.5W)",
+          "output_power": "DC4.2V / 30mA（出力電力：0.126W）",
+          "charging_speed": "30～35 分で高速 100% フル充電"
+        },
+        "title": "VSZAPOWER シングル充電コイン型充電器、LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032 をサポート、高速 30 分間フル充電、持ち運びが簡単、低電圧再充電、自社工場",
+        "tagline": "単セル充電／急速充電／持ち運びが簡単／USB電源",
+        "category": "コイン型電池充電器",
+        "description": "VSZAPOWER シングルスロットコイン電池充電器、LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032をサポート、高速30分のフル充電、持ち運びが簡単、低電圧充電器、自社工場、いつでもメールで連絡可能、あらゆる種類の資格が完備、ネットワーク全体の独占ブランド、OEMブランドが利用可能、Amazon、TIKTOKでの販売が許可されています。各種ECプラットフォームに関するお問い合わせをお待ちしております。"
+      },
+      "ko": {
+        "badge": "새로운 도착",
+        "specs": {
+          "safety": "MCU 미세전류 보호 / 4.2V 자동 차단 / 단락 / 역극성",
+          "voltage": "입력 5V 500mA(2.5W) | 출력 4.2V 30mA (0.126W 자동 차단)",
+          "warranty": "2년 직접 공장 보증",
+          "packaging": "친환경 크래프트 종이카드 팩",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V DC / 500mA(최대 2.5W)",
+          "output_power": "4.2V DC / 30mA (출력 전력: 0.126W)",
+          "charging_speed": "30~35분 빠른 100% 완전 충전"
+        },
+        "title": "VSZAPOWER 단일 충전 코인 셀 충전기, LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032 지원, 빠른 30분 완전 충전, 휴대 용이, 저전압 충전, 자체 소유 공장",
+        "tagline": "단일 충전/고속 충전/휴대 용이/USB 전원 공급 장치",
+        "category": "코인셀 충전기",
+        "description": "VSZAPOWER 단일 슬롯 코인 셀 충전기, LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032 지원, 빠른 30분 완전 충전, 휴대 용이, 저전압 충전기, 자체 공장, 언제든지 이메일 연락, 모든 종류의 자격 충족, 전체 네트워크의 독점 브랜드, OEM 브랜드 사용 가능, Amazon, TIKTOK 판매 승인. 다양한 전자상거래 플랫폼에 대한 문의를 환영합니다."
+      },
+      "pt": {
+        "badge": "NOVA CHEGADA",
+        "specs": {
+          "safety": "Proteção de microcorrente MCU / Corte automático de 4,2 V / Curto-circuito / Polaridade reversa",
+          "voltage": "Entrada 5V 500mA (2,5W) | Saída 4,2 V 30 mA (corte automático de 0,126 W)",
+          "warranty": "2 anos de garantia direta de fábrica",
+          "packaging": "Pacote de cartão de papel Kraft ecológico",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V CC / 500mA (2,5W máx.)",
+          "output_power": "4,2 V CC / 30 mA (potência de saída: 0,126 W)",
+          "charging_speed": "30-35 minutos de carga rápida 100% completa"
+        },
+        "title": "Carregador de célula tipo moeda de carga única VSZAPOWER, suporta LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, carga completa rápida de 30 minutos, fácil de transportar, recarga de baixa tensão, fábrica própria",
+        "tagline": "Carregamento único/carregamento rápido/fácil de transportar/fonte de alimentação USB",
+        "category": "Carregadores de célula tipo moeda",
+        "description": "Carregador de célula tipo moeda de slot único VSZAPOWER, suporta LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, carga completa rápida de 30 minutos, fácil de transportar, carregador de baixa tensão, fábrica própria, contato por e-mail a qualquer momento, todos os tipos de qualificações estão completos, marca exclusiva em toda a rede, marca OEM disponível, autorizada para venda na Amazon, TIKTOK. Bem-vindo para perguntar sobre várias plataformas de comércio eletrônico."
+      },
+      "ru": {
+        "badge": "НОВОЕ ПРИБЫТИЕ",
+        "specs": {
+          "safety": "Микротоковая защита MCU / автоматическое отключение 4,2 В / короткое замыкание / обратная полярность",
+          "voltage": "Вход 5 В, 500 мА (2,5 Вт) | Выход 4,2 В, 30 мА (автоматическое отключение 0,126 Вт)",
+          "warranty": "2 года прямой заводской гарантии",
+          "packaging": "Экологичная упаковка из крафт-бумаги",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5 В постоянного тока / 500 мА (макс. 2,5 Вт)",
+          "output_power": "4,2 В постоянного тока / 30 мА (выходная мощность: 0,126 Вт)",
+          "charging_speed": "30-35 минут быстрая полная зарядка на 100%"
+        },
+        "title": "Однозарядное зарядное устройство для монетных батарей VSZAPOWER, поддерживает LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, быстрая полная зарядка за 30 минут, легко носить с собой, перезарядка при низком напряжении, собственный завод",
+        "tagline": "Одиночная зарядка/быстрая зарядка/удобство переноски/источник питания USB",
+        "category": "Зарядные устройства для монетоприемников",
+        "description": "Зарядное устройство для монетных батарей VSZAPOWER с одним гнездом, поддерживает LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, быстрая полная зарядка за 30 минут, легко носить с собой, низковольтное зарядное устройство, собственная фабрика, контакт по электронной почте в любое время, все виды квалификации завершены, эксклюзивный бренд во всей сети, доступен OEM-бренд, разрешено продавать на Amazon, TIKTOK. Добро пожаловать, чтобы узнать о различных платформах электронной коммерции."
+      },
+      "vi": {
+        "badge": "HÀNG MỚI VỀ",
+        "specs": {
+          "safety": "MCU Bảo vệ dòng điện siêu nhỏ / Tự động cắt 4.2V / Đoản mạch / Phân cực ngược",
+          "voltage": "Đầu vào 5V 500mA (2.5W) | Đầu ra 4.2V 30mA (Tự động cắt 0.126W)",
+          "warranty": "Bảo hành trực tiếp tại nhà máy 2 năm",
+          "packaging": "Gói giấy kraft thân thiện với môi trường",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V DC / 500mA (Tối đa 2,5W)",
+          "output_power": "4.2V DC / 30mA (Công suất đầu ra: 0,126W)",
+          "charging_speed": "30-35 phút sạc đầy nhanh 100%"
+        },
+        "title": "Bộ sạc di động dùng tiền xu một lần VSZAPOWER, hỗ trợ LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, sạc đầy nhanh 30 phút, dễ dàng mang theo, Sạc điện áp thấp, nhà máy tự sở hữu",
+        "tagline": "Sạc một lần/sạc nhanh/dễ mang theo/cấp nguồn USB",
+        "category": "Bộ sạc di động bằng đồng xu",
+        "description": "Bộ sạc Coin Cell một khe VSZAPOWER, hỗ trợ LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, sạc đầy nhanh 30 phút, dễ dàng mang theo, sạc điện áp thấp, nhà máy tự sở hữu, liên hệ qua email bất cứ lúc nào, đủ loại bằng cấp, thương hiệu độc quyền trên toàn mạng, có sẵn thương hiệu OEM, được ủy quyền bán hàng trên Amazon, TIKTOK. Chào mừng bạn đến hỏi về các nền tảng thương mại điện tử khác nhau."
+      },
+      "zh-CN": {
+        "badge": "新品上市",
+        "specs": {
+          "safety": "MCU微电流保护/4.2V自动切断/短路/反接",
+          "voltage": "输入5V 500mA（2.5W）|输出4.2V 30mA（0.126W自动切断）",
+          "warranty": "原厂直保 2 年",
+          "packaging": "环保牛皮纸卡包装",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V 直流/500mA（最大 2.5W）",
+          "output_power": "4.2V DC / 30mA（输出功率：0.126W）",
+          "charging_speed": "30-35 分钟快速 100% 充满电"
+        },
+        "title": "VSZAPOWER单充纽扣电池充电器，支持LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032，快速30分钟充满，方便携带，低压充电，自有工厂",
+        "tagline": "单充/快充/方便携带/USB供电",
+        "category": "纽扣电池充电器",
+        "description": "VSZAPOWER单槽纽扣电池充电器，支持LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032，快速30分钟充满，携带方便，低压充电器，自有工厂，随时邮件联系，各种资质齐全，全网独家品牌，OEM品牌可用，亚马逊、TIKTOK授权销售。欢迎来电咨询各电商平台。"
+      },
+      "zh-HK": {
+        "badge": "新品上市",
+        "specs": {
+          "safety": "MCU微電流保護/4.2V自動切斷/短路/反接",
+          "voltage": "輸入5V 500mA（2.5W）|輸出4.2V 30mA（0.126W自動切斷）",
+          "warranty": "2 年工廠直接保證",
+          "packaging": "環保牛皮紙卡包",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V 直流/500mA（最大 2.5W）",
+          "output_power": "4.2V DC / 30mA（輸出功率：0.126W）",
+          "charging_speed": "30-35 分鐘快速 100% 充滿電"
+        },
+        "title": "VSZAPOWER單充鈕扣電池充電器，支援LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032，快速30分鐘充滿，方便攜帶，低壓充電，自有工廠",
+        "tagline": "單充/快充/方便攜帶/USB供電",
+        "category": "鈕扣電池充電器",
+        "description": "VSZAPOWER單槽鈕扣電池充電器，支援LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032，快速30分鐘充滿，攜帶方便，低壓充電器，自有工廠，隨時郵件聯繫，各種資格齊全，全網資質齊全，全網獨家品牌，OEMKT品牌可用，國際授權品牌授權歡迎來電諮詢各電商平台。"
+      },
+      "zh-TW": {
+        "badge": "新品上市",
+        "specs": {
+          "safety": "MCU微電流保護/4.2V自動切斷/短路/反接",
+          "voltage": "輸入5V 500mA（2.5W）|輸出4.2V 30mA（0.126W自動切斷）",
+          "warranty": "2 年工廠直接保證",
+          "packaging": "環保牛皮紙卡包",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V 直流/500mA（最大 2.5W）",
+          "output_power": "4.2V DC / 30mA（輸出功率：0.126W）",
+          "charging_speed": "30-35 分鐘快速 100% 充滿電"
+        },
+        "title": "VSZAPOWER單充鈕扣電池充電器，支援LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032，快速30分鐘充滿，方便攜帶，低壓充電，自有工廠",
+        "tagline": "單充/快充/方便攜帶/USB供電",
+        "category": "鈕扣電池充電器",
+        "description": "VSZAPOWER單槽鈕扣電池充電器，支援LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032，快速30分鐘充滿，攜帶方便，低壓充電器，自有工廠，隨時郵件聯繫，各種資格齊全，全網資質齊全，全網獨家品牌，OEMKT品牌可用，國際授權品牌授權歡迎來電諮詢各電商平台。"
+      }
+    }
+  },
+  {
+    "id": "prod_1785382945991",
+    "translations": {
+      "ar": {
+        "badge": "وصول جديد",
+        "specs": {
+          "safety": "حماية التيار الصغير MCU / قطع تلقائي 4.2 فولت / ماس كهربائى / قطبية عكسية",
+          "voltage": "الإدخال 5 فولت 500 مللي أمبير (2.5 وات) | الإخراج 4.2 فولت 30 مللي أمبير × 2 (0.252 وات إجمالي القطع التلقائي)",
+          "warranty": "ضمان مباشر من المصنع لمدة 2 سنوات",
+          "packaging": "حزمة بطاقات ورق كرافت صديقة للبيئة",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5 فولت تيار مستمر / 500 مللي أمبير (2.5 واط كحد أقصى)",
+          "output_power": "4.2 فولت تيار مستمر / 30 مللي أمبير × 2 قناة (إجمالي طاقة الخرج: 0.252 وات)",
+          "charging_speed": "30-35 دقيقة شحن كامل سريع بنسبة 100%"
+        },
+        "title": "يدعم مشبك الشحن المزدوج VSZAPOWER الجديد على شاحن الخلية المعدنية LIR2016، LIR1220، LIR1632، LIR2032، LIR2025، ML2032، LIR2450، شحن سريع لمدة 30 دقيقة، سهل الحمل، جهاز شحن منخفض الجهد، مصنع مملوك ذاتيًا، اتصال عبر البريد الإلكتروني في أي وقت، جميع أنواع المؤهلات كاملة، علامة تجارية حصرية عبر الشبكة",
+        "tagline": "نوع مشبك شحن جديد/مزدوج/متوافق مع نماذج متعددة/مؤهل بالكامل",
+        "category": "شواحن الخلايا المعدنية",
+        "description": "【 حصريًا للشبكة بأكملها 】 مشبك شحن مزدوج VSZAPOWER على زر شاحن البطارية | شحن سريع لمدة 30 دقيقة · تمكين الكتب الأكثر مبيعًا في مجال التجارة الإلكترونية عبر الحدود\nيسلط الضوء على المنتج الأساسي\nتصميم حصري حاصل على براءة اختراع عبر الشبكة بأكملها: يختلف عن الأسواق المتجانسة، مما يخلق حواجز تنافسية متباينة لمساعدتك على تجنب حروب الأسعار بسهولة.\nهيكل مشبك الشحن المزدوج: تصميم مشبك مبتكر، يدعم الشحن المتزامن لبطاريتين، تثبيت ثابت، اتصال جيد، صغير الحجم، خفيف الوزن وسهل الحمل.\n• توافق متعدد الاستخدامات، متعدد الاستخدامات: يتوافق تمامًا مع العديد من بطاريات الأزرار السائدة القابلة لإعادة الشحن، بما في ذلك:\nسلسلة LIR: LIR2016/LIR1220/LIR1632/LIR2032/LIR2025/LIR2450\nسلسلة مل: ML2032\nشحن كامل عالي السرعة لمدة 30 دقيقة: مزود بشريحة شحن سريعة ذكية، مما يقلل بشكل كبير من وقت الانتظار، فعال وصديق للبيئة.\nشحن ذكي/إيقاظ ذكي منخفض الجهد: مزود بتنشيط الجهد المنخفض ووظائف حماية السلامة المتعددة، مما يطيل عمر البطارية ويضمن السلامة وعدم القلق.\nمصدر قوة المصنع · الشريك المفضل للتجارة الإلكترونية التي تصبح عالمية\nلدينا مصنعنا المادي الخاص، الذي يدمج البحث والتطوير مع الإنتاج، مما يضمن جودة يمكن التحكم فيها طوال العملية بأكملها، وسلسلة توريد مستقرة وموثوقة.\nمؤهلات كاملة وتخليص جمركي خالي من القلق: تتوفر مؤهلات وشهادات رسمية متنوعة من مصادر محلية ودولية لتلبية متطلبات الامتثال للأسواق الرئيسية في جميع أنحاء العالم.\n• دعم ترخيص منصة التجارة الإلكترونية العالمية: يمكنه تمكين Amazon TikTok Shop وeBay وShopee وLazada والبائعين بشكل عميق على منصات التجارة الإلكترونية الرئيسية مثل AliExpress.\nوضع التعاون المرن:\nالعلامة التجارية للعلامة التجارية OEM/ODM: نحن نقدم خدمات متكاملة مثل التغليف المخصص وطباعة الشعار لمساعدتك في بناء علامتك التجارية الخاصة.\nترخيص البيع بالجملة/العلامة التجارية الفوري: تحقيق استقرار المخزون الفوري ودعم التوزيع وترخيص النظام الأساسي وإدراج المنتجات بسرعة وبيعها بشكل جيد."
+      },
+      "de": {
+        "badge": "Neu eingetroffen",
+        "specs": {
+          "safety": "MCU-Mikrostromschutz / 4,2 V automatische Abschaltung / Kurzschluss / Verpolung",
+          "voltage": "Eingang 5V 500mA (2,5W) | Ausgang 4,2 V 30 mA x 2 (0,252 W insgesamt automatische Abschaltung)",
+          "warranty": "2 Jahre direkte Werksgarantie",
+          "packaging": "Umweltfreundliches Kraftpapier-Kartenpaket",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5 V DC / 500 mA (maximal 2,5 W)",
+          "output_power": "4,2 V DC / 30 mA x 2 Kanäle (Gesamtausgangsleistung: 0,252 W)",
+          "charging_speed": "30–35 Minuten schnell, 100 % volle Ladung"
+        },
+        "title": "Das neue VSZAPOWER Dual-Charging-Clip-on-Knopfzellen-Ladegerät unterstützt LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, schnelles 30-Minuten-Laden, leicht zu transportieren, Niederspannungs-Ladegerät, eigene Fabrik, jederzeit E-Mail-Kontakt, alle Arten von Qualifikationen sind vollständig, exklusive Marke im gesamten Netzwerk",
+        "tagline": "Neu/Typ mit zwei Ladeklemmen/Kompatibel mit mehreren Modellen/Voll qualifiziert",
+        "category": "Knopfzellen-Ladegeräte",
+        "description": "【 Exklusiv für das gesamte Netzwerk 】 VSZAPOWER Dual-Lade-Clip-on-Knopf-Batterieladegerät | 30-minütiges Schnellladen · Ermöglicht grenzüberschreitende E-Commerce-Bestseller\nProduktkern-Highlights\nExklusives, patentiertes Design im gesamten Netzwerk: Anders als homogene Märkte, wodurch differenzierte Wettbewerbsbarrieren entstehen, die Ihnen helfen, Preiskämpfe einfach zu vermeiden.\nDoppelte Ladeclip-Struktur: Innovatives Clip-Design, unterstützt das gleichzeitige Laden von zwei Akkus, stabile Klemmung, guter Kontakt, kompakt, leicht und einfach zu transportieren.\n• Vielseitige Kompatibilität, vielseitig: perfekt abgestimmt auf mehrere gängige wiederaufladbare Knopfbatterien, darunter:\nLIR-Serie: LIR2016/LIR1220/LIR1632/LIR2032/LIR2025/LIR2450\nML-Serie: ML2032\n30-minütige Hochgeschwindigkeits-Vollladung: Ausgestattet mit einem intelligenten Schnellladechip, der die Wartezeit erheblich verkürzt, effizient und umweltfreundlich ist.\nIntelligentes Niederspannungs-Aufwachen/sicheres Laden: Ausgestattet mit Niederspannungsaktivierung und mehreren Sicherheitsschutzfunktionen, die die Batterielebensdauer verlängern und Sicherheit und Sorgenfreiheit gewährleisten.\nSource Factory Strength · Bevorzugter Partner für die globale Ausrichtung des E-Commerce\nWir verfügen über eine eigene physische Fabrik, die Forschung und Entwicklung in die Produktion integriert und so eine kontrollierbare Qualität während des gesamten Prozesses sowie eine stabile und zuverlässige Lieferkette gewährleistet\nUmfassende Qualifikationen und sorgenfreie Zollabfertigung: Verschiedene maßgebliche Qualifikationen und Zertifizierungen aus dem In- und Ausland stehen zur Verfügung, um die Compliance-Anforderungen wichtiger Märkte weltweit zu erfüllen.\n• Unterstützung globaler E-Commerce-Plattform-Autorisierung: Kann Amazon TikTok Shop, eBay, Shopee, Lazada und Verkäufer auf großen E-Commerce-Plattformen wie AliExpress erheblich stärken.\nFlexibler Kooperationsmodus:\nOEM/ODM-Markenbranding: Wir bieten Dienstleistungen aus einer Hand wie individuelle Verpackungen und Logodruck, um Sie beim Aufbau Ihrer eigenen Marke zu unterstützen.\nSpot-Großhandel/Markenautorisierung: Spot-Bestand stabilisieren, Vertrieb und Plattformautorisierung unterstützen, schnell auflisten und gut verkaufen."
+      },
+      "en": {
+        "badge": "NEW ARRIVAL",
+        "specs": {
+          "safety": "MCU Micro-current Protection / 4.2V Auto-Cutoff / Short Circuit / Reverse Polarity",
+          "voltage": "Input 5V 500mA (2.5W) | Output 4.2V 30mA x 2 (0.252W Total Auto-Cutoff)",
+          "warranty": "2 Years Direct Factory Guarantee",
+          "packaging": "Eco-Friendly Kraft Papercard Pack",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V DC / 500mA (2.5W Max)",
+          "output_power": "4.2V DC / 30mA x 2 Channel (Total Output Power: 0.252W)",
+          "charging_speed": "30-35 Mins Fast 100% Full Charge"
+        },
+        "title": "The new VSZAPOWER dual charging clip on Coin Cell Charger supports LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, fast 30 minute charging, easy to carry, low-voltage Recharge device, self owned factory, email contact at any time, all types of qualifications are complete, exclusive brand across the network",
+        "tagline": "New/Dual charging clip type/Compatible with multiple models/Fully qualified",
+        "category": "Coin Cell Chargers",
+        "description": "【 Exclusive to the whole network 】 VSZAPOWER dual charging clip on button battery charger | 30 minute fast charging · Empowering cross-border e-commerce bestsellers\nProduct Core Highlights\nExclusive patented design across the entire network: Different from homogeneous markets, creating differentiated competitive barriers to help you easily avoid price wars.\nDual charging clip structure: Innovative clip design, supporting simultaneous charging of two batteries, stable clamping, good contact, compact, lightweight and easy to carry.\n• Versatile compatibility, versatile: perfectly matched with multiple mainstream rechargeable button batteries, including:\nLIR series: LIR2016/LIR1220/LIR1632/LIR2032/LIR2025/LIR2450\nML series: ML2032\n30 minute high-speed full charge: equipped with intelligent fast charging chip, greatly reducing waiting time, efficient and environmentally friendly.\nLow voltage intelligent wake-up/safe charging: equipped with low voltage activation and multiple safety protection functions, extending battery life and ensuring safety and worry free.\nSource Factory Strength · Preferred Partner for E-commerce Going Global\nWe have our own physical factory, integrating research and development with production, ensuring controllable quality throughout the entire process, and a stable and reliable supply chain\nComplete qualifications and worry free customs clearance: Various authoritative qualifications and certifications from both domestic and international sources are readily available to meet the compliance requirements of major markets worldwide.\n• Support global e-commerce platform authorization: can deeply empower Amazon TikTok Shop、eBay、Shopee、Lazada、 Sellers on major e-commerce platforms such as AliExpress.\nFlexible cooperation mode:\nOEM/ODM brand branding: We provide one-stop services such as customized packaging and logo printing to help you build your own brand.\nSpot wholesale/brand authorization: Stabilize spot inventory, support distribution and platform authorization, quickly list and sell well."
+      },
+      "es": {
+        "badge": "NUEVA LLEGADA",
+        "specs": {
+          "safety": "Protección de microcorriente MCU / Corte automático de 4,2 V / Cortocircuito / Polaridad inversa",
+          "voltage": "Entrada 5V 500mA (2,5W) | Salida 4,2 V 30 mA x 2 (corte automático total de 0,252 W)",
+          "warranty": "2 años de garantía directa de fábrica",
+          "packaging": "Paquete de tarjetas de papel Kraft ecológico",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5 V CC/500 mA (2,5 W máx.)",
+          "output_power": "4,2 V CC/30 mA x 2 canales (potencia de salida total: 0,252 W)",
+          "charging_speed": "30-35 minutos rápido 100% carga completa"
+        },
+        "title": "El nuevo clip de carga dual VSZAPOWER en el cargador de celda de moneda admite LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, carga rápida de 30 minutos, fácil de transportar, dispositivo de recarga de bajo voltaje, fábrica propia, contacto por correo electrónico en cualquier momento, todo tipo de calificaciones están completas, marca exclusiva en toda la red.",
+        "tagline": "Nuevo/Tipo de clip de carga dual/Compatible con múltiples modelos/Totalmente calificado",
+        "category": "Cargadores de pilas de botón",
+        "description": "【 Exclusivo para toda la red 】 Cargador de batería con botón de carga dual VSZAPOWER | Carga rápida en 30 minutos · Potenciar los productos más vendidos del comercio electrónico transfronterizo\nAspectos destacados del producto\nDiseño exclusivo patentado en toda la red: Diferente a mercados homogéneos, creando barreras competitivas diferenciadas para ayudarle a evitar fácilmente guerras de precios.\nEstructura de clip de carga dual: diseño de clip innovador, que admite la carga simultánea de dos baterías, sujeción estable, buen contacto, compacto, liviano y fácil de transportar.\n• Compatibilidad versátil, versátil: combina perfectamente con múltiples pilas de botón recargables convencionales, que incluyen:\nSerie LIR: LIR2016/LIR1220/LIR1632/LIR2032/LIR2025/LIR2450\nSerie ML: ML2032\nCarga completa de alta velocidad de 30 minutos: equipado con un chip de carga rápida inteligente, que reduce en gran medida el tiempo de espera, es eficiente y respetuoso con el medio ambiente.\nDespertador inteligente/carga segura de bajo voltaje: equipado con activación de bajo voltaje y múltiples funciones de protección de seguridad, extendiendo la vida útil de la batería y garantizando seguridad y sin preocupaciones.\nFuerza de Source Factory · Socio preferido para el comercio electrónico que se globaliza\nContamos con nuestra propia fábrica física, integrando la investigación y el desarrollo con la producción, asegurando una calidad controlable durante todo el proceso y una cadena de suministro estable y confiable.\nCalificaciones completas y despacho de aduanas sin preocupaciones: varias calificaciones y certificaciones autorizadas de fuentes nacionales e internacionales están disponibles para cumplir con los requisitos de cumplimiento de los principales mercados del mundo.\n• Admite la autorización de la plataforma de comercio electrónico global: puede empoderar profundamente a Amazon TikTok Shop, eBay, Shopee, Lazada, vendedores en las principales plataformas de comercio electrónico como AliExpress.\nModo de cooperación flexible:\nMarca de marca OEM/ODM: ofrecemos servicios integrales, como embalaje personalizado e impresión de logotipos, para ayudarle a crear su propia marca.\nAutorización de marca/venta al por mayor al contado: estabilice el inventario al contado, respalde la distribución y la autorización de la plataforma, enumere y venda bien rápidamente."
+      },
+      "fr": {
+        "badge": "NOUVEAUTÉ",
+        "specs": {
+          "safety": "Protection contre les micro-courants MCU / Coupure automatique 4,2 V / Court-circuit / Polarité inversée",
+          "voltage": "Entrée 5 V 500 mA (2,5 W) | Sortie 4,2 V 30 mA x 2 (coupure automatique totale de 0,252 W)",
+          "warranty": "2 ans de garantie directe d'usine",
+          "packaging": "Pack de cartes en papier kraft écologique",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5 V CC / 500 mA (2,5 W maximum)",
+          "output_power": "4,2 V CC / 30 mA x 2 canaux (puissance de sortie totale : 0,252 W)",
+          "charging_speed": "30-35 minutes de charge rapide à 100 %"
+        },
+        "title": "Le nouveau clip de charge double VSZAPOWER sur chargeur de pile bouton prend en charge LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, charge rapide de 30 minutes, facile à transporter, dispositif de recharge basse tension, usine indépendante, contact par e-mail à tout moment, tous les types de qualifications sont complets, marque exclusive sur le réseau.",
+        "tagline": "Nouveau/Type de clip de charge double/Compatible avec plusieurs modèles/Entièrement qualifié",
+        "category": "Chargeurs de piles boutons",
+        "description": "【 Exclusif à l'ensemble du réseau 】 VSZAPOWER double chargeur de batterie bouton à clip | Charge rapide en 30 minutes · Donner du pouvoir aux best-sellers du commerce électronique transfrontalier\nPoints forts du produit\nConception brevetée exclusive sur l'ensemble du réseau : différente des marchés homogènes, créant des barrières concurrentielles différenciées pour vous aider à éviter facilement les guerres de prix.\nStructure à double clip de charge : conception de clip innovante, prenant en charge la charge simultanée de deux batteries, serrage stable, bon contact, compact, léger et facile à transporter.\n• Compatibilité polyvalente, polyvalente : parfaitement adaptée à plusieurs piles bouton rechargeables grand public, notamment :\nSérie LIR : LIR2016/LIR1220/LIR1632/LIR2032/LIR2025/LIR2450\nSérie ML : ML2032\nCharge complète à grande vitesse de 30 minutes : équipée d'une puce de charge rapide intelligente, réduisant considérablement le temps d'attente, efficace et respectueuse de l'environnement.\nRéveil intelligent basse tension/charge sûre : équipé d'une activation basse tension et de multiples fonctions de protection de sécurité, prolongeant la durée de vie de la batterie et assurant la sécurité et sans souci.\nLa force de Source Factory · Partenaire privilégié pour la mondialisation du commerce électronique\nNous disposons de notre propre usine physique, intégrant la recherche et le développement à la production, garantissant une qualité contrôlable tout au long du processus et une chaîne d'approvisionnement stable et fiable.\nQualifications complètes et dédouanement sans souci : diverses qualifications et certifications faisant autorité provenant de sources nationales et internationales sont facilement disponibles pour répondre aux exigences de conformité des principaux marchés du monde entier.\n• Prise en charge de l'autorisation de la plateforme de commerce électronique mondiale : peut profondément responsabiliser Amazon TikTok Shop, eBay, Shopee, Lazada et les vendeurs sur les principales plateformes de commerce électronique telles qu'AliExpress.\nMode de coopération flexible :\nImage de marque OEM/ODM : Nous fournissons des services à guichet unique tels que des emballages personnalisés et l’impression de logos pour vous aider à créer votre propre marque.\nAutorisation de vente en gros/de marque : stabilisez l'inventaire ponctuel, prenez en charge la distribution et l'autorisation de plate-forme, répertoriez et vendez rapidement."
+      },
+      "he": {
+        "badge": "הגעה חדשה",
+        "specs": {
+          "safety": "הגנת מיקרו-זרם MCU / חיתוך אוטומטי של 4.2V / קצר חשמלי / קוטביות הפוכה",
+          "voltage": "קלט 5V 500mA (2.5W) | פלט 4.2V 30mA x 2 (0.252W חיתוך אוטומטי כולל)",
+          "warranty": "אחריות ישירה מהמפעל למשך 2 שנים",
+          "packaging": "חבילת קרפט נייר קארד ידידותית לסביבה",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V DC / 500mA (2.5W מקסימום)",
+          "output_power": "4.2V DC / 30mA x 2 ערוצים (הספק פלט כולל: 0.252W)",
+          "charging_speed": "30-35 דקות מהיר 100% טעינה מלאה"
+        },
+        "title": "תפס הטעינה הכפול החדש של VSZAPOWER במטען התא תומך ב-LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, טעינה מהירה של 30 דקות, קל לנשיאה, מכשיר טעינה במתח נמוך, כל סוגי המותגים הבלעדיים בכל עת, יצירת קשר בבעלות עצמית, רשת",
+        "tagline": "חדש/סוג תפס טעינה כפול/תואם למספר דגמים/מוסמך לחלוטין",
+        "category": "מטענים לתא מטבעות",
+        "description": "【בלעדי לכל הרשת】 תפס טעינה כפול VSZAPOWER על מטען סוללה כפתור | טעינה מהירה של 30 דקות · העצמת רבי מכר מסחר אלקטרוני חוצה גבולות\nדגשים ליבת המוצר\nעיצוב פטנט בלעדי ברחבי הרשת כולה: שונה משווקים הומוגניים, יוצר חסמים תחרותיים מובחנים כדי לעזור לך להימנע בקלות ממלחמות מחירים.\nמבנה קליפ טעינה כפול: עיצוב קליפ חדשני, תומך בטעינה בו-זמנית של שתי סוללות, הידוק יציב, מגע טוב, קומפקטי, קל משקל וקל לנשיאה.\n• תאימות רב-תכליתית, תכליתית: בהתאמה מושלמת למספר סוללות כפתורים נטענות מיינסטרים, כולל:\nסדרת LIR: LIR2016/LIR1220/LIR1632/LIR2032/LIR2025/LIR2450\nסדרת ML: ML2032\nטעינה מלאה במהירות גבוהה של 30 דקות: מצויד בשבב טעינה מהיר חכם, מקצר מאוד את זמן ההמתנה, יעיל וידידותי לסביבה.\nהתעוררות חכמה/טעינה בטוחה במתח נמוך: מצויד בהפעלת מתח נמוך ופונקציות הגנה בטיחותיות מרובות, הארכת חיי הסוללה ומבטיחה בטיחות וללא דאגות.\nמקור חוזק מפעל · שותף מועדף למסחר אלקטרוני הולך גלובלי\nיש לנו מפעל פיזי משלנו, המשלב מחקר ופיתוח עם הייצור, מבטיח איכות ניתנת לשליטה לאורך כל התהליך, ושרשרת אספקה יציבה ואמינה\nהשלם כישורים ושחרור ממכס ללא דאגות: כישורים ואישורים סמכותיים שונים ממקורות מקומיים ובינלאומיים זמינים בקלות כדי לעמוד בדרישות התאימות של השווקים הגדולים ברחבי העולם.\n• תמיכה בהרשאת פלטפורמת מסחר אלקטרוני גלובלית: יכולה להעצים באופן עמוק את Amazon TikTok Shop、eBay、Shopee、Lazada、 מוכרים בפלטפורמות מסחר אלקטרוני גדולות כגון AliExpress.\nמצב שיתוף פעולה גמיש:\nמיתוג מותג OEM/ODM: אנו מספקים שירותים חד-פעמיים כגון אריזה מותאמת אישית והדפסת לוגו כדי לעזור לך לבנות מותג משלך.\nאישור סיטונאי/מותג נקודתי: ייצוב מלאי נקודתי, תמכו בהפצה והרשאות פלטפורמה, רשמו ומכרו במהירות."
+      },
+      "ja": {
+        "badge": "新着情報",
+        "specs": {
+          "safety": "MCU微小電流保護 / 4.2Vオートカットオフ / 短絡 / 逆極性",
+          "voltage": "入力 5V 500mA (2.5W) |出力 4.2V 30mA x 2 (合計 0.252W オートカットオフ)",
+          "warranty": "2年間の工場直接保証",
+          "packaging": "環境に優しいクラフト紙カードパック",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V DC / 500mA (最大2.5W)",
+          "output_power": "DC4.2V / 30mA×2チャンネル（合計出力電力：0.252W）",
+          "charging_speed": "30～35 分で高速 100% フル充電"
+        },
+        "title": "コイン型充電器の新しい VSZAPOWER デュアル充電クリップは、LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032、LIR2450 をサポート、30 分の高速充電、持ち運びが簡単、低電圧充電デバイス、自社工場、いつでもメールで連絡可能、あらゆる種類の資格が完備、ネットワーク全体の独占ブランド",
+        "tagline": "新品/デュアル充電クリップタイプ/多機種対応/完全合格品",
+        "category": "コイン型電池充電器",
+        "description": "【ネットワーク全体限定】VSZAPOWER デュアル充電クリップオンボタンバッテリー充電器 | 30 分の急速充電 · 国境を越えた e コマースのベストセラーを強化\n製品コアのハイライト\nネットワーク全体にわたる独自の特許取得済みの設計: 均質な市場とは異なり、差別化された競争障壁を作り出し、価格競争を簡単に回避できます。\nデュアル充電クリップ構造：革新的なクリップ設計、2つのバッテリーの同時充電をサポート、安定したクランプ、良好な接触、コンパクト、軽量、持ち運びが簡単。\n• 幅広い互換性、汎用性: 以下を含む複数の主流の充電式ボタン電池と完全に適合します。\nLIRシリーズ:LIR2016/LIR1220/LIR1632/LIR2032/LIR2025/LIR2450\nMLシリーズ：ML2032\n30分間の高速フル充電：インテリジェントな高速充電チップを搭載しており、待ち時間を大幅に短縮し、効率的で環境に優しいです。\n低電圧インテリジェントウェイクアップ/安全充電：低電圧アクティベーションと複数の安全保護機能を搭載し、バッテリー寿命を延ばし、安全性と安心感を確保します。\nソースファクトリーの強み · グローバル化する電子商取引の優先パートナー\n当社は独自の物理工場を持ち、研究開発と生産を統合し、プロセス全体を通じて管理可能な品質を確保し、安定した信頼できるサプライチェーンを実現しています。\n完全な資格と安心の通関: 世界中の主要市場のコンプライアンス要件を満たすために、国内外のソースからのさまざまな権威ある資格や認定をすぐに利用できます。\n• グローバルな電子商取引プラットフォーム認証のサポート: Amazon TikTok Shop、eBay、Shopee、Lazada、AliExpress などの主要な電子商取引プラットフォームの販売者に強力な権限を与えることができます。\n柔軟な協力モード:\nOEM/ODM ブランドブランディング: カスタマイズされたパッケージングやロゴ印刷などのワンストップサービスを提供し、独自のブランド構築を支援します。\nスポット卸売/ブランド認定: スポット在庫を安定させ、流通とプラットフォーム認定をサポートし、迅速に出品して販売を促進します。"
+      },
+      "ko": {
+        "badge": "새로운 도착",
+        "specs": {
+          "safety": "MCU 미세전류 보호 / 4.2V 자동 차단 / 단락 / 역극성",
+          "voltage": "입력 5V 500mA(2.5W) | 출력 4.2V 30mA x 2 (0.252W 총 자동 차단)",
+          "warranty": "2년 직접 공장 보증",
+          "packaging": "친환경 크래프트 종이카드 팩",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V DC / 500mA(최대 2.5W)",
+          "output_power": "4.2V DC / 30mA x 2채널 (총 출력 전력: 0.252W)",
+          "charging_speed": "30~35분 빠른 100% 완전 충전"
+        },
+        "title": "코인 셀 충전기의 새로운 VSZAPOWER 듀얼 충전 클립은 LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, 빠른 30분 충전, 휴대 용이, 저전압 충전 장치, 자체 소유 공장, 언제든지 이메일 연락, 모든 유형의 자격 충족, 네트워크 전체의 독점 브랜드를 지원합니다.",
+        "tagline": "신규/듀얼 충전 클립 유형/여러 모델과 호환 가능/정규 인증됨",
+        "category": "코인셀 충전기",
+        "description": "【 전체 네트워크 전용 】 버튼 배터리 충전기의 VSZAPOWER 듀얼 충전 클립 | 30분 고속충전 · 크로스보더 전자상거래 베스트셀러 강화\n제품 핵심 하이라이트\n전체 네트워크에 걸친 독점 특허 설계: 동질적인 시장과는 다르며, 가격 전쟁을 쉽게 피할 수 있도록 차별화된 경쟁 장벽을 만듭니다.\n듀얼 충전 클립 구조: 혁신적인 클립 디자인, 두 개의 배터리 동시 충전 지원, 안정적인 클램핑, 양호한 접촉, 소형, 경량 및 휴대 용이.\n• 다양한 호환성, 다양한 기능: 다음을 포함한 다양한 주류 충전식 버튼 배터리와 완벽하게 일치합니다.\nLIR 시리즈: LIR2016/LIR1220/LIR1632/LIR2032/LIR2025/LIR2450\nML 시리즈: ML2032\n30분 고속 완전 충전: 지능형 고속 충전 칩이 장착되어 대기 시간을 크게 줄이고 효율적이며 환경 친화적입니다.\n저전압 지능형 깨우기/안전 충전: 저전압 활성화 및 다중 안전 보호 기능을 갖추고 있어 배터리 수명을 연장하고 안전을 보장하며 걱정할 필요가 없습니다.\n소스팩토리 강점 · 전자상거래 글로벌 진출을 위한 우선 파트너\n우리는 연구 개발과 생산을 통합하고 전체 프로세스에 걸쳐 제어 가능한 품질과 안정적이고 신뢰할 수 있는 공급망을 보장하는 자체 물리적 공장을 보유하고 있습니다.\n완전한 자격 취득 및 걱정 없는 통관: 전 세계 주요 시장의 규정 준수 요구 사항을 충족하기 위해 국내 및 국제 소스의 다양한 권위 있는 자격 및 인증을 쉽게 이용할 수 있습니다.\n• 글로벌 전자상거래 플랫폼 인증 지원: AliExpress와 같은 주요 전자상거래 플랫폼에서 Amazon TikTok Shop, eBay, Shopee, Lazada, 판매자에게 강력한 권한을 부여할 수 있습니다.\n유연한 협력 모드:\nOEM/ODM 브랜드 브랜딩: 맞춤형 포장, 로고 인쇄 등 원스톱 서비스를 제공하여 나만의 브랜드 구축에 도움을 드립니다.\n현물 도매/브랜드 승인: 현물 재고를 안정화하고, 유통 및 플랫폼 승인을 지원하며, 신속하게 등록하고 잘 판매합니다."
+      },
+      "pt": {
+        "badge": "NOVA CHEGADA",
+        "specs": {
+          "safety": "Proteção de microcorrente MCU / Corte automático de 4,2 V / Curto-circuito / Polaridade reversa",
+          "voltage": "Entrada 5V 500mA (2,5W) | Saída 4,2 V 30 mA x 2 (0,252 W de corte automático total)",
+          "warranty": "2 anos de garantia direta de fábrica",
+          "packaging": "Pacote de cartão de papel Kraft ecológico",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V CC / 500mA (2,5W máx.)",
+          "output_power": "4,2 V DC / 30 mA x 2 canais (potência total de saída: 0,252 W)",
+          "charging_speed": "30-35 minutos de carga rápida 100% completa"
+        },
+        "title": "O novo clipe de carregamento duplo VSZAPOWER no carregador de célula tipo moeda suporta LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, carregamento rápido de 30 minutos, fácil de transportar, dispositivo de recarga de baixa tensão, fábrica própria, contato por e-mail a qualquer momento, todos os tipos de qualificações estão completos, marca exclusiva em toda a rede",
+        "tagline": "Novo/tipo clipe de carregamento duplo/compatível com vários modelos/totalmente qualificado",
+        "category": "Carregadores de célula tipo moeda",
+        "description": "【 Exclusivo para toda a rede 】 Carregador de bateria com clipe de carregamento duplo VSZAPOWER | Carregamento rápido de 30 minutos · Capacitando os best-sellers do comércio eletrônico internacional\nDestaques principais do produto\nDesign exclusivo e patenteado em toda a rede: Diferente dos mercados homogêneos, criando barreiras competitivas diferenciadas para ajudá-lo a evitar facilmente guerras de preços.\nEstrutura de clipe de carregamento duplo: Design inovador de clipe, suportando carregamento simultâneo de duas baterias, fixação estável, bom contato, compacto, leve e fácil de transportar.\n• Compatibilidade versátil, versátil: combina perfeitamente com diversas baterias tipo botão recarregáveis convencionais, incluindo:\nSérie LIR: LIR2016/LIR1220/LIR1632/LIR2032/LIR2025/LIR2450\nSérie ML: ML2032\nCarga completa de alta velocidade em 30 minutos: equipado com chip de carregamento rápido inteligente, reduzindo significativamente o tempo de espera, eficiente e ecologicamente correto.\nDespertar inteligente/carregamento seguro de baixa tensão: equipado com ativação de baixa tensão e múltiplas funções de proteção de segurança, prolongando a vida útil da bateria e garantindo segurança e sem preocupações.\nFonte de força da fábrica · Parceiro preferencial para o comércio eletrônico se tornar global\nContamos com fábrica física própria, integrando pesquisa e desenvolvimento com a produção, garantindo qualidade controlável em todo o processo e uma cadeia de suprimentos estável e confiável\nQualificações completas e desembaraço aduaneiro sem preocupações: Várias qualificações e certificações oficiais de fontes nacionais e internacionais estão prontamente disponíveis para atender aos requisitos de conformidade dos principais mercados em todo o mundo.\n• Suporta autorização de plataforma de comércio eletrônico global: pode capacitar profundamente Amazon TikTok Shop, eBay, Shopee, Lazada, vendedores nas principais plataformas de comércio eletrônico, como o AliExpress.\nModo de cooperação flexível:\nMarca OEM/ODM: Oferecemos serviços completos, como embalagens personalizadas e impressão de logotipo para ajudá-lo a construir sua própria marca.\nAutorização de marca/atacado spot: estabilize o estoque spot, dê suporte à distribuição e autorização de plataforma, liste rapidamente e venda bem."
+      },
+      "ru": {
+        "badge": "НОВОЕ ПРИБЫТИЕ",
+        "specs": {
+          "safety": "Микротоковая защита MCU / автоматическое отключение 4,2 В / короткое замыкание / обратная полярность",
+          "voltage": "Вход 5 В, 500 мА (2,5 Вт) | Выход 4,2 В, 30 мА x 2 (общее автоматическое отключение 0,252 Вт)",
+          "warranty": "2 года прямой заводской гарантии",
+          "packaging": "Экологичная упаковка из крафт-бумаги",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5 В постоянного тока / 500 мА (макс. 2,5 Вт)",
+          "output_power": "4,2 В постоянного тока / 30 мА x 2 канала (общая выходная мощность: 0,252 Вт)",
+          "charging_speed": "30-35 минут быстрая полная зарядка на 100%"
+        },
+        "title": "Новый зажим для двойной зарядки VSZAPOWER на зарядном устройстве для монетоприемников поддерживает LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, быструю 30-минутную зарядку, удобство переноски, низковольтное перезаряжающее устройство, собственный завод, контакт по электронной почте в любое время, все виды квалификации завершены, эксклюзивный бренд в сети",
+        "tagline": "Новый/двойной тип зажима для зарядки/Совместимость с несколькими моделями/полностью соответствует требованиям",
+        "category": "Зарядные устройства для монетоприемников",
+        "description": "【 Эксклюзивно для всей сети 】 VSZAPOWER двойное зарядное устройство с зажимом и кнопочным зарядным устройством | 30-минутная быстрая зарядка · Расширение возможностей бестселлеров международной электронной коммерции\nОсновные характеристики продукта\nЭксклюзивный запатентованный дизайн для всей сети. В отличие от однородных рынков, он создает дифференцированные конкурентные барьеры, которые помогут вам легко избежать ценовых войн.\nДвойная конструкция зажима для зарядки: инновационная конструкция зажима, поддерживающая одновременную зарядку двух батарей, стабильное крепление, хороший контакт, компактность, легкий вес и удобство переноски.\n• Универсальная совместимость, универсальность: идеально сочетается с несколькими обычными аккумуляторными батарейками-таблетками, включая:\nСерия LIR: LIR2016/LIR1220/LIR1632/LIR2032/LIR2025/LIR2450\nСерия МЛ: ML2032\n30-минутная высокоскоростная полная зарядка: оснащен интеллектуальным чипом быстрой зарядки, значительно сокращающим время ожидания, эффективным и экологически чистым.\nИнтеллектуальное пробуждение/безопасная зарядка при низком напряжении: оснащен активацией при низком напряжении и множеством функций защиты, продлевает срок службы батареи и обеспечивает безопасность и отсутствие беспокойства.\nИсходная фабрика · Привилегированный партнер для глобальной электронной коммерции\nУ нас есть собственный завод, который объединяет исследования и разработки с производством, обеспечивая контролируемое качество на протяжении всего процесса, а также стабильную и надежную цепочку поставок.\nПолная квалификация и беспроблемное таможенное оформление: различные авторитетные квалификации и сертификаты как внутри страны, так и за рубежом легко доступны для удовлетворения требований соответствия основных рынков по всему миру.\n• Поддержка глобальной авторизации на платформе электронной коммерции: расширяет возможности Amazon TikTok Shop, eBay, Shopee, Lazada, продавцов на основных платформах электронной коммерции, таких как AliExpress.\nГибкий режим сотрудничества:\nБрендинг OEM/ODM: мы предоставляем комплексные услуги, такие как индивидуальная упаковка и печать логотипов, чтобы помочь вам создать свой собственный бренд.\nСпотовая оптовая продажа/авторизация бренда: стабилизируйте спотовые запасы, поддерживайте дистрибуцию и авторизацию платформы, быстро выставляйте на продажу и хорошо продавайте."
+      },
+      "vi": {
+        "badge": "HÀNG MỚI VỀ",
+        "specs": {
+          "safety": "MCU Bảo vệ dòng điện siêu nhỏ / Tự động cắt 4.2V / Đoản mạch / Phân cực ngược",
+          "voltage": "Đầu vào 5V 500mA (2.5W) | Đầu ra 4.2V 30mA x 2 (Tổng tự động cắt 0,252W)",
+          "warranty": "Bảo hành trực tiếp tại nhà máy 2 năm",
+          "packaging": "Gói giấy kraft thân thiện với môi trường",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V DC / 500mA (Tối đa 2,5W)",
+          "output_power": "4.2V DC / 30mA x 2 Channel (Tổng công suất đầu ra: 0,252W)",
+          "charging_speed": "30-35 phút sạc đầy nhanh 100%"
+        },
+        "title": "Kẹp sạc kép VSZAPOWER mới trên Coin Cell Charger hỗ trợ LIR2016, LIR1220, LIR1632, LIR2032, LIR2025, ML2032, LIR2450, sạc nhanh 30 phút, dễ mang theo, thiết bị Sạc điện áp thấp, nhà máy tự sở hữu, liên hệ qua email bất cứ lúc nào, tất cả các loại bằng cấp đều đầy đủ, thương hiệu độc quyền trên mạng",
+        "tagline": "Mới/Loại kẹp sạc kép/Tương thích với nhiều mẫu máy/Đủ tiêu chuẩn",
+        "category": "Bộ sạc di động bằng đồng xu",
+        "description": "[Dành riêng cho toàn mạng] Kẹp sạc kép VSZAPOWER trên nút sạc pin | Sạc nhanh 30 phút · Trao quyền cho các sản phẩm bán chạy nhất của thương mại điện tử xuyên biên giới\nĐiểm nổi bật cốt lõi của sản phẩm\nThiết kế được cấp bằng sáng chế độc quyền trên toàn mạng lưới: Khác biệt với các thị trường đồng nhất, tạo ra các rào cản cạnh tranh khác biệt giúp bạn dễ dàng tránh được các cuộc chiến về giá.\nCấu trúc kẹp sạc kép: Thiết kế kẹp sáng tạo, hỗ trợ sạc đồng thời hai pin, kẹp ổn định, tiếp xúc tốt, nhỏ gọn, nhẹ và dễ mang theo.\n• Tương thích đa năng, đa năng: kết hợp hoàn hảo với nhiều loại pin nút sạc phổ thông, bao gồm:\nDòng LIR: LIR2016/LIR1220/LIR1632/LIR2032/LIR2025/LIR2450\nDòng ML: ML2032\nSạc đầy tốc độ cao 30 phút: được trang bị chip sạc nhanh thông minh, giúp giảm đáng kể thời gian chờ đợi, hiệu quả và thân thiện với môi trường.\nĐánh thức thông minh/sạc an toàn điện áp thấp: được trang bị kích hoạt điện áp thấp và nhiều chức năng bảo vệ an toàn, kéo dài tuổi thọ pin và đảm bảo an toàn và không phải lo lắng.\nNguồn sức mạnh của nhà máy · Đối tác ưu tiên cho thương mại điện tử vươn ra toàn cầu\nChúng tôi có nhà máy vật lý riêng, tích hợp nghiên cứu và phát triển với sản xuất, đảm bảo chất lượng có thể kiểm soát được trong toàn bộ quá trình và chuỗi cung ứng ổn định và đáng tin cậy\nHoàn thiện các bằng cấp và không cần lo lắng về thủ tục hải quan: Luôn sẵn có nhiều bằng cấp và chứng chỉ có thẩm quyền từ các nguồn trong nước và quốc tế để đáp ứng yêu cầu tuân thủ của các thị trường lớn trên toàn thế giới.\n• Hỗ trợ ủy quyền nền tảng thương mại điện tử toàn cầu: có thể trao quyền sâu sắc cho Amazon TikTok Shop、eBay、Shopee、Lazada、Người bán trên các nền tảng thương mại điện tử lớn như AliExpress.\nChế độ hợp tác linh hoạt:\nXây dựng thương hiệu OEM/ODM: Chúng tôi cung cấp các dịch vụ toàn diện như đóng gói tùy chỉnh và in logo để giúp bạn xây dựng thương hiệu của riêng mình.\nBán buôn giao ngay/ủy quyền thương hiệu: Ổn định tồn kho giao ngay, hỗ trợ phân phối và ủy quyền nền tảng, nhanh chóng niêm yết và bán chạy."
+      },
+      "zh-CN": {
+        "badge": "新品上市",
+        "specs": {
+          "safety": "MCU微电流保护/4.2V自动切断/短路/反接",
+          "voltage": "输入5V 500mA（2.5W）|输出 4.2V 30mA x 2（总自动切断功率 0.252W）",
+          "warranty": "原厂直保 2 年",
+          "packaging": "环保牛皮纸卡包装",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V 直流/500mA（最大 2.5W）",
+          "output_power": "4.2V DC / 30mA x 2 通道（总输出功率：0.252W）",
+          "charging_speed": "30-35 分钟快速 100% 充满电"
+        },
+        "title": "新款VSZAPOWER双充电夹纽扣充电器支持LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032、LIR2450，30分钟快速充电，方便携带，低压充电装置，自有工厂，随时邮件联系，各类资质齐全，全网独家品牌",
+        "tagline": "新款/双充电夹式/兼容多种型号/资质齐全",
+        "category": "纽扣电池充电器",
+        "description": "【全网独家】VSZAPOWER双充夹纽扣电池充电器| 30分钟快充·赋能跨境电商畅销品\n产品核心亮点\n全网独家专利设计：区别于同质化市场，打造差异化竞争壁垒，助您轻松规避价格战。\n双充电夹结构：创新的夹子设计，支持两块电池同时充电，夹紧稳定，接触良好，结构紧凑，重量轻，方便携带。\n• 多功能兼容性，用途广泛：完美匹配多种主流充电纽扣电池，包括：\nLIR系列：LIR2016/LIR1220/LIR1632/LIR2032/LIR2025/LIR2450\nML系列：ML2032\n30分钟高速充满电：搭载智能快充芯片，大大减少等待时间，高效环保。\n低压智能唤醒/安全充电：配备低压激活和多重安全保护功能，延长电池寿命，确保安全无忧。\n源头工厂实力·电商出海首选合作伙伴\n我们拥有自己的实体工厂，集研发与生产于一体，确保全过程质量可控，供应链稳定可靠\n资质齐全，清关无忧：国内外各类权威资质认证一应俱全，满足全球主要市场的合规要求。\n• 支持全球电商平台授权：可深度赋能Amazon TikTok Shop、eBay、Shopee、Lazada、速卖通等各大电商平台卖家。\n灵活的合作模式：\nOEM/ODM 品牌定制：提供定制包装、商标印刷等一站式服务，帮助您打造自己的品牌。\n现货批发/品牌授权：稳定现货库存，支持分销和平台授权，快速上市、畅销。"
+      },
+      "zh-HK": {
+        "badge": "新品上市",
+        "specs": {
+          "safety": "MCU微電流保護/4.2V自動切斷/短路/反接",
+          "voltage": "輸入5V 500mA（2.5W）|輸出 4.2V 30mA x 2（總自動切斷功率 0.252W）",
+          "warranty": "2 年工廠直接保證",
+          "packaging": "環保牛皮紙卡包",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V 直流/500mA（最大 2.5W）",
+          "output_power": "4.2V DC / 30mA x 2 通道（總輸出功率：0.252W）",
+          "charging_speed": "30-35 分鐘快速 100% 充滿電"
+        },
+        "title": "新款 VSZAPOWER 雙槽夾式鈕扣電池充電器，支援 LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032、LIR2450，30 分鐘快速充電，方便攜帶，支援低電壓充電，自有工廠，歡迎隨時透過電郵聯繫，各類資質齊全，全網獨家品牌",
+        "tagline": "新款/雙充電夾式/相容多種型號/資質齊全",
+        "category": "鈕扣電池充電器",
+        "description": "【全網獨家】VSZAPOWER雙充夾鈕扣電池充電器| 30分鐘快充·賦能跨境電商暢銷品\n產品核心亮點\n全網獨家專利設計：區別於同質化市場，打造差異化競爭壁壘，幫助您輕鬆規避價格戰。\n雙充電夾結構：創新的夾子設計，支援兩個電池同時充電，夾緊穩定，接觸良好，結構緊湊，重量輕，方便攜帶。\n• 多功能相容性，用途廣泛：完美搭配多種主流充電扣環電池，包括：\nLIR系列：LIR2016/LIR1220/LIR1632/LIR2032/LIR2025/LIR2450\nML系列：ML2032\n30分鐘高速充滿電：搭載智能快充芯片，大幅減少等待時間，高效環保。\n低壓智能喚醒/安全充電：配備低壓啟動和多重安全保護功能，延長電池壽命，確保安全無憂。\n源頭工廠實力·電商出海首選合作夥伴\n我們擁有自己的實體工廠，集研發與生產於一體，確保全製程品質可控，供應鏈穩定可靠\n資質齊全，清關無憂：國內外各類權威資質認證一應俱全，滿足全球主要市場的合規要求。\n• 支援全球電商平台授權：可深度賦能Amazon TikTok Shop、eBay、Shopee、Lazada、速賣通等各大電商平台賣家。\n靈活的合作模式：\nOEM/ODM品牌品牌塑造：我們提供客製化包裝、標誌印刷等一站式服務，幫助您建立自己的品牌。\n現貨批發/品牌授權：穩定現貨庫存，支援分銷和平台授權，快速上市、暢銷。"
+      },
+      "zh-TW": {
+        "badge": "新品上市",
+        "specs": {
+          "safety": "MCU微電流保護/4.2V自動切斷/短路/反接",
+          "voltage": "輸入5V 500mA（2.5W）|輸出 4.2V 30mA x 2（總自動切斷功率 0.252W）",
+          "warranty": "2 年工廠直接保證",
+          "packaging": "環保牛皮紙卡包",
+          "supported": "LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032",
+          "input_power": "5V 直流/500mA（最大 2.5W）",
+          "output_power": "4.2V DC / 30mA x 2 通道（總輸出功率：0.252W）",
+          "charging_speed": "30-35 分鐘快速 100% 充滿電"
+        },
+        "title": "新款 VSZAPOWER 雙槽夾式鈕扣電池充電器，支援 LIR2016、LIR1220、LIR1632、LIR2032、LIR2025、ML2032、LIR2450，30 分鐘快速充電，方便攜帶，支援低電壓充電，自有工廠，歡迎隨時透過電郵聯繫，各類資質齊全，全網獨家品牌",
+        "tagline": "新款/雙充電夾式/相容多種型號/資質齊全",
+        "category": "鈕扣電池充電器",
+        "description": "【全網獨家】VSZAPOWER雙充夾鈕扣電池充電器| 30分鐘快充·賦能跨境電商暢銷品\n產品核心亮點\n全網獨家專利設計：區別於同質化市場，打造差異化競爭壁壘，幫助您輕鬆規避價格戰。\n雙充電夾結構：創新的夾子設計，支援兩個電池同時充電，夾緊穩定，接觸良好，結構緊湊，重量輕，方便攜帶。\n• 多功能相容性，用途廣泛：完美搭配多種主流充電扣環電池，包括：\nLIR系列：LIR2016/LIR1220/LIR1632/LIR2032/LIR2025/LIR2450\nML系列：ML2032\n30分鐘高速充滿電：搭載智慧快充晶片，大幅減少等待時間，高效環保。\n低壓智慧喚醒/安全充電：配備低壓啟動和多重安全保護功能，延長電池壽命，確保安全無憂。\n源頭工廠實力·電商出海首選合作夥伴\n我們擁有自己的實體工廠，集研發與生產於一體，確保全製程品質可控，供應鏈穩定可靠\n資質齊全，清關無憂：國內外各類權威資質認證一應俱全，滿足全球主要市場的合規要求。\n• 支援全球電商平台授權：可深度賦能Amazon TikTok Shop、eBay、Shopee、Lazada、速賣通等各大電商平台賣家。\n靈活的合作模式：\nOEM/ODM品牌品牌塑造：我們提供客製化包裝、標誌印刷等一站式服務，幫助您建立自己的品牌。\n現貨批發/品牌授權：穩定現貨庫存，支援分銷和平台授權，快速上市、暢銷。"
+      }
+    }
+  },
+  {
+    "id": "prod_lir2016_battery",
+    "translations": {
+      "ar": {
+        "badge": "3.6 فولت 10 مللي أمبير/500+ دورات",
+        "specs": {
+          "chemistry": "خلية عملة ليثيوم أيون قابلة لإعادة الشحن",
+          "packaging": "عبوة كرتونية صديقة للبيئة تحتوي على 2 أو 5 قطع مع تغليف بلاستيكي مشكّل على الوجهين وبطاقة تعليق",
+          "dimensions": "قطر 20.0 ملم × سمك 1.6 ملم",
+          "battery_model": "LIR2016 (3.6V / 10mAh)",
+          "certifications": "Battery, CE-Battery, GCC, UN38.3",
+          "recharge_cycles": "أكثر من 500 دورة إعادة شحن كاملة",
+          "replaces_disposable": "CR2016, DL2016, ECR2016"
+        },
+        "title": "بطارية ليثيوم VSZAPOWER LIR2016 3.6 فولت 10 مللي أمبير في الساعة قابلة لإعادة الشحن (2 قطعة/5 قطعة حقيبة تعليق للبطاقات الورقية)",
+        "tagline": "بطارية ليثيوم قابلة لإعادة الشحن رفيعة للغاية مقاس 20 مم × 1.6 مم | 500+دورة | استبدل بطارية الزر CR2016 التي تستخدم لمرة واحدة",
+        "category": "خلايا العملة القابلة لإعادة الشحن",
+        "description": "بطارية ليثيوم أيون من نوع زر VSZAPOWER الأصلية LIR2016 3.6 فولت 10 مللي أمبير قابلة لإعادة الشحن، تلبي مواصفات الحجم القياسي 20.0 مم × 1.6 مم. مجهزة عالية الكثافة 2 قطعة/5 قطعة بطاقة معلقة فراغ ختم التعبئة والتغليف ورقة مقاومة للرطوبة. تستخدم على نطاق واسع في أجهزة التحكم عن بعد للساعة، ومفاتيح السيارة الرفيعة، وإكسسوارات الشعر المضيئة، والموازين الإلكترونية المصغرة، والآلات الحاسبة. يدعم أكثر من 500 دورة شحن، مما يقلل بشكل كبير من تكلفة شراء البطاريات التي تستخدم لمرة واحدة."
+      },
+      "de": {
+        "badge": "3,6 V 10 mAh / 500+ ZYKLEN",
+        "specs": {
+          "chemistry": "Wiederaufladbare Lithium-Ionen-Knopfzelle",
+          "packaging": "2PCS / 5PCS Eco Blister Card Pack (doppelseitige Blisterkarte zum Aufhängen)",
+          "dimensions": "20,0 mm Durchmesser x 1,6 mm Dicke",
+          "battery_model": "LIR2016 (3.6V / 10mAh)",
+          "certifications": "Battery, CE-Battery, GCC, UN38.3",
+          "recharge_cycles": "Über 500 vollständige Aufladezyklen",
+          "replaces_disposable": "CR2016, DL2016, ECR2016"
+        },
+        "title": "VSZAPOWER LIR2016 3,6 V 10 mAh wiederaufladbare Lithium-Knopfbatterie (2 Stück/5 Stück Papierkarten-Hängetasche)",
+        "tagline": "20 mm x 1,6 mm ultradünner wiederaufladbarer Lithium-Akku | 500+ Zyklen | Ersetzen Sie die Einweg-Knopfbatterie CR2016",
+        "category": "Wiederaufladbare Knopfzellen",
+        "description": "Der offizielle Original-Lithium-Ionen-Akku LIR2016 mit 3,6 V und 10 mAh von VSZAPOWER entspricht der Standardgrößenspezifikation von 20,0 mm x 1,6 mm. Ausgestattet mit einer hochdichten 2PCS/5PCS-Hängekarten-Vakuumversiegelung und feuchtigkeitsbeständiger Papierkartenverpackung. Wird häufig in Uhrenfernbedienungen, dünnen Autoschlüsseln, leuchtenden Haaraccessoires, elektronischen Miniaturwaagen und Taschenrechnern verwendet. Unterstützt über 500 Ladezyklen, wodurch die Kosten für den Kauf von Einwegbatterien erheblich gesenkt werden."
+      },
+      "en": {
+        "badge": "3.6V 10mAh / 500+ CYCLES",
+        "specs": {
+          "chemistry": "Rechargeable Lithium-Ion Coin Cell",
+          "packaging": "2PCS / 5PCS Eco Blister Card Pack (Double-sided Blister Hanging Card)",
+          "dimensions": "20.0mm Diameter x 1.6mm Thickness",
+          "battery_model": "LIR2016 (3.6V / 10mAh)",
+          "certifications": "Battery, CE-Battery, GCC, UN38.3",
+          "recharge_cycles": "500+ Full Recharge Cycles",
+          "replaces_disposable": "CR2016, DL2016, ECR2016"
+        },
+        "title": "VSZAPOWER LIR2016 3.6V 10mAh rechargeable button lithium battery (2PCS/5PCS paper card hanging bag)",
+        "tagline": "20mm x 1.6mm ultra-thin rechargeable lithium battery | 500+cycles | Replace disposable CR2016 button battery",
+        "category": "Rechargeable Coin Cells",
+        "description": "VSZAPOWER official original LIR2016 3.6V 10mAh rechargeable button type lithium-ion battery, meets the standard size specification of 20.0mm x 1.6mm. Equipped with high-density 2PCS/5PCS hanging card vacuum sealing moisture-proof paper card packaging. Widely used in watch remote controls, thin car keys, luminous hair accessories, miniature electronic scales, and calculators. Supports over 500 cycles of charging, significantly reducing the cost of purchasing disposable batteries."
+      },
+      "es": {
+        "badge": "3.6V 10mAh / 500+ CICLOS",
+        "specs": {
+          "chemistry": "Pila de botón recargable de iones de litio",
+          "packaging": "Paquete de tarjetas blíster ecológicas de 2 piezas / 5 piezas (tarjeta colgante en blíster de doble cara)",
+          "dimensions": "20,0 mm de diámetro x 1,6 mm de espesor",
+          "battery_model": "LIR2016 (3.6V / 10mAh)",
+          "certifications": "Battery, CE-Battery, GCC, UN38.3",
+          "recharge_cycles": "Más de 500 ciclos de recarga completos",
+          "replaces_disposable": "CR2016, DL2016, ECR2016"
+        },
+        "title": "Batería de litio de botón recargable VSZAPOWER LIR2016 3,6 V 10mAh (bolsa colgante de tarjeta de papel 2 uds/5 uds)",
+        "tagline": "Batería de litio recargable ultrafina de 20 mm x 1,6 mm | 500+ciclos | Reemplace la batería de botón CR2016 desechable",
+        "category": "Pilas de botón recargables",
+        "description": "Batería de iones de litio tipo botón recargable LIR2016 3,6 V 10 mAh original oficial de VSZAPOWER, cumple con la especificación de tamaño estándar de 20,0 mm x 1,6 mm. Equipado con una tarjeta colgante de alta densidad de 2 piezas/5 piezas, sellado al vacío, embalaje de tarjetas de papel a prueba de humedad. Ampliamente utilizado en controles remotos de relojes, llaves delgadas de automóviles, accesorios luminosos para el cabello, balanzas electrónicas en miniatura y calculadoras. Admite más de 500 ciclos de carga, lo que reduce significativamente el costo de compra de baterías desechables."
+      },
+      "fr": {
+        "badge": "3,6 V 10 mAh / 500+ CYCLES",
+        "specs": {
+          "chemistry": "Pile bouton rechargeable au lithium-ion",
+          "packaging": "Pack de cartes Blister écologique 2 pièces/5 pièces (carte suspendue Double face)",
+          "dimensions": "20,0 mm de diamètre x 1,6 mm d'épaisseur",
+          "battery_model": "LIR2016 (3.6V / 10mAh)",
+          "certifications": "Battery, CE-Battery, GCC, UN38.3",
+          "recharge_cycles": "Plus de 500 cycles de recharge complète",
+          "replaces_disposable": "CR2016, DL2016, ECR2016"
+        },
+        "title": "VSZAPOWER LIR2016 3.6 V 10 mAh batterie au lithium bouton rechargeable (2 pièces/5 pièces sac suspendu pour carte en papier)",
+        "tagline": "Batterie au lithium rechargeable ultra fine de 20 mm x 1,6 mm | 500+cycles | Remplacer la pile bouton jetable CR2016",
+        "category": "Piles bouton rechargeables",
+        "description": "Batterie lithium-ion rechargeable de type bouton LIR2016 3,6 V 10 mAh d'origine officielle VSZAPOWER, répond aux spécifications de taille standard de 20,0 mm x 1,6 mm. Équipé d'un emballage en papier résistant à l'humidité de 2 pièces/5 pièces de cartes suspendues haute densité. Largement utilisé dans les télécommandes de montre, les clés de voiture fines, les accessoires pour cheveux lumineux, les balances électroniques miniatures et les calculatrices. Prend en charge plus de 500 cycles de charge, réduisant considérablement le coût d'achat de piles jetables."
+      },
+      "he": {
+        "badge": "3.6V 10mAh / 500+ מחזורים",
+        "specs": {
+          "chemistry": "תא מטבעות ליתיום-יון נטען",
+          "packaging": "2 יחידות / 5 יחידות חבילת כרטיס שלפוחית אקולוגי (כרטיס תלייה שלפוחית דו-צדדית)",
+          "dimensions": "קוטר 20.0 מ\"מ x 1.6 מ\"מ עובי",
+          "battery_model": "LIR2016 (3.6V / 10mAh)",
+          "certifications": "Battery, CE-Battery, GCC, UN38.3",
+          "recharge_cycles": "500+ מחזורי טעינה מלאה",
+          "replaces_disposable": "CR2016, DL2016, ECR2016"
+        },
+        "title": "VSZAPOWER LIR2016 3.6V 10mAh כפתור נטענת סוללת ליתיום (2 יחידות/5 יחידות תיק תלייה בכרטיס נייר)",
+        "tagline": "סוללת ליתיום נטענת 20 מ\"מ על 1.6 מ\"מ דקה במיוחד | 500+מחזורים | החלף סוללת לחצן CR2016 חד פעמית",
+        "category": "תאי מטבע נטענים",
+        "description": "VSZAPOWER מקורית רשמית LIR2016 3.6V 10mAh סוללת ליתיום-יון מסוג כפתור נטענת, עומדת במפרט הגודל הסטנדרטי של 20.0 מ\"מ x 1.6 מ\"מ. מצויד בצפיפות גבוהה 2PCS/5PCS כרטיס תלייה ואקום איטום רטיבות כרטיס נייר אריזות. בשימוש נרחב בשלטי שעון, מפתחות דקים לרכב, אביזרי שיער זוהרים, מאזניים אלקטרוניים מיניאטוריים ומחשבונים. תומך ביותר מ-500 מחזורי טעינה, מה שמפחית משמעותית את עלות רכישת הסוללות החד פעמיות."
+      },
+      "ja": {
+        "badge": "3.6V 10mAh / 500+ サイクル",
+        "specs": {
+          "chemistry": "充電式リチウムイオンコイン電池",
+          "packaging": "2PCS / 5PCS エコブリスターカードパック (両面ブリスター吊り下げカード)",
+          "dimensions": "直径20.0mm×厚さ1.6mm",
+          "battery_model": "LIR2016 (3.6V / 10mAh)",
+          "certifications": "Battery, CE-Battery, GCC, UN38.3",
+          "recharge_cycles": "500回以上のフル充電サイクル",
+          "replaces_disposable": "CR2016, DL2016, ECR2016"
+        },
+        "title": "VSZAPOWER LIR2016 3.6V 10mAh 充電式ボタンリチウム電池 (2 個/5 個紙カード吊り袋)",
+        "tagline": "20mm x 1.6mmの超薄型充電式リチウム電池 | 500+サイクル |使い捨ての CR2016 ボタン電池を交換してください",
+        "category": "充電式コイン電池",
+        "description": "VSZAPOWER 公式オリジナル LIR2016 3.6V 10mAh 充電式ボタン型リチウムイオン電池、20.0mm x 1.6mm の標準サイズ仕様を満たしています。高密度2PCS / 5PCS吊り下げカード真空シール防湿紙カードパッケージを備えています。時計のリモコン、車の薄型キー、発光ヘアアクセサリー、小型電子秤、電卓などに広く使用されています。 500 サイクル以上の充電をサポートし、使い捨てバッテリーの購入コストを大幅に削減します。"
+      },
+      "ko": {
+        "badge": "3.6V 10mAh / 500+ 사이클",
+        "specs": {
+          "chemistry": "충전식 리튬 이온 코인 셀",
+          "packaging": "2PCS / 5PCS 에코 블리스 터 카드 팩 (양면 블리스 터 행잉 카드)",
+          "dimensions": "직경 20.0mm x 두께 1.6mm",
+          "battery_model": "LIR2016 (3.6V / 10mAh)",
+          "certifications": "Battery, CE-Battery, GCC, UN38.3",
+          "recharge_cycles": "500회 이상의 완전 재충전 주기",
+          "replaces_disposable": "CR2016, DL2016, ECR2016"
+        },
+        "title": "VSZAPOWER LIR2016 3.6V 10mAh 충전식 버튼 리튬 배터리(2PCS/5PCS 종이 카드 교수형 가방)",
+        "tagline": "20mm x 1.6mm 초박형 충전식 리튬 배터리 | 500+주기 | 일회용 CR2016 버튼 배터리 교체",
+        "category": "충전식 코인 셀",
+        "description": "VSZAPOWER 공식 오리지널 LIR2016 3.6V 10mAh 충전식 버튼형 리튬 이온 배터리는 20.0mm x 1.6mm의 표준 크기 사양을 충족합니다. 고밀도 2PCS/5PCS 걸이형 카드 진공 밀봉 방습 종이 카드 포장을 갖추고 있습니다. 시계 리모컨, 얇은 자동차 열쇠, 야광 헤어 액세서리, 소형 전자 저울 및 계산기에 널리 사용됩니다. 500회 이상의 충전 주기를 지원하므로 일회용 배터리 구입 비용이 크게 절감됩니다."
+      },
+      "pt": {
+        "badge": "3,6V 10mAh / 500+ CICLOS",
+        "specs": {
+          "chemistry": "Célula tipo moeda recarregável de íon de lítio",
+          "packaging": "Pacote de cartão blister ecológico de 2 unidades / 5 unidades (cartão suspenso de bolha de dupla face)",
+          "dimensions": "20,0 mm de diâmetro x 1,6 mm de espessura",
+          "battery_model": "LIR2016 (3.6V / 10mAh)",
+          "certifications": "Battery, CE-Battery, GCC, UN38.3",
+          "recharge_cycles": "Mais de 500 ciclos completos de recarga",
+          "replaces_disposable": "CR2016, DL2016, ECR2016"
+        },
+        "title": "VSZAPOWER LIR2016 3.6V 10mAh bateria de lítio recarregável com botão (2 unidades/5 unidades de cartão de papel pendurado saco)",
+        "tagline": "Bateria de lítio recarregável ultrafina de 20 mm x 1,6 mm | Mais de 500 ciclos | Substitua a bateria tipo botão CR2016 descartável",
+        "category": "Células tipo moeda recarregáveis",
+        "description": "VSZAPOWER original oficial LIR2016 3.6V 10mAh bateria de íon de lítio tipo botão recarregável, atende à especificação de tamanho padrão de 20,0 mm x 1,6 mm. Equipado com cartão suspenso de alta densidade 2PCS / 5PCS, embalagem de cartão de papel à prova de umidade e vedação a vácuo. Amplamente utilizado em controles remotos de relógios, chaves finas de carros, acessórios de cabelo luminosos, balanças eletrônicas em miniatura e calculadoras. Suporta mais de 500 ciclos de carregamento, reduzindo significativamente o custo de aquisição de baterias descartáveis."
+      },
+      "ru": {
+        "badge": "3,6 В 10 мАч / 500+ ЦИКЛОВ",
+        "specs": {
+          "chemistry": "Перезаряжаемая литий-ионная батарейка типа «таблетка»",
+          "packaging": "2 шт./5 шт. эко-блистерная упаковка (двусторонняя подвесная блистерная карта)",
+          "dimensions": "Диаметр 20,0 мм x толщина 1,6 мм",
+          "battery_model": "LIR2016 (3.6V / 10mAh)",
+          "certifications": "Battery, CE-Battery, GCC, UN38.3",
+          "recharge_cycles": "500+ полных циклов перезарядки",
+          "replaces_disposable": "CR2016, DL2016, ECR2016"
+        },
+        "title": "VSZAPOWER LIR2016 3,6 В 10 мАч перезаряжаемая литиевая батарея с кнопкой (2 шт./5 шт. сумка для подвешивания бумажных карт)",
+        "tagline": "Ультратонкая литиевая аккумуляторная батарея размером 20 x 1,6 мм | 500+ циклов | Замените одноразовую батарейку-таблетку CR2016.",
+        "category": "Перезаряжаемые монетоприемники",
+        "description": "Официальный оригинальный литий-ионный аккумулятор VSZAPOWER LIR2016 3,6 В, 10 мАч, соответствует стандартным размерам 20,0 мм x 1,6 мм. Оснащен высокоплотной 2 шт./5 шт. подвесной карточной вакуумной герметичной влагостойкой бумажной упаковкой для карт. Широко используется в пультах дистанционного управления часами, тонких автомобильных ключах, светящихся аксессуарах для волос, миниатюрных электронных весах и калькуляторах. Поддерживает более 500 циклов зарядки, что существенно снижает затраты на приобретение одноразовых аккумуляторов."
+      },
+      "vi": {
+        "badge": "3.6V 10mAh / 500+ CHU KỲ",
+        "specs": {
+          "chemistry": "Pin đồng xu Lithium-Ion có thể sạc lại",
+          "packaging": "Gói thẻ vỉ sinh thái 2 CÁI / 5 CÁI (Thẻ treo vỉ hai mặt)",
+          "dimensions": "Đường kính 20,0mm x Độ dày 1,6mm",
+          "battery_model": "LIR2016 (3.6V / 10mAh)",
+          "certifications": "Battery, CE-Battery, GCC, UN38.3",
+          "recharge_cycles": "Hơn 500 chu kỳ sạc đầy",
+          "replaces_disposable": "CR2016, DL2016, ECR2016"
+        },
+        "title": "Pin lithium nút sạc VSZAPOWER LIR2016 3.6V 10mAh (2/5 túi treo thẻ giấy)",
+        "tagline": "Pin lithium sạc siêu mỏng 20 mm x 1,6 mm | Hơn 500 chu kỳ | Thay pin nút CR2016 dùng một lần",
+        "category": "Tế bào tiền xu có thể sạc lại",
+        "description": "Pin lithium-ion loại nút sạc LIR2016 3.6V 10mAh chính hãng của VSZAPOWER, đáp ứng thông số kích thước tiêu chuẩn 20,0mm x 1,6mm. Được trang bị bao bì thẻ giấy chống ẩm 2 CÁI / 5 CÁI treo mật độ cao. Được sử dụng rộng rãi trong điều khiển từ xa của đồng hồ, chìa khóa xe mỏng, phụ kiện tóc phát sáng, cân điện tử thu nhỏ và máy tính. Hỗ trợ hơn 500 chu kỳ sạc, giảm đáng kể chi phí mua pin dùng một lần."
+      },
+      "zh-CN": {
+        "badge": "3.6V 10mAh / 500+ 循环",
+        "specs": {
+          "chemistry": "可充电锂离子纽扣电池",
+          "packaging": "2PCS / 5PCS 环保吸塑卡包（双面吸塑挂卡）",
+          "dimensions": "20.0 毫米直径 x 1.6 毫米厚度",
+          "battery_model": "LIR2016 (3.6V / 10mAh)",
+          "certifications": "Battery, CE-Battery, GCC, UN38.3",
+          "recharge_cycles": "500+ 次完整充电周期",
+          "replaces_disposable": "CR2016, DL2016, ECR2016"
+        },
+        "title": "VSZAPOWER LIR2016 3.6V 10mAh 可充电纽扣锂电池（2PCS/5PCS纸卡挂袋）",
+        "tagline": "20mm x 1.6mm 超薄可充电锂电池 | 500+ 周期 |更换一次性 CR2016 纽扣电池",
+        "category": "可充电纽扣电池",
+        "description": "VSZAPOWER官方原装LIR2016 3.6V 10mAh可充电纽扣式锂离子电池，符合20.0mm x 1.6mm的标准尺寸规格。配备高密度2PCS/5PCS挂卡真空密封防潮纸卡包装。广泛应用于手表遥控器、薄型汽车钥匙、发光发饰、微型电子秤、计算器等。支持超过500次循环充电，大幅降低购买一次性电池的成本。"
+      },
+      "zh-HK": {
+        "badge": "3.6V 10mAh / 500+ 循環",
+        "specs": {
+          "chemistry": "可充電鋰離子鈕扣電池",
+          "packaging": "2PCS / 5PCS 環保吸塑卡包（雙面吸塑掛卡）",
+          "dimensions": "20.0 毫米直徑 x 1.6 毫米厚度",
+          "battery_model": "LIR2016 (3.6V / 10mAh)",
+          "certifications": "Battery, CE-Battery, GCC, UN38.3",
+          "recharge_cycles": "500+ 次完整充電週期",
+          "replaces_disposable": "CR2016, DL2016, ECR2016"
+        },
+        "title": "VSZAPOWER LIR2016 3.6V 10mAh 可充電紐扣鋰電池（2PCS/5PCS紙卡掛袋）",
+        "tagline": "20mm x 1.6mm 超薄可充電鋰電池 | 500+ 週期 |更換一次性 CR2016 鈕扣電池",
+        "category": "充電式鈕扣電池",
+        "description": "VSZAPOWER官方原廠LIR2016 3.6V 10mAh可充電紐扣式鋰離子電池，符合20.0mm x 1.6mm的標準尺寸規格。配備高密度2PCS/5PCS掛卡真空密封防潮紙卡包裝。廣泛應用於手錶遙控器、薄型汽車鑰匙、發光髮飾、微型電子秤、計算機等。支援超過500次循環充電，大幅降低購買一次性電池的成本。"
+      },
+      "zh-TW": {
+        "badge": "3.6V 10mAh / 500+ 循環",
+        "specs": {
+          "chemistry": "可充電鋰離子鈕扣電池",
+          "packaging": "2PCS / 5PCS 環保吸塑卡包（雙面吸塑掛卡）",
+          "dimensions": "20.0 毫米直徑 x 1.6 毫米厚度",
+          "battery_model": "LIR2016 (3.6V / 10mAh)",
+          "certifications": "Battery, CE-Battery, GCC, UN38.3",
+          "recharge_cycles": "500+ 次完整充電週期",
+          "replaces_disposable": "CR2016, DL2016, ECR2016"
+        },
+        "title": "VSZAPOWER LIR2016 3.6V 10mAh 可充電紐扣鋰電池（2PCS/5PCS紙卡掛袋）",
+        "tagline": "20mm x 1.6mm 超薄可充電鋰電池 | 500+ 週期 |更換一次性 CR2016 鈕扣電池",
+        "category": "充電式鈕扣電池",
+        "description": "VSZAPOWER官方原廠LIR2016 3.6V 10mAh可充電紐扣式鋰離子電池，符合20.0mm x 1.6mm的標準尺寸規格。配備高密度2PCS/5PCS掛卡真空密封防潮紙卡包裝。廣泛應用於手錶遙控器、薄型汽車鑰匙、發光髮飾、微型電子秤、計算機等。支援超過500次循環充電，大幅降低購買一次性電池的成本。"
+      }
+    }
+  },
+  {
+    "id": "prod_lir2025_battery",
+    "translations": {
+      "ar": {
+        "badge": "3.6 فولت 25 مللي أمبير/500+ دورات",
+        "specs": {
+          "chemistry": "ليثيوم أيون قابلة لإعادة الشحن (خلية زر ليثيوم أيون)",
+          "packaging": "عبوة من 2/5 عبوات من البطاقات الورقية الصديقة للبيئة",
+          "dimensions": "قطر 20.0 ملم × سمك 2.5 ملم",
+          "battery_model": "LIR2025 (3.6V / 25mAh)",
+          "certifications": "CE-LVD/EMC، FCC، RoHS 2.0، UN38.3، MSDS، اختبار السقوط 1.2 متر",
+          "recharge_cycles": "أكثر من 500 دورة تفريغ/شحن كاملة",
+          "replaces_disposable": "CR2025, DL2025, ECR2025, BR2025"
+        },
+        "title": "VSZAPOWER LIR2025 3.6 فولت 25 مللي أمبير بطارية ليثيوم أيون قابلة لإعادة الشحن (2 قطعة/5 قطعة حزمة بطاقة نفطة)",
+        "tagline": "ملف تعريف قابل لإعادة الشحن مقاس 20 مم × 2.5 مم | 500+ دورات إعادة الشحن | بديل صديق للبيئة لـ CR2025 القابل للتصرف",
+        "category": "خلايا العملة القابلة لإعادة الشحن",
+        "description": "بطارية خلية عملة ليثيوم VSZAPOWER LIR2025 الرسمية 3.6 فولت 25 مللي أمبير عالية الكثافة قابلة لإعادة الشحن مصممة بعامل الشكل القياسي 20.0 مم × 2.5 مم. مختومة في عبوة من 2 عبوة / 5 عبوات من البطاقات الورقية الصديقة للبيئة. مصمم خصيصًا لسلاسل مفاتيح السيارة الرفيعة (مرسيدس بنز، ولكزس، وأودي، وبي إم دبليو)، والمقاييس الرقمية، وأجهزة التحكم عن بعد في التلفزيون، والأجهزة الذكية القابلة للارتداء. يدعم أكثر من 500 دورة شحن."
+      },
+      "de": {
+        "badge": "3,6 V 25 mAh / 500+ ZYKLEN",
+        "specs": {
+          "chemistry": "Lithium-Ionen-Akku (Li-Ionen-Knopfzelle)",
+          "packaging": "2er-Pack / 5er-Pack Öko-Blisterpapier",
+          "dimensions": "20,0 mm Durchmesser x 2,5 mm Dicke",
+          "battery_model": "LIR2025 (3.6V / 25mAh)",
+          "certifications": "CE-LVD/EMV, FCC, RoHS 2.0, UN38.3, MSDS, 1,2 m Falltest",
+          "recharge_cycles": "Über 500 vollständige Entlade-/Ladezyklen",
+          "replaces_disposable": "CR2025, DL2025, ECR2025, BR2025"
+        },
+        "title": "VSZAPOWER LIR2025 3,6 V 25 mAh wiederaufladbare Lithium-Ionen-Knopfzellenbatterie (2 Stück/5 Stück Blisterkartenpackung)",
+        "tagline": "20 mm x 2,5 mm wiederaufladbares Profil | Über 500 Aufladezyklen | Öko-Ersatz für Einweg-CR2025",
+        "category": "Wiederaufladbare Knopfzellen",
+        "description": "Offizielle VSZAPOWER LIR2025 3,6 V 25 mAh hochdichte wiederaufladbare Lithium-Knopfzellenbatterie im Standard-Formfaktor 20,0 mm x 2,5 mm. Versiegelt in einer umweltfreundlichen 2er-/5er-Blister-Papierkartenverpackung. Speziell entwickelt für schlanke Auto-Schlüsselanhänger (Mercedes-Benz, Lexus, Audi, BMW), Digitalwaagen, TV-Fernbedienungen und Smart Wearables. Unterstützt über 500 Ladezyklen."
+      },
+      "en": {
+        "badge": "3.6V 25mAh / 500+ CYCLES",
+        "specs": {
+          "chemistry": "Lithium-Ion Rechargeable (Li-ion Button Cell)",
+          "packaging": "2-Pack / 5-Pack Eco Blister Papercard",
+          "dimensions": "20.0mm Diameter x 2.5mm Thickness",
+          "battery_model": "LIR2025 (3.6V / 25mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, 1.2m Drop Test",
+          "recharge_cycles": "500+ Full Discharge/Charge Cycles",
+          "replaces_disposable": "CR2025, DL2025, ECR2025, BR2025"
+        },
+        "title": "VSZAPOWER LIR2025 3.6V 25mAh Rechargeable Lithium Ion Coin Cell Battery (2PCS / 5PCS Blister Card Pack)",
+        "tagline": "20mm x 2.5mm Rechargeable Profile | 500+ Recharge Cycles | Eco Replacement for Disposable CR2025",
+        "category": "Rechargeable Coin Cells",
+        "description": "Official VSZAPOWER LIR2025 3.6V 25mAh high-density rechargeable lithium coin cell battery engineered in standard 20.0mm x 2.5mm form factor. Sealed in eco-friendly 2-Pack / 5-Pack blister papercard packaging. Specifically designed for slim car key fobs (Mercedes-Benz, Lexus, Audi, BMW), digital scales, TV remote controls, and smart wearables. Supports over 500 recharge cycles."
+      },
+      "es": {
+        "badge": "3.6V 25mAh / 500+ CICLOS",
+        "specs": {
+          "chemistry": "Recargable de iones de litio (pila de botón de iones de litio)",
+          "packaging": "Paquete de 2 / Paquete de 5 tarjetas de papel en blíster ecológico",
+          "dimensions": "20,0 mm de diámetro x 2,5 mm de espesor",
+          "battery_model": "LIR2025 (3.6V / 25mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, prueba de caída desde 1,2 m",
+          "recharge_cycles": "Más de 500 ciclos completos de descarga/carga",
+          "replaces_disposable": "CR2025, DL2025, ECR2025, BR2025"
+        },
+        "title": "VSZAPOWER LIR2025 3,6 V 25 mAh batería recargable de iones de litio (paquete de tarjeta blíster de 2 piezas/5 piezas)",
+        "tagline": "Perfil recargable de 20 mm x 2,5 mm | Más de 500 ciclos de recarga | Recambio Eco para CR2025 Desechable",
+        "category": "Pilas de botón recargables",
+        "description": "Batería de tipo botón de litio recargable de alta densidad oficial VSZAPOWER LIR2025 de 3,6 V y 25 mAh diseñada en un factor de forma estándar de 20,0 mm x 2,5 mm. Sellado en un paquete de tarjetas de papel tipo blíster ecológico de 2 o 5 paquetes. Diseñado específicamente para llaveros de automóviles delgados (Mercedes-Benz, Lexus, Audi, BMW), básculas digitales, controles remotos de TV y dispositivos portátiles inteligentes. Soporta más de 500 ciclos de recarga."
+      },
+      "fr": {
+        "badge": "3,6 V 25 mAh / 500+ CYCLES",
+        "specs": {
+          "chemistry": "Lithium-Ion rechargeable (pile bouton Li-ion)",
+          "packaging": "Paquet de 2/5 paquets de cartes papier éco-blister",
+          "dimensions": "20,0 mm de diamètre x 2,5 mm d'épaisseur",
+          "battery_model": "LIR2025 (3.6V / 25mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, test de chute de 1,2 m",
+          "recharge_cycles": "Plus de 500 cycles de décharge/charge complète",
+          "replaces_disposable": "CR2025, DL2025, ECR2025, BR2025"
+        },
+        "title": "VSZAPOWER LIR2025 3,6 V 25 mAh batterie rechargeable au lithium-ion (paquet de cartes blister 2 pièces/5 pièces)",
+        "tagline": "Profil rechargeable 20 mm x 2,5 mm | Plus de 500 cycles de recharge | Remplacement écologique pour le CR2025 jetable",
+        "category": "Piles bouton rechargeables",
+        "description": "Batterie officielle VSZAPOWER LIR2025 3,6 V 25 mAh rechargeable haute densité au lithium, conçue dans un facteur de forme standard de 20,0 mm x 2,5 mm. Scellé dans un emballage en carton blister respectueux de l'environnement de 2 ou 5 paquets. Spécialement conçu pour les porte-clés de voiture fins (Mercedes-Benz, Lexus, Audi, BMW), les balances numériques, les télécommandes TV et les appareils portables intelligents. Prend en charge plus de 500 cycles de recharge."
+      },
+      "he": {
+        "badge": "3.6V 25mAh / 500+ מחזורים",
+        "specs": {
+          "chemistry": "ליתיום-יון נטענת (תא לחצנים Li-ion)",
+          "packaging": "אריזת כרטיס קרטון אקולוגית עם בליסטר, 2 או 5 יחידות",
+          "dimensions": "קוטר 20.0 מ\"מ x 2.5 מ\"מ עובי",
+          "battery_model": "LIR2025 (3.6V / 25mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, בדיקת נפילה של 1.2 מטר",
+          "recharge_cycles": "500+ מחזורי פריקה/טעינה מלאה",
+          "replaces_disposable": "CR2025, DL2025, ECR2025, BR2025"
+        },
+        "title": "VSZAPOWER LIR2025 3.6V 25mAh סוללת ליתיום יון נטענת (2 יחידות / 5 יחידות חבילת כרטיס שלפוחית)",
+        "tagline": "פרופיל נטענת 20 מ\"מ x 2.5 מ\"מ | 500+ מחזורי טעינה | תחליף אקו ל-CR2025 חד פעמי",
+        "category": "תאי מטבע נטענים",
+        "description": "VSZAPOWER LIR2025 רשמית 3.6V 25mAh נטענת בצפיפות גבוהה סוללת מטבעות ליתיום נטענת במבנה סטנדרטי של 20.0 מ\"מ x 2.5 מ\"מ. אטום באריזה ידידותית לסביבה 2-Pack / 5-Pack blister papercard. תוכנן במיוחד עבור שלטי מפתח רזים לרכב (מרצדס-בנץ, לקסוס, אאודי, ב.מ.וו), משקלים דיגיטליים, שלטים רחוקים לטלוויזיה וציוד לביש חכם. תומך ביותר מ-500 מחזורי טעינה."
+      },
+      "ja": {
+        "badge": "3.6V 25mAh / 500+ サイクル",
+        "specs": {
+          "chemistry": "リチウムイオン充電式 (リチウムイオンボタン電池)",
+          "packaging": "2 パック / 5 パック エコ ブリスター紙カード",
+          "dimensions": "直径20.0mm×厚さ2.5mm",
+          "battery_model": "LIR2025 (3.6V / 25mAh)",
+          "certifications": "CE-LVD/EMC、FCC、RoHS 2.0、UN38.3、MSDS、1.2m落下試験",
+          "recharge_cycles": "500回以上の完全な放電/充電サイクル",
+          "replaces_disposable": "CR2025, DL2025, ECR2025, BR2025"
+        },
+        "title": "VSZAPOWER LIR2025 3.6V 25mAh 充電式リチウムイオンコイン電池 (2 個 / 5 個ブリスターカードパック)",
+        "tagline": "20mm x 2.5mm 充電式プロファイル | 500回以上の充電サイクル |使い捨てCR2025のエコ代替品",
+        "category": "充電式コイン電池",
+        "description": "公式 VSZAPOWER LIR2025 3.6V 25mAh 高密度充電式リチウム コイン型電池は、標準 20.0mm x 2.5mm フォーム ファクタで設計されています。環境に優しい2パック/5パックのブリスターペーパーカードパッケージで密封されています。スリムな車用キー フォブ (メルセデス ベンツ、レクサス、アウディ、BMW)、デジタル スケール、テレビのリモコン、スマート ウェアラブル向けに特別に設計されています。 500回以上の再充電サイクルをサポートします。"
+      },
+      "ko": {
+        "badge": "3.6V 25mAh / 500+ 사이클",
+        "specs": {
+          "chemistry": "리튬 이온 충전 가능(리튬 이온 버튼 셀)",
+          "packaging": "2팩 / 5팩 에코 블리스터 종이카드",
+          "dimensions": "직경 20.0mm x 두께 2.5mm",
+          "battery_model": "LIR2025 (3.6V / 25mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, 1.2m 낙하 테스트",
+          "recharge_cycles": "500회 이상의 완전 방전/충전 주기",
+          "replaces_disposable": "CR2025, DL2025, ECR2025, BR2025"
+        },
+        "title": "VSZAPOWER LIR2025 3.6V 25mAh 충전식 리튬 이온 코인 셀 배터리(2PCS / 5PCS 블리스 터 카드 팩)",
+        "tagline": "20mm x 2.5mm 충전식 프로필 | 500회 이상의 재충전 주기 | 일회용 CR2025의 에코 교체",
+        "category": "충전식 코인 셀",
+        "description": "공식 VSZAPOWER LIR2025 3.6V 25mAh 고밀도 충전식 리튬 코인 셀 배터리는 표준 20.0mm x 2.5mm 폼 팩터로 설계되었습니다. 친환경 2팩/5팩 블리스터 종이카드 포장으로 밀봉되어 있습니다. 슬림한 자동차 전자열쇠(Mercedes-Benz, Lexus, Audi, BMW), 디지털 체중계, TV 리모컨, 스마트 웨어러블 기기용으로 특별히 설계되었습니다. 500회 이상의 재충전 주기를 지원합니다."
+      },
+      "pt": {
+        "badge": "3,6V 25mAh / 500+ CICLOS",
+        "specs": {
+          "chemistry": "Recarregável de íons de lítio (célula botão de íons de lítio)",
+          "packaging": "Cartão de papel Eco Blister de 2/5 pacotes",
+          "dimensions": "20,0 mm de diâmetro x 2,5 mm de espessura",
+          "battery_model": "LIR2025 (3.6V / 25mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, teste de queda de 1,2 m",
+          "recharge_cycles": "Mais de 500 ciclos completos de descarga/carga",
+          "replaces_disposable": "CR2025, DL2025, ECR2025, BR2025"
+        },
+        "title": "Bateria de célula tipo moeda de íon de lítio recarregável VSZAPOWER LIR2025 3,6V 25mAh (pacote de cartão blister de 2 unidades / 5 unidades)",
+        "tagline": "Perfil recarregável de 20 mm x 2,5 mm | Mais de 500 ciclos de recarga | Substituição ecológica para CR2025 descartável",
+        "category": "Células tipo moeda recarregáveis",
+        "description": "Bateria oficial VSZAPOWER LIR2025 3,6 V 25mAh de célula tipo moeda de lítio recarregável de alta densidade projetada no formato padrão de 20,0 mm x 2,5 mm. Selado em embalagens de cartão blister ecológicas de 2/5 pacotes. Projetado especificamente para porta-chaves finos de carros (Mercedes-Benz, Lexus, Audi, BMW), balanças digitais, controles remotos de TV e wearables inteligentes. Suporta mais de 500 ciclos de recarga."
+      },
+      "ru": {
+        "badge": "3,6 В 25 мАч / 500+ ЦИКЛОВ",
+        "specs": {
+          "chemistry": "Литий-ионный аккумулятор (литий-ионный кнопочный элемент)",
+          "packaging": "Эко-блистерная бумага из 2 или 5 упаковок",
+          "dimensions": "Диаметр 20,0 мм x толщина 2,5 мм",
+          "battery_model": "LIR2025 (3.6V / 25mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, испытание на падение с высоты 1,2 м",
+          "recharge_cycles": "500+ циклов полной разрядки/зарядки",
+          "replaces_disposable": "CR2025, DL2025, ECR2025, BR2025"
+        },
+        "title": "VSZAPOWER LIR2025 3,6 В, 25 мАч, литий-ионная аккумуляторная батарея типа «таблетка» (2 шт./5 шт. в блистерной упаковке)",
+        "tagline": "Перезаряжаемый профиль 20 x 2,5 мм | 500+ циклов перезарядки | Эко-замена одноразового CR2025",
+        "category": "Перезаряжаемые монетоприемники",
+        "description": "Официальный VSZAPOWER LIR2025 3,6 В, 25 мАч, литиевая перезаряжаемая литиевая аккумуляторная батарея высокой плотности, выполненная в стандартном форм-факторе 20,0 x 2,5 мм. Запечатан в экологически чистую блистерную картонную упаковку по 2 или 5 упаковок. Специально разработан для тонких брелоков автомобилей (Mercedes-Benz, Lexus, Audi, BMW), цифровых весов, пультов дистанционного управления телевизорами и интеллектуальных носимых устройств. Поддерживает более 500 циклов перезарядки."
+      },
+      "vi": {
+        "badge": "3.6V 25mAh / 500+ CHU KỲ",
+        "specs": {
+          "chemistry": "Lithium-Ion có thể sạc lại (Pin nút Li-ion)",
+          "packaging": "Thẻ giấy vỉ sinh thái 2 gói / 5 gói",
+          "dimensions": "Đường kính 20,0mm x Độ dày 2,5mm",
+          "battery_model": "LIR2025 (3.6V / 25mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, Thử nghiệm thả rơi 1,2m",
+          "recharge_cycles": "Hơn 500 chu kỳ xả/sạc đầy đủ",
+          "replaces_disposable": "CR2025, DL2025, ECR2025, BR2025"
+        },
+        "title": "Pin đồng xu Lithium Ion có thể sạc lại VSZAPOWER LIR2025 3.6V 25mAh (Gói thẻ vỉ 2 CÁI / 5 CÁI)",
+        "tagline": "Cấu hình có thể sạc lại 20mm x 2,5mm | Hơn 500 chu kỳ nạp tiền | Thay thế sinh thái cho CR2025 dùng một lần",
+        "category": "Tế bào tiền xu có thể sạc lại",
+        "description": "Pin lithium đồng xu có thể sạc lại mật độ cao VSZAPOWER LIR2025 3.6V 25mAh chính thức được thiết kế ở dạng hệ số dạng 20,0mm x 2,5mm tiêu chuẩn. Được niêm phong trong bao bì thẻ giấy dạng vỉ 2 gói / 5 gói thân thiện với môi trường. Được thiết kế đặc biệt cho chìa khóa xe hơi mỏng (Mercedes-Benz, Lexus, Audi, BMW), cân kỹ thuật số, điều khiển từ xa của TV và thiết bị đeo thông minh. Hỗ trợ hơn 500 chu kỳ nạp tiền."
+      },
+      "zh-CN": {
+        "badge": "3.6V 25mAh / 500+ 循环",
+        "specs": {
+          "chemistry": "锂离子充电电池（锂离子纽扣电池）",
+          "packaging": "2 件装/5 件装环保吸塑纸卡",
+          "dimensions": "20.0 毫米直径 x 2.5 毫米厚度",
+          "battery_model": "LIR2025 (3.6V / 25mAh)",
+          "certifications": "CE-LVD/EMC、FCC、RoHS 2.0、UN38.3、MSDS、1.2m 跌落测试",
+          "recharge_cycles": "500+ 次完整充放电循环",
+          "replaces_disposable": "CR2025, DL2025, ECR2025, BR2025"
+        },
+        "title": "VSZAPOWER LIR2025 3.6V 25mAh 可充电锂离子纽扣电池（2 件/5 件吸塑卡包）",
+        "tagline": "20mm x 2.5mm 可充电电池 | 500+ 次充电循环 | 一次性 CR2025 的环保替代选择",
+        "category": "可充电纽扣电池",
+        "description": "官方 VSZAPOWER LIR2025 3.6V 25mAh 高密度可充电锂纽扣电池，采用标准 20.0mm x 2.5mm 外形尺寸。采用环保 2 件装/5 件装吸塑纸卡包装密封。专为超薄汽车钥匙扣（梅赛德斯-奔驰、雷克萨斯、奥迪、宝马）、数字秤、电视遥控器和智能可穿戴设备而设计。支持超过 500 次充电周期。"
+      },
+      "zh-HK": {
+        "badge": "3.6V 25mAh / 500+ 循環",
+        "specs": {
+          "chemistry": "鋰離子充電電池（鋰離子鈕扣電池）",
+          "packaging": "2 件裝/5 件裝環保吸塑紙卡",
+          "dimensions": "20.0 毫米直徑 x 2.5 毫米厚度",
+          "battery_model": "LIR2025 (3.6V / 25mAh)",
+          "certifications": "CE-LVD/EMC、FCC、RoHS 2.0、UN38.3、MSDS、1.2m 跌落測試",
+          "recharge_cycles": "500+ 完全放電/充電循環",
+          "replaces_disposable": "CR2025, DL2025, ECR2025, BR2025"
+        },
+        "title": "VSZAPOWER LIR2025 3.6V 25mAh 可充電鋰離子鈕扣電池（2 件/5 件吸塑卡包）",
+        "tagline": "20mm x 2.5mm 可充電電池 | 500+ 次充電循環 | 一次性 CR2025 的環保替代選擇",
+        "category": "充電式鈕扣電池",
+        "description": "官方 VSZAPOWER LIR2025 3.6V 25mAh 高密度可充電鋰鈕扣電池，採用標準 20.0mm x 2.5mm 外形尺寸。採用環保 2 件裝/5 件裝吸塑紙卡包裝密封。專為超薄汽車鑰匙圈（Mercedes-Benz、Lexus、Audi、BMW）、數位秤、電視遙控器和智能型穿戴裝置而設計。支援超過 500 次充電週期。"
+      },
+      "zh-TW": {
+        "badge": "3.6V 25mAh / 500+ 循環",
+        "specs": {
+          "chemistry": "鋰離子充電電池（鋰離子鈕扣電池）",
+          "packaging": "2 件裝/5 件裝環保吸塑紙卡",
+          "dimensions": "20.0 毫米直徑 x 2.5 毫米厚度",
+          "battery_model": "LIR2025 (3.6V / 25mAh)",
+          "certifications": "CE-LVD/EMC、FCC、RoHS 2.0、UN38.3、MSDS、1.2m 跌落測試",
+          "recharge_cycles": "500+ 完全放電/充電循環",
+          "replaces_disposable": "CR2025, DL2025, ECR2025, BR2025"
+        },
+        "title": "VSZAPOWER LIR2025 3.6V 25mAh 可充電鋰離子鈕扣電池（2 件/5 件吸塑卡包）",
+        "tagline": "20mm x 2.5mm 可充電電池 | 500+ 次充電循環 | 一次性 CR2025 的環保替代選擇",
+        "category": "充電式鈕扣電池",
+        "description": "官方 VSZAPOWER LIR2025 3.6V 25mAh 高密度可充電鋰鈕扣電池，採用標準 20.0mm x 2.5mm 外形尺寸。採用環保 2 件裝/5 件裝吸塑紙卡包裝密封。專為超薄汽車鑰匙圈（Mercedes-Benz、Lexus、Audi、BMW）、數位秤、電視遙控器和智慧型穿戴裝置而設計。支援超過 500 次充電週期。"
+      }
+    }
+  },
+  {
+    "id": "prod_lir2032_battery",
+    "translations": {
+      "ar": {
+        "badge": "3.6 فولت 32 مللي أمبير/500+ دورات",
+        "specs": {
+          "chemistry": "خلية عملة ليثيوم أيون قابلة لإعادة الشحن",
+          "packaging": "عبوة كرتونية صديقة للبيئة تحتوي على 2 أو 5 قطع مع تغليف بلاستيكي مشكّل على الوجهين وبطاقة تعليق",
+          "dimensions": "قطر 20.0 ملم × سمك 3.2 ملم",
+          "battery_model": "LIR2032 (3.6V / 32mAh)",
+          "certifications": "CE-LVD/EMC، FCC، RoHS 2.0، UN38.3، MSDS، اختبار السقوط 1.2 متر",
+          "recharge_cycles": "أكثر من 500 دورة إعادة شحن كاملة",
+          "replaces_disposable": "CR2032, DL2032, ECR2032, BR2032"
+        },
+        "title": "بطارية ليثيوم VSZAPOWER LIR2032 3.6 فولت 32 مللي أمبير في الساعة قابلة لإعادة الشحن (2 قطعة/5 قطعة حقيبة تعليق للبطاقات الورقية)",
+        "tagline": "بطارية ليثيوم قابلة لإعادة الشحن بحجم قياسي 20.0 مم × 3.2 مم | 500+دورة | استبدل بطارية الزر CR2032 التي تستخدم لمرة واحدة",
+        "category": "خلايا العملة القابلة لإعادة الشحن",
+        "description": "بطارية ليثيوم أيون من نوع زر VSZAPOWER الأصلية الرسمية LIR2032 3.6V 32mAh قابلة لإعادة الشحن، تلبي مواصفات الحجم القياسي 20.0 مم × 3.2 مم. مجهزة عالية الكثافة 2 قطعة/5 قطعة بطاقة معلقة فراغ ختم التعبئة والتغليف ورقة مقاومة للرطوبة. ينطبق على نطاق واسع على Apple AirTag، وأجهزة التحكم عن بعد بمفتاح السيارة (BMW، Audi، Mercedes Benz، Toyota، إلخ.)، وأجهزة التحكم عن بعد في باب الجراج، ومقاييس الدهون في الجسم، وأجهزة الإضاءة الإلكترونية. يدعم أكثر من 500 دورة شحن، مما يقلل بشكل كبير من تكاليف الاستخدام ويقلل من النفايات الإلكترونية."
+      },
+      "de": {
+        "badge": "3,6 V 32 mAh / 500+ ZYKLEN",
+        "specs": {
+          "chemistry": "Wiederaufladbare Lithium-Ionen-Knopfzelle",
+          "packaging": "2PCS / 5PCS Eco Blister Card Pack (doppelseitige Blisterkarte zum Aufhängen)",
+          "dimensions": "20,0 mm Durchmesser x 3,2 mm Dicke",
+          "battery_model": "LIR2032 (3.6V / 32mAh)",
+          "certifications": "CE-LVD/EMV, FCC, RoHS 2.0, UN38.3, MSDS, 1,2 m Falltest",
+          "recharge_cycles": "Über 500 vollständige Aufladezyklen",
+          "replaces_disposable": "CR2032, DL2032, ECR2032, BR2032"
+        },
+        "title": "VSZAPOWER LIR2032 3,6 V 32 mAh wiederaufladbare Lithium-Knopfbatterie (2 Stück/5 Stück Papierkarten-Hängetasche)",
+        "tagline": "20,0 mm x 3,2 mm wiederaufladbare Lithiumbatterie in Standardgröße | 500+ Zyklen | Ersetzen Sie die Einweg-Knopfbatterie CR2032",
+        "category": "Wiederaufladbare Knopfzellen",
+        "description": "VSZAPOWER offizieller Original-Lithium-Ionen-Akku LIR2032 3,6 V 32 mAh, wiederaufladbar, entspricht der Standardgrößenspezifikation von 20,0 mm x 3,2 mm. Ausgestattet mit einer hochdichten 2PCS/5PCS-Hängekarten-Vakuumversiegelung und feuchtigkeitsbeständiger Papierkartenverpackung. Weit verbreitet für Apple AirTag, Autoschlüssel-Fernbedienungen (BMW, Audi, Mercedes Benz, Toyota usw.), Garagentor-Fernbedienungen, Körperfettwaagen und elektronische Beleuchtungsgeräte. Unterstützt über 500 Ladezyklen, wodurch die Nutzungskosten erheblich gesenkt und Elektroschrott minimiert werden."
+      },
+      "en": {
+        "badge": "3.6V 32mAh / 500+ CYCLES",
+        "specs": {
+          "chemistry": "Rechargeable Lithium-Ion Coin Cell",
+          "packaging": "2PCS / 5PCS Eco Blister Card Pack (Double-sided Blister Hanging Card)",
+          "dimensions": "20.0mm Diameter x 3.2mm Thickness",
+          "battery_model": "LIR2032 (3.6V / 32mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, 1.2m Drop Test",
+          "recharge_cycles": "500+ Full Recharge Cycles",
+          "replaces_disposable": "CR2032, DL2032, ECR2032, BR2032"
+        },
+        "title": "VSZAPOWER LIR2032 3.6V 32mAh rechargeable button lithium battery (2PCS/5PCS paper card hanging bag)",
+        "tagline": "20.0mm x 3.2mm standard size rechargeable lithium battery | 500+cycles | Replace disposable CR2032 button battery",
+        "category": "Rechargeable Coin Cells",
+        "description": "VSZAPOWER official original LIR2032 3.6V 32mAh rechargeable button type lithium-ion battery, meets the standard size specification of 20.0mm x 3.2mm. Equipped with high-density 2PCS/5PCS hanging card vacuum sealing moisture-proof paper card packaging. Widely applicable to Apple AirTag, car key remote controls (BMW, Audi, Mercedes Benz, Toyota, etc.), garage door remote controls, body fat scales, and electronic lighting devices. Supports over 500 cycles of charging, significantly reducing usage costs and minimizing electronic waste."
+      },
+      "es": {
+        "badge": "3.6V 32mAh / 500+ CICLOS",
+        "specs": {
+          "chemistry": "Pila de botón recargable de iones de litio",
+          "packaging": "Paquete de tarjetas blíster ecológicas de 2 piezas / 5 piezas (tarjeta colgante en blíster de doble cara)",
+          "dimensions": "20,0 mm de diámetro x 3,2 mm de espesor",
+          "battery_model": "LIR2032 (3.6V / 32mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, prueba de caída desde 1,2 m",
+          "recharge_cycles": "Más de 500 ciclos de recarga completos",
+          "replaces_disposable": "CR2032, DL2032, ECR2032, BR2032"
+        },
+        "title": "Batería de litio de botón recargable VSZAPOWER LIR2032 3,6 V 32 mAh (bolsa colgante de tarjeta de papel 2 uds/5 uds)",
+        "tagline": "Batería de litio recargable de tamaño estándar de 20,0 mm x 3,2 mm | 500+ciclos | Reemplace la batería de botón CR2032 desechable",
+        "category": "Pilas de botón recargables",
+        "description": "Batería de iones de litio tipo botón recargable LIR2032 3,6 V 32 mAh original oficial de VSZAPOWER, cumple con la especificación de tamaño estándar de 20,0 mm x 3,2 mm. Equipado con una tarjeta colgante de alta densidad de 2 piezas/5 piezas, sellado al vacío, embalaje de tarjetas de papel a prueba de humedad. Ampliamente aplicable a Apple AirTag, controles remotos de llaves de automóviles (BMW, Audi, Mercedes Benz, Toyota, etc.), controles remotos de puertas de garaje, básculas de grasa corporal y dispositivos de iluminación electrónicos. Admite más de 500 ciclos de carga, lo que reduce significativamente los costos de uso y minimiza los desechos electrónicos."
+      },
+      "fr": {
+        "badge": "3,6 V 32 mAh / 500+ CYCLES",
+        "specs": {
+          "chemistry": "Pile bouton rechargeable au lithium-ion",
+          "packaging": "Pack de cartes Blister écologique 2 pièces/5 pièces (carte suspendue Double face)",
+          "dimensions": "20,0 mm de diamètre x 3,2 mm d'épaisseur",
+          "battery_model": "LIR2032 (3.6V / 32mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, test de chute de 1,2 m",
+          "recharge_cycles": "Plus de 500 cycles de recharge complète",
+          "replaces_disposable": "CR2032, DL2032, ECR2032, BR2032"
+        },
+        "title": "VSZAPOWER LIR2032 3.6 V 32 mAh batterie au lithium bouton rechargeable (2 pièces/5 pièces sac suspendu pour carte en papier)",
+        "tagline": "Batterie au lithium rechargeable de taille standard de 20,0 mm x 3,2 mm | 500+cycles | Remplacer la pile bouton CR2032 jetable",
+        "category": "Piles bouton rechargeables",
+        "description": "Batterie lithium-ion rechargeable de type bouton LIR2032 3,6 V 32 mAh d'origine officielle VSZAPOWER, répond aux spécifications de taille standard de 20,0 mm x 3,2 mm. Équipé d'un emballage en papier résistant à l'humidité de 2 pièces/5 pièces de cartes suspendues haute densité. Largement applicable à Apple AirTag, aux télécommandes de clé de voiture (BMW, Audi, Mercedes Benz, Toyota, etc.), aux télécommandes de porte de garage, aux balances de graisse corporelle et aux appareils d'éclairage électroniques. Prend en charge plus de 500 cycles de charge, réduisant considérablement les coûts d'utilisation et minimisant les déchets électroniques."
+      },
+      "he": {
+        "badge": "3.6V 32mAh / 500+ מחזורים",
+        "specs": {
+          "chemistry": "תא מטבעות ליתיום-יון נטען",
+          "packaging": "2 יחידות / 5 יחידות חבילת כרטיס שלפוחית אקולוגי (כרטיס תלייה שלפוחית דו-צדדית)",
+          "dimensions": "קוטר 20.0 מ\"מ x 3.2 מ\"מ עובי",
+          "battery_model": "LIR2032 (3.6V / 32mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, בדיקת נפילה של 1.2 מטר",
+          "recharge_cycles": "500+ מחזורי טעינה מלאה",
+          "replaces_disposable": "CR2032, DL2032, ECR2032, BR2032"
+        },
+        "title": "VSZAPOWER LIR2032 3.6V 32mAh כפתור נטענת סוללת ליתיום (2 יחידות/5 יחידות תיק תלייה בכרטיס נייר)",
+        "tagline": "סוללת ליתיום נטענת בגודל 20.0 מ\"מ x 3.2 מ\"מ בגודל סטנדרטי | 500+מחזורים | החלף סוללת לחצן CR2032 חד פעמית",
+        "category": "תאי מטבע נטענים",
+        "description": "VSZAPOWER מקורית רשמית LIR2032 3.6V 32mAh סוללת ליתיום-יון מסוג כפתור נטענת, עומדת במפרט הגודל הסטנדרטי של 20.0 מ\"מ x 3.2 מ\"מ. מצויד בצפיפות גבוהה 2PCS/5PCS כרטיס תלייה ואקום איטום רטיבות כרטיס נייר אריזות. יישום נרחב ל-Apple AirTag, שלט רחוק למפתחות לרכב (BMW, Audi, Mercedes Benz, Toyota וכו'), שלט רחוק לדלתות המוסך, מאזני שומן גוף ומכשירי תאורה אלקטרוניים. תומך ביותר מ-500 מחזורי טעינה, מפחית משמעותית את עלויות השימוש וממזער פסולת אלקטרונית."
+      },
+      "ja": {
+        "badge": "3.6V 32mAh / 500+ サイクル",
+        "specs": {
+          "chemistry": "充電式リチウムイオンコイン電池",
+          "packaging": "2PCS / 5PCS エコブリスターカードパック (両面ブリスター吊り下げカード)",
+          "dimensions": "直径20.0mm×厚さ3.2mm",
+          "battery_model": "LIR2032 (3.6V / 32mAh)",
+          "certifications": "CE-LVD/EMC、FCC、RoHS 2.0、UN38.3、MSDS、1.2m落下試験",
+          "recharge_cycles": "500回以上のフル充電サイクル",
+          "replaces_disposable": "CR2032, DL2032, ECR2032, BR2032"
+        },
+        "title": "VSZAPOWER LIR2032 3.6V 32mAh 充電式ボタンリチウム電池 (2 個/5 個紙カード吊り袋)",
+        "tagline": "20.0mm x 3.2mm 標準サイズの充電式リチウム電池 | 500+サイクル |使い捨ての CR2032 ボタン電池を交換してください",
+        "category": "充電式コイン電池",
+        "description": "VSZAPOWER 公式オリジナル LIR2032 3.6V 32mAh 充電式ボタン型リチウムイオン電池、20.0mm x 3.2mm の標準サイズ仕様を満たしています。高密度2PCS / 5PCS吊り下げカード真空シール防湿紙カードパッケージを装備しています。 Apple AirTag、車のキーリモコン（BMW、アウディ、メルセデスベンツ、トヨタなど）、ガレージドアリモコン、体脂肪計、電子照明機器などに幅広く適用可能です。 500 サイクルを超える充電をサポートし、使用コストを大幅に削減し、電子廃棄物を最小限に抑えます。"
+      },
+      "ko": {
+        "badge": "3.6V 32mAh / 500+ 사이클",
+        "specs": {
+          "chemistry": "충전식 리튬 이온 코인 셀",
+          "packaging": "2PCS / 5PCS 에코 블리스 터 카드 팩 (양면 블리스 터 행잉 카드)",
+          "dimensions": "직경 20.0mm x 두께 3.2mm",
+          "battery_model": "LIR2032 (3.6V / 32mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, 1.2m 낙하 테스트",
+          "recharge_cycles": "500회 이상의 완전 재충전 주기",
+          "replaces_disposable": "CR2032, DL2032, ECR2032, BR2032"
+        },
+        "title": "VSZAPOWER LIR2032 3.6V 32mAh 충전식 버튼 리튬 배터리(2PCS/5PCS 종이 카드 교수형 가방)",
+        "tagline": "20.0mm x 3.2mm 표준 크기 충전식 리튬 배터리 | 500+주기 | 일회용 CR2032 버튼 배터리 교체",
+        "category": "충전식 코인 셀",
+        "description": "VSZAPOWER 공식 오리지널 LIR2032 3.6V 32mAh 충전식 버튼형 리튬 이온 배터리는 20.0mm x 3.2mm의 표준 크기 사양을 충족합니다. 고밀도 2PCS/5PCS 걸이형 카드 진공 밀봉 방습 종이 카드 포장을 갖추고 있습니다. Apple AirTag, 자동차 키 리모컨(BMW, Audi, Mercedes Benz, Toyota 등), 차고문 리모컨, 체지방 측정기, 전자 조명 장치에 폭넓게 적용 가능합니다. 500회 이상의 충전 주기를 지원하여 사용 비용을 대폭 절감하고 전자 폐기물을 최소화합니다."
+      },
+      "pt": {
+        "badge": "3,6V 32mAh / 500+ CICLOS",
+        "specs": {
+          "chemistry": "Célula tipo moeda recarregável de íon de lítio",
+          "packaging": "Pacote de cartão blister ecológico de 2 unidades / 5 unidades (cartão suspenso de bolha de dupla face)",
+          "dimensions": "20,0 mm de diâmetro x 3,2 mm de espessura",
+          "battery_model": "LIR2032 (3.6V / 32mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, teste de queda de 1,2 m",
+          "recharge_cycles": "Mais de 500 ciclos completos de recarga",
+          "replaces_disposable": "CR2032, DL2032, ECR2032, BR2032"
+        },
+        "title": "VSZAPOWER LIR2032 3.6V 32mAh bateria de lítio recarregável com botão (2 unidades/5 unidades de cartão de papel pendurado saco)",
+        "tagline": "Bateria de lítio recarregável de tamanho padrão de 20,0 mm x 3,2 mm | Mais de 500 ciclos | Substitua a bateria tipo botão CR2032 descartável",
+        "category": "Células tipo moeda recarregáveis",
+        "description": "VSZAPOWER original oficial LIR2032 3,6 V 32mAh bateria de íon de lítio tipo botão recarregável, atende à especificação de tamanho padrão de 20,0 mm x 3,2 mm. Equipado com cartão suspenso de alta densidade 2PCS / 5PCS, embalagem de cartão de papel à prova de umidade e vedação a vácuo. Amplamente aplicável ao Apple AirTag, controles remotos de chave de carro (BMW, Audi, Mercedes Benz, Toyota, etc.), controles remotos de portas de garagem, balanças de gordura corporal e dispositivos de iluminação eletrônica. Suporta mais de 500 ciclos de carregamento, reduzindo significativamente os custos de utilização e minimizando o desperdício eletrónico."
+      },
+      "ru": {
+        "badge": "3,6 В, 32 мАч / 500+ ЦИКЛОВ",
+        "specs": {
+          "chemistry": "Перезаряжаемая литий-ионная батарейка типа «таблетка»",
+          "packaging": "2 шт./5 шт. эко-блистерная упаковка (двусторонняя подвесная блистерная карта)",
+          "dimensions": "Диаметр 20,0 мм x толщина 3,2 мм",
+          "battery_model": "LIR2032 (3.6V / 32mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, испытание на падение с высоты 1,2 м",
+          "recharge_cycles": "500+ полных циклов перезарядки",
+          "replaces_disposable": "CR2032, DL2032, ECR2032, BR2032"
+        },
+        "title": "VSZAPOWER LIR2032 3,6 В, 32 мАч, литиевая аккумуляторная батарея с кнопкой (2 шт./5 шт., сумка для подвешивания бумажных карточек)",
+        "tagline": "Литиевая аккумуляторная батарея стандартного размера 20,0 x 3,2 мм | 500+ циклов | Замените одноразовую батарейку-таблетку CR2032.",
+        "category": "Перезаряжаемые монетоприемники",
+        "description": "Официальный оригинальный литий-ионный аккумулятор VSZAPOWER LIR2032 3,6 В, 32 мАч, соответствует стандартным размерам 20,0 x 3,2 мм. Оснащен высокоплотной 2 шт./5 шт. подвесной карточной вакуумной герметичной влагостойкой бумажной упаковкой для карт. Широко применимо к Apple AirTag, пультам дистанционного управления автомобильными ключами (BMW, Audi, Mercedes Benz, Toyota и т. д.), пультам дистанционного управления гаражными воротами, весам для измерения жира и электронным осветительным устройствам. Поддерживает более 500 циклов зарядки, что значительно снижает затраты на использование и минимизирует электронные отходы."
+      },
+      "vi": {
+        "badge": "3.6V 32mAh / 500+ CHU KỲ",
+        "specs": {
+          "chemistry": "Pin đồng xu Lithium-Ion có thể sạc lại",
+          "packaging": "Gói thẻ vỉ sinh thái 2 CÁI / 5 CÁI (Thẻ treo vỉ hai mặt)",
+          "dimensions": "Đường kính 20,0mm x Độ dày 3,2mm",
+          "battery_model": "LIR2032 (3.6V / 32mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, Thử nghiệm thả rơi 1,2m",
+          "recharge_cycles": "Hơn 500 chu kỳ sạc đầy",
+          "replaces_disposable": "CR2032, DL2032, ECR2032, BR2032"
+        },
+        "title": "Pin lithium nút sạc VSZAPOWER LIR2032 3.6V 32mAh (2/5 túi treo thẻ giấy)",
+        "tagline": "Pin lithium có thể sạc lại kích thước tiêu chuẩn 20,0mm x 3,2mm | Hơn 500 chu kỳ | Thay pin nút CR2032 dùng một lần",
+        "category": "Tế bào tiền xu có thể sạc lại",
+        "description": "Pin lithium-ion loại nút sạc LIR2032 3.6V 32mAh chính hãng của VSZAPOWER, đáp ứng thông số kích thước tiêu chuẩn 20,0mm x 3,2mm. Được trang bị bao bì thẻ giấy chống ẩm 2 CÁI / 5 CÁI treo mật độ cao. Áp dụng rộng rãi cho Apple AirTag, điều khiển từ xa chìa khóa xe hơi (BMW, Audi, Mercedes Benz, Toyota, v.v.), điều khiển từ xa cửa gara, cân mỡ cơ thể và thiết bị chiếu sáng điện tử. Hỗ trợ hơn 500 chu kỳ sạc, giảm đáng kể chi phí sử dụng và giảm thiểu rác thải điện tử."
+      },
+      "zh-CN": {
+        "badge": "3.6V 32mAh / 500+ 循环",
+        "specs": {
+          "chemistry": "可充电锂离子纽扣电池",
+          "packaging": "2PCS / 5PCS 环保吸塑卡包（双面吸塑挂卡）",
+          "dimensions": "20.0 毫米直径 x 3.2 毫米厚度",
+          "battery_model": "LIR2032 (3.6V / 32mAh)",
+          "certifications": "CE-LVD/EMC、FCC、RoHS 2.0、UN38.3、MSDS、1.2m 跌落测试",
+          "recharge_cycles": "500+ 次完整充电周期",
+          "replaces_disposable": "CR2032, DL2032, ECR2032, BR2032"
+        },
+        "title": "VSZAPOWER LIR2032 3.6V 32mAh 可充电纽扣锂电池（2PCS/5PCS纸卡挂袋）",
+        "tagline": "20.0mm x 3.2mm 标准尺寸可充电锂电池 | 500+ 周期 |更换一次性 CR2032 纽扣电池",
+        "category": "可充电纽扣电池",
+        "description": "VSZAPOWER官方原装LIR2032 3.6V 32mAh可充电纽扣式锂离子电池，符合20.0mm x 3.2mm的标准尺寸规格。配备高密度2PCS/5PCS挂卡真空密封防潮纸卡包装。广泛适用于苹果AirTag、汽车钥匙遥控器（宝马、奥迪、奔驰、丰田等）、车库门遥控器、体脂秤、电子照明设备等。支持超过 500 次充电循环，显着降低使用成本并最大限度地减少电子浪费。"
+      },
+      "zh-HK": {
+        "badge": "3.6V 32mAh / 500+ 循環",
+        "specs": {
+          "chemistry": "可充電鋰離子鈕扣電池",
+          "packaging": "2PCS / 5PCS 環保吸塑卡包（雙面吸塑掛卡）",
+          "dimensions": "20.0 毫米直徑 x 3.2 毫米厚度",
+          "battery_model": "LIR2032 (3.6V / 32mAh)",
+          "certifications": "CE-LVD/EMC、FCC、RoHS 2.0、UN38.3、MSDS、1.2m 跌落測試",
+          "recharge_cycles": "500+ 次完整充電週期",
+          "replaces_disposable": "CR2032, DL2032, ECR2032, BR2032"
+        },
+        "title": "VSZAPOWER LIR2032 3.6V 32mAh 可充電紐扣鋰電池（2PCS/5PCS紙卡掛袋）",
+        "tagline": "20.0mm x 3.2mm 標準尺寸可充電鋰電池 | 500+ 週期 |更換一次性 CR2032 鈕扣電池",
+        "category": "充電式鈕扣電池",
+        "description": "VSZAPOWER官方原廠LIR2032 3.6V 32mAh可充電紐扣式鋰離子電池，符合20.0mm x 3.2mm的標準尺寸規格。配備高密度2PCS/5PCS掛卡真空密封防潮紙卡包裝。廣泛適用於蘋果AirTag、汽車鑰匙遙控器（BMW、Audi、賓士、豐田等）、車庫門遙控器、體脂秤、電子照明設備等。支援超過 500 次充電循環，顯著降低使用成本並最大限度地減少電子浪費。"
+      },
+      "zh-TW": {
+        "badge": "3.6V 32mAh / 500+ 循環",
+        "specs": {
+          "chemistry": "可充電鋰離子鈕扣電池",
+          "packaging": "2PCS / 5PCS 環保吸塑卡包（雙面吸塑掛卡）",
+          "dimensions": "20.0 毫米直徑 x 3.2 毫米厚度",
+          "battery_model": "LIR2032 (3.6V / 32mAh)",
+          "certifications": "CE-LVD/EMC、FCC、RoHS 2.0、UN38.3、MSDS、1.2m 跌落測試",
+          "recharge_cycles": "500+ 次完整充電週期",
+          "replaces_disposable": "CR2032, DL2032, ECR2032, BR2032"
+        },
+        "title": "VSZAPOWER LIR2032 3.6V 32mAh 可充電紐扣鋰電池（2PCS/5PCS紙卡掛袋）",
+        "tagline": "20.0mm x 3.2mm 標準尺寸可充電鋰電池 | 500+ 週期 |更換一次性 CR2032 鈕扣電池",
+        "category": "充電式鈕扣電池",
+        "description": "VSZAPOWER官方原廠LIR2032 3.6V 32mAh可充電紐扣式鋰離子電池，符合20.0mm x 3.2mm的標準尺寸規格。配備高密度2PCS/5PCS掛卡真空密封防潮紙卡包裝。廣泛適用於蘋果AirTag、汽車鑰匙遙控器（BMW、Audi、賓士、豐田等）、車庫門遙控器、體脂秤、電子照明設備等。支援超過 500 次充電循環，顯著降低使用成本並最大限度地減少電子浪費。"
+      }
+    }
+  },
+  {
+    "id": "prod_lir2450_battery",
+    "translations": {
+      "ar": {
+        "badge": "3.6 فولت 110 مللي أمبير/500+ دورات",
+        "specs": {
+          "chemistry": "خلية عملة ليثيوم أيون قابلة لإعادة الشحن",
+          "packaging": "عبوة كرتونية صديقة للبيئة تحتوي على 2 أو 5 قطع مع تغليف بلاستيكي مشكّل على الوجهين وبطاقة تعليق",
+          "dimensions": "قطر 24.5 ملم × سمك 5.0 ملم",
+          "battery_model": "LIR2450 (3.6V / 110mAh)",
+          "certifications": "CE-LVD/EMC، FCC، RoHS 2.0، UN38.3، MSDS، اختبار السقوط 1.2 متر",
+          "recharge_cycles": "أكثر من 500 دورة إعادة شحن كاملة",
+          "replaces_disposable": "CR2450, DL2450, ECR2450, BR2450"
+        },
+        "title": "بطارية ليثيوم VSZAPOWER LIR2450 3.6 فولت 110 مللي أمبير في الساعة قابلة لإعادة الشحن (2 قطعة/5 قطعة حقيبة تعليق للبطاقات الورقية)",
+        "tagline": "بطارية ليثيوم قابلة لإعادة الشحن ذات سعة كبيرة 24.5 مم × 5.0 مم | 500+دورة | استبدل بطارية الزر CR2450 التي تستخدم لمرة واحدة",
+        "category": "خلايا العملة القابلة لإعادة الشحن",
+        "description": "بطارية ليثيوم أيون أصلية رسمية من VSZAPOWER LIR2450 3.6V 110mAh ذات سعة كبيرة قابلة لإعادة الشحن، تلبي مواصفات الحجم القياسي 24.5 مم × 5.0 مم. مجهزة بعدد 2 قطعة/5 قطع من بطاقات التعليق محكمة الغلق ومقاومة للرطوبة. يستخدم على نطاق واسع في أقفال الأبواب الذكية، وأجهزة مراقبة ضغط الإطارات الشمسية، وأجهزة قياس نسبة الجلوكوز في الدم، وشمع الشاي الإلكتروني LED، والأجهزة الذكية لإنترنت الأشياء. يدعم أكثر من 500 دورة شحن، واستبدال بطاريات الأزرار CR2450 التي تستخدم لمرة واحدة."
+      },
+      "de": {
+        "badge": "3,6 V 110 mAh / 500+ ZYKLEN",
+        "specs": {
+          "chemistry": "Wiederaufladbare Lithium-Ionen-Knopfzelle",
+          "packaging": "2PCS / 5PCS Eco Blister Card Pack (doppelseitige Blisterkarte zum Aufhängen)",
+          "dimensions": "24,5 mm Durchmesser x 5,0 mm Dicke",
+          "battery_model": "LIR2450 (3.6V / 110mAh)",
+          "certifications": "CE-LVD/EMV, FCC, RoHS 2.0, UN38.3, MSDS, 1,2 m Falltest",
+          "recharge_cycles": "Über 500 vollständige Aufladezyklen",
+          "replaces_disposable": "CR2450, DL2450, ECR2450, BR2450"
+        },
+        "title": "VSZAPOWER LIR2450 3,6 V 110 mAh wiederaufladbare Lithium-Knopfbatterie (2 Stück/5 Stück Papierkarten-Hängetasche)",
+        "tagline": "24,5 mm x 5,0 mm großer wiederaufladbarer Lithium-Akku | 500+ Zyklen | Ersetzen Sie die Einweg-Knopfbatterie CR2450",
+        "category": "Wiederaufladbare Knopfzellen",
+        "description": "VSZAPOWER offizieller Original-Lithium-Ionen-Akku LIR2450 3,6 V 110 mAh mit großer Kapazität und wiederaufladbarem Knopftyp, erfüllt die Standardgrößenspezifikation von 24,5 mm x 5,0 mm. Ausgestattet mit 2 Stück/5 Stück hängender, vakuumversiegelter, feuchtigkeitsbeständiger Papierkartenverpackung. Weit verbreitet in intelligenten Türschlössern, Solar-Reifendruckmessgeräten, Blutzuckermessgeräten, elektronischem LED-Teewachs und intelligenten IoT-Geräten. Unterstützt über 500 Ladezyklen und ersetzt Einweg-Knopfbatterien vom Typ CR2450."
+      },
+      "en": {
+        "badge": "3.6V 110mAh / 500+ CYCLES",
+        "specs": {
+          "chemistry": "Rechargeable Lithium-Ion Coin Cell",
+          "packaging": "2PCS / 5PCS Eco Blister Card Pack (Double-sided Blister Hanging Card)",
+          "dimensions": "24.5mm Diameter x 5.0mm Thickness",
+          "battery_model": "LIR2450 (3.6V / 110mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, 1.2m Drop Test",
+          "recharge_cycles": "500+ Full Recharge Cycles",
+          "replaces_disposable": "CR2450, DL2450, ECR2450, BR2450"
+        },
+        "title": "VSZAPOWER LIR2450 3.6V 110mAh rechargeable button lithium battery (2PCS/5PCS paper card hanging bag)",
+        "tagline": "24.5mm x 5.0mm large capacity rechargeable lithium battery | 500+cycles | Replace disposable CR2450 button battery",
+        "category": "Rechargeable Coin Cells",
+        "description": "VSZAPOWER official original LIR2450 3.6V 110mAh large capacity rechargeable button type lithium-ion battery, meets the standard size specification of 24.5mm x 5.0mm. Equipped with 2PCS/5PCS hanging card vacuum sealed moisture-proof paper card packaging. Widely used in smart door locks, solar tire pressure monitors, blood glucose meters, LED electronic tea wax, and IoT smart devices. Supports over 500 cycles of charging, replacing disposable CR2450 button batteries."
+      },
+      "es": {
+        "badge": "3.6V 110mAh / 500+ CICLOS",
+        "specs": {
+          "chemistry": "Pila de botón recargable de iones de litio",
+          "packaging": "Paquete de tarjetas blíster ecológicas de 2 piezas / 5 piezas (tarjeta colgante en blíster de doble cara)",
+          "dimensions": "24,5 mm de diámetro x 5,0 mm de espesor",
+          "battery_model": "LIR2450 (3.6V / 110mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, prueba de caída desde 1,2 m",
+          "recharge_cycles": "Más de 500 ciclos de recarga completos",
+          "replaces_disposable": "CR2450, DL2450, ECR2450, BR2450"
+        },
+        "title": "Batería de litio de botón recargable VSZAPOWER LIR2450 3,6 V 110 mAh (bolsa colgante de tarjeta de papel 2 uds/5 uds)",
+        "tagline": "Batería de litio recargable de gran capacidad de 24,5 mm x 5,0 mm | 500+ciclos | Reemplace la batería de botón CR2450 desechable",
+        "category": "Pilas de botón recargables",
+        "description": "Batería de iones de litio tipo botón recargable de gran capacidad LIR2450 3,6 V 110 mAh original oficial de VSZAPOWER, cumple con la especificación de tamaño estándar de 24,5 mm x 5,0 mm. Equipado con 2 unidades/5 unidades de tarjetas colgantes selladas al vacío y a prueba de humedad. Ampliamente utilizado en cerraduras de puertas inteligentes, monitores solares de presión de neumáticos, medidores de glucosa en sangre, cera de té electrónica LED y dispositivos inteligentes IoT. Admite más de 500 ciclos de carga, reemplazando las baterías de botón CR2450 desechables."
+      },
+      "fr": {
+        "badge": "3,6 V 110 mAh / 500+ CYCLES",
+        "specs": {
+          "chemistry": "Pile bouton rechargeable au lithium-ion",
+          "packaging": "Pack de cartes Blister écologique 2 pièces/5 pièces (carte suspendue Double face)",
+          "dimensions": "24,5 mm de diamètre x 5,0 mm d'épaisseur",
+          "battery_model": "LIR2450 (3.6V / 110mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, test de chute de 1,2 m",
+          "recharge_cycles": "Plus de 500 cycles de recharge complète",
+          "replaces_disposable": "CR2450, DL2450, ECR2450, BR2450"
+        },
+        "title": "VSZAPOWER LIR2450 3.6 V 110 mAh batterie au lithium bouton rechargeable (2 pièces/5 pièces sac suspendu pour carte en papier)",
+        "tagline": "Batterie au lithium rechargeable de grande capacité de 24,5 mm x 5,0 mm | 500+cycles | Remplacer la pile bouton jetable CR2450",
+        "category": "Piles bouton rechargeables",
+        "description": "Batterie lithium-ion rechargeable de grande capacité de type bouton LIR2450 3,6 V 110 mAh d'origine officielle VSZAPOWER, répond aux spécifications de taille standard de 24,5 mm x 5,0 mm. Équipé de 2/5 cartes suspendues scellées sous vide, emballage en papier résistant à l'humidité. Largement utilisé dans les serrures de porte intelligentes, les moniteurs de pression des pneus solaires, les glucomètres, la cire de thé électronique LED et les appareils intelligents IoT. Prend en charge plus de 500 cycles de charge, remplaçant les piles bouton CR2450 jetables."
+      },
+      "he": {
+        "badge": "3.6V 110mAh / 500+ מחזורים",
+        "specs": {
+          "chemistry": "תא מטבעות ליתיום-יון נטען",
+          "packaging": "2 יחידות / 5 יחידות חבילת כרטיס שלפוחית אקולוגי (כרטיס תלייה שלפוחית דו-צדדית)",
+          "dimensions": "קוטר 24.5 מ\"מ x 5.0 מ\"מ עובי",
+          "battery_model": "LIR2450 (3.6V / 110mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, בדיקת נפילה של 1.2 מטר",
+          "recharge_cycles": "500+ מחזורי טעינה מלאה",
+          "replaces_disposable": "CR2450, DL2450, ECR2450, BR2450"
+        },
+        "title": "VSZAPOWER LIR2450 3.6V 110mAh כפתור נטענת סוללת ליתיום (2 יחידות/5 יחידות תיק תלייה בכרטיס נייר)",
+        "tagline": "סוללת ליתיום נטענת בגודל 24.5 מ\"מ x 5.0 מ\"מ | 500+מחזורים | החלף סוללת לחצן CR2450 חד פעמית",
+        "category": "תאי מטבע נטענים",
+        "description": "VSZAPOWER מקורי רשמי LIR2450 3.6V 110mAh קיבולת גדולה של כפתור נטענת מסוג סוללת ליתיום-יון, עומדת במפרט הגודל הסטנדרטי של 24.5 מ\"מ x 5.0 מ\"מ. מצויד באריזת כרטיס נייר אטום בוואקום של 2 יחידות/5 יחידות תלייה. בשימוש נרחב במנעולי דלת חכמים, מדי לחץ סולאריים בצמיגים, מדי סוכר בדם, שעוות תה אלקטרוניות LED ומכשירי IoT חכמים. תומך ביותר מ-500 מחזורי טעינה, מחליף סוללות לחצן CR2450 חד פעמיות."
+      },
+      "ja": {
+        "badge": "3.6V 110mAh / 500+ サイクル",
+        "specs": {
+          "chemistry": "充電式リチウムイオンコイン電池",
+          "packaging": "2PCS / 5PCS エコブリスターカードパック (両面ブリスター吊り下げカード)",
+          "dimensions": "直径24.5mm×厚さ5.0mm",
+          "battery_model": "LIR2450 (3.6V / 110mAh)",
+          "certifications": "CE-LVD/EMC、FCC、RoHS 2.0、UN38.3、MSDS、1.2m落下試験",
+          "recharge_cycles": "500回以上のフル充電サイクル",
+          "replaces_disposable": "CR2450, DL2450, ECR2450, BR2450"
+        },
+        "title": "VSZAPOWER LIR2450 3.6V 110mAh 充電式ボタンリチウム電池 (2 個/5 個紙カード吊り袋)",
+        "tagline": "24.5mm x 5.0mm 大容量充電式リチウム電池 | 500+サイクル |使い捨ての CR2450 ボタン電池を交換してください",
+        "category": "充電式コイン電池",
+        "description": "VSZAPOWER 公式オリジナル LIR2450 3.6V 110mAh 大容量充電式ボタン型リチウムイオン電池、24.5mm x 5.0mm の標準サイズ仕様を満たしています。 2PCS/5PCS 吊り下げカード真空密封防湿紙カードパッケージが装備されています。スマートドアロック、ソーラータイヤ空気圧モニター、血糖計、LED電子ティーワックス、IoTスマートデバイスなどに広く使用されています。 500 サイクル以上の充電をサポートし、使い捨ての CR2450 ボタン電池と交換します。"
+      },
+      "ko": {
+        "badge": "3.6V 110mAh / 500+ 사이클",
+        "specs": {
+          "chemistry": "충전식 리튬 이온 코인 셀",
+          "packaging": "2PCS / 5PCS 에코 블리스 터 카드 팩 (양면 블리스 터 행잉 카드)",
+          "dimensions": "직경 24.5mm x 두께 5.0mm",
+          "battery_model": "LIR2450 (3.6V / 110mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, 1.2m 낙하 테스트",
+          "recharge_cycles": "500회 이상의 완전 재충전 주기",
+          "replaces_disposable": "CR2450, DL2450, ECR2450, BR2450"
+        },
+        "title": "VSZAPOWER LIR2450 3.6V 110mAh 충전식 버튼 리튬 배터리(2PCS/5PCS 종이 카드 교수형 가방)",
+        "tagline": "24.5mm x 5.0mm 대용량 리튬 충전지 | 500+주기 | 일회용 CR2450 버튼 배터리 교체",
+        "category": "충전식 코인 셀",
+        "description": "VSZAPOWER 공식 오리지널 LIR2450 3.6V 110mAh 대용량 충전식 버튼형 리튬 이온 배터리는 24.5mm x 5.0mm의 표준 크기 사양을 충족합니다. 2PCS/5PCS 교수형 카드 진공 밀봉 방습 종이 카드 포장을 갖추고 있습니다. 스마트 도어록, 태양광 타이어 압력 모니터, 혈당 측정기, LED 전자 차 왁스 및 IoT 스마트 장치에 널리 사용됩니다. 500회 이상의 충전 주기를 지원하며 일회용 CR2450 버튼 배터리를 교체합니다."
+      },
+      "pt": {
+        "badge": "3,6V 110mAh / 500+ CICLOS",
+        "specs": {
+          "chemistry": "Célula tipo moeda recarregável de íon de lítio",
+          "packaging": "Pacote de cartão blister ecológico de 2 unidades / 5 unidades (cartão suspenso de bolha de dupla face)",
+          "dimensions": "24,5 mm de diâmetro x 5,0 mm de espessura",
+          "battery_model": "LIR2450 (3.6V / 110mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, teste de queda de 1,2 m",
+          "recharge_cycles": "Mais de 500 ciclos completos de recarga",
+          "replaces_disposable": "CR2450, DL2450, ECR2450, BR2450"
+        },
+        "title": "VSZAPOWER LIR2450 3.6V 110mAh bateria de lítio recarregável com botão (2 unidades / 5 unidades de saco pendurado para cartão de papel)",
+        "tagline": "Bateria de lítio recarregável de grande capacidade de 24,5 mm x 5,0 mm | Mais de 500 ciclos | Substitua a bateria tipo botão CR2450 descartável",
+        "category": "Células tipo moeda recarregáveis",
+        "description": "VSZAPOWER original oficial LIR2450 3,6 V 110mAh bateria de íon de lítio tipo botão recarregável de grande capacidade, atende à especificação de tamanho padrão de 24,5 mm x 5,0 mm. Equipado com embalagem de cartão de papel à prova de umidade selada a vácuo de cartão suspenso de 2 unidades / 5 unidades. Amplamente utilizado em fechaduras inteligentes, monitores solares de pressão de pneus, medidores de glicose no sangue, cera de chá eletrônica LED e dispositivos inteligentes IoT. Suporta mais de 500 ciclos de carregamento, substituindo baterias tipo botão CR2450 descartáveis."
+      },
+      "ru": {
+        "badge": "3,6 В 110 мАч / 500+ ЦИКЛОВ",
+        "specs": {
+          "chemistry": "Перезаряжаемая литий-ионная батарейка типа «таблетка»",
+          "packaging": "2 шт./5 шт. эко-блистерная упаковка (двусторонняя подвесная блистерная карта)",
+          "dimensions": "Диаметр 24,5 мм x толщина 5,0 мм",
+          "battery_model": "LIR2450 (3.6V / 110mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, испытание на падение с высоты 1,2 м",
+          "recharge_cycles": "500+ полных циклов перезарядки",
+          "replaces_disposable": "CR2450, DL2450, ECR2450, BR2450"
+        },
+        "title": "VSZAPOWER LIR2450 3,6 В, 110 мАч, литиевая аккумуляторная батарея (2 шт./5 шт., сумка для подвешивания бумажных карточек)",
+        "tagline": "Литиевая аккумуляторная батарея большой емкости 24,5 x 5,0 мм | 500+ циклов | Замените одноразовую батарейку-таблетку CR2450.",
+        "category": "Перезаряжаемые монетоприемники",
+        "description": "Официальный оригинальный литий-ионный аккумулятор VSZAPOWER LIR2450, 3,6 В, 110 мАч, большой емкости, соответствует стандартным размерам 24,5 x 5,0 мм. Оснащен 2 шт./5 шт. подвесными карточками, вакуумной герметичной влагостойкой бумажной упаковкой. Широко используется в интеллектуальных дверных замках, датчиках давления в шинах на солнечных батареях, измерителях уровня глюкозы в крови, светодиодном электронном чайном воске и интеллектуальных устройствах IoT. Поддерживает более 500 циклов зарядки, заменяя одноразовые батарейки типа CR2450."
+      },
+      "vi": {
+        "badge": "3.6V 110mAh / 500+ CHU KỲ",
+        "specs": {
+          "chemistry": "Pin đồng xu Lithium-Ion có thể sạc lại",
+          "packaging": "Gói thẻ vỉ sinh thái 2 CÁI / 5 CÁI (Thẻ treo vỉ hai mặt)",
+          "dimensions": "Đường kính 24,5mm x Độ dày 5,0mm",
+          "battery_model": "LIR2450 (3.6V / 110mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS, Thử nghiệm thả rơi 1,2m",
+          "recharge_cycles": "Hơn 500 chu kỳ sạc đầy",
+          "replaces_disposable": "CR2450, DL2450, ECR2450, BR2450"
+        },
+        "title": "Pin lithium nút sạc VSZAPOWER LIR2450 3.6V 110mAh (2/5 túi treo thẻ giấy)",
+        "tagline": "Pin lithium có thể sạc lại dung lượng lớn 24,5mm x 5,0mm | Hơn 500 chu kỳ | Thay pin nút CR2450 dùng một lần",
+        "category": "Tế bào tiền xu có thể sạc lại",
+        "description": "Pin lithium-ion loại nút sạc dung lượng lớn LIR2450 3.6V 110mAh chính hãng của VSZAPOWER, đáp ứng thông số kích thước tiêu chuẩn 24,5mm x 5,0mm. Được trang bị 2/5 chiếc thẻ treo bao bì thẻ giấy chống ẩm chân không kín. Được sử dụng rộng rãi trong khóa cửa thông minh, máy đo áp suất lốp năng lượng mặt trời, máy đo đường huyết, sáp trà điện tử LED và thiết bị thông minh IoT. Hỗ trợ hơn 500 chu kỳ sạc, thay thế pin nút CR2450 dùng một lần."
+      },
+      "zh-CN": {
+        "badge": "3.6V 110mAh / 500+ 循环",
+        "specs": {
+          "chemistry": "可充电锂离子纽扣电池",
+          "packaging": "2PCS / 5PCS 环保吸塑卡包（双面吸塑挂卡）",
+          "dimensions": "直径 24.5 毫米 x 厚度 5.0 毫米",
+          "battery_model": "LIR2450 (3.6V / 110mAh)",
+          "certifications": "CE-LVD/EMC、FCC、RoHS 2.0、UN38.3、MSDS、1.2m 跌落测试",
+          "recharge_cycles": "500+ 次完整充电周期",
+          "replaces_disposable": "CR2450, DL2450, ECR2450, BR2450"
+        },
+        "title": "VSZAPOWER LIR2450 3.6V 110mAh 可充电纽扣锂电池（2PCS/5PCS纸卡挂袋）",
+        "tagline": "24.5mm x 5.0mm 大容量充电锂电池 | 500+ 周期 |更换一次性 CR2450 纽扣电池",
+        "category": "可充电纽扣电池",
+        "description": "VSZAPOWER官方原装LIR2450 3.6V 110mAh大容量可充电纽扣式锂离子电池，符合24.5mm x 5.0mm的标准尺寸规格。配有2PCS/5PCS挂卡真空密封防潮纸卡包装。广泛应用于智能门锁、太阳能胎压监测仪、血糖仪、LED电子茶蜡、物联网智能设备等。支持超过 500 次充电循环，替代一次性 CR2450 纽扣电池。"
+      },
+      "zh-HK": {
+        "badge": "3.6V 110mAh / 500+ 循環",
+        "specs": {
+          "chemistry": "可充電鋰離子鈕扣電池",
+          "packaging": "2PCS / 5PCS 環保吸塑卡包（雙面吸塑掛卡）",
+          "dimensions": "直徑 24.5 毫米 x 厚度 5.0 毫米",
+          "battery_model": "LIR2450 (3.6V / 110mAh)",
+          "certifications": "CE-LVD/EMC、FCC、RoHS 2.0、UN38.3、MSDS、1.2m 跌落測試",
+          "recharge_cycles": "500+ 次完整充電週期",
+          "replaces_disposable": "CR2450, DL2450, ECR2450, BR2450"
+        },
+        "title": "VSZAPOWER LIR2450 3.6V 110mAh 充電式紐扣鋰電池（2PCS/5PCS紙卡掛袋）",
+        "tagline": "24.5mm x 5.0mm 大容量充電鋰電池 | 500+ 週期 |更換一次性 CR2450 鈕扣電池",
+        "category": "充電式鈕扣電池",
+        "description": "VSZAPOWER官方原廠LIR2450 3.6V 110mAh大容量可充電紐扣式鋰離子電池，符合24.5mm x 5.0mm的標準尺寸規格。附2PCS/5PCS掛卡真空密封防潮紙卡包裝。廣泛應用於智能門鎖、太陽能胎壓監測儀、血糖儀、LED電子茶蠟、物聯網智能設備等。支援超過 500 次充電循環，取代一次性 CR2450 鈕扣電池。"
+      },
+      "zh-TW": {
+        "badge": "3.6V 110mAh / 500+ 循環",
+        "specs": {
+          "chemistry": "可充電鋰離子鈕扣電池",
+          "packaging": "2PCS / 5PCS 環保吸塑卡包（雙面吸塑掛卡）",
+          "dimensions": "直徑 24.5 毫米 x 厚度 5.0 毫米",
+          "battery_model": "LIR2450 (3.6V / 110mAh)",
+          "certifications": "CE-LVD/EMC、FCC、RoHS 2.0、UN38.3、MSDS、1.2m 跌落測試",
+          "recharge_cycles": "500+ 次完整充電週期",
+          "replaces_disposable": "CR2450, DL2450, ECR2450, BR2450"
+        },
+        "title": "VSZAPOWER LIR2450 3.6V 110mAh 充電式紐扣鋰電池（2PCS/5PCS紙卡掛袋）",
+        "tagline": "24.5mm x 5.0mm 大容量充電鋰電池 | 500+ 週期 |更換一次性 CR2450 鈕扣電池",
+        "category": "充電式鈕扣電池",
+        "description": "VSZAPOWER官方原廠LIR2450 3.6V 110mAh大容量可充電紐扣式鋰離子電池，符合24.5mm x 5.0mm的標準尺寸規格。附2PCS/5PCS掛卡真空密封防潮紙卡包裝。廣泛應用於智慧門鎖、太陽能胎壓監測儀、血糖儀、LED電子茶蠟、物聯網智慧設備等。支援超過 500 次充電循環，取代一次性 CR2450 鈕扣電池。"
+      }
+    }
+  },
+  {
+    "id": "prod_ml2032_battery",
+    "translations": {
+      "ar": {
+        "badge": "3.0 فولت 65 مللي أمبير/مباراة مباشرة 3.0 فولت",
+        "specs": {
+          "chemistry": "ليثيوم منغنيز قابل للشحن (خلية زر ML)",
+          "packaging": "2 قطعة/5 قطعة حزمة بطاقة نفطة صديقة للبيئة",
+          "dimensions": "قطر 20.0 ملم × سمك 3.2 ملم",
+          "battery_model": "ML2032 (3.0V / 65mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS",
+          "recharge_cycles": "500+ دورات كاملة",
+          "replaces_disposable": "CR2032, ML2032, Maxell ML2032, FDK ML2032"
+        },
+        "title": "VSZAPOWER ML2032 بطارية خلية عملة ليثيوم منغنيز قابلة لإعادة الشحن 3.0 فولت 65 مللي أمبير في الساعة (2 قطعة/5 قطعة حزمة بطاقة نفطة)",
+        "tagline": "ملف تعريف قابل لإعادة الشحن مقاس 20.0 مم × 3.2 مم | مطابقة الجهد 3.0 فولت | مثالية للساعات الشمسية والنسخ الاحتياطي للوحة الأم CMOS",
+        "category": "خلايا العملة القابلة لإعادة الشحن",
+        "description": "بطارية VSZAPOWER ML2032 الرسمية 3.0 فولت 65 مللي أمبير في الساعة عالية الكثافة قابلة لإعادة الشحن من الليثيوم المنغنيز، تم تصميمها بعامل الشكل القياسي 20.0 مم × 3.2 مم. مختومة في عبوة من 2 عبوة / 5 عبوات من البطاقات الورقية الصديقة للبيئة. يتميز بجهد تشغيل اسمي 3.0 فولت، مما يجعله البديل المباشر المثالي للساعات التي تعمل بالطاقة الشمسية (Seiko، Casio)، والبطارية الاحتياطية لبطارية اللوحة الأم CMOS RTC، وسلاسل المفاتيح الشمسية، والأجهزة الطبية الدقيقة التي تتطلب توافقًا صارمًا مع الجهد الكهربي 3.0 فولت. يدعم أكثر من 500 دورة شحن."
+      },
+      "de": {
+        "badge": "3,0 V 65 mAh / DIREKT 3,0 V PASSEND",
+        "specs": {
+          "chemistry": "Lithium-Mangan-Akku (ML-Knopfzelle)",
+          "packaging": "2 STÜCK / 5 STÜCK Öko-Blisterkartenpackung",
+          "dimensions": "20,0 mm Durchmesser x 3,2 mm Dicke",
+          "battery_model": "ML2032 (3.0V / 65mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS",
+          "recharge_cycles": "Über 500 vollständige Zyklen",
+          "replaces_disposable": "CR2032, ML2032, Maxell ML2032, FDK ML2032"
+        },
+        "title": "VSZAPOWER ML2032 3,0 V 65 mAh wiederaufladbare Lithium-Mangan-Knopfzellenbatterie (2 Stück/5 Stück Blisterkartenpackung)",
+        "tagline": "20,0 mm x 3,2 mm wiederaufladbares Profil | 3,0 V Spannungsanpassung | Ideal für Solaruhren und Motherboard-CMOS-Backup",
+        "category": "Wiederaufladbare Knopfzellen",
+        "description": "Offizielle VSZAPOWER ML2032 3,0 V 65 mAh wiederaufladbare Lithium-Mangan-Knopfzellenbatterie mit hoher Dichte im Standard-Formfaktor 20,0 mm x 3,2 mm. Versiegelt in einer umweltfreundlichen 2er-/5er-Blister-Papierkartenverpackung. Verfügt über eine exakte Nennbetriebsspannung von 3,0 V und ist damit der ideale direkte Ersatz für solarbetriebene Uhren (Seiko, Casio), CMOS-RTC-Batterie-Backup auf der Hauptplatine, Solar-Schlüsselanhänger und medizinische Präzisionsgeräte, die eine strikte Spannungskompatibilität von 3,0 V erfordern. Unterstützt über 500 Ladezyklen."
+      },
+      "en": {
+        "badge": "3.0V 65mAh / DIRECT 3.0V MATCH",
+        "specs": {
+          "chemistry": "Lithium Manganese Rechargeable (ML Button Cell)",
+          "packaging": "2PCS / 5PCS Eco Blister Card Pack",
+          "dimensions": "20.0mm Diameter x 3.2mm Thickness",
+          "battery_model": "ML2032 (3.0V / 65mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS",
+          "recharge_cycles": "500+ Full Cycles",
+          "replaces_disposable": "CR2032, ML2032, Maxell ML2032, FDK ML2032"
+        },
+        "title": "VSZAPOWER ML2032 3.0V 65mAh Rechargeable Lithium Manganese Coin Cell Battery (2PCS / 5PCS Blister Card Pack)",
+        "tagline": "20.0mm x 3.2mm Rechargeable Profile | 3.0V Voltage Match | Ideal for Solar Watches & Motherboard CMOS Backup",
+        "category": "Rechargeable Coin Cells",
+        "description": "Official VSZAPOWER ML2032 3.0V 65mAh high-density rechargeable lithium manganese coin cell battery engineered in standard 20.0mm x 3.2mm form factor. Sealed in eco-friendly 2-Pack / 5-Pack blister papercard packaging. Features exact 3.0V nominal operating voltage, making it the ideal direct replacement for solar-powered watches (Seiko, Casio), motherboard CMOS RTC battery backup, solar keychains, and precision medical devices requiring strict 3.0V voltage compatibility. Supports over 500 recharge cycles."
+      },
+      "es": {
+        "badge": "3.0V 65mAh / PARTIDO DIRECTO 3.0V",
+        "specs": {
+          "chemistry": "Litio Manganeso Recargable (Pila de Botón ML)",
+          "packaging": "Paquete de tarjetas blíster ecológico de 2 piezas / 5 piezas",
+          "dimensions": "20,0 mm de diámetro x 3,2 mm de espesor",
+          "battery_model": "ML2032 (3.0V / 65mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS",
+          "recharge_cycles": "Más de 500 ciclos completos",
+          "replaces_disposable": "CR2032, ML2032, Maxell ML2032, FDK ML2032"
+        },
+        "title": "VSZAPOWER ML2032 3.0V 65mAh Batería recargable de celda de botón de manganeso de litio (paquete de tarjeta blíster de 2 piezas / 5 piezas)",
+        "tagline": "Perfil recargable de 20,0 mm x 3,2 mm | Coincidencia de voltaje de 3,0 V | Ideal para relojes solares y respaldo CMOS de placa base",
+        "category": "Pilas de botón recargables",
+        "description": "Batería oficial VSZAPOWER ML2032 de 3,0 V, 65 mAh, recargable de alta densidad, de litio y manganeso, diseñada en un factor de forma estándar de 20,0 mm x 3,2 mm. Sellado en un paquete de tarjetas de papel tipo blíster ecológico de 2 o 5 paquetes. Presenta un voltaje de funcionamiento nominal exacto de 3,0 V, lo que lo convierte en el reemplazo directo ideal para relojes que funcionan con energía solar (Seiko, Casio), batería de respaldo CMOS RTC de la placa base, llaveros solares y dispositivos médicos de precisión que requieren una estricta compatibilidad de voltaje de 3,0 V. Soporta más de 500 ciclos de recarga."
+      },
+      "fr": {
+        "badge": "3,0 V 65 mAh / CORRESPONDANCE DIRECTE 3,0 V",
+        "specs": {
+          "chemistry": "Lithium Manganèse rechargeable (pile bouton ML)",
+          "packaging": "Paquet de cartes blister écologique 2 pièces/5 pièces",
+          "dimensions": "20,0 mm de diamètre x 3,2 mm d'épaisseur",
+          "battery_model": "ML2032 (3.0V / 65mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS",
+          "recharge_cycles": "Plus de 500 cycles complets",
+          "replaces_disposable": "CR2032, ML2032, Maxell ML2032, FDK ML2032"
+        },
+        "title": "VSZAPOWER ML2032 3,0 V 65 mAh pile bouton rechargeable au lithium manganèse (paquet de cartes blister 2 pièces/5 pièces)",
+        "tagline": "Profil rechargeable 20,0 mm x 3,2 mm | Correspondance de tension 3,0 V | Idéal pour les montres solaires et la sauvegarde CMOS de la carte mère",
+        "category": "Piles bouton rechargeables",
+        "description": "Batterie officielle VSZAPOWER ML2032 3,0 V 65 mAh rechargeable haute densité au lithium manganèse, conçue dans un facteur de forme standard de 20,0 mm x 3,2 mm. Scellé dans un emballage en carton blister respectueux de l'environnement de 2 ou 5 paquets. Dispose d'une tension de fonctionnement nominale exacte de 3,0 V, ce qui en fait le remplacement direct idéal pour les montres à énergie solaire (Seiko, Casio), la batterie de secours CMOS RTC de la carte mère, les porte-clés solaires et les appareils médicaux de précision nécessitant une stricte compatibilité de tension de 3,0 V. Prend en charge plus de 500 cycles de recharge."
+      },
+      "he": {
+        "badge": "3.0V 65mAh / התאמת מתח ישירה ל-3.0V",
+        "specs": {
+          "chemistry": "ליתיום מנגן נטענת (תא לחצנים ML)",
+          "packaging": "2 יחידות / 5 יחידות חבילת כרטיס שלפוחית אקולוגית",
+          "dimensions": "קוטר 20.0 מ\"מ x 3.2 מ\"מ עובי",
+          "battery_model": "ML2032 (3.0V / 65mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS",
+          "recharge_cycles": "500+ מחזורים מלאים",
+          "replaces_disposable": "CR2032, ML2032, Maxell ML2032, FDK ML2032"
+        },
+        "title": "VSZAPOWER ML2032 3.0V 65mAh סוללת ליתיום מנגן נטענת (2 יחידות / 5 יחידות חבילת כרטיס שלפוחית)",
+        "tagline": "פרופיל נטען בגודל 20.0 מ\"מ x 3.2 מ\"מ | התאמת מתח 3.0V | אידיאלי עבור שעוני שמש וגיבוי CMOS לוח אם",
+        "category": "תאי מטבע נטענים",
+        "description": "VSZAPOWER ML2032 רשמית 3.0V 65mAh נטענת בצפיפות גבוהה של סוללת מטבעות ליתיום מנגן מעוצבת בפורמט סטנדרטי של 20.0 מ\"מ x 3.2 מ\"מ. אטום באריזה ידידותית לסביבה 2-Pack / 5-Pack blister papercard. כולל מתח הפעלה נומינלי מדויק של 3.0V, מה שהופך אותו לתחליף הישיר האידיאלי לשעונים המונעים על ידי שמש (Seiko, Casio), גיבוי סוללות לוח אם CMOS RTC, מחזיקי מפתחות סולאריים ומכשירים רפואיים מדויקים הדורשים תאימות קפדנית של מתח 3.0V. תומך ביותר מ-500 מחזורי טעינה."
+      },
+      "ja": {
+        "badge": "3.0V 65mAh / 3.0V ダイレクトマッチ",
+        "specs": {
+          "chemistry": "リチウムマンガン充電式（MLボタン電池）",
+          "packaging": "2PCS / 5PCS エコブリスターカードパック",
+          "dimensions": "直径20.0mm×厚さ3.2mm",
+          "battery_model": "ML2032 (3.0V / 65mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS",
+          "recharge_cycles": "500 以上のフルサイクル",
+          "replaces_disposable": "CR2032, ML2032, Maxell ML2032, FDK ML2032"
+        },
+        "title": "VSZAPOWER ML2032 3.0V 65mAh 充電式リチウムマンガンボタン電池 (2 個 / 5 個ブリスターカードパック)",
+        "tagline": "20.0mm x 3.2mm 充電式プロファイル | 3.0V 電圧整合 |ソーラー時計やマザーボードのCMOSバックアップに最適",
+        "category": "充電式コイン電池",
+        "description": "公式 VSZAPOWER ML2032 3.0V 65mAh 高密度充電式リチウム マンガン コイン電池は、標準 20.0mm x 3.2mm フォーム ファクタで設計されています。環境に優しい2パック/5パックのブリスターペーパーカードパッケージで密封されています。正確な 3.0 V の公称動作電圧を備えており、ソーラー駆動の時計 (セイコー、カシオ)、マザーボード CMOS RTC バッテリー バックアップ、ソーラー キーホルダー、および厳密な 3.0 V 電圧互換性を必要とする精密医療機器の直接の代替品として理想的です。 500回以上の再充電サイクルをサポートします。"
+      },
+      "ko": {
+        "badge": "3.0V 65mAh / 다이렉트 3.0V 매치",
+        "specs": {
+          "chemistry": "리튬 망간 충전식(ML 버튼 셀)",
+          "packaging": "2PCS / 5PCS 에코 블리스 터 카드 팩",
+          "dimensions": "직경 20.0mm x 두께 3.2mm",
+          "battery_model": "ML2032 (3.0V / 65mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS",
+          "recharge_cycles": "500+ 전체 사이클",
+          "replaces_disposable": "CR2032, ML2032, Maxell ML2032, FDK ML2032"
+        },
+        "title": "VSZAPOWER ML2032 3.0V 65mAh 충전식 리튬 망간 코인 셀 배터리(2PCS / 5PCS 블리스 터 카드 팩)",
+        "tagline": "20.0mm x 3.2mm 충전식 프로필 | 3.0V 전압 매칭 | 태양광 시계 및 마더보드 CMOS 백업에 이상적",
+        "category": "충전식 코인 셀",
+        "description": "공식 VSZAPOWER ML2032 3.0V 65mAh 고밀도 충전식 리튬 망간 코인 셀 배터리는 표준 20.0mm x 3.2mm 폼 팩터로 설계되었습니다. 친환경 2팩/5팩 블리스터 종이카드 포장으로 밀봉되어 있습니다. 정확한 3.0V 공칭 작동 전압을 갖추고 있어 태양열 시계(Seiko, Casio), 마더보드 CMOS RTC 배터리 백업, 태양열 키체인 및 엄격한 3.0V 전압 호환성이 요구되는 정밀 의료 장치를 위한 이상적인 직접 대체품입니다. 500회 이상의 재충전 주기를 지원합니다."
+      },
+      "pt": {
+        "badge": "3,0V 65mAh / CORRESPONDÊNCIA DIRETA 3,0V",
+        "specs": {
+          "chemistry": "Lítio manganês recarregável (célula botão ML)",
+          "packaging": "Pacote de cartão blister ecológico 2 unidades / 5 unidades",
+          "dimensions": "20,0 mm de diâmetro x 3,2 mm de espessura",
+          "battery_model": "ML2032 (3.0V / 65mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS",
+          "recharge_cycles": "Mais de 500 ciclos completos",
+          "replaces_disposable": "CR2032, ML2032, Maxell ML2032, FDK ML2032"
+        },
+        "title": "VSZAPOWER ML2032 3.0V 65mAh bateria recarregável de célula tipo moeda de manganês de lítio (pacote de cartão blister de 2 unidades / 5 unidades)",
+        "tagline": "Perfil recarregável de 20,0 mm x 3,2 mm | Correspondência de tensão de 3,0 V | Ideal para relógios solares e backup CMOS da placa-mãe",
+        "category": "Células tipo moeda recarregáveis",
+        "description": "Bateria oficial VSZAPOWER ML2032 3.0V 65mAh recarregável de alta densidade de célula tipo moeda de lítio-manganês projetada no formato padrão de 20,0 mm x 3,2 mm. Selado em embalagens de cartão blister ecológicas de 2/5 pacotes. Apresenta tensão operacional nominal exata de 3,0 V, tornando-o o substituto direto ideal para relógios movidos a energia solar (Seiko, Casio), backup de bateria CMOS RTC da placa-mãe, chaveiros solares e dispositivos médicos de precisão que exigem compatibilidade estrita de tensão de 3,0 V. Suporta mais de 500 ciclos de recarga."
+      },
+      "ru": {
+        "badge": "3,0 В, 65 мАч/ПРЯМОЕ СООТВЕТСТВИЕ 3,0 В",
+        "specs": {
+          "chemistry": "Литий-марганцевый аккумулятор (кнопочный элемент ML)",
+          "packaging": "Эко-блистерная упаковка из 2 шт./5 шт.",
+          "dimensions": "Диаметр 20,0 мм x толщина 3,2 мм",
+          "battery_model": "ML2032 (3.0V / 65mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS",
+          "recharge_cycles": "500+ полных циклов",
+          "replaces_disposable": "CR2032, ML2032, Maxell ML2032, FDK ML2032"
+        },
+        "title": "VSZAPOWER ML2032 3,0 В, 65 мАч, литий-марганцевая аккумуляторная батарея типа «таблетка» (2 шт./5 шт. в блистерной упаковке)",
+        "tagline": "Перезаряжаемый профиль 20,0 x 3,2 мм | Согласование напряжения 3,0 В | Идеально подходит для солнечных часов и резервного копирования CMOS материнской платы",
+        "category": "Перезаряжаемые монетоприемники",
+        "description": "Официальный VSZAPOWER ML2032 3,0 В, 65 мАч, литий-марганцевая аккумуляторная батарея высокой плотности типа «таблетка», разработанная в стандартном форм-факторе 20,0 x 3,2 мм. Запечатан в экологически чистую блистерную картонную упаковку по 2 или 5 упаковок. Имеет точное номинальное рабочее напряжение 3,0 В, что делает его идеальной прямой заменой часов с солнечной батареей (Seiko, Casio), резервной батареи CMOS RTC материнской платы, солнечных брелков и прецизионных медицинских устройств, требующих строгой совместимости по напряжению 3,0 В. Поддерживает более 500 циклов перезарядки."
+      },
+      "vi": {
+        "badge": "3.0V 65mAh / TRỰC TIẾP 3.0V",
+        "specs": {
+          "chemistry": "Lithium Mangan có thể sạc lại (Pin nút ML)",
+          "packaging": "Gói thẻ vỉ sinh thái 2 CÁI / 5 CÁI",
+          "dimensions": "Đường kính 20,0mm x Độ dày 3,2mm",
+          "battery_model": "ML2032 (3.0V / 65mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS",
+          "recharge_cycles": "Hơn 500 chu kỳ đầy đủ",
+          "replaces_disposable": "CR2032, ML2032, Maxell ML2032, FDK ML2032"
+        },
+        "title": "VSZAPOWER ML2032 3.0V 65mAh Pin Lithium Mangan Coin Cell có thể sạc lại (Bộ thẻ vỉ 2 CÁI / 5 CÁI)",
+        "tagline": "Cấu hình có thể sạc lại 20,0mm x 3,2mm | Phù hợp với điện áp 3.0V | Lý tưởng cho Đồng hồ năng lượng mặt trời & Sao lưu CMOS bo mạch chủ",
+        "category": "Tế bào tiền xu có thể sạc lại",
+        "description": "Pin đồng xu lithium mangan có thể sạc lại mật độ cao VSZAPOWER ML2032 3.0V 65mAh được thiết kế theo hệ số dạng 20,0mm x 3,2mm tiêu chuẩn. Được niêm phong trong bao bì thẻ giấy dạng vỉ 2 gói / 5 gói thân thiện với môi trường. Có điện áp hoạt động danh định chính xác 3.0V, khiến nó trở thành sự thay thế trực tiếp lý tưởng cho đồng hồ chạy bằng năng lượng mặt trời (Seiko, Casio), pin dự phòng CMOS RTC của bo mạch chủ, móc khóa năng lượng mặt trời và các thiết bị y tế chính xác yêu cầu khả năng tương thích điện áp nghiêm ngặt 3.0V. Hỗ trợ hơn 500 chu kỳ nạp tiền."
+      },
+      "zh-CN": {
+        "badge": "3.0V 65mAh / 直接3.0V匹配",
+        "specs": {
+          "chemistry": "锂锰充电电池（ML纽扣电池）",
+          "packaging": "2PCS / 5PCS 环保吸塑卡包",
+          "dimensions": "20.0 毫米直径 x 3.2 毫米厚度",
+          "battery_model": "ML2032 (3.0V / 65mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS",
+          "recharge_cycles": "500+ 次完整循环",
+          "replaces_disposable": "CR2032, ML2032, Maxell ML2032, FDK ML2032"
+        },
+        "title": "VSZAPOWER ML2032 3.0V 65mAh 可充电锂锰纽扣电池（2PCS / 5PCS 吸塑卡包）",
+        "tagline": "20.0mm x 3.2mm 可充电外形 | 3.0V 电压匹配 |太阳能手表和主板 CMOS 备份的理想选择",
+        "category": "可充电纽扣电池",
+        "description": "官方 VSZAPOWER ML2032 3.0V 65mAh 高密度可充电锂锰纽扣电池，采用标准 20.0mm x 3.2mm 外形尺寸。采用环保 2 件装/5 件装吸塑纸卡包装密封。具有精确的 3.0V 标称工作电压，使其成为需要严格 3.0V 电压兼容性的太阳能手表（精工、卡西欧）、主板 CMOS RTC 电池备份、太阳能钥匙扣和精密医疗设备的理想直接替代品。支持超过 500 次充电周期。"
+      },
+      "zh-HK": {
+        "badge": "3.0V 65mAh / 直接3.0V匹配",
+        "specs": {
+          "chemistry": "鋰錳充電電池（ML鈕扣電池）",
+          "packaging": "2PCS / 5PCS 環保吸塑卡包",
+          "dimensions": "20.0 毫米直徑 x 3.2 毫米厚度",
+          "battery_model": "ML2032 (3.0V / 65mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS",
+          "recharge_cycles": "500+ 完整週期",
+          "replaces_disposable": "CR2032, ML2032, Maxell ML2032, FDK ML2032"
+        },
+        "title": "VSZAPOWER ML2032 3.0V 65mAh 可充電鋰錳鈕扣電池（2PCS / 5PCS 吸塑卡包）",
+        "tagline": "20.0mm x 3.2mm 可充電外形 | 3.0V 電壓匹配 |太陽能手錶和主機板 CMOS 備份的理想選擇",
+        "category": "充電式鈕扣電池",
+        "description": "官方 VSZAPOWER ML2032 3.0V 65mAh 高密度可充電鋰錳鈕扣電池，採用標準 20.0mm x 3.2mm 外形尺寸。採用環保 2 件裝/5 件裝吸塑紙卡包裝密封。具有精確的 3.0V 標稱工作電壓，使其成為需要嚴格 3.0V 電壓相容性的太陽能手錶（精工、卡西歐）、主機板 CMOS RTC 電池備份、太陽能鑰匙圈和精密醫療設備的理想直接替代品。支援超過 500 次充電週期。"
+      },
+      "zh-TW": {
+        "badge": "3.0V 65mAh / 直接3.0V匹配",
+        "specs": {
+          "chemistry": "鋰錳充電電池（ML鈕扣電池）",
+          "packaging": "2PCS / 5PCS 環保吸塑卡包",
+          "dimensions": "20.0 毫米直徑 x 3.2 毫米厚度",
+          "battery_model": "ML2032 (3.0V / 65mAh)",
+          "certifications": "CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS",
+          "recharge_cycles": "500+ 完整週期",
+          "replaces_disposable": "CR2032, ML2032, Maxell ML2032, FDK ML2032"
+        },
+        "title": "VSZAPOWER ML2032 3.0V 65mAh 可充電鋰錳鈕扣電池（2PCS / 5PCS 吸塑卡包）",
+        "tagline": "20.0mm x 3.2mm 可充電外形 | 3.0V 電壓匹配 |太陽能手錶和主機板 CMOS 備份的理想選擇",
+        "category": "充電式鈕扣電池",
+        "description": "官方 VSZAPOWER ML2032 3.0V 65mAh 高密度可充電鋰錳鈕扣電池，採用標準 20.0mm x 3.2mm 外形尺寸。採用環保 2 件裝/5 件裝吸塑紙卡包裝密封。具有精確的 3.0V 標稱工作電壓，使其成為需要嚴格 3.0V 電壓相容性的太陽能手錶（精工、卡西歐）、主機板 CMOS RTC 電池備份、太陽能鑰匙圈和精密醫療設備的理想直接替代品。支援超過 500 次充電週期。"
+      }
+    }
+  }
+]

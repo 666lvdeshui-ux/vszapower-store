@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 import { isAdminRequest, unauthorizedResponse } from '@/lib/adminAuth';
 import { fetchAllProducts, saveProduct, removeProduct } from '@/lib/store';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET() {
   const products = await fetchAllProducts();
   return NextResponse.json({ success: true, data: products });

@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { ProductItem, CertificationItem, getCleanImageUrl } from '@/lib/store';
 import { MessageSquare, Info, Zap, X, Filter, ShieldCheck, ChevronLeft, ChevronRight, Maximize2, Award, Star, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-import { translateDynamicContent } from '@/lib/dynamicI18n';
+import { localizeProduct } from '@/lib/productI18n';
+import productUi from '@/content/products/translations/ui.json';
 import ReviewSection from './ReviewSection';
 
 interface ProductGridProps {
@@ -13,10 +14,12 @@ interface ProductGridProps {
 
 export default function ProductGrid({ onContactClick }: ProductGridProps) {
   const { lang, t } = useLanguage();
+  const copy = (key: keyof typeof productUi.en) => (productUi as Record<string, typeof productUi.en>)[lang]?.[key] || productUi.en[key];
   const [products, setProducts] = useState<ProductItem[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
+  const [selectedProductSource, setSelectedProduct] = useState<ProductItem | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const selectedProduct = selectedProductSource ? localizeProduct(selectedProductSource, lang) : null;
   
   // Carousel & Lightbox State for Detail Modal
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
@@ -57,21 +60,21 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
   const openLightbox = (urlList: string[], index: number, title?: string) => {
     setLightboxList(urlList);
     setLightboxIndex(index);
-    setLightboxImage({ url: urlList[index], title: title || '查看大图' });
+    setLightboxImage({ url: urlList[index], title: title || copy('zoom') });
   };
 
   const nextLightboxImage = () => {
     if (lightboxList.length <= 1) return;
     const nextIdx = (lightboxIndex + 1) % lightboxList.length;
     setLightboxIndex(nextIdx);
-    setLightboxImage({ url: lightboxList[nextIdx], title: lightboxImage?.title || '查看大图' });
+    setLightboxImage({ url: lightboxList[nextIdx], title: lightboxImage?.title || copy('zoom') });
   };
 
   const prevLightboxImage = () => {
     if (lightboxList.length <= 1) return;
     const prevIdx = (lightboxIndex - 1 + lightboxList.length) % lightboxList.length;
     setLightboxIndex(prevIdx);
-    setLightboxImage({ url: lightboxList[prevIdx], title: lightboxImage?.title || '查看大图' });
+    setLightboxImage({ url: lightboxList[prevIdx], title: lightboxImage?.title || copy('zoom') });
   };
 
   const filteredProducts = products.filter(p => {
@@ -94,7 +97,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
       {/* Section Title */}
       <div style={{ textAlign: 'center', marginBottom: '36px' }}>
         <span className="badge badge-green" style={{ marginBottom: '12px' }}>
-          VSZAPOWER PRODUCT CATALOG
+          {copy('catalog')}
         </span>
         <h2 style={{
           fontFamily: 'var(--font-heading)',
@@ -174,11 +177,11 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
       {/* Loading state */}
       {loading ? (
         <div style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '60px' }}>
-          Loading product catalog...
+          {copy('loading')}
         </div>
       ) : filteredProducts.length === 0 ? (
         <div className="glass-panel" style={{ padding: '40px', textAlign: 'center', color: 'var(--text-muted)' }}>
-          该分类下暂无产品，请选择其他分类。
+          {copy('empty')}
         </div>
       ) : (
         <div style={{
@@ -187,10 +190,11 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
           gap: '32px',
         }}>
           {filteredProducts.map(product => {
-            const translatedTitle = product.translations?.[lang]?.title || translateDynamicContent(product.title, lang);
-            const translatedTagline = product.translations?.[lang]?.tagline || translateDynamicContent(product.tagline, lang);
-            const translatedBadge = product.translations?.[lang]?.badge || translateDynamicContent(product.badge, lang);
-            const translatedCategory = product.translations?.[lang]?.category || translateDynamicContent(product.category, lang);
+            const localized = localizeProduct(product, lang);
+            const translatedTitle = localized.title;
+            const translatedTagline = localized.tagline;
+            const translatedBadge = localized.badge;
+            const translatedCategory = localized.category;
 
             return (
               <div
@@ -249,7 +253,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                   {/* Product Category Badge */}
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                     <span className="badge badge-green" style={{ fontSize: '0.65rem', padding: '2px 8px' }}>
-                      {translatedCategory || (product.is_starter_kit ? 'Charger Kit' : 'Product')}
+                      {translatedCategory || (product.is_starter_kit ? copy('chargerKit') : copy('product'))}
                     </span>
                   </div>
 
@@ -276,7 +280,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                       {product.rating ? product.rating.toFixed(2) : '4.93'}
                     </span>
                     <span style={{ fontSize: '0.75rem', color: '#f97316', background: 'rgba(249, 115, 22, 0.12)', border: '1px solid rgba(249, 115, 22, 0.3)', padding: '1px 6px', borderRadius: '4px', fontWeight: 600 }}>
-                      ✓ {product.review_count ? product.review_count.toLocaleString() : '1,480'}+ Verified Reviews
+                      ✓ {product.review_count ? product.review_count.toLocaleString() : '1,480'}+ {copy('reviews')}
                     </span>
                   </div>
 
@@ -304,10 +308,10 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                       fontWeight: 700,
                       fontSize: '0.9rem',
                     }}>
-                      <span>MOQ: 100 Pcs</span>
+                      <span>{copy('moq')}</span>
                     </div>
                     <span style={{ color: 'var(--accent-cyan)', fontSize: '0.85rem', fontWeight: 600 }}>
-                      Wholesale &amp; OEM Quote
+                      {copy('wholesaleOem')}
                     </span>
                   </div>
                 </div>
@@ -319,7 +323,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     className="btn-secondary"
                     style={{ flex: 1, padding: '10px 12px', fontSize: '0.82rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px' }}
                   >
-                    <Info size={15} /> Tech Specs
+                    <Info size={15} /> {copy('techSpecs')}
                   </button>
 
                   <button
@@ -327,7 +331,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     className="btn-primary"
                     style={{ flex: 1, padding: '10px 12px', fontSize: '0.82rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px' }}
                   >
-                    <MessageSquare size={15} /> Wholesale Quote
+                    <MessageSquare size={15} /> {copy('quote')}
                   </button>
                 </div>
               </div>
@@ -345,7 +349,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
         const currentGalleryImage = galleryImages[activeImageIndex] || selectedProduct.image_url;
 
         return (
-          <div style={{
+          <div role="dialog" aria-modal="true" aria-label={selectedProduct.title} style={{
             position: 'fixed',
             inset: 0,
             background: 'rgba(0, 0, 0, 0.75)',
@@ -372,7 +376,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
               {/* Close Button */}
               <button
                 onClick={() => setSelectedProduct(null)}
-                aria-label="Close modal"
+                aria-label={copy('close')}
                 style={{
                   position: 'absolute',
                   top: '16px',
@@ -440,7 +444,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                       backdropFilter: 'blur(4px)',
                       border: '1px solid var(--border-color)',
                     }}>
-                      <Maximize2 size={12} /> 点击全屏放大
+                      <Maximize2 size={12} /> {copy('zoom')}
                     </div>
 
                     {/* Left/Right Arrows if multiple images */}
@@ -603,11 +607,11 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                   <div style={{ display: 'flex', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
                     <span className="badge badge-green" style={{ fontSize: '0.72rem', padding: '4px 10px' }}>
-                      {selectedProduct.translations?.[lang]?.category || translateDynamicContent(selectedProduct.category || '纽扣电池充电器', lang)}
+                      {selectedProduct.category || copy('product')}
                     </span>
                     {selectedProduct.badge && (
                       <span className="badge badge-gold" style={{ fontSize: '0.72rem', padding: '4px 10px' }}>
-                        {selectedProduct.translations?.[lang]?.badge || translateDynamicContent(selectedProduct.badge, lang)}
+                        {selectedProduct.badge}
                       </span>
                     )}
                   </div>
@@ -620,11 +624,11 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     lineHeight: 1.35,
                     color: 'var(--text-main)',
                   }}>
-                    {selectedProduct.translations?.[lang]?.title || translateDynamicContent(selectedProduct.title, lang)}
+                    {selectedProduct.title}
                   </h3>
 
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', marginBottom: '20px', lineHeight: 1.6 }}>
-                    {selectedProduct.translations?.[lang]?.tagline || translateDynamicContent(selectedProduct.tagline, lang)}
+                    {selectedProduct.tagline}
                   </p>
 
                   {/* B2B MOQ & Customization Box */}
@@ -641,17 +645,14 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     gap: '12px',
                   }}>
                     <div>
-                      <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
-                        {translateDynamicContent('Minimum Order Quantity (MOQ)', lang)}
-                      </span>
                       <span style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-green)' }}>
-                        MOQ: 100 Pcs
+                        {copy('moq')}
                       </span>
                     </div>
 
                     <div style={{ textAlign: 'right' }}>
                       <span className="badge badge-gold" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>
-                        {translateDynamicContent('OEM / ODM Custom Branding Available', lang)}
+                        {copy('oem')}
                       </span>
                     </div>
                   </div>
@@ -675,7 +676,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                       boxShadow: 'var(--accent-glow)',
                     }}
                   >
-                    <MessageSquare size={20} /> {translateDynamicContent('点击联系商务询价 (Contact for Wholesale Quote)', lang)}
+                    <MessageSquare size={20} /> {copy('quote')}
                   </button>
                 </div>
               </div>
@@ -683,7 +684,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
               {/* Specs & Description Section */}
               <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '28px', marginBottom: '28px' }}>
                 <h4 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-main)' }}>
-                  <Zap size={20} color="var(--accent-green)" /> {translateDynamicContent('产品概述与详情描述 (Product Overview & Details)', lang)}
+                  <Zap size={20} color="var(--accent-green)" /> {copy('overview')}
                 </h4>
 
                 {/* Formatted Description Paragraphs */}
@@ -694,37 +695,20 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                       if (!trimmed) return null;
                       return (
                         <p key={pIdx} style={{ marginBottom: '12px' }}>
-                          {translateDynamicContent(trimmed, lang)}
+                          {trimmed}
                         </p>
                       );
                     })
                   ) : (
-                    <p style={{ color: 'var(--text-dim)' }}>暂无详细描述信息。</p>
+                    <p style={{ color: 'var(--text-dim)' }}>{copy('noDescription')}</p>
                   )}
                 </div>
 
                 {/* Technical Specs Table Grid */}
                 {(() => {
                   const hasSpecs = selectedProduct.specs && Object.keys(selectedProduct.specs).length > 0;
-                  const isCharger = selectedProduct.category === '纽扣电池充电器' || selectedProduct.is_starter_kit || selectedProduct.title.includes('Charger') || selectedProduct.title.includes('Dock') || selectedProduct.title.includes('充电器');
-                  
-                  const defaultSpecs: Record<string, string> = isCharger ? {
-                    input_power: '5V DC / 500mA (2.5W Max)',
-                    output_power: '4.2V DC / 30mA (Single: 0.126W | Dual Channel: 0.252W Total)',
-                    voltage: 'Input 5V 500mA (2.5W) | Charge 4.2V 30mA (0.126W / 0.252W Auto-Cutoff)',
-                    supported: 'LIR2032, LIR2025, LIR2016, LIR2450, LIR1632, LIR1220, ML2032',
-                    safety: 'MCU Micro-current Protection / 4.2V Auto-Cutoff / Short Circuit / Reverse Polarity Defense',
-                    charging_speed: '30-35 Mins Fast 100% Full Charge',
-                    packaging: 'Eco-Friendly Kraft Papercard Pack',
-                    warranty: '2 Years Direct Factory Guarantee',
-                  } : {
-                    voltage: '3.6V - 3.7V High Density Nominal Voltage',
-                    recharge_cycles: '500+ Full Discharge/Charge Cycles',
-                    packaging: '2-Pack / 5-Pack Eco Blister Papercard',
-                    certifications: 'CE-LVD/EMC, FCC, RoHS 2.0, UN38.3, MSDS',
-                  };
-
-                  const displaySpecs = hasSpecs ? selectedProduct.specs! : defaultSpecs;
+                  if (!hasSpecs) return <p>{copy('noSpecs')}</p>;
+                  const displaySpecs = selectedProduct.specs!;
 
                   return (
                     <div style={{
@@ -735,24 +719,12 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                       marginBottom: '24px'
                     }}>
                       <h5 style={{ fontSize: '0.92rem', color: 'var(--accent-green)', fontWeight: 700, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        📋 {translateDynamicContent('技术参数规格表 (Technical Parameters & Specifications)', lang)}
+                        📋 {copy('techSpecs')}
                       </h5>
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '14px' }}>
                         {Object.entries(displaySpecs).map(([key, val]) => {
-                          const specLabels: Record<string, string> = {
-                            voltage: '输入/输出电压',
-                            supported: '适配电池型号',
-                            safety: '安全保护机制',
-                            packaging: '环保包装形式',
-                            warranty: '质保售后服务',
-                            charging_speed: '充电极速效率',
-                            battery_model: '电池型号规格',
-                            dimensions: '物理外形尺寸',
-                            chemistry: '电化学材料',
-                            replaces_disposable: '替代一次性型号',
-                            recharge_cycles: '循环充放电寿命',
-                          };
-                          const label = specLabels[key.toLowerCase()] || key.replace(/_/g, ' ');
+                          const uiKey = key === 'certifications' ? 'certificationSpec' : key;
+                          const label = uiKey in productUi.en ? copy(uiKey as keyof typeof productUi.en) : key.replace(/_/g, ' ');
                           return (
                             <div
                               key={key}
@@ -765,10 +737,10 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                               }}
                             >
                               <div style={{ color: 'var(--text-dim)', fontSize: '0.78rem', marginBottom: '4px' }}>
-                                {translateDynamicContent(label, lang)}
+                                {label}
                               </div>
                               <div style={{ color: 'var(--text-main)', fontSize: '0.88rem', fontWeight: 600 }}>
-                                {translateDynamicContent(String(val), lang)}
+                                {String(val)}
                               </div>
                             </div>
                           );
@@ -782,12 +754,12 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
               {/* Certifications & Qualifications Section */}
               <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '28px' }}>
                 <h4 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-main)' }}>
-                  <Award size={20} color="var(--accent-cyan)" /> 资质与质量检测认证 (Qualifications &amp; Certifications)
+                  <Award size={20} color="var(--accent-cyan)" /> {copy('certifications')}
                 </h4>
 
                 {(!selectedProduct.certifications || selectedProduct.certifications.length === 0) ? (
                   <div style={{ background: 'rgba(255,255,255,0.02)', padding: '16px', borderRadius: '12px', textAlign: 'center', color: 'var(--text-dim)', fontSize: '0.88rem' }}>
-                    该产品符合 GCC, Battery, CE, FCC, RoHS 及 UN38.3 锂电池国际通用安全检测认证。
+                    {copy('certificationHelp')}
                   </div>
                 ) : (
                   <div style={{

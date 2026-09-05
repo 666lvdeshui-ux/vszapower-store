@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS public.products (
   certifications JSONB DEFAULT '[]'::jsonb,
   specs JSONB,
   description TEXT,
+  translations JSONB NOT NULL DEFAULT '{}'::jsonb,
   badge TEXT,
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
