@@ -6,6 +6,10 @@ import { ThemeProvider } from '@/context/ThemeContext';
 
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.vszapower.com'),
+  alternates: {
+    canonical: 'https://www.vszapower.com',
+  },
   title: 'VSZAPOWER Official | Smart Rechargeable Coin Cell Chargers & LIR Batteries (MOQ: 100 Pcs)',
   description: 'Specialized smart coin cell chargers and rechargeable LIR series batteries for AirTags, car key fobs, and smart devices. Rated 4.93/5 by 1,480+ verified buyers.',
   keywords: [
@@ -21,6 +25,9 @@ export const metadata: Metadata = {
     'LIR2032 battery 3.6V',
   ],
   authors: [{ name: 'VSZAPOWER Team' }],
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
+  },
   icons: {
     icon: [
       { url: '/favicon.png', type: 'image/png' },
@@ -32,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'VSZAPOWER Smart Rechargeable Coin Cell Chargers & LIR Batteries (MOQ: 100 Pcs)',
     description: 'Rated 4.93/5.0 by 1,480+ verified buyers. Reusable LIR2032 & LIR2450 charger kit with 35-min fast charge for AirTags & car key fobs.',
-    url: 'https://vszapower.com',
+    url: 'https://www.vszapower.com',
     siteName: 'VSZAPOWER Store',
     locale: 'en_US',
     type: 'website',
