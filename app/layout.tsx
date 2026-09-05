@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'VSZAPOWER Team' }],
   verification: {
-    google: ['googleadad2189b5b13610', 'googleadad2189b5b13610.html'],
+    google: 'L-Yl1DYsP2qOeWvEKjhXMpOEsuML91WJVhw7Pzp4cn8',
   },
   icons: {
     icon: [
