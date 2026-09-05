@@ -1,5 +1,6 @@
 'use client';
 
+import { normalizeLocale } from '@/lib/postI18n';
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { detectBrowserLanguage, getTranslation, SUPPORTED_LANGUAGES, TranslationKey } from '@/lib/i18n';
 
@@ -39,7 +40,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     setLang(initialLang);
   }, []);
 
-  const setLang = (code: string) => {
+  const setLang = (requestedCode: string) => {
+    const normalized = normalizeLocale(requestedCode);
+    const code = SUPPORTED_LANGUAGES.some(l => l.code === normalized) ? normalized : 'en';
     setLangState(code);
     try {
       localStorage.setItem('vszapower_lang', code);

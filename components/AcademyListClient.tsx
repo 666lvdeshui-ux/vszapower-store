@@ -1,4 +1,6 @@
 'use client';
+import { academyCopy } from '@/lib/academyI18n';
+import { localizePost } from '@/lib/postI18n';
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
@@ -17,6 +19,8 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('全部');
 
+  const copy = academyCopy(lang);
+
   // Extract unique categories
   const categories = useMemo(() => {
     const set = new Set<string>();
@@ -30,21 +34,22 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
   const filteredPosts = useMemo(() => {
     return posts.filter(post => {
       const matchesCategory = selectedCategory === '全部' || post.category === selectedCategory;
+      const localized = localizePost(post, lang);
       const q = searchQuery.toLowerCase().trim();
       const matchesQuery = !q || 
-        post.title.toLowerCase().includes(q) ||
-        post.summary.toLowerCase().includes(q) ||
+        localized.title.toLowerCase().includes(q) ||
+        localized.summary.toLowerCase().includes(q) ||
         (post.tags && post.tags.some(t => t.toLowerCase().includes(q)));
       return matchesCategory && matchesQuery;
     });
-  }, [posts, selectedCategory, searchQuery]);
+  }, [posts, selectedCategory, searchQuery, lang]);
 
   return (
     <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '50px 24px 80px' }}>
       {/* Header / Hero Section */}
       <div style={{ textAlign: 'center', marginBottom: '48px' }}>
         <span className="badge badge-green" style={{ marginBottom: '14px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-          <BookOpen size={14} /> BATTERY ACADEMY & KNOWLEDGE HUB
+          <BookOpen size={14} /> {copy.title}
         </span>
         <h1 style={{
           fontFamily: 'var(--font-heading)',
@@ -53,11 +58,11 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
           lineHeight: 1.2,
           marginBottom: '16px',
         }}>
-          可充电纽扣电池知识库 <br />
-          <span className="gradient-text">与技术选型指南</span>
+          {copy.title} <br />
+          <span className="gradient-text">{copy.description}</span>
         </h1>
         <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.6 }}>
-          为您提供 LIR2032 / LIR2450 系列扣式电池电化学解析、微电流脉冲智能充电原理、AirTag 等设备兼容性实测及环保降本方案。
+          LIR2032 · LIR2016 · LIR2025 · LIR2450 · ML2032 · CR
         </p>
       </div>
 
@@ -97,7 +102,7 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
             }} />
             <input
               type="text"
-              placeholder="搜索指南、设备关键词 (例: CR2032, AirTag, 充放电)..."
+              placeholder={copy.search}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               style={{
@@ -126,7 +131,7 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
           }}>
             <button
               onClick={() => setViewMode('list')}
-              title="列表排版 (List View)"
+              title={copy.list}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -142,11 +147,11 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
                 color: viewMode === 'list' ? '#041410' : 'var(--text-muted)',
               }}
             >
-              <List size={16} /> 列表式
+              <List size={16} /> {copy.list}
             </button>
             <button
               onClick={() => setViewMode('grid')}
-              title="网格排版 (Grid View)"
+              title={copy.grid}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -162,7 +167,7 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
                 color: viewMode === 'grid' ? '#041410' : 'var(--text-muted)',
               }}
             >
-              <LayoutGrid size={16} /> 网格式
+              <LayoutGrid size={16} /> {copy.grid}
             </button>
           </div>
         </div>
@@ -170,11 +175,11 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
         {/* Category Filters */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
           <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 600, marginRight: '4px' }}>
-            分类筛选：
+            {copy.category}:
           </span>
           {categories.map((cat) => (
             <button
-              key={cat}
+              key={cat === '全部' ? copy.all : translateDynamicContent(cat, lang)}
               onClick={() => setSelectedCategory(cat)}
               style={{
                 padding: '6px 14px',
@@ -189,7 +194,7 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
                 transition: 'all 0.2s ease',
               }}
             >
-              {cat}
+              {cat === '全部' ? copy.all : translateDynamicContent(cat, lang)}
             </button>
           ))}
         </div>
@@ -198,7 +203,7 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
       {/* Results Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-          共找到 <strong style={{ color: 'var(--accent-green)' }}>{filteredPosts.length}</strong> 篇指南文章
+          {copy.count}: <strong style={{ color: 'var(--accent-green)' }}>{filteredPosts.length}</strong>
         </p>
       </div>
 
@@ -206,27 +211,28 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
       {filteredPosts.length === 0 && (
         <div className="glass-panel" style={{ textAlign: 'center', padding: '60px 24px' }}>
           <BookOpen size={48} style={{ color: 'var(--text-muted)', marginBottom: '16px', opacity: 0.5 }} />
-          <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '8px' }}>未找到相关技术指南</h3>
+          <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '8px' }}>{copy.empty}</h3>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-            请尝试更换关键词或清除分类筛选条件。
+            {copy.hint}
           </p>
           <button
             onClick={() => { setSearchQuery(''); setSelectedCategory('全部'); }}
             className="btn-secondary"
             style={{ marginTop: '20px', padding: '8px 20px', fontSize: '0.9rem' }}
           >
-            重置筛选条件
+            {copy.reset}
           </button>
         </div>
       )}
 
-      {/* Articles Container - LIST VIEW (列表式排版) */}
+      {/* Articles Container - LIST VIEW ({copy.list}排版) */}
       {viewMode === 'list' ? (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           {filteredPosts.map((post) => {
-            const translatedTitle = translateDynamicContent(post.title, lang);
-            const translatedSummary = translateDynamicContent(post.summary, lang);
-            const translatedCategory = translateDynamicContent(post.category, lang);
+            const localized = localizePost(post, lang);
+            const translatedTitle = localized.title;
+            const translatedSummary = localized.summary;
+            const translatedCategory = localized.category;
 
             return (
               <article
@@ -371,16 +377,17 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
           })}
         </div>
       ) : (
-        /* ARTICLES CONTAINER - GRID VIEW (网格式排版) */
+        /* ARTICLES CONTAINER - GRID VIEW ({copy.grid}排版) */
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
           gap: '32px',
         }}>
           {filteredPosts.map((post) => {
-            const translatedTitle = translateDynamicContent(post.title, lang);
-            const translatedSummary = translateDynamicContent(post.summary, lang);
-            const translatedCategory = translateDynamicContent(post.category, lang);
+            const localized = localizePost(post, lang);
+            const translatedTitle = localized.title;
+            const translatedSummary = localized.summary;
+            const translatedCategory = localized.category;
 
             return (
               <article key={post.slug} className="glass-panel" style={{

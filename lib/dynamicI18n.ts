@@ -648,7 +648,6 @@ export const KEYWORD_REPLACEMENTS: Record<string, Record<string, string>> = {
  */
 export function translateDynamicContent(text: string | undefined | null, lang: string): string {
   if (!text) return '';
-  if (lang === 'zh-CN') return text;
 
   const trimmed = text.trim();
 

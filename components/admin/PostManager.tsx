@@ -1,4 +1,6 @@
 'use client';
+import { SUPPORTED_LANGUAGES } from '@/lib/i18n';
+import { normalizeTranslations } from '@/lib/postI18n';
 
 import React, { useState, useEffect } from 'react';
 import { PostItem } from '@/lib/store';
@@ -8,6 +10,7 @@ import ImageUploader from '@/components/admin/ImageUploader';
 import { getRandomProductCoverImage } from '@/lib/supabase';
 
 export default function PostManager() {
+  const [translationLocale, setTranslationLocale] = useState('zh-CN');
   const [posts, setPosts] = useState<PostItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [editingPost, setEditingPost] = useState<Partial<PostItem> | null>(null);
@@ -424,6 +427,26 @@ export default function PostManager() {
                     }}
                   />
                 </div>
+
+                <fieldset style={{ border: '1px solid var(--border-color)', borderRadius: '8px', padding: '16px' }}>
+                  <legend>Article translations / 文章译文</legend>
+                  <select aria-label="Translation language" value={translationLocale} onChange={e => setTranslationLocale(e.target.value)}>
+                    {SUPPORTED_LANGUAGES.map(language => <option key={language.code} value={language.code}>{language.nativeName}</option>)}
+                  </select>
+                  <p>Enter the complete translation. Empty fields display the original text.</p>
+                  {(['title', 'summary', 'category', 'content'] as const).map(field => (
+                    <label key={field} style={{ display: 'block', marginTop: '12px' }}>
+                      {field}
+                      <textarea rows={field === 'content' ? 10 : 2}
+                        value={normalizeTranslations(editingPost.translations)[translationLocale]?.[field] || ''}
+                        onChange={e => {
+                          const translations = normalizeTranslations(editingPost.translations);
+                          setEditingPost({ ...editingPost, translations: { ...translations, [translationLocale]: { ...translations[translationLocale], [field]: e.target.value } } });
+                        }}
+                        style={{ width: '100%', padding: '10px', color: 'var(--text-main)', background: 'var(--bg-card)', border: '1px solid var(--border-color)' }} />
+                    </label>
+                  ))}
+                </fieldset>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <input

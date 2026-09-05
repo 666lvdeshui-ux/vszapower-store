@@ -1,4 +1,5 @@
 'use client';
+import { localizePost } from '@/lib/postI18n';
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -74,9 +75,10 @@ export default function BlogPreview({ posts: initialPosts = MOCK_POSTS }) {
         marginBottom: '40px',
       }}>
         {currentPosts.map((post) => {
-          const translatedTitle = translateDynamicContent(post.title, lang);
-          const translatedSummary = translateDynamicContent(post.summary, lang);
-          const translatedCategory = translateDynamicContent(post.category, lang);
+          const localized = localizePost(post, lang);
+            const translatedTitle = localized.title;
+          const translatedSummary = localized.summary;
+          const translatedCategory = localized.category;
 
           return (
             <article

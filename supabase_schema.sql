@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS public.posts (
   title TEXT NOT NULL,
   summary TEXT NOT NULL,
   content TEXT NOT NULL,
+  translations JSONB NOT NULL DEFAULT '{}'::jsonb,
   category TEXT DEFAULT 'Battery Academy',
   tags TEXT[] DEFAULT '{}',
   cover_image TEXT,

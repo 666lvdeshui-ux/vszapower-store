@@ -1,5 +1,6 @@
+import { normalizeTranslations } from './postI18n';
 import { MOCK_PRODUCTS, MOCK_POSTS, serverSupabase, supabase } from './supabase';
-import { generatePostPreTranslations, generateProductPreTranslations } from './dynamicI18n';
+import { generateProductPreTranslations } from './dynamicI18n';
 
 // API route handlers run on the server and prefer the privileged client. The anon
 // client remains as a local-development fallback until SUPABASE_SERVICE_ROLE_KEY is set.
@@ -518,12 +519,7 @@ export async function fetchAllPosts(): Promise<PostItem[]> {
       if (!error && data && data.length > 0) {
         const postsList = (data as PostItem[]).map(p => ({
           ...p,
-          translations: p.translations || generatePostPreTranslations({
-            title: p.title || '',
-            summary: p.summary || '',
-            category: p.category || '',
-            content: p.content || '',
-          }),
+          translations: normalizeTranslations(p.translations),
         }));
         postsCache = postsList;
         return postsList.filter(p => !deletedPostIds.has(p.id));
@@ -543,12 +539,7 @@ export async function getPostBySlug(slug: string): Promise<PostItem | null> {
         const post = data as PostItem;
         return {
           ...post,
-          translations: post.translations || generatePostPreTranslations({
-            title: post.title || '',
-            summary: post.summary || '',
-            category: post.category || '',
-            content: post.content || '',
-          }),
+          translations: normalizeTranslations(post.translations),
         };
       }
     } catch (e) {
@@ -572,26 +563,12 @@ export async function savePost(post: Partial<PostItem>): Promise<PostItem> {
     author: post.author || 'Vszapower Tech Team',
     read_time: post.read_time || '5 min read',
     published: post.published ?? true,
-    translations: post.translations || generatePostPreTranslations({
-      title: post.title || '',
-      summary: post.summary || '',
-      category: post.category || '',
-      content: post.content || '',
-    }),
+    translations: normalizeTranslations(post.translations),
     created_at: post.created_at || new Date().toISOString(),
   };
 
-  deletedPostIds.delete(newPost.id);
 
-  // 1. Update in-memory cache first
-  const index = postsCache.findIndex(p => p.id === newPost.id);
-  if (index >= 0) {
-    postsCache[index] = newPost;
-  } else {
-    postsCache.unshift(newPost);
-  }
-
-  // 2. Attempt Supabase upsert (sanitized payload omitting unsupported translations column)
+  // Persist complete translations with the article; fail visibly on database errors.
   if (database) {
     try {
       const supabasePostPayload = {
@@ -600,6 +577,7 @@ export async function savePost(post: Partial<PostItem>): Promise<PostItem> {
         title: newPost.title,
         summary: newPost.summary,
         content: newPost.content,
+        translations: newPost.translations,
         category: newPost.category,
         tags: newPost.tags,
         cover_image: newPost.cover_image,
@@ -610,10 +588,19 @@ export async function savePost(post: Partial<PostItem>): Promise<PostItem> {
       };
 
       const { error } = await database.from('posts').upsert(supabasePostPayload);
-      if (error) console.warn('Supabase save post warning:', error.message);
+      if (error) throw new Error(error.message);
     } catch (e) {
-      console.warn('Supabase save post error, falling back to local store:', e);
+      throw new Error(`Article could not be saved: ${e instanceof Error ? e.message : String(e)}`);
     }
+  }
+
+  deletedPostIds.delete(newPost.id);
+  // Update cache only after a successful database write.
+  const index = postsCache.findIndex(p => p.id === newPost.id);
+  if (index >= 0) {
+    postsCache[index] = newPost;
+  } else {
+    postsCache.unshift(newPost);
   }
 
   return newPost;
