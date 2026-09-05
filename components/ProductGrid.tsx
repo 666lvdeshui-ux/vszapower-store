@@ -526,80 +526,22 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                             boxShadow: activeImageIndex === idx ? '0 0 12px rgba(0, 230, 153, 0.3)' : 'none',
                           }}
                         >
-                          <img src={imgUrl} alt={`Thumbnail ${idx + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.15)' }} />
+                          <img src={imgUrl} alt={`${selectedProduct.title} (${idx + 1})`} style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.15)' }} />
                         </button>
                       ))}
                     </div>
                   )}
 
-                  {/* Real-World Use Cases & Application Benchmarks Box (100% English, 2x2 Grid) */}
-                  <div
-                    style={{
-                      marginTop: '20px',
-                      background: 'rgba(16, 185, 129, 0.05)',
-                      border: '1px solid rgba(16, 185, 129, 0.2)',
-                      borderRadius: '16px',
-                      padding: '18px',
-                    }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-                      <h5 style={{ fontSize: '0.88rem', fontWeight: 800, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <Sparkles size={16} color="var(--accent-green)" /> Real-World Application Benchmarks &amp; Buyer Feedback
-                      </h5>
-                      <span style={{ fontSize: '0.72rem', background: 'rgba(249, 115, 22, 0.15)', color: '#f97316', border: '1px solid rgba(249, 115, 22, 0.3)', padding: '3px 8px', borderRadius: '6px', fontWeight: 700 }}>
-                        ★ 99.2% Buyer Satisfaction
-                      </span>
-                    </div>
-
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '10px' }}>
-                      <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
-                          <span style={{ fontSize: '1rem' }}>🏷️</span>
-                          <strong style={{ color: 'var(--accent-green)', fontSize: '0.84rem' }}>
-                            Apple AirTag Integration
-                          </strong>
-                        </div>
-                        <p style={{ color: 'var(--text-muted)', fontSize: '0.78rem', lineHeight: 1.45, margin: 0 }}>
-                          Seamless 35-min LIR2032 fast charge. 100% plug-and-play replacement for disposable CR2032 with zero warnings.
-                        </p>
+                  {/* Highlights use this product's translated data. */}
+                  <div style={{ marginTop: '20px', padding: '18px', border: '1px solid var(--border-color)', borderRadius: '16px' }}>
+                    <h5 style={{ fontSize: '0.88rem', marginBottom: '12px', color: 'var(--accent-green)' }}>{copy('overview')}</h5>
+                    <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>{selectedProduct.tagline}</p>
+                    {(['battery_model', 'supported', 'packaging', 'warranty'] as const).filter(key => selectedProduct.specs?.[key]).map(key => (
+                      <div key={key} style={{ marginTop: '12px', fontSize: '0.85rem' }}>
+                        <strong>{copy(key)}</strong>
+                        <p style={{ color: 'var(--text-muted)', marginTop: '4px', lineHeight: 1.6 }}>{selectedProduct.specs![key]}</p>
                       </div>
-
-                      <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
-                          <span style={{ fontSize: '1rem' }}>🔑</span>
-                          <strong style={{ color: 'var(--accent-green)', fontSize: '0.84rem' }}>
-                            Automotive Key Fobs
-                          </strong>
-                        </div>
-                        <p style={{ color: 'var(--text-muted)', fontSize: '0.78rem', lineHeight: 1.45, margin: 0 }}>
-                          Eliminates recurring disposable cell costs for BMW, Mercedes, Toyota key fobs. Reliable in sub-zero weather.
-                        </p>
-                      </div>
-
-                      <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
-                          <span style={{ fontSize: '1rem' }}>🏠</span>
-                          <strong style={{ color: 'var(--accent-green)', fontSize: '0.84rem' }}>
-                            Smart Home &amp; IoT Sensors
-                          </strong>
-                        </div>
-                        <p style={{ color: 'var(--text-muted)', fontSize: '0.78rem', lineHeight: 1.45, margin: 0 }}>
-                          Optimized micro-current trickle protection for biometric locks, glucometers, and door/window sensors.
-                        </p>
-                      </div>
-
-                      <div style={{ background: 'var(--bg-card)', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
-                          <span style={{ fontSize: '1rem' }}>🛡️</span>
-                          <strong style={{ color: 'var(--accent-green)', fontSize: '0.84rem' }}>
-                            4.2V MCU Auto-Cutoff Safety
-                          </strong>
-                        </div>
-                        <p style={{ color: 'var(--text-muted)', fontSize: '0.78rem', lineHeight: 1.45, margin: 0 }}>
-                          Independent channel overcharge &amp; reverse polarity protection. UN38.3 &amp; CE-battery certified.
-                        </p>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
 

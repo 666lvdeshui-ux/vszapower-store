@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { Star, CheckCircle, ThumbsUp, ShieldCheck, Filter, ExternalLink } from 'lucide-react';
 import { ReviewItem } from '@/lib/store';
 import { useLanguage } from '@/context/LanguageContext';
+import reviewUi from '@/content/products/translations/review-ui.json';
+import productUi from '@/content/products/translations/ui.json';
 
 interface ReviewSectionProps {
   rating?: number;
@@ -592,6 +594,9 @@ export default function ReviewSection({
   reviews = [],
   productTitle = '',
 }: ReviewSectionProps) {
+  const { lang } = useLanguage();
+  const copy = (key: keyof typeof reviewUi.en) => (reviewUi as Record<string, typeof reviewUi.en>)[lang]?.[key] || reviewUi.en[key];
+  const reviewsLabel = (productUi as Record<string, typeof productUi.en>)[lang]?.reviews || productUi.en.reviews;
   const [selectedFilter, setSelectedFilter] = useState<'all' | '5star' | 'temu' | 'photos'>('all');
   const [helpfulVotes, setHelpfulVotes] = useState<Record<string, number>>({});
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -658,7 +663,7 @@ export default function ReviewSection({
           </div>
 
           <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
-            Based on <strong style={{ color: 'var(--text-main)' }}>{reviewCount.toLocaleString()}</strong> authentic customer reviews
+            {copy('count').replace('{count}', reviewCount.toLocaleString(lang))}
           </p>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '10px' }}>
@@ -676,7 +681,7 @@ export default function ReviewSection({
                 gap: '4px',
               }}
             >
-              <CheckCircle size={13} /> Verified Customer Reviews
+              <CheckCircle size={13} /> {reviewsLabel}
             </span>
           </div>
         </div>
@@ -684,11 +689,11 @@ export default function ReviewSection({
         {/* Right Column: Rating Distribution Bars */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
           {[
-            { stars: '5 Stars', pct: 92, count: Math.round(reviewCount * 0.92) },
-            { stars: '4 Stars', pct: 6, count: Math.round(reviewCount * 0.06) },
-            { stars: '3 Stars', pct: 2, count: Math.round(reviewCount * 0.02) },
-            { stars: '2 Stars', pct: 0, count: 0 },
-            { stars: '1 Star', pct: 0, count: 0 },
+            { stars: '5 ★', pct: 92, count: Math.round(reviewCount * 0.92) },
+            { stars: '4 ★', pct: 6, count: Math.round(reviewCount * 0.06) },
+            { stars: '3 ★', pct: 2, count: Math.round(reviewCount * 0.02) },
+            { stars: '2 ★', pct: 0, count: 0 },
+            { stars: '1 ★', pct: 0, count: 0 },
           ].map((bar) => (
             <div key={bar.stars} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.82rem' }}>
               <span style={{ width: '55px', color: 'var(--text-muted)', textAlign: 'right' }}>{bar.stars}</span>
@@ -711,7 +716,7 @@ export default function ReviewSection({
       {/* Filter Tabs */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '20px' }}>
         <span style={{ fontSize: '0.85rem', color: 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '4px', marginRight: '4px' }}>
-          <Filter size={14} /> Filter:
+          <Filter size={14} /> {copy('filter')}:
         </span>
 
         <button
@@ -727,7 +732,7 @@ export default function ReviewSection({
             cursor: 'pointer',
           }}
         >
-          All ({activeReviews.length})
+          {copy('all')} ({activeReviews.length})
         </button>
 
         <button
@@ -743,7 +748,7 @@ export default function ReviewSection({
             cursor: 'pointer',
           }}
         >
-          ★ 5-Star Only ({fiveStarCount})
+          4–5 ★ ({fiveStarCount})
         </button>
 
         <button
@@ -759,7 +764,7 @@ export default function ReviewSection({
             cursor: 'pointer',
           }}
         >
-          ✓ Verified Buyers ({temuCount})
+          ✓ {copy('verified')} ({temuCount})
         </button>
 
         {photoCount > 0 && (
@@ -776,20 +781,23 @@ export default function ReviewSection({
               cursor: 'pointer',
             }}
           >
-            📷 With Photos ({photoCount})
+            📷 {copy('photos')} ({photoCount})
           </button>
         )}
       </div>
 
+      <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem', marginBottom: '12px' }}>{copy('original')}</p>
       {/* Review List */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
         {filteredReviews.length === 0 ? (
           <div style={{ padding: '30px', textAlign: 'center', color: 'var(--text-dim)', background: 'var(--bg-card)', borderRadius: '12px' }}>
-            No reviews match your selected filter.
+            {copy('empty')}
           </div>
         ) : (
           paginatedReviews.map((review) => {
             const countryInfo = COUNTRY_FLAGS[review.country_code] || { flag: '🌐', name: review.country_code };
+            let countryName = countryInfo.name;
+            try { countryName = new Intl.DisplayNames([lang], { type: 'region' }).of(review.country_code) || countryName; } catch {}
             const helpful = helpfulVotes[review.id] ?? (review.helpful_count || 12);
 
             return (
@@ -826,12 +834,12 @@ export default function ReviewSection({
                     <div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <strong style={{ fontSize: '0.95rem', color: 'var(--text-main)' }}>{review.reviewer_name}</strong>
-                        <span style={{ fontSize: '0.85rem' }} title={countryInfo.name}>
+                        <span style={{ fontSize: '0.85rem' }} title={countryName}>
                           {countryInfo.flag}
                         </span>
                       </div>
                       <span style={{ fontSize: '0.78rem', color: 'var(--text-dim)' }}>
-                        {countryInfo.name} • {review.date}
+                        {countryName} • {review.date}
                       </span>
                     </div>
                   </div>
@@ -851,7 +859,7 @@ export default function ReviewSection({
                       gap: '4px',
                     }}
                   >
-                    <ShieldCheck size={13} /> Verified {review.verified_source || 'Purchase'}
+                    <ShieldCheck size={13} /> {copy('verified')}
                   </span>
                 </div>
 
@@ -882,7 +890,7 @@ export default function ReviewSection({
                       <img
                         key={i}
                         src={imgUrl}
-                        alt="Customer Review Photo"
+                        alt={copy('photo')}
                         style={{
                           width: '70px',
                           height: '70px',
@@ -915,7 +923,7 @@ export default function ReviewSection({
                       transition: 'all 0.2s ease',
                     }}
                   >
-                    <ThumbsUp size={13} color="var(--accent-green)" /> Helpful ({helpful})
+                    <ThumbsUp size={13} color="var(--accent-green)" /> {copy('helpful')} ({helpful})
                   </button>
                 </div>
               </div>
@@ -928,7 +936,7 @@ export default function ReviewSection({
       {totalPages > 1 && (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginTop: '24px', paddingTop: '16px', borderTop: '1px solid var(--border-color)' }}>
           <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-            Showing <strong style={{ color: 'var(--text-main)' }}>{startIndex + 1}-{Math.min(startIndex + ITEMS_PER_PAGE, filteredReviews.length)}</strong> of <strong style={{ color: 'var(--text-main)' }}>{filteredReviews.length}</strong> reviews
+            {startIndex + 1}–{Math.min(startIndex + ITEMS_PER_PAGE, filteredReviews.length)} / {filteredReviews.length}
           </span>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -946,7 +954,7 @@ export default function ReviewSection({
                 cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
               }}
             >
-              Prev
+              {copy('previous')}
             </button>
 
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
@@ -984,7 +992,7 @@ export default function ReviewSection({
                 cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
               }}
             >
-              Next
+              {copy('next')}
             </button>
           </div>
         </div>
