@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { MessageSquare, Sparkles, PhoneCall, CheckCircle2, Play } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-import { translateDynamicContent } from '@/lib/dynamicI18n';
+import { sectionText } from '@/lib/sectionI18n';
 import UniversalVideoPlayer from '@/components/UniversalVideoPlayer';
 import { supabase } from '@/lib/supabase';
 
@@ -78,7 +78,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
   }, []);
 
   const handlePrimaryClick = () => {
-    onContactClick('OEM/ODM Custom Battery & Charger Manufacturing Inquiry');
+    onContactClick(sectionText('OEM/ODM Custom Battery & Charger Manufacturing Inquiry', lang));
   };
 
   const handleWhatsAppClick = () => {
@@ -151,7 +151,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
               marginBottom: '16px',
             }}>
               <Sparkles size={16} />
-              {translateDynamicContent('OEM & ODM BATTERY & CHARGER MANUFACTURING', lang)}
+              {sectionText('OEM & ODM BATTERY & CHARGER MANUFACTURING', lang)}
             </div>
 
             {/* Main Headline */}
@@ -164,7 +164,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
               color: 'var(--text-main, #f8fafc)',
               marginBottom: '20px',
             }}>
-              {translateDynamicContent('Launch Your Battery Brand With Low MOQ Manufacturing', lang)}
+              {sectionText('Launch Your Battery Brand With Low MOQ Manufacturing', lang)}
             </h1>
 
             {/* Description Paragraph */}
@@ -175,7 +175,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
               marginBottom: '32px',
               maxWidth: '560px',
             }}>
-              {translateDynamicContent(
+              {sectionText(
                 'VSZAPOWER helps hardware brands, IoT startups, and B2B electronics distributors produce custom rechargeable coin cell batteries (LIR2032/LIR2450), micro-current smart chargers, and private label power solutions in China.',
                 lang
               )}
@@ -208,7 +208,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
                   className="pill-badge"
                 >
                   <CheckCircle2 size={14} style={{ color: 'var(--accent-green, #10b981)' }} />
-                  {translateDynamicContent(badge, lang)}
+                  {sectionText(badge, lang)}
                 </span>
               ))}
             </div>
@@ -240,7 +240,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
                 }}
               >
                 <MessageSquare size={18} />
-                {translateDynamicContent('Get Free Quote', lang)}
+                {sectionText('Get Free Quote', lang)}
               </button>
 
               <button
@@ -264,7 +264,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
                 }}
               >
                 <PhoneCall size={18} />
-                {translateDynamicContent('WhatsApp Us', lang)}
+                {sectionText('WhatsApp Us', lang)}
               </button>
             </div>
           </div>
@@ -295,7 +295,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
               <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '18px' }} className="collage-tile">
                 <img
                   src={oemMedia.tile1_image || DEFAULT_MEDIA.tile1_image}
-                  alt="OEM Factory Assembly Line"
+                  alt={sectionText('OEM Factory Assembly Line', lang)}
                   style={{
                     width: '100%',
                     height: '100%',
@@ -316,7 +316,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
                   borderRadius: '12px',
                   border: '1px solid rgba(16, 185, 129, 0.4)',
                 }}>
-                  {translateDynamicContent('Cleanroom Assembly', lang)}
+                  {sectionText('Cleanroom Assembly', lang)}
                 </div>
               </div>
 
@@ -324,7 +324,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
               <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '18px' }} className="collage-tile">
                 <img
                   src={oemMedia.tile2_image || DEFAULT_MEDIA.tile2_image}
-                  alt="SMT Charger Circuit Board Production"
+                  alt={sectionText('SMT Charger Circuit Board Production', lang)}
                   style={{
                     width: '100%',
                     height: '100%',
@@ -345,7 +345,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
                   borderRadius: '12px',
                   border: '1px solid rgba(16, 185, 129, 0.4)',
                 }}>
-                  {translateDynamicContent('SMT Micro-Chip PCB', lang)}
+                  {sectionText('SMT Micro-Chip PCB', lang)}
                 </div>
               </div>
 
@@ -353,7 +353,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
               <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '18px' }} className="collage-tile">
                 <img
                   src={oemMedia.tile3_image || DEFAULT_MEDIA.tile3_image}
-                  alt="LIR Coin Cell Quality Testing"
+                  alt={sectionText('LIR Coin Cell Quality Testing', lang)}
                   style={{
                     width: '100%',
                     height: '100%',
@@ -374,7 +374,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
                   borderRadius: '12px',
                   border: '1px solid rgba(16, 185, 129, 0.4)',
                 }}>
-                  {translateDynamicContent('Precision Quality QA', lang)}
+                  {sectionText('Precision Quality QA', lang)}
                 </div>
               </div>
 
@@ -382,7 +382,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
               <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '18px' }} className="collage-tile">
                 <img
                   src={oemMedia.tile4_image || DEFAULT_MEDIA.tile4_image}
-                  alt="OEM Custom Packaging & Warehouse"
+                  alt={sectionText('OEM Custom Packaging & Warehouse', lang)}
                   style={{
                     width: '100%',
                     height: '100%',
@@ -403,7 +403,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
                   borderRadius: '12px',
                   border: '1px solid rgba(16, 185, 129, 0.4)',
                 }}>
-                  {translateDynamicContent('OEM Export Box', lang)}
+                  {sectionText('OEM Export Box', lang)}
                 </div>
               </div>
             </div>

@@ -16,7 +16,7 @@ import {
   Award
 } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-import { translateDynamicContent } from '@/lib/dynamicI18n';
+import { sectionText } from '@/lib/sectionI18n';
 
 interface CustomizationSectionProps {
   onContactClick: (productName?: string) => void;
@@ -49,18 +49,26 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
     setFinishStyle('silver');
     setPackStyle('5pcs');
     setMoqTier('1000');
+    setHasFbaLabel(true);
   };
 
   // Build spec summary string for inquiry form
   const getCustomSpecSummary = () => {
     const packLabels: Record<string, string> = {
-      '1pc': '1-PC Blister Card',
-      '2pcs': '2-PCS Blister Pack',
+      '1pc': '1-PC Single Card',
+      '2pcs': '2-PCS Blister Card',
       '5pcs': '5-PCS Papercard Pack',
       'tray': '100-PCS Industrial Tray',
     };
-
-    return `OEM Customization Order: [Model: ${selectedModel}] | [Laser Brand: "${brandText}"] | [Batch Code: "${batchCode}"] | [Packaging: ${packLabels[packStyle]}] | [MOQ: ${moqTier} Pcs] ${hasFbaLabel ? '| [FBA Barcode Needed]' : ''}`;
+    return [
+      sectionText('OEM Customization Order', lang),
+      `${sectionText('Model', lang)}: ${selectedModel}`,
+      `${sectionText('Brand', lang)}: "${brandText}"`,
+      `${sectionText('Batch Code', lang)}: "${batchCode}"`,
+      `${sectionText('Packaging', lang)}: ${sectionText(packLabels[packStyle], lang)}`,
+      `${sectionText('Minimum Order Quantity', lang)}: ${moqTier} ${sectionText('pieces', lang)}`,
+      hasFbaLabel ? sectionText('FBA Barcode Needed', lang) : '',
+    ].filter(Boolean).join(' | ');
   };
 
   const handleApplyQuote = () => {
@@ -111,7 +119,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
             marginBottom: '16px'
           }}>
             <Sparkles size={16} />
-            {translateDynamicContent('OEM / ODM Brand Customization Hub', lang)}
+            {sectionText('OEM / ODM Brand Customization Hub', lang)}
           </div>
 
           <h2 style={{
@@ -121,7 +129,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
             lineHeight: '1.25',
             marginBottom: '16px'
           }}>
-            {translateDynamicContent('Customize Coin Cell Batteries & Blister Card Packaging', lang)}
+            {sectionText('Customize Coin Cell Batteries & Blister Card Packaging', lang)}
           </h2>
 
           <p style={{
@@ -131,7 +139,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
             margin: '0 auto',
             lineHeight: '1.6'
           }}>
-            {translateDynamicContent(
+            {sectionText(
               'Live laser engraving simulation, custom brand packaging, international compliance certification, and 7-day fast prototype delivery to empower global battery brands.',
               lang
             )}
@@ -148,6 +156,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
         }}>
           <button
             onClick={() => setActiveTab('laser')}
+            aria-pressed={activeTab === 'laser'}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -165,11 +174,12 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
             }}
           >
             <Zap size={18} />
-            {translateDynamicContent('1. Laser Engraving Simulator', lang)}
+            {sectionText('1. Laser Engraving Simulator', lang)}
           </button>
 
           <button
             onClick={() => setActiveTab('packaging')}
+            aria-pressed={activeTab === 'packaging'}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -187,11 +197,12 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
             }}
           >
             <Package size={18} />
-            {translateDynamicContent('2. Blister Card Packaging', lang)}
+            {sectionText('2. Blister Card Packaging', lang)}
           </button>
 
           <button
             onClick={() => setActiveTab('compliance')}
+            aria-pressed={activeTab === 'compliance'}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -209,7 +220,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
             }}
           >
             <ShieldCheck size={18} />
-            {translateDynamicContent('3. Compliance & Fast Sampling', lang)}
+            {sectionText('3. Compliance & Fast Sampling', lang)}
           </button>
         </div>
 
@@ -231,7 +242,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '24px' }}>
                 <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Sliders size={20} color="var(--accent-green)" />
-                  {translateDynamicContent('Custom Laser Engraving Parameters', lang)}
+                  {sectionText('Custom Laser Engraving Parameters', lang)}
                 </h3>
 
                 <button 
@@ -247,21 +258,22 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
                     gap: '4px'
                   }}
                 >
-                  <RefreshCw size={14} /> {translateDynamicContent('Reset', lang)}
+                  <RefreshCw size={14} /> {sectionText('Reset', lang)}
                 </button>
               </div>
 
               {/* Input 1: Brand / Logo Text */}
               <div style={{ marginBottom: '20px' }}>
-                <label style={{ display: 'block', fontSize: '0.88rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '8px' }}>
-                  {translateDynamicContent('Brand / Customer Logo Text', lang)}
+                <label htmlFor="oem-brand" style={{ display: 'block', fontSize: '0.88rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '8px' }}>
+                  {sectionText('Brand / Customer Logo Text', lang)}
                 </label>
                 <input
                   type="text"
                   value={brandText}
                   onChange={(e) => setBrandText(e.target.value.toUpperCase())}
                   maxLength={18}
-                  placeholder="e.g. VSZAPOWER"
+                  id="oem-brand"
+                  placeholder={sectionText('e.g. VSZAPOWER', lang)}
                   style={{
                     width: '100%',
                     padding: '12px 16px',
@@ -279,9 +291,11 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
               {/* Input 2: Battery Model Selection */}
               <div style={{ marginBottom: '20px' }}>
                 <label style={{ display: 'block', fontSize: '0.88rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '8px' }}>
-                  {translateDynamicContent('Coin Cell Battery Model', lang)}
+                  {sectionText('Coin Cell Battery Model', lang)}
                 </label>
                 <select
+                  id="oem-model"
+                  aria-label={sectionText('Coin Cell Battery Model', lang)}
                   value={selectedModel}
                   onChange={(e) => setSelectedModel(e.target.value)}
                   style={{
@@ -295,25 +309,26 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
                     fontWeight: 600
                   }}
                 >
-                  <option value="LIR2032 3.6V">LIR2032 (3.6V 45mAh Rechargeable)</option>
-                  <option value="LIR2450 3.6V">LIR2450 (3.6V 120mAh Rechargeable)</option>
-                  <option value="LIR2025 3.6V">LIR2025 (3.6V 30mAh Rechargeable)</option>
-                  <option value="ML2032 3.0V">ML2032 (3.0V 65mAh Rechargeable)</option>
-                  <option value="CR2032 3.0V">CR2032 (3.0V Primary Lithium)</option>
+                  <option value="LIR2032 3.6V">{sectionText('LIR2032 (3.6V 45mAh Rechargeable)', lang)}</option>
+                  <option value="LIR2450 3.6V">{sectionText('LIR2450 (3.6V 120mAh Rechargeable)', lang)}</option>
+                  <option value="LIR2025 3.6V">{sectionText('LIR2025 (3.6V 30mAh Rechargeable)', lang)}</option>
+                  <option value="ML2032 3.0V">{sectionText('ML2032 (3.0V 65mAh Rechargeable)', lang)}</option>
+                  <option value="CR2032 3.0V">{sectionText('CR2032 (3.0V Primary Lithium)', lang)}</option>
                 </select>
               </div>
 
               {/* Input 3: Date / QC Batch Code */}
               <div style={{ marginBottom: '24px' }}>
-                <label style={{ display: 'block', fontSize: '0.88rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '8px' }}>
-                  {translateDynamicContent('Batch / Date QC Engraving Code', lang)}
+                <label htmlFor="oem-batch" style={{ display: 'block', fontSize: '0.88rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '8px' }}>
+                  {sectionText('Batch / Date QC Engraving Code', lang)}
                 </label>
                 <input
                   type="text"
                   value={batchCode}
                   onChange={(e) => setBatchCode(e.target.value)}
                   maxLength={16}
-                  placeholder="e.g. 2026.08 QC-01"
+                  id="oem-batch"
+                  placeholder={sectionText('e.g. 2026.08 QC-01', lang)}
                   style={{
                     width: '100%',
                     padding: '12px 16px',
@@ -329,7 +344,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
               {/* Finish Metal Style */}
               <div>
                 <label style={{ display: 'block', fontSize: '0.88rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '8px' }}>
-                  {translateDynamicContent('Steel Surface Finish', lang)}
+                  {sectionText('Steel Surface Finish', lang)}
                 </label>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px' }}>
                   {[
@@ -340,6 +355,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
                     <button
                       key={style.id}
                       onClick={() => setFinishStyle(style.id as any)}
+                      aria-pressed={finishStyle === style.id}
                       style={{
                         padding: '10px 8px',
                         borderRadius: '8px',
@@ -351,7 +367,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
                         border: finishStyle === style.id ? '1px solid var(--accent-green)' : '1px solid var(--border-color)'
                       }}
                     >
-                      {translateDynamicContent(style.name, lang)}
+                      {sectionText(style.name, lang)}
                     </button>
                   ))}
                 </div>
@@ -379,7 +395,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
                 alignItems: 'center',
                 gap: '6px'
               }}>
-                <Zap size={15} /> {translateDynamicContent('REAL-TIME LASER ENGRAVING PREVIEW', lang)}
+                <Zap size={15} /> {sectionText('REAL-TIME LASER ENGRAVING PREVIEW', lang)}
               </div>
 
               {/* Realistic SVG Render of Coin Cell Battery Top Face */}
@@ -453,7 +469,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
                   letterSpacing="2.5"
                   style={{ textShadow: '0.5px 0.5px 1px rgba(255,255,255,0.8)' }}
                 >
-                  {brandText || 'BRAND LOGO'}
+                  {brandText || sectionText('Brand Logo', lang)}
                 </text>
 
                 {/* Battery Model Text (Middle Subtitle) */}
@@ -488,7 +504,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
               </svg>
 
               <div style={{ marginTop: '16px', fontSize: '0.85rem', color: 'var(--text-muted)', textAlign: 'center' }}>
-                ✓ {translateDynamicContent('High-precision Fiber Laser Marking (光纤高精刻字)', lang)}
+                ✓ {sectionText('High-precision Fiber Laser Marking', lang)}
               </div>
             </div>
           </div>
@@ -505,7 +521,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
           }}>
             <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Package size={22} color="var(--accent-green)" />
-              {translateDynamicContent('Blister Card & Retail Packaging Options', lang)}
+              {sectionText('Blister Card & Retail Packaging Options', lang)}
             </h3>
 
             <div style={{
@@ -522,6 +538,16 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
               ].map((pack) => (
                 <div
                   key={pack.id}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={sectionText(pack.title, lang)}
+                  aria-pressed={packStyle === pack.id}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      setPackStyle(pack.id as any);
+                    }
+                  }}
                   onClick={() => setPackStyle(pack.id as any)}
                   style={{
                     padding: '24px 20px',
@@ -542,10 +568,10 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
                   )}
                   <Box size={28} color={packStyle === pack.id ? 'var(--accent-green)' : 'var(--text-muted)'} style={{ marginBottom: '12px' }} />
                   <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '8px' }}>
-                    {translateDynamicContent(pack.title, lang)}
+                    {sectionText(pack.title, lang)}
                   </h4>
                   <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
-                    {translateDynamicContent(pack.desc, lang)}
+                    {sectionText(pack.desc, lang)}
                   </p>
                 </div>
               ))}
@@ -571,11 +597,11 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
                   style={{ width: '18px', height: '18px', accentColor: 'var(--accent-green)' }}
                 />
                 <Tag size={18} color="var(--accent-green)" />
-                {translateDynamicContent('Pre-stick Amazon FBA EAN/UPC Barcode Labels on Box (免费加贴亚马逊 FBA 条码标签)', lang)}
+                {sectionText('Free Amazon FBA EAN/UPC Barcode Labels on Boxes', lang)}
               </label>
 
               <button
-                onClick={() => alert('Download template feature: Contact sales for AI / PDF vector die-cut template!')}
+                onClick={() => onContactClick(sectionText('Request Card Die-cut Vector Template (.AI/.PDF)', lang))}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -591,7 +617,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
                 }}
               >
                 <FileDown size={16} />
-                {translateDynamicContent('Download Card Die-cut Vector Template (.AI/.PDF)', lang)}
+                {sectionText('Request Card Die-cut Vector Template (.AI/.PDF)', lang)}
               </button>
             </div>
           </div>
@@ -608,7 +634,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
           }}>
             <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Award size={22} color="var(--accent-green)" />
-              {translateDynamicContent('Export Compliance & Rapid Prototype Sampling', lang)}
+              {sectionText('Export Compliance & Rapid Prototype Sampling', lang)}
             </h3>
 
             {/* Certifications Badges Grid */}
@@ -639,10 +665,10 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
                   }}
                 >
                   <div style={{ fontSize: '0.92rem', fontWeight: 800, color: 'var(--accent-green)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <ShieldCheck size={16} /> {cert.name}
+                    <ShieldCheck size={16} /> {sectionText(cert.name, lang)}
                   </div>
                   <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                    {cert.status}
+                    {sectionText(cert.status, lang)}
                   </div>
                 </div>
               ))}
@@ -651,7 +677,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
             {/* Minimum Order Quantity (MOQ) Selector */}
             <div style={{ marginBottom: '24px' }}>
               <label style={{ display: 'block', fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '12px' }}>
-                {translateDynamicContent('Select Preferred OEM Order Tier (起订量档位选择)', lang)}
+                {sectionText('Select Preferred OEM Order Tier', lang)}
               </label>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '12px' }}>
                 {[
@@ -663,6 +689,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
                   <button
                     key={item.tier}
                     onClick={() => setMoqTier(item.tier)}
+                    aria-pressed={moqTier === item.tier}
                     style={{
                       padding: '14px 12px',
                       borderRadius: '12px',
@@ -674,7 +701,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
                       border: moqTier === item.tier ? '1px solid var(--accent-green)' : '1px solid var(--border-color)'
                     }}
                   >
-                    {item.label}
+                    {sectionText(item.label, lang)}
                   </button>
                 ))}
               </div>
@@ -682,7 +709,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
 
             <div style={{ fontSize: '0.88rem', color: 'var(--accent-green)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
               <CheckCircle2 size={18} />
-              {translateDynamicContent('7-Day Rapid Prototype Lead Time Guarantee (承诺 7 天快速完成品牌加印与样品寄送)', lang)}
+              {sectionText('7-Day Lead Time for Custom Branding and Sample Shipment', lang)}
             </div>
           </div>
         )}
@@ -702,10 +729,10 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
         }}>
           <div>
             <div style={{ fontSize: '0.82rem', textTransform: 'uppercase', color: 'var(--accent-green)', fontWeight: 800, letterSpacing: '1px', marginBottom: '4px' }}>
-              {translateDynamicContent('Selected Custom Configuration Summary', lang)}
+              {sectionText('Selected Custom Configuration Summary', lang)}
             </div>
             <div style={{ fontSize: '1rem', fontWeight: 700, color: '#fff' }}>
-              Model: <span style={{ color: 'var(--accent-green)' }}>{selectedModel}</span> | Brand: <span style={{ color: 'var(--accent-green)' }}>"{brandText}"</span> | MOQ: <span style={{ color: 'var(--accent-green)' }}>{moqTier} Pcs</span>
+              {sectionText('Model', lang)}: <span style={{ color: 'var(--accent-green)' }}>{selectedModel}</span> | {sectionText('Brand', lang)}: <span style={{ color: 'var(--accent-green)' }}>"{brandText}"</span> | {sectionText('Minimum Order Quantity', lang)}: <span style={{ color: 'var(--accent-green)' }}>{moqTier} {sectionText('pieces', lang)}</span>
             </div>
           </div>
 
@@ -722,7 +749,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
               gap: '10px'
             }}
           >
-            {translateDynamicContent('Request Custom Mockup & FOB Quote (免费申请定制效果图与报价)', lang)}
+            {sectionText('Request a Free Custom Mockup & FOB Quote', lang)}
             <ArrowRight size={18} />
           </button>
         </div>

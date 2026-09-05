@@ -6,7 +6,7 @@ import { Zap, BookOpen, Home, MessageSquare, Menu, X, Video, Sparkles } from 'lu
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeToggle from './ThemeToggle';
 import { useLanguage } from '@/context/LanguageContext';
-import { translateDynamicContent } from '@/lib/dynamicI18n';
+import { sectionText } from '@/lib/sectionI18n';
 
 interface HeaderProps {
   onContactClick?: () => void;
@@ -59,7 +59,7 @@ export default function Header({ onContactClick }: HeaderProps) {
             <div style={{ display: 'flex', gap: '4px', alignItems: 'center', flexWrap: 'wrap' }}>
               {['Battery', 'CE', 'FCC', 'RoHS'].map((cert) => (
                 <span
-                  key={cert}
+                  key={sectionText(cert, lang)}
                   style={{
                     fontSize: '0.58rem',
                     fontWeight: 700,
@@ -72,7 +72,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                     lineHeight: '1.1',
                   }}
                 >
-                  {cert}
+                  {sectionText(cert, lang)}
                 </span>
               ))}
             </div>
@@ -80,7 +80,7 @@ export default function Header({ onContactClick }: HeaderProps) {
             <div className="header-cert-row2" style={{ display: 'flex', gap: '4px', alignItems: 'center', flexWrap: 'wrap' }}>
               {['CE-Battery', 'GPSR-Test Report', 'PSE Exempt', 'UN38.3'].map((cert) => (
                 <span
-                  key={cert}
+                  key={sectionText(cert, lang)}
                   style={{
                     fontSize: '0.58rem',
                     fontWeight: 700,
@@ -93,7 +93,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                     lineHeight: '1.1',
                   }}
                 >
-                  {cert}
+                  {sectionText(cert, lang)}
                 </span>
               ))}
             </div>
@@ -174,7 +174,7 @@ export default function Header({ onContactClick }: HeaderProps) {
             borderRadius: '6px',
             transition: 'all 0.2s',
           }}>
-            <Sparkles size={15} color="var(--accent-green)" style={{ flexShrink: 0 }} /> {translateDynamicContent('OEM Customization', lang)}
+            <Sparkles size={15} color="var(--accent-green)" style={{ flexShrink: 0 }} /> {sectionText('OEM Customization', lang)}
           </Link>
           <Link href="/#factory" style={{
             color: 'var(--text-muted)',
