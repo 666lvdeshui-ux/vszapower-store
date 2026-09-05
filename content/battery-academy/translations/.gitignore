@@ -1,0 +1,6 @@
+*.docx
+*-review.json
+before-import-*.json
+zh-CN-phrases.txt
+translation-map.json
+STATUS.md
