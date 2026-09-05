@@ -12,8 +12,57 @@ const nextConfig = {
       },
     ],
   },
+
+  // ─── Canonical URL Redirects (SEO Critical) ────────────────────────────────
+  // Force HTTPS + www to establish a single canonical origin for Google.
+  // Fixes GSC "Page is not served over HTTPS" warning.
+  async redirects() {
+    return [
+      // http://vszapower.com/* → https://www.vszapower.com/*
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'vszapower.com' }],
+        destination: 'https://www.vszapower.com/:path*',
+        permanent: true,
+      },
+      // http://www.vszapower.com/* → https://www.vszapower.com/*
+      {
+        source: '/:path*',
+        has: [
+          { type: 'host', value: 'www.vszapower.com' },
+          { type: 'header', key: 'x-forwarded-proto', value: 'http' },
+        ],
+        destination: 'https://www.vszapower.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
+
   async headers() {
     return [
+      {
+        // ── Security + HTTPS Signal Headers (all pages) ──────────────────────
+        source: '/(.*)',
+        headers: [
+          {
+            // HSTS: Tell browsers (and Google) this site is HTTPS-only for 1 year
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains; preload',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+        ],
+      },
       {
         // 静态打包产物 (JS/CSS) 强缓存 1 年
         source: '/_next/static/:path*',
