@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.vszapower.com',
   },
-  title: 'VSZAPOWER Official | Smart Rechargeable Coin Cell Chargers & LIR Batteries (MOQ: 100 Pcs)',
+  title: 'LIR2032 Charger & Rechargeable Batteries B2B Wholesale | VSZAPOWER Official',
   description: 'Specialized smart coin cell chargers and rechargeable LIR series batteries for AirTags, car key fobs, and smart devices. Rated 4.93/5 by 1,480+ verified buyers.',
   keywords: [
     'VSZAPOWER',
