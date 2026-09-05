@@ -1,0 +1,74 @@
+{
+  "verified_at": "2026-09-05T07:41:04.362Z",
+  "endpoint": "https://www.vszapower.com/api/posts",
+  "source_articles": 31,
+  "original_fields_unchanged": true,
+  "locales": {
+    "zh-CN": {
+      "articles": 31,
+      "fnv1a_utf16": "d35d3a55",
+      "sha256": "d4505f75c8cf0b5a5cdb776e391e229b6cd6503a8045a75aacc68af97ee93d06"
+    },
+    "ja": {
+      "articles": 31,
+      "fnv1a_utf16": "278b00d0",
+      "sha256": "e0e349206d223b3674e2f5355bdef5f90bc989856cdfc637b8561023716b04e6"
+    },
+    "de": {
+      "articles": 31,
+      "fnv1a_utf16": "fc79942",
+      "sha256": "01f30dc493c8de763eb5a2554d170aad69de48e5d89487920713c27941e340cd"
+    },
+    "es": {
+      "articles": 31,
+      "fnv1a_utf16": "af4f8a87",
+      "sha256": "69ff09d084d6024534543ea28e63847143d25f415fa586bb449068b12acdaccc"
+    },
+    "ko": {
+      "articles": 31,
+      "fnv1a_utf16": "2286e4bf",
+      "sha256": "956b5d815b07bca96eb2249a61e5ce72c02f58d4525d9bb504c5e318f8a5a17d"
+    },
+    "fr": {
+      "articles": 31,
+      "fnv1a_utf16": "201aa23f",
+      "sha256": "bdc04faf4bce473901378b3bf305c928e14aed1d021483f22e2652a54e4a8fe8"
+    },
+    "ru": {
+      "articles": 31,
+      "fnv1a_utf16": "1974e1e9",
+      "sha256": "e1b9d555da5c87ae0b3f529484a92c66a3eb8e5a84b770f6fcc003108550f6c6"
+    },
+    "vi": {
+      "articles": 31,
+      "fnv1a_utf16": "f2c1bef9",
+      "sha256": "eda4baab302e76c36b632e4f862ecb0cdf4960782d028031553f6936c80f8667"
+    },
+    "ar": {
+      "articles": 31,
+      "fnv1a_utf16": "78ecf581",
+      "sha256": "d7959ece96434af5998b77a8dde1369e01a727c63fdb386e3cb1556ed7ca7cc7"
+    },
+    "he": {
+      "articles": 31,
+      "fnv1a_utf16": "96b794b",
+      "sha256": "706848e07be21f9db9543ec3f86bafeb71a0a0ecd9c6e02d579332d7294f8531"
+    },
+    "pt": {
+      "articles": 31,
+      "fnv1a_utf16": "ba272a5f",
+      "sha256": "64797bc4477a810a4d4f2ee949750ccc79ef577786e26931e17648d18a587a67"
+    },
+    "zh-TW": {
+      "articles": 31,
+      "fnv1a_utf16": "635229cf",
+      "sha256": "a8051adcc299ea6b2d2da85ad2126d0ee6bdd9d55734762104765120d15c8408"
+    },
+    "zh-HK": {
+      "articles": 31,
+      "fnv1a_utf16": "443ae920",
+      "sha256": "b574688947945bd72c908a9590a7627ec8ec2694ef8e56e91f7aed414692e7f7"
+    }
+  },
+  "total_translations": 403
+}
