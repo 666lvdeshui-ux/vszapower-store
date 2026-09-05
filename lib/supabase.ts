@@ -911,15 +911,16 @@ export async function getPosts() {
 }
 
 export async function getPostBySlug(slug: string) {
+  const decodedSlug = decodeURIComponent(slug || '').trim();
   if (supabase) {
     try {
-      const { data, error } = await supabase.from('posts').select('*').eq('slug', slug).single();
+      const { data, error } = await supabase.from('posts').select('*').eq('slug', decodedSlug).single();
       if (!error && data) return data;
     } catch (e) {
       console.error('Supabase fetch post by slug error:', e);
     }
   }
-  return MOCK_POSTS.find(p => p.slug === slug) || null;
+  return MOCK_POSTS.find(p => p.slug === decodedSlug || p.slug === slug) || null;
 }
 
 export async function getCompatibilities() {
