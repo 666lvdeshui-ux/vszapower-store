@@ -896,16 +896,28 @@ export async function getProducts() {
 
 export async function getPosts() {
   if (supabase) {
-    const { data, error } = await supabase.from('posts').select('*').eq('published', true).order('created_at', { ascending: false });
-    if (!error && data && data.length > 0) return data;
+    try {
+      const { data, error } = await supabase.from('posts').select('*').eq('published', true).order('created_at', { ascending: false });
+      if (!error && data && data.length > 0) {
+        const dbSlugs = new Set(data.map((p: any) => p.slug));
+        const extraMocks = MOCK_POSTS.filter((m: any) => !dbSlugs.has(m.slug));
+        return [...data, ...extraMocks];
+      }
+    } catch (e) {
+      console.error('Supabase fetch posts error:', e);
+    }
   }
   return MOCK_POSTS;
 }
 
 export async function getPostBySlug(slug: string) {
   if (supabase) {
-    const { data, error } = await supabase.from('posts').select('*').eq('slug', slug).single();
-    if (!error && data) return data;
+    try {
+      const { data, error } = await supabase.from('posts').select('*').eq('slug', slug).single();
+      if (!error && data) return data;
+    } catch (e) {
+      console.error('Supabase fetch post by slug error:', e);
+    }
   }
   return MOCK_POSTS.find(p => p.slug === slug) || null;
 }
