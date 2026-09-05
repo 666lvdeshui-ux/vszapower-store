@@ -14,12 +14,12 @@ const { SUPPORTED_LANGUAGES } = await import(moduleUrl(compile('../lib/i18n.ts')
 
 // Collect messages from the actual components, including data-driven cards and options.
 const required = new Set();
-for (const name of ['CustomizationSection', 'CertificationsSection', 'FactoryShowcase', 'HeroCarousel', 'Header']) {
+for (const name of ['CustomizationSection', 'CertificationsSection', 'FactoryShowcase', 'HeroCarousel', 'Header', 'ContactSection', 'Footer']) {
   const source = read(`../components/${name}.tsx`);
   const ast = ts.createSourceFile(name, source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
   function visit(node) {
     if (ts.isCallExpression(node) && node.expression.getText(ast) === 'sectionText' && ts.isStringLiteral(node.arguments[0])) required.add(node.arguments[0].text);
-    if (ts.isPropertyAssignment(node) && ['name', 'title', 'scope', 'description', 'verifiedStatus', 'code', 'desc', 'status', 'label'].includes(node.name.getText(ast)) && ts.isStringLiteral(node.initializer)) required.add(node.initializer.text);
+    if (ts.isPropertyAssignment(node) && ['name', 'title', 'scope', 'description', 'verifiedStatus', 'code', 'desc', 'status', 'label'].includes(node.name.getText(ast)) && ts.isStringLiteral(node.initializer) && node.initializer.text.trim()) required.add(node.initializer.text);
     if (ts.isArrayLiteralExpression(node) && node.elements.every(ts.isStringLiteral)) node.elements.forEach(n => required.add(n.text));
     ts.forEachChild(node, visit);
   }

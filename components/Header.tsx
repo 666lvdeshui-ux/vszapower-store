@@ -59,7 +59,7 @@ export default function Header({ onContactClick }: HeaderProps) {
             <div style={{ display: 'flex', gap: '4px', alignItems: 'center', flexWrap: 'wrap' }}>
               {['Battery', 'CE', 'FCC', 'RoHS'].map((cert) => (
                 <span
-                  key={sectionText(cert, lang)}
+                  key={cert}
                   style={{
                     fontSize: '0.58rem',
                     fontWeight: 700,
@@ -80,7 +80,7 @@ export default function Header({ onContactClick }: HeaderProps) {
             <div className="header-cert-row2" style={{ display: 'flex', gap: '4px', alignItems: 'center', flexWrap: 'wrap' }}>
               {['CE-Battery', 'GPSR-Test Report', 'PSE Exempt', 'UN38.3'].map((cert) => (
                 <span
-                  key={sectionText(cert, lang)}
+                  key={cert}
                   style={{
                     fontSize: '0.58rem',
                     fontWeight: 700,

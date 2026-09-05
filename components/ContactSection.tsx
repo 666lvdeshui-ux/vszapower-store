@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, Send, CheckCircle2, Clock, X } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { sectionText } from '@/lib/sectionI18n';
 
 interface ContactSectionProps {
   isOpenModal?: boolean;
@@ -11,7 +12,7 @@ interface ContactSectionProps {
 }
 
 export default function ContactSection({ isOpenModal = false, onCloseModal, prefilledProduct = '' }: ContactSectionProps) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -69,7 +70,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
         if (onCloseModal) onCloseModal();
       }, 4000);
     } catch (err) {
-      alert('提交异常，请稍后重试');
+      alert(sectionText('Submission failed. Please try again later.', lang));
     } finally {
       setSubmitting(false);
     }
@@ -79,7 +80,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
     <div style={{ color: 'var(--text-main)' }}>
       <div style={{ textAlign: 'center', marginBottom: '32px' }}>
         <span className="badge badge-green" style={{ marginBottom: '12px' }}>
-          DIRECT CONTACT &amp; INQUIRY
+          {sectionText('DIRECT CONTACT & INQUIRY', lang)}
         </span>
         <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 800 }}>
           {t('contact_title')}
@@ -112,7 +113,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
           {/* Contact Details Card */}
           <div className="glass-panel" style={{ padding: '32px', borderRadius: '20px' }}>
             <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '20px' }}>
-              Direct Channels
+              {sectionText('Direct Channels', lang)}
             </h3>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -121,7 +122,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                   <Mail size={20} color="var(--accent-green)" />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Email Inquiries</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{sectionText('Email Inquiries', lang)}</div>
                   <div style={{ fontSize: '1rem', fontWeight: 700 }}>666lvdeshui@gmail.com</div>
                 </div>
               </div>
@@ -136,7 +137,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                   <Phone size={20} color="var(--accent-cyan)" />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>WhatsApp / Direct Call</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{sectionText('WhatsApp / Direct Call', lang)}</div>
                   <div style={{ fontSize: '1rem', fontWeight: 700 }}>+852 6071 6913</div>
                 </div>
               </a>
@@ -146,8 +147,8 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                   <Clock size={20} color="var(--kraft-gold)" />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Response Time</div>
-                  <div style={{ fontSize: '1rem', fontWeight: 700 }}>Within 2 Hours (Mon-Sat)</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{sectionText('Response Time', lang)}</div>
+                  <div style={{ fontSize: '1rem', fontWeight: 700 }}>{sectionText('Within 2 Hours (Mon-Sat)', lang)}</div>
                 </div>
               </div>
             </div>
@@ -162,18 +163,18 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                 required
                 value={formData.name}
                 onChange={e => setFormData({ ...formData, name: e.target.value })}
-                placeholder="e.g. John Doe"
+                placeholder={sectionText('e.g. John Doe', lang)}
                 style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
               />
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Company Name / Website</label>
+              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>{sectionText('Company Name / Website', lang)}</label>
               <input
                 type="text"
                 value={formData.company}
                 onChange={e => setFormData({ ...formData, company: e.target.value })}
-                placeholder="e.g. Acme Electronics Ltd / www.acme.com"
+                placeholder={sectionText('e.g. Acme Electronics Ltd / www.acme.com', lang)}
                 style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
               />
             </div>
@@ -185,7 +186,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                   type="text"
                   value={formData.country}
                   onChange={e => setFormData({ ...formData, country: e.target.value })}
-                  placeholder="e.g. USA / Germany"
+                  placeholder={sectionText('e.g. USA / Germany', lang)}
                   style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
                 />
               </div>
@@ -205,31 +206,33 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Business Type</label>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>{sectionText('Business Type', lang)}</label>
                 <select
+                  aria-label={sectionText('Business Type', lang)}
                   value={formData.businessType}
                   onChange={e => setFormData({ ...formData, businessType: e.target.value })}
                   style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(10,13,20,0.9)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
                 >
-                  <option value="Distributor / Wholesaler">Distributor / Wholesaler</option>
-                  <option value="Amazon / E-commerce Seller">Amazon / E-commerce Seller</option>
-                  <option value="Brand Retailer">Brand Retailer / Chain Store</option>
-                  <option value="OEM / ODM Client">OEM / ODM Custom Client</option>
-                  <option value="Personal Project">Personal / Engineering R&amp;D</option>
+                  <option value="Distributor / Wholesaler">{sectionText('Distributor / Wholesaler', lang)}</option>
+                  <option value="Amazon / E-commerce Seller">{sectionText('Amazon / E-commerce Seller', lang)}</option>
+                  <option value="Brand Retailer">{sectionText('Brand Retailer / Chain Store', lang)}</option>
+                  <option value="OEM / ODM Client">{sectionText('OEM / ODM Custom Client', lang)}</option>
+                  <option value="Personal Project">{sectionText('Personal / Engineering R&D', lang)}</option>
                 </select>
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>Estimated Quantity (MOQ)</label>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>{sectionText('Estimated Quantity (MOQ)', lang)}</label>
                 <select
+                  aria-label={sectionText('Estimated Quantity (MOQ)', lang)}
                   value={formData.quantity}
                   onChange={e => setFormData({ ...formData, quantity: e.target.value })}
                   style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(10,13,20,0.9)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
                 >
-                  <option value="100 - 500 pcs (MOQ Trial)">100 - 500 pcs (MOQ Trial)</option>
-                  <option value="500 - 2,000 pcs (Wholesale)">500 - 2,000 pcs (Wholesale)</option>
-                  <option value="2,000+ pcs (OEM/ODM Bulk)">2,000+ pcs (OEM/ODM Bulk)</option>
-                  <option value="Sample Order (1 - 10 pcs)">Sample Order (1 - 10 pcs)</option>
+                  <option value="100 - 500 pcs (MOQ Trial)">{sectionText('100 - 500 pcs (MOQ Trial)', lang)}</option>
+                  <option value="500 - 2,000 pcs (Wholesale)">{sectionText('500 - 2,000 pcs (Wholesale)', lang)}</option>
+                  <option value="2,000+ pcs (OEM/ODM Bulk)">{sectionText('2,000+ pcs (OEM/ODM Bulk)', lang)}</option>
+                  <option value="Sample Order (1 - 10 pcs)">{sectionText('Sample Order (1 - 10 pcs)', lang)}</option>
                 </select>
               </div>
             </div>
@@ -238,7 +241,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
               <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>{t('contact_product')}</label>
               <input
                 type="text"
-                value={formData.product}
+                value={formData.product === 'General Inquiry / Wholesale Order' ? sectionText('General Inquiry / Wholesale Order', lang) : formData.product}
                 onChange={e => setFormData({ ...formData, product: e.target.value })}
                 style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
               />
@@ -251,7 +254,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
                 required
                 value={formData.message}
                 onChange={e => setFormData({ ...formData, message: e.target.value })}
-                placeholder="Tell us your questions, required quantity, or target device models..."
+                placeholder={sectionText('Tell us your questions, required quantity, or target device models...', lang)}
                 style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: 'var(--text-main)', fontFamily: 'inherit' }}
               />
             </div>
@@ -281,7 +284,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
         justifyContent: 'center',
         padding: '24px',
       }}>
-        <div className="glass-panel" style={{
+        <div role="dialog" aria-modal="true" aria-label={t('contact_title')} className="glass-panel" style={{
           width: '100%',
           maxWidth: '560px',
           maxHeight: '90vh',
@@ -295,6 +298,7 @@ export default function ContactSection({ isOpenModal = false, onCloseModal, pref
           {onCloseModal && (
             <button
               onClick={onCloseModal}
+              aria-label={sectionText('Close inquiry form', lang)}
               style={{
                 position: 'absolute',
                 top: '20px',

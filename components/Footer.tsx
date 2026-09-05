@@ -4,9 +4,10 @@ import React from 'react';
 import Link from 'next/link';
 import { Shield, Heart, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { sectionText } from '@/lib/sectionI18n';
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <footer style={{
@@ -33,7 +34,7 @@ export default function Footer() {
             {t('hero_subtitle')}
           </p>
           <div style={{ display: 'flex', gap: '10px', fontSize: '0.8rem', color: 'var(--text-dim)' }}>
-            <Shield size={16} color="var(--accent-green)" /> {t('hero_highlight_4')}
+            <Shield size={16} color="var(--accent-green)" /> {sectionText('Certifications & Compliance', lang)}: {['Battery', 'CE', 'FCC', 'RoHS', 'CE-Battery', 'GPSR', 'PSE Exempt', 'UN38.3'].map(cert => sectionText(cert, lang)).join(' / ')}
           </div>
         </div>
 
@@ -73,7 +74,7 @@ export default function Footer() {
         {/* Col 4: Technical Compliance & Certifications */}
         <div>
           <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', color: 'var(--text-main)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <Shield size={16} color="var(--accent-green)" /> Certifications &amp; Compliance
+            <Shield size={16} color="var(--accent-green)" /> {sectionText('Certifications & Compliance', lang)}
           </h4>
           <div style={{ background: 'rgba(255,255,255,0.03)', padding: '14px', borderRadius: '12px', border: '1px solid var(--border-color)', fontSize: '0.85rem' }}>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '10px' }}>
@@ -90,12 +91,12 @@ export default function Footer() {
                     borderRadius: '6px',
                   }}
                 >
-                  ✓ {cert}
+                  ✓ {sectionText(cert, lang)}
                 </span>
               ))}
             </div>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.78rem', lineHeight: 1.4 }}>
-              Micro-chip 3.6V-4.2V Auto Switch • Overcharge Cutoff • Kraft Pack Certified
+              {sectionText('Micro-chip 3.6V-4.2V Auto Switch • Overcharge Cutoff • Kraft Pack Certified', lang)}
             </p>
           </div>
         </div>
@@ -117,7 +118,7 @@ export default function Footer() {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
           <span style={{ color: 'var(--accent-green)', fontWeight: 600, fontSize: '0.8rem' }}>
-            ✓ Battery / CE / FCC / RoHS / CE-Battery / GPSR-Test Report / PSE Exempt / UN38.3
+            ✓ {['Battery', 'CE', 'FCC', 'RoHS', 'CE-Battery', 'GPSR-Test Report', 'PSE Exempt', 'UN38.3'].map(cert => sectionText(cert, lang)).join(' / ')}
           </span>
           <span>•</span>
           <span>Crafted with <Heart size={14} color="#ef4444" fill="#ef4444" style={{ display: 'inline' }} /> for Eco Electronics</span>
