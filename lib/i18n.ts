@@ -183,7 +183,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     hero_highlight_3: '✓ Eco Papercard Gift Packaging',
     hero_highlight_4: '✓ CE / FCC / RoHS Certified',
     section_products_title: 'Coin Cell Charger & Battery Catalog',
-    section_products_subtitle: 'Integrated MCU precision charging algorithm, safe for AirTags, key fobs & IoT sensors.',
+    section_products_subtitle: 'Compare rechargeable coin cells and charger designs. Confirm the cell specification and charging configuration for your application.',
     filter_all: 'All Products',
     filter_chargers: 'Coin Cell Chargers',
     filter_batteries: 'Rechargeable Batteries',

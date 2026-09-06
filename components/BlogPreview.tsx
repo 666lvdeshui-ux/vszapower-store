@@ -3,13 +3,12 @@ import { localizePost } from '@/lib/postI18n';
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { MOCK_POSTS } from '@/lib/supabase';
 import { PostItem } from '@/lib/store';
 import { BookOpen, Clock, ArrowRight, User, Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { translateDynamicContent } from '@/lib/dynamicI18n';
 
-export default function BlogPreview({ posts: initialPosts = MOCK_POSTS }) {
+export default function BlogPreview({ posts: initialPosts = [] }: {posts?: PostItem[]}) {
   const { lang, t } = useLanguage();
   const [posts, setPosts] = useState<PostItem[]>(initialPosts as unknown as PostItem[]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -26,9 +25,10 @@ export default function BlogPreview({ posts: initialPosts = MOCK_POSTS }) {
       .catch(console.error);
   }, []);
 
-  const totalPages = Math.ceil(posts.length / ITEMS_PER_PAGE) || 1;
+  const visiblePosts = lang === 'en' ? posts.filter(p => !/[\u3400-\u9fff]/.test(localizePost(p,lang).title+' '+localizePost(p,lang).summary)) : posts;
+  const totalPages = Math.ceil(visiblePosts.length / ITEMS_PER_PAGE) || 1;
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const currentPosts = posts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  const currentPosts = visiblePosts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -58,7 +58,7 @@ export default function BlogPreview({ posts: initialPosts = MOCK_POSTS }) {
             {t('academy_title')}
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginTop: '6px' }}>
-            {translateDynamicContent('LIR series rechargeable button cell technical articles, micro-current charging guides & AirTag compatibility benchmarks.', lang)}
+            {translateDynamicContent('Rechargeable coin cell selection, device voltage requirements and charger configuration guides.', lang)}
           </p>
         </div>
 
@@ -78,7 +78,7 @@ export default function BlogPreview({ posts: initialPosts = MOCK_POSTS }) {
           const localized = localizePost(post, lang);
             const translatedTitle = localized.title;
           const translatedSummary = localized.summary;
-          const translatedCategory = localized.category;
+          const translatedCategory = lang==='en' && /[\u3400-\u9fff]/.test(localized.category) ? 'Battery Academy' : localized.category;
 
           return (
             <article
@@ -133,7 +133,7 @@ export default function BlogPreview({ posts: initialPosts = MOCK_POSTS }) {
                       <Calendar size={13} /> {post.created_at ? new Date(post.created_at).toISOString().split('T')[0] : '2026-07-29'}
                     </span>
                     <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <Clock size={13} style={{ color: 'var(--accent-cyan)' }} /> {post.read_time}
+                      <Clock size={13} style={{ color: 'var(--accent-cyan)' }} /> {lang==='en' && /[\u3400-\u9fff]/.test(post.read_time)?`${parseInt(post.read_time)||5} min read`:post.read_time}
                     </span>
                   </div>
 
@@ -200,7 +200,7 @@ export default function BlogPreview({ posts: initialPosts = MOCK_POSTS }) {
           borderTop: '1px solid var(--border-color)',
         }}>
           <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-            {translateDynamicContent(`Showing ${startIndex + 1}-${Math.min(startIndex + ITEMS_PER_PAGE, posts.length)} of ${posts.length} articles`, lang)}
+            {translateDynamicContent(`Showing ${startIndex + 1}-${Math.min(startIndex + ITEMS_PER_PAGE, visiblePosts.length)} of ${visiblePosts.length} articles`, lang)}
           </span>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>

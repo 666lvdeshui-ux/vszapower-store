@@ -1,5 +1,6 @@
 'use client';
 
+import { entityDescription } from '@/lib/catalog';
 import React from 'react';
 import Link from 'next/link';
 import { Shield, Heart, ExternalLink } from 'lucide-react';
@@ -31,7 +32,7 @@ export default function Footer() {
             <img src="/logo.svg" alt="VSZAPOWER" style={{ height: '30px', width: 'auto', display: 'block' }} />
           </div>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '20px', lineHeight: 1.6 }}>
-            {t('hero_subtitle')}
+            {entityDescription}
           </p>
           <div style={{ display: 'flex', gap: '10px', fontSize: '0.8rem', color: 'var(--text-dim)' }}>
             <Shield size={16} color="var(--accent-green)" /> {sectionText('Certifications & Compliance', lang)}: {['Battery', 'CE', 'FCC', 'RoHS', 'CE-Battery', 'GPSR', 'PSE', 'UN38.3'].map(cert => sectionText(cert, lang)).join(' / ')}
@@ -46,7 +47,7 @@ export default function Footer() {
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.9rem' }}>
             <li><Link href="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{t('nav_home')}</Link></li>
             <li><Link href="/#products?cat=charger" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{t('nav_chargers')}</Link></li>
-            <li><Link href="/#products?cat=battery" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{t('nav_batteries')}</Link></li>
+            <li><Link href="/rechargeable-coin-cell-batteries" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{t('nav_batteries')}</Link></li>
             <li><Link href="/academy" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{t('nav_academy')}</Link></li>
             <li><Link href="/#contact" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{t('nav_contact')}</Link></li>
             <li><Link href="/compliance" style={{color:'var(--text-muted)'}}>Compliance Center</Link></li>

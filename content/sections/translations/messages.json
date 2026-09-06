@@ -196,7 +196,11 @@
     "Discuss rechargeable coin-cell charger selection, branding and packaging for your wholesale project. Specifications and documentation depend on the selected configuration.": "Discuss rechargeable coin-cell charger selection, branding and packaging for your wholesale project. Specifications and documentation depend on the selected configuration.",
     "Model-specific test documentation": "Model-specific test documentation",
     "Contact Us": "Contact Us",
-    "PSE": "PSE"
+    "PSE": "PSE",
+    "LIR2032 (3.6V 32mAh Rechargeable)": "LIR2032 (3.6V 32mAh Rechargeable)",
+    "LIR2450 (3.6V 110mAh Rechargeable)": "LIR2450 (3.6V 110mAh Rechargeable)",
+    "LIR2025 (3.6V 25mAh Rechargeable)": "LIR2025 (3.6V 25mAh Rechargeable)",
+    "LIR2016 (3.6V 10mAh Rechargeable)": "LIR2016 (3.6V 10mAh Rechargeable)"
   },
   "zh-CN": {
     "OEM Customization Order": "OEM 定制订单",
@@ -395,7 +399,11 @@
     "Discuss rechargeable coin-cell charger selection, branding and packaging for your wholesale project. Specifications and documentation depend on the selected configuration.": "讨论批发项目的可充电纽扣电池充电器选型、品牌和包装。规格与资料取决于所选配置。",
     "Model-specific test documentation": "具体型号测试资料",
     "Contact Us": "联系我们",
-    "PSE": "PSE"
+    "PSE": "PSE",
+    "LIR2032 (3.6V 32mAh Rechargeable)": "LIR2032 (3.6V 32mAh 可充电)",
+    "LIR2450 (3.6V 110mAh Rechargeable)": "LIR2450 (3.6V 110mAh 可充电)",
+    "LIR2025 (3.6V 25mAh Rechargeable)": "LIR2025 (3.6V 25mAh 可充电)",
+    "LIR2016 (3.6V 10mAh Rechargeable)": "LIR2016 (3.6V 10mAh 可充电)"
   },
   "de": {
     "OEM Customization Order": "OEM-Anpassungsauftrag",
@@ -594,7 +602,11 @@
     "Discuss rechargeable coin-cell charger selection, branding and packaging for your wholesale project. Specifications and documentation depend on the selected configuration.": "Besprechen Sie die Auswahl von Knopfzellen-Ladegeräten, Branding und Verpackung für Ihr Großhandelsprojekt. Spezifikationen und Unterlagen hängen von der gewählten Konfiguration ab.",
     "Model-specific test documentation": "Modellspezifische Prüfunterlagen",
     "Contact Us": "Kontakt",
-    "PSE": "PSE"
+    "PSE": "PSE",
+    "LIR2032 (3.6V 32mAh Rechargeable)": "LIR2032 (3.6V 32mAh wiederaufladbar)",
+    "LIR2450 (3.6V 110mAh Rechargeable)": "LIR2450 (3.6V 110mAh wiederaufladbar)",
+    "LIR2025 (3.6V 25mAh Rechargeable)": "LIR2025 (3.6V 25mAh wiederaufladbar)",
+    "LIR2016 (3.6V 10mAh Rechargeable)": "LIR2016 (3.6V 10mAh wiederaufladbar)"
   },
   "ja": {
     "OEM Customization Order": "OEMカスタマイズ注文",
@@ -793,7 +805,11 @@
     "Discuss rechargeable coin-cell charger selection, branding and packaging for your wholesale project. Specifications and documentation depend on the selected configuration.": "卸売プロジェクトの充電式コイン電池用充電器の選定、ブランド、包装についてご相談ください。仕様と資料は選択した構成により異なります。",
     "Model-specific test documentation": "型番別試験資料",
     "Contact Us": "お問い合わせ",
-    "PSE": "PSE"
+    "PSE": "PSE",
+    "LIR2032 (3.6V 32mAh Rechargeable)": "LIR2032 (3.6V 32mAh 充電式)",
+    "LIR2450 (3.6V 110mAh Rechargeable)": "LIR2450 (3.6V 110mAh 充電式)",
+    "LIR2025 (3.6V 25mAh Rechargeable)": "LIR2025 (3.6V 25mAh 充電式)",
+    "LIR2016 (3.6V 10mAh Rechargeable)": "LIR2016 (3.6V 10mAh 充電式)"
   },
   "es": {
     "OEM Customization Order": "Orden de personalización OEM",
@@ -992,7 +1008,11 @@
     "Discuss rechargeable coin-cell charger selection, branding and packaging for your wholesale project. Specifications and documentation depend on the selected configuration.": "Consulte sobre selección de cargadores de pilas recargables de botón, marca y embalaje para su proyecto mayorista. Las especificaciones y los documentos dependen de la configuración elegida.",
     "Model-specific test documentation": "Documentación de ensayos por modelo",
     "Contact Us": "Contacto",
-    "PSE": "PSE"
+    "PSE": "PSE",
+    "LIR2032 (3.6V 32mAh Rechargeable)": "LIR2032 (3.6V 32mAh recargable)",
+    "LIR2450 (3.6V 110mAh Rechargeable)": "LIR2450 (3.6V 110mAh recargable)",
+    "LIR2025 (3.6V 25mAh Rechargeable)": "LIR2025 (3.6V 25mAh recargable)",
+    "LIR2016 (3.6V 10mAh Rechargeable)": "LIR2016 (3.6V 10mAh recargable)"
   },
   "ko": {
     "OEM Customization Order": "OEM 맞춤 주문",
@@ -1191,7 +1211,11 @@
     "Discuss rechargeable coin-cell charger selection, branding and packaging for your wholesale project. Specifications and documentation depend on the selected configuration.": "도매 프로젝트의 충전식 코인 배터리 충전기 선정, 브랜딩 및 포장을 상담하세요. 사양과 자료는 선택한 구성에 따라 달라집니다.",
     "Model-specific test documentation": "모델별 시험 자료",
     "Contact Us": "문의하기",
-    "PSE": "PSE"
+    "PSE": "PSE",
+    "LIR2032 (3.6V 32mAh Rechargeable)": "LIR2032 (3.6V 32mAh 충전식)",
+    "LIR2450 (3.6V 110mAh Rechargeable)": "LIR2450 (3.6V 110mAh 충전식)",
+    "LIR2025 (3.6V 25mAh Rechargeable)": "LIR2025 (3.6V 25mAh 충전식)",
+    "LIR2016 (3.6V 10mAh Rechargeable)": "LIR2016 (3.6V 10mAh 충전식)"
   },
   "he": {
     "OEM Customization Order": "הזמנת התאמה אישית של OEM",
@@ -1390,7 +1414,11 @@
     "Discuss rechargeable coin-cell charger selection, branding and packaging for your wholesale project. Specifications and documentation depend on the selected configuration.": "דונו בבחירת מטענים לסוללות כפתור נטענות, במיתוג ובאריזה לפרויקט הסיטונאי שלכם. המפרט והתיעוד תלויים בתצורה שנבחרה.",
     "Model-specific test documentation": "תיעוד בדיקות לפי דגם",
     "Contact Us": "צרו קשר",
-    "PSE": "PSE"
+    "PSE": "PSE",
+    "LIR2032 (3.6V 32mAh Rechargeable)": "LIR2032 (3.6V 32mAh נטענת)",
+    "LIR2450 (3.6V 110mAh Rechargeable)": "LIR2450 (3.6V 110mAh נטענת)",
+    "LIR2025 (3.6V 25mAh Rechargeable)": "LIR2025 (3.6V 25mAh נטענת)",
+    "LIR2016 (3.6V 10mAh Rechargeable)": "LIR2016 (3.6V 10mAh נטענת)"
   },
   "ar": {
     "OEM Customization Order": "طلب تخصيص OEM",
@@ -1589,7 +1617,11 @@
     "Discuss rechargeable coin-cell charger selection, branding and packaging for your wholesale project. Specifications and documentation depend on the selected configuration.": "ناقش اختيار شواحن البطاريات الزرية القابلة للشحن والعلامة التجارية والتغليف لمشروع الجملة. تعتمد المواصفات والوثائق على التكوين المختار.",
     "Model-specific test documentation": "وثائق اختبار خاصة بالطراز",
     "Contact Us": "اتصل بنا",
-    "PSE": "PSE"
+    "PSE": "PSE",
+    "LIR2032 (3.6V 32mAh Rechargeable)": "LIR2032 (3.6V 32mAh قابلة للشحن)",
+    "LIR2450 (3.6V 110mAh Rechargeable)": "LIR2450 (3.6V 110mAh قابلة للشحن)",
+    "LIR2025 (3.6V 25mAh Rechargeable)": "LIR2025 (3.6V 25mAh قابلة للشحن)",
+    "LIR2016 (3.6V 10mAh Rechargeable)": "LIR2016 (3.6V 10mAh قابلة للشحن)"
   },
   "fr": {
     "OEM Customization Order": "Commande de personnalisation OEM",
@@ -1788,7 +1820,11 @@
     "Discuss rechargeable coin-cell charger selection, branding and packaging for your wholesale project. Specifications and documentation depend on the selected configuration.": "Discutez du choix de chargeurs de piles boutons rechargeables, de la marque et de l’emballage pour votre projet de vente en gros. Les spécifications et les documents dépendent de la configuration choisie.",
     "Model-specific test documentation": "Documents d’essais par modèle",
     "Contact Us": "Contactez-nous",
-    "PSE": "PSE"
+    "PSE": "PSE",
+    "LIR2032 (3.6V 32mAh Rechargeable)": "LIR2032 (3.6V 32mAh rechargeable)",
+    "LIR2450 (3.6V 110mAh Rechargeable)": "LIR2450 (3.6V 110mAh rechargeable)",
+    "LIR2025 (3.6V 25mAh Rechargeable)": "LIR2025 (3.6V 25mAh rechargeable)",
+    "LIR2016 (3.6V 10mAh Rechargeable)": "LIR2016 (3.6V 10mAh rechargeable)"
   },
   "pt": {
     "OEM Customization Order": "Pedido de personalização OEM",
@@ -1987,7 +2023,11 @@
     "Discuss rechargeable coin-cell charger selection, branding and packaging for your wholesale project. Specifications and documentation depend on the selected configuration.": "Consulte sobre seleção de carregadores de pilhas botão recarregáveis, marca e embalagem para seu projeto atacadista. As especificações e os documentos dependem da configuração escolhida.",
     "Model-specific test documentation": "Documentação de ensaios por modelo",
     "Contact Us": "Fale conosco",
-    "PSE": "PSE"
+    "PSE": "PSE",
+    "LIR2032 (3.6V 32mAh Rechargeable)": "LIR2032 (3.6V 32mAh recarregável)",
+    "LIR2450 (3.6V 110mAh Rechargeable)": "LIR2450 (3.6V 110mAh recarregável)",
+    "LIR2025 (3.6V 25mAh Rechargeable)": "LIR2025 (3.6V 25mAh recarregável)",
+    "LIR2016 (3.6V 10mAh Rechargeable)": "LIR2016 (3.6V 10mAh recarregável)"
   },
   "ru": {
     "OEM Customization Order": "OEM-заказ на изготовление на заказ",
@@ -2186,7 +2226,11 @@
     "Discuss rechargeable coin-cell charger selection, branding and packaging for your wholesale project. Specifications and documentation depend on the selected configuration.": "Обсудите выбор зарядных устройств для аккумуляторных кнопочных элементов, брендирование и упаковку для оптового проекта. Характеристики и документы зависят от выбранной конфигурации.",
     "Model-specific test documentation": "Документы испытаний по моделям",
     "Contact Us": "Свяжитесь с нами",
-    "PSE": "PSE"
+    "PSE": "PSE",
+    "LIR2032 (3.6V 32mAh Rechargeable)": "LIR2032 (3.6V 32mAh перезаряжаемый)",
+    "LIR2450 (3.6V 110mAh Rechargeable)": "LIR2450 (3.6V 110mAh перезаряжаемый)",
+    "LIR2025 (3.6V 25mAh Rechargeable)": "LIR2025 (3.6V 25mAh перезаряжаемый)",
+    "LIR2016 (3.6V 10mAh Rechargeable)": "LIR2016 (3.6V 10mAh перезаряжаемый)"
   },
   "vi": {
     "OEM Customization Order": "Đơn đặt hàng tùy chỉnh OEM",
@@ -2385,7 +2429,11 @@
     "Discuss rechargeable coin-cell charger selection, branding and packaging for your wholesale project. Specifications and documentation depend on the selected configuration.": "Trao đổi về lựa chọn bộ sạc pin cúc áo sạc lại, thương hiệu và bao bì cho dự án bán buôn. Thông số và tài liệu phụ thuộc vào cấu hình được chọn.",
     "Model-specific test documentation": "Tài liệu thử nghiệm theo mẫu",
     "Contact Us": "Liên hệ",
-    "PSE": "PSE"
+    "PSE": "PSE",
+    "LIR2032 (3.6V 32mAh Rechargeable)": "LIR2032 (3.6V 32mAh có thể sạc lại)",
+    "LIR2450 (3.6V 110mAh Rechargeable)": "LIR2450 (3.6V 110mAh có thể sạc lại)",
+    "LIR2025 (3.6V 25mAh Rechargeable)": "LIR2025 (3.6V 25mAh có thể sạc lại)",
+    "LIR2016 (3.6V 10mAh Rechargeable)": "LIR2016 (3.6V 10mAh có thể sạc lại)"
   },
   "zh-TW": {
     "OEM Customization Order": "OEM 客製訂單",
@@ -2584,7 +2632,11 @@
     "Discuss rechargeable coin-cell charger selection, branding and packaging for your wholesale project. Specifications and documentation depend on the selected configuration.": "討論批發專案的充電式鈕扣電池充電器選型、品牌和包裝。規格與資料取決於所選配置。",
     "Model-specific test documentation": "特定型號測試資料",
     "Contact Us": "聯絡我們",
-    "PSE": "PSE"
+    "PSE": "PSE",
+    "LIR2032 (3.6V 32mAh Rechargeable)": "LIR2032 (3.6V 32mAh 可充電)",
+    "LIR2450 (3.6V 110mAh Rechargeable)": "LIR2450 (3.6V 110mAh 可充電)",
+    "LIR2025 (3.6V 25mAh Rechargeable)": "LIR2025 (3.6V 25mAh 可充電)",
+    "LIR2016 (3.6V 10mAh Rechargeable)": "LIR2016 (3.6V 10mAh 可充電)"
   },
   "zh-HK": {
     "OEM Customization Order": "OEM 定製訂單",
@@ -2783,6 +2835,10 @@
     "Discuss rechargeable coin-cell charger selection, branding and packaging for your wholesale project. Specifications and documentation depend on the selected configuration.": "討論批發專案的充電式鈕扣電池充電器選型、品牌和包裝。規格與資料取決於所選配置。",
     "Model-specific test documentation": "特定型號測試資料",
     "Contact Us": "聯絡我們",
-    "PSE": "PSE"
+    "PSE": "PSE",
+    "LIR2032 (3.6V 32mAh Rechargeable)": "LIR2032 (3.6V 32mAh 可充電)",
+    "LIR2450 (3.6V 110mAh Rechargeable)": "LIR2450 (3.6V 110mAh 可充電)",
+    "LIR2025 (3.6V 25mAh Rechargeable)": "LIR2025 (3.6V 25mAh 可充電)",
+    "LIR2016 (3.6V 10mAh Rechargeable)": "LIR2016 (3.6V 10mAh 可充電)"
   }
 }

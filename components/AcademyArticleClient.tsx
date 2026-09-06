@@ -1,5 +1,6 @@
 'use client';
 
+import { catalog, productPath, compatibilityNote } from '@/lib/catalog';
 import React from 'react';
 import Link from 'next/link';
 import { PostItem } from '@/lib/store';
@@ -42,7 +43,7 @@ export default function AcademyArticleClient({ post, formattedDate }: AcademyArt
       url: 'https://www.vszapower.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.vszapower.com/logo.png',
+        url: 'https://www.vszapower.com/logo.svg',
       },
     },
     articleSection: translatedCategory,
@@ -140,13 +141,13 @@ export default function AcademyArticleClient({ post, formattedDate }: AcademyArt
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
           <Zap size={24} color="var(--accent-green)" />
           <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-main)' }}>
-            {translateDynamicContent('选购 VSZAPOWER 纽扣电池专用智能充电器', lang)}
+            {translateDynamicContent('Explore VSZAPOWER battery and charger solutions', lang)}
           </h3>
         </div>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '20px', lineHeight: 1.6 }}>
-          {translateDynamicContent('支持 LIR2032 / LIR2450 / LIR2025 / LIR2016 / LIR1632 / LIR1220 / ML2032 全系列二次电池的 20mA 微电流安全充电与 4.2V Auto-Cut 防过充保护。', lang)}
+          {compatibilityNote}
         </p>
-        <Link href="/#contact" className="btn-primary" style={{ padding: '12px 24px' }}>
+        <nav className="evidence-related">{catalog.filter(p=>p.kind==='battery' && new RegExp(p.model,'i').test(post.title+' '+post.slug)).map(p=><Link key={p.id} href={productPath(p)}>{p.title}</Link>)}<Link href="/coin-cell-charger-manufacturer">Charger configuration guidance</Link><Link href={productPath(catalog[0])}>VZ002 single-slot charger specifications</Link><Link href="/compliance">Model-specific test documentation</Link></nav><Link href="/#contact" className="btn-primary" style={{ padding: '12px 24px' }}>
           <ShoppingBag size={18} /> {translateDynamicContent('点击联系商务询价 (Contact for Wholesale Quote)', lang)}
         </Link>
       </div>

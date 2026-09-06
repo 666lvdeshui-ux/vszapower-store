@@ -15,7 +15,7 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType>({
-  lang: 'zh-CN',
+  lang: 'en',
   setLang: () => {},
   t: (key) => key,
   isRTL: false,
@@ -26,22 +26,22 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const routeLocale = centerLocale(pathname || '');
   const fixedEnglish = !routeLocale && isEvidenceRoute(pathname || '');
   const effectiveLang = routeLocale || (fixedEnglish ? 'en' : null);
-  const [lang, setLangState] = useState<string>('zh-CN');
+  const [lang, setLangState] = useState<string>('en');
   const [isRTL, setIsRTL] = useState<boolean>(false);
 
   useEffect(() => {
     // 1. Check saved language preference in localStorage
-    let initialLang = 'zh-CN';
+    let initialLang = 'en';
     try {
       const saved = localStorage.getItem('vszapower_lang');
       if (saved) {
         initialLang = saved;
       } else {
         // 2. Auto-detect browser system language
-        initialLang = detectBrowserLanguage();
+        initialLang = 'en';
       }
     } catch (e) {
-      initialLang = detectBrowserLanguage();
+      initialLang = 'en';
     }
 
     if(routeLocale){setLangState(routeLocale);setIsRTL(['ar','he'].includes(routeLocale));}else{setLang(initialLang);}

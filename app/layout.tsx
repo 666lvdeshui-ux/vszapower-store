@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const jsonLd = {'@context':'https://schema.org','@graph':[
- {'@type':'Organization','@id':'https://www.vszapower.com/#organization',name:'Shenzhen Weizan Technology Co., Ltd.',url:'https://www.vszapower.com/about-vszapower',brand:{'@id':'https://www.vszapower.com/#brand'}},
+ {'@type':'Organization','@id':'https://www.vszapower.com/#organization',name:'VSZAPOWER',legalName:'Shenzhen Weizan Technology Co., Ltd.',description:'Rechargeable coin cell batteries, charging solutions, OEM/ODM and private-label supply',url:'https://www.vszapower.com/about-vszapower',brand:{'@id':'https://www.vszapower.com/#brand'}},
  {'@type':'Brand','@id':'https://www.vszapower.com/#brand',name:'VSZAPOWER',logo:'https://www.vszapower.com/logo.svg'},
  {'@type':'WebSite','@id':'https://www.vszapower.com/#website',name:'VSZAPOWER',url:'https://www.vszapower.com',publisher:{'@id':'https://www.vszapower.com/#organization'}}]};
 

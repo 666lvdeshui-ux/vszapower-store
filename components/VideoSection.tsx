@@ -43,7 +43,7 @@ export default function VideoSection({ onContactClick }: VideoSectionProps) {
       }}>
         <div>
           <span className="badge badge-gold" style={{ marginBottom: '10px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-            <Video size={14} /> PRODUCT &amp; FACTORY DEMOS
+            <Video size={14} /> PRODUCT MEDIA
           </span>
           <h2 style={{
             fontFamily: 'var(--font-heading)',
@@ -51,10 +51,10 @@ export default function VideoSection({ onContactClick }: VideoSectionProps) {
             fontWeight: 800,
             lineHeight: 1.2,
           }}>
-            Video Showcase &amp; Live Tests
+            Product Media &amp; Demonstration Requests
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginTop: '6px', maxWidth: '580px' }}>
-            Watch live micro-chip safety, AirTag battery replacement, and multi-slot charging demonstrations.
+            Browse illustrative project footage and visit our official channel. Request a demonstration for the specific product configuration.
           </p>
         </div>
 

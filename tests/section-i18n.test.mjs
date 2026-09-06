@@ -12,9 +12,10 @@ const { sectionText } = await import(moduleUrl(compile('../lib/sectionI18n.ts')
   .replace("'./postI18n'", JSON.stringify(moduleUrl(compile('../lib/postI18n.ts'))))));
 const { SUPPORTED_LANGUAGES } = await import(moduleUrl(compile('../lib/i18n.ts')));
 
-// Collect messages from the actual components, including data-driven cards and options.
+// Collect messages from localized components, including data-driven cards and options.
+// The English manufacturer/evidence section is not a locale-switched component.
 const required = new Set();
-for (const name of ['CustomizationSection', 'CertificationsSection', 'FactoryShowcase', 'HeroCarousel', 'Header', 'ContactSection', 'Footer']) {
+for (const name of ['CustomizationSection', 'FactoryShowcase', 'HeroCarousel', 'Header', 'ContactSection', 'Footer']) {
   const source = read(`../components/${name}.tsx`);
   const ast = ts.createSourceFile(name, source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
   function visit(node) {

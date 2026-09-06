@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { ProductItem, CertificationItem, getCleanImageUrl } from '@/lib/store';
 import { MessageSquare, Info, Zap, X, Filter, ShieldCheck, ChevronLeft, ChevronRight, Maximize2, Award, Star, Sparkles } from 'lucide-react';
@@ -10,13 +11,14 @@ import ReviewSection from './ReviewSection';
 
 interface ProductGridProps {
   onContactClick: (productName?: string) => void;
+  initialProducts?: ProductItem[];
 }
 
-export default function ProductGrid({ onContactClick }: ProductGridProps) {
+export default function ProductGrid({ onContactClick, initialProducts = [] }: ProductGridProps) {
   const { lang, t } = useLanguage();
   const copy = (key: keyof typeof productUi.en) => (productUi as Record<string, typeof productUi.en>)[lang]?.[key] || productUi.en[key];
-  const [products, setProducts] = useState<ProductItem[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState<ProductItem[]>(initialProducts);
+  const [loading, setLoading] = useState(initialProducts.length === 0);
   const [selectedProductSource, setSelectedProduct] = useState<ProductItem | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const selectedProduct = selectedProductSource ? localizeProduct(selectedProductSource, lang) : null;
@@ -268,6 +270,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                   }}>
                     {translatedTitle}
                   </h3>
+                  <Link className="evidence-link" href={`/products/${product.slug}`}>View product details →</Link>
 
                   {/* Rating follows the product's persisted visibility setting. */}
                   {product.show_reviews && <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '10px', flexWrap: 'wrap' }}>

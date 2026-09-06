@@ -1,3 +1,4 @@
+import { catalog, productPath } from '@/lib/catalog';
 import { complianceLocales, centerPath } from '@/lib/complianceLocale';
 import { centerAlternates } from '@/lib/complianceCenterMetadata';
 import { publicPaths, compliance } from '@/lib/compliance';
@@ -24,6 +25,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
   ];
+
+  routes.push(...['/rechargeable-coin-cell-batteries', ...catalog.map(productPath)].map(path=>({url:baseUrl+path,lastModified:new Date('2026-09-06')})));
 
   routes.push(...publicPaths.filter(p=>p!=='/compliance').map(path => ({ url: baseUrl + path, lastModified: new Date(compliance.contentReviewedAt), changeFrequency: 'monthly' as const, priority: 0.8 })));
 

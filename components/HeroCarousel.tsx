@@ -130,7 +130,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
           gap: '48px',
           alignItems: 'center',
           position: 'relative',
@@ -164,7 +164,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
               color: 'var(--text-main, #f8fafc)',
               marginBottom: '20px',
             }}>
-              {sectionText('Launch Your Battery Brand With Low MOQ Manufacturing', lang)}
+              Rechargeable Coin Cell Battery &amp; Charger Manufacturer
             </h1>
 
             {/* Description Paragraph */}
@@ -175,10 +175,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
               marginBottom: '32px',
               maxWidth: '560px',
             }}>
-              {sectionText(
-                'VSZAPOWER helps hardware brands, IoT startups, and B2B electronics distributors produce custom rechargeable coin cell batteries (LIR2032/LIR2450), micro-current smart chargers, and private label power solutions in China.',
-                lang
-              )}
+              LIR2032 · LIR2025 · LIR2016 · LIR2450 · ML2032 · Coin Cell Chargers · OEM/ODM. Explore rechargeable coin cells and charger configurations for wholesale and private-label projects.
             </p>
 
             {/* Tag Pills Grid */}

@@ -82,7 +82,7 @@ export default function ReviewSection({
 
   return (
     <div style={{ padding: '20px 0', borderTop: '1px solid var(--border-color)', marginTop: '24px' }}>
-      {sharedSource && <p className="evidence-note" lang="en">50 selected reviews from one <a href={temuLink} target="_blank" rel="noopener noreferrer">Temu listing</a>, shared across our three charger pages. Listing rating: {rating.toFixed(1)}/5 from {reviewCount.toLocaleString()} reviews, checked 2026-09-06. The distribution below covers only the 50 displayed reviews. Buyer comments describe individual experiences, not compatibility specifications.</p>}
+      {sharedSource && <p className="evidence-note" lang="en">50 historical reviews supplied by the store owner and attributed to one <a href={temuLink} target="_blank" rel="noopener noreferrer">Temu listing</a>, shared across our three charger pages. Listing rating: {rating.toFixed(1)}/5 from {reviewCount.toLocaleString()} reviews, checked 2026-09-06. The distribution below covers only the 50 displayed reviews. Reviews retain their original language. Individual review records have not been independently matched to the live listing. Buyer comments describe individual experiences, not compatibility specifications.</p>}
       {/* Top Rating Summary Card */}
       <div
         style={{
@@ -208,7 +208,7 @@ export default function ReviewSection({
             cursor: 'pointer',
           }}
         >
-          ✓ {copy('verified')} ({temuCount})
+          ✓ Temu listing ({temuCount})
         </button>
 
         {photoCount > 0 && (
@@ -242,7 +242,7 @@ export default function ReviewSection({
             const countryInfo = COUNTRY_FLAGS[review.country_code] || { flag: '🌐', name: review.country_code };
             let countryName = countryInfo.name;
             try { countryName = new Intl.DisplayNames([lang], { type: 'region' }).of(review.country_code) || countryName; } catch {}
-            const helpful = helpfulVotes[review.id] ?? (review.helpful_count || 12);
+            const helpful = helpfulVotes[review.id] ?? (review.helpful_count || 0);
 
             return (
               <div
@@ -303,7 +303,7 @@ export default function ReviewSection({
                       gap: '4px',
                     }}
                   >
-                    <ShieldCheck size={13} /> {copy('verified')}
+                    <ShieldCheck size={13} /> Temu listing
                   </span>
                 </div>
 
@@ -320,10 +320,10 @@ export default function ReviewSection({
                 </div>
 
                 {/* Title & Body */}
-                <h5 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '6px' }}>
+                <h5 data-user-content="review" style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '6px' }}>
                   {review.title}
                 </h5>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '12px' }}>
+                <p data-user-content="review" style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '12px' }}>
                   {review.content}
                 </p>
 
@@ -352,7 +352,7 @@ export default function ReviewSection({
                 {/* Helpful Button Footer */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', paddingTop: '8px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
                   <button
-                    onClick={() => handleHelpfulClick(review.id, review.helpful_count || 12)}
+                    onClick={() => handleHelpfulClick(review.id, review.helpful_count || 0)}
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',

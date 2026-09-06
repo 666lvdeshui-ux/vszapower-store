@@ -17,8 +17,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     title: `${post.title} | Vszapower Battery Academy`,
     description: post.summary,
     authors: [{ name: post.author || 'Vszapower Tech Team' }],
-    category: post.category || '纽扣电池充电器',
-    keywords: post.tags || ['纽扣电池充电器', 'LIR2032', 'LIR2450', 'LIR2025', 'LIR2016', 'LIR1632', 'LIR1220', 'ML2032'],
+    category: post.category || 'Coin Cell Batteries and Chargers',
+    keywords: post.tags || ['Coin Cell Batteries and Chargers', 'LIR2032', 'LIR2450', 'LIR2025', 'LIR2016', 'LIR1632', 'LIR1220', 'ML2032'],
     alternates: {
       canonical: `https://www.vszapower.com/academy/${post.slug}`,
     },
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       type: 'article',
       publishedTime: publishedTime,
       authors: [post.author || 'Vszapower Tech Team'],
-      tags: post.tags || ['纽扣电池充电器', 'LIR2032', 'LIR2450'],
+      tags: post.tags || ['Coin Cell Batteries and Chargers', 'LIR2032', 'LIR2450'],
     },
     twitter: {
       card: 'summary_large_image',

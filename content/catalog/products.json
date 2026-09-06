@@ -1,0 +1,156 @@
+[
+  {
+    "id": "prod_1785144575937",
+    "slug": "vszapower-lir2016-lir1220-lir1632-lir2032-lir2025-ml2032-lir2450-30-",
+    "model": "VZ002",
+    "title": "VSZAPOWER VZ002 Rechargeable Coin Cell Charger",
+    "kind": "charger",
+    "design": "Elongated single-slot design",
+    "image": "/products/prod_1785144575937.jpg",
+    "summary": "VSZAPOWER VZ002 Rechargeable Coin Cell Charger is offered for wholesale and OEM charging projects. This elongated single-slot design is identified by its product photograph and separate EMC and RoHS report series. Confirm the rechargeable cell, charging profile and intended application before selecting a configuration; model names alone do not establish compatibility.",
+    "specs": {
+      "model": "VZ002",
+      "design": "Elongated single-slot design",
+      "input": "DC 5V",
+      "supported": "Compatibility depends on the charger configuration and battery charging requirements. Confirm the supported battery model before use.",
+      "certifications": "Model-specific EMC and RoHS test summaries; see Compliance Center."
+    },
+    "complianceId": "vz002-single-slot"
+  },
+  {
+    "id": "prod_1785382687464",
+    "slug": "vszapower-coin-cell-charger-lir2016-lir1220-lir1632-lir2032-lir2025-ml2032-30-recharge-",
+    "model": "VSZAPOWER-002",
+    "title": "VSZAPOWER-002 Rechargeable Coin Cell Charger",
+    "kind": "charger",
+    "design": "Square single-slot design",
+    "image": "/products/single-direct-charger.png",
+    "summary": "VSZAPOWER-002 Rechargeable Coin Cell Charger is offered for wholesale and OEM charging projects. This square single-slot design is identified by its product photograph and separate EMC and RoHS report series. Confirm the rechargeable cell, charging profile and intended application before selecting a configuration; model names alone do not establish compatibility.",
+    "specs": {
+      "model": "VSZAPOWER-002",
+      "design": "Square single-slot design",
+      "input": "DC 5V",
+      "supported": "Compatibility depends on the charger configuration and battery charging requirements. Confirm the supported battery model before use.",
+      "certifications": "Model-specific EMC and RoHS test summaries; see Compliance Center."
+    },
+    "complianceId": "vszapower-002"
+  },
+  {
+    "id": "prod_1785382945991",
+    "slug": "-vszapower-coin-cell-charger-lir2016-lir1220-lir1632-lir2032-lir2025-ml2032-lir2450-30-recharge-",
+    "model": "VZ002",
+    "title": "VSZAPOWER VZ002 Rechargeable Coin Cell Charger",
+    "kind": "charger",
+    "design": "Rectangular dual-slot design",
+    "image": "/products/clip-dual-charger.png",
+    "summary": "VSZAPOWER VZ002 Rechargeable Coin Cell Charger is offered for wholesale and OEM charging projects. This rectangular dual-slot design is identified by its product photograph and separate EMC and RoHS report series. Confirm the rechargeable cell, charging profile and intended application before selecting a configuration; model names alone do not establish compatibility.",
+    "specs": {
+      "model": "VZ002",
+      "design": "Rectangular dual-slot design",
+      "input": "DC 5V",
+      "supported": "Compatibility depends on the charger configuration and battery charging requirements. Confirm the supported battery model before use.",
+      "certifications": "Model-specific EMC and RoHS test summaries; see Compliance Center."
+    },
+    "complianceId": "vz002-dual-slot"
+  },
+  {
+    "id": "prod_lir2016_battery",
+    "slug": "vszapower-lir2016-rechargeable-coin-cell-battery",
+    "model": "LIR2016",
+    "title": "LIR2016 Rechargeable Coin Cell Battery",
+    "kind": "battery",
+    "design": "Rechargeable coin cell",
+    "image": "/products/prod_lir2016_battery.png",
+    "summary": "The VSZAPOWER LIR2016 is a 3.6V, 10mAh rechargeable coin cell for equipment designed for its chemistry and electrical requirements. Specify the cell version, device voltage range and charging profile when sourcing samples or a private-label order. Physical size alone does not establish interchangeability with a primary CR cell.",
+    "specs": {
+      "model": "LIR2016",
+      "voltage": "3.6V",
+      "capacity": "10mAh",
+      "dimensions": "20 × 1.6 mm",
+      "chemistry": "Rechargeable lithium-ion",
+      "supported": "Compatibility depends on the charger configuration and battery charging requirements. Confirm the supported battery model before use.",
+      "certifications": "Request documentation matched to this model, capacity and product version."
+    },
+    "complianceId": null
+  },
+  {
+    "id": "prod_lir2025_battery",
+    "slug": "vszapower-lir2025-rechargeable-coin-cell-battery",
+    "model": "LIR2025",
+    "title": "LIR2025 Rechargeable Coin Cell Battery",
+    "kind": "battery",
+    "design": "Rechargeable coin cell",
+    "image": "/products/prod_lir2025_battery.png",
+    "summary": "The VSZAPOWER LIR2025 is a 3.6V, 25mAh rechargeable coin cell for equipment designed for its chemistry and electrical requirements. Specify the cell version, device voltage range and charging profile when sourcing samples or a private-label order. Physical size alone does not establish interchangeability with a primary CR cell.",
+    "specs": {
+      "model": "LIR2025",
+      "voltage": "3.6V",
+      "capacity": "25mAh",
+      "dimensions": "20 × 2.5 mm",
+      "chemistry": "Rechargeable lithium-ion",
+      "supported": "Compatibility depends on the charger configuration and battery charging requirements. Confirm the supported battery model before use.",
+      "certifications": "Request documentation matched to this model, capacity and product version."
+    },
+    "complianceId": null
+  },
+  {
+    "id": "prod_lir2450_battery",
+    "slug": "vszapower-lir2450-rechargeable-coin-cell-battery",
+    "model": "LIR2450",
+    "title": "LIR2450 Rechargeable Coin Cell Battery",
+    "kind": "battery",
+    "design": "Rechargeable coin cell",
+    "image": "/products/prod_lir2450_battery.png",
+    "summary": "The VSZAPOWER LIR2450 is a 3.6V, 110mAh rechargeable coin cell for equipment designed for its chemistry and electrical requirements. Specify the cell version, device voltage range and charging profile when sourcing samples or a private-label order. Physical size alone does not establish interchangeability with a primary CR cell.",
+    "specs": {
+      "model": "LIR2450",
+      "voltage": "3.6V",
+      "capacity": "110mAh",
+      "dimensions": "24.5 × 5.0 mm",
+      "chemistry": "Rechargeable lithium-ion",
+      "supported": "Compatibility depends on the charger configuration and battery charging requirements. Confirm the supported battery model before use.",
+      "certifications": "Request documentation matched to this model, capacity and product version."
+    },
+    "complianceId": null
+  },
+  {
+    "id": "prod_lir2032_battery",
+    "slug": "vszapower-lir2032-rechargeable-coin-cell-battery",
+    "model": "LIR2032",
+    "title": "LIR2032 Rechargeable Coin Cell Battery",
+    "kind": "battery",
+    "design": "Rechargeable coin cell",
+    "image": "/products/prod_lir2032_battery.jpg",
+    "summary": "The VSZAPOWER LIR2032 is a 3.6V, 32mAh rechargeable coin cell for equipment designed for its chemistry and electrical requirements. Specify the cell version, device voltage range and charging profile when sourcing samples or a private-label order. Physical size alone does not establish interchangeability with a primary CR cell.",
+    "specs": {
+      "model": "LIR2032",
+      "voltage": "3.6V",
+      "capacity": "32mAh",
+      "dimensions": "20 × 3.2 mm",
+      "chemistry": "Rechargeable lithium-ion",
+      "supported": "Compatibility depends on the charger configuration and battery charging requirements. Confirm the supported battery model before use.",
+      "certifications": "Request documentation matched to this model, capacity and product version."
+    },
+    "complianceId": null
+  },
+  {
+    "id": "prod_ml2032_battery",
+    "slug": "vszapower-ml2032-rechargeable-coin-cell-battery",
+    "model": "ML2032",
+    "title": "ML2032 Rechargeable Coin Cell Battery",
+    "kind": "battery",
+    "design": "Rechargeable coin cell",
+    "image": "/products/prod_ml2032_battery.png",
+    "summary": "The VSZAPOWER ML2032 is a 3.0V, 65mAh rechargeable coin cell for equipment designed for its chemistry and electrical requirements. Specify the cell version, device voltage range and charging profile when sourcing samples or a private-label order. Physical size alone does not establish interchangeability with a primary CR cell.",
+    "specs": {
+      "model": "ML2032",
+      "voltage": "3.0V",
+      "capacity": "65mAh",
+      "dimensions": "20 × 3.2 mm",
+      "chemistry": "Rechargeable lithium manganese dioxide",
+      "supported": "Compatibility depends on the charger configuration and battery charging requirements. Confirm the supported battery model before use.",
+      "certifications": "Request documentation matched to this model, capacity and product version."
+    },
+    "complianceId": null
+  }
+]

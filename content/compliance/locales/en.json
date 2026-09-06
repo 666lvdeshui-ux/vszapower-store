@@ -1,7 +1,7 @@
 {
-  "title": "VSZAPOWER Compliance Center",
-  "description": "Model-specific VSZAPOWER charger test reports, standards and document requests for rechargeable coin cells.",
-  "lead": "Match your VSZAPOWER product to its tested design, report number and scope. Documentation for one model or version does not automatically cover another.",
+  "title": "VSZAPOWER Compliance & Test Documentation",
+  "description": "VSZAPOWER model-specific battery documentation requests and charger EMC and RoHS test summaries, including report numbers, laboratories, dates and scope.",
+  "lead": "VSZAPOWER is a rechargeable coin cell battery and charger brand operated by Shenzhen Weizan Technology Co., Ltd., specializing in rechargeable coin cells, charging solutions, OEM/ODM and private-label supply. This center lists EMC and RoHS evidence for three charger designs and documentation requests for five rechargeable coin cells. Match the model and version, then use the form to request original documents.",
   "home": "Home",
   "search": "Search by model or report number",
   "clear": "Clear filters",
@@ -21,8 +21,20 @@
   "scopeTitle": "How to read the evidence",
   "scope": "Results apply to the submitted sample, tested materials and listed methods. They are not blanket certification for every product or market. Transport documentation also depends on the battery, packaging and shipment configuration.",
   "faq": "Frequently asked questions",
-  "questions": ["Why are there two VZ002 entries?", "Does an EMC report cover every CE requirement?", "Does RoHS mean zero restricted substances?", "Can I download original documents?", "Can battery and charger reports be combined?"],
-  "answers": ["VZ002 identifies two different designs, with separate report sets. Match the product photo and report number.", "No. It addresses the tests and standards listed in the report. A Verification of Conformity is not an EU Declaration of Conformity.", "No. The result applies to the tested materials and the report's limits and methods; it is not a zero-content claim.", "Request documents using the form. Access depends on the intended use, privacy requirements and reproduction conditions.", "Each report stays linked to its tested object. A charger report does not cover every battery bundle; a battery transport report does not establish charger compliance."],
+  "questions": [
+    "Why are there two VZ002 entries?",
+    "Does an EMC report cover every CE requirement?",
+    "Does RoHS mean zero restricted substances?",
+    "Can I download original documents?",
+    "Can battery and charger reports be combined?"
+  ],
+  "answers": [
+    "VZ002 identifies two different designs, with separate report sets. Match the product photo and report number.",
+    "No. It addresses the tests and standards listed in the report. A Verification of Conformity is not an EU Declaration of Conformity.",
+    "No. The result applies to the tested materials and the report's limits and methods; it is not a zero-content claim.",
+    "Request documents using the form. Access depends on the intended use, privacy requirements and reproduction conditions.",
+    "Each report stays linked to its tested object. A charger report does not cover every battery bundle; a battery transport report does not establish charger compliance."
+  ],
   "formTitle": "Request model-specific documents",
   "formIntro": "Specify the model, version, destination market and intended use so we can identify the relevant documents.",
   "privacy": "Your business contact information is used to respond to this enquiry.",
@@ -41,5 +53,14 @@
   "manufacturer": "Charger manufacturing and OEM (English)",
   "academy": "Battery Academy",
   "reviewed": "Content reviewed",
-  "languages": "Page language"
+  "languages": "Page language",
+  "productDetails": "Product specifications (English)",
+  "documentRequest": "Documentation request",
+  "standardLabel": "Standard / directive",
+  "recordLabel": "Report number / laboratory / date",
+  "unpublished": "Not publicly listed; confirm the matching record on request.",
+  "statusLabel": "Status",
+  "pending": "Model-specific review required",
+  "resultLabel": "Recorded result",
+  "passResult": "Pass for the tested scope"
 }

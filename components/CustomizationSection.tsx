@@ -309,11 +309,11 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
                     fontWeight: 600
                   }}
                 >
-                  <option value="LIR2032 3.6V">{sectionText('LIR2032 (3.6V 45mAh Rechargeable)', lang)}</option>
-                  <option value="LIR2450 3.6V">{sectionText('LIR2450 (3.6V 120mAh Rechargeable)', lang)}</option>
-                  <option value="LIR2025 3.6V">{sectionText('LIR2025 (3.6V 30mAh Rechargeable)', lang)}</option>
+                  <option value="LIR2032 3.6V">{sectionText('LIR2032 (3.6V 32mAh Rechargeable)', lang)}</option>
+                  <option value="LIR2450 3.6V">{sectionText('LIR2450 (3.6V 110mAh Rechargeable)', lang)}</option>
+                  <option value="LIR2025 3.6V">{sectionText('LIR2025 (3.6V 25mAh Rechargeable)', lang)}</option>
                   <option value="ML2032 3.0V">{sectionText('ML2032 (3.0V 65mAh Rechargeable)', lang)}</option>
-                  <option value="CR2032 3.0V">{sectionText('CR2032 (3.0V Primary Lithium)', lang)}</option>
+                  <option value="LIR2016 3.6V">{sectionText('LIR2016 (3.6V 10mAh Rechargeable)', lang)}</option>
                 </select>
               </div>
 

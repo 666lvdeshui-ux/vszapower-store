@@ -247,6 +247,7 @@ export default function Header({ onContactClick }: HeaderProps) {
           <button
             onClick={() => onContactClick ? onContactClick() : (window.location.href = '/#contact')}
             className="btn-primary"
+            aria-label={t('btn_contact')}
             style={{ padding: '8px 18px', fontSize: '0.88rem', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
           >
             <MessageSquare size={16} /> {t('btn_contact')}
