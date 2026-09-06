@@ -17,7 +17,21 @@ async function get(path){
 const sitemap=(await get('/sitemap.xml')).html;
 const robots=(await get('/robots.txt')).html;
 assert(robots.includes('Sitemap: '+origin+'/sitemap.xml'));
-assert(!/^Disallow: \/(?:$|products|compliance|rechargeable|about|coin-cell)/m.test(robots));
+// CDN-managed rules can target training crawlers separately from search crawlers.
+// Combine matching groups, prefer specific agents, then longest path (Allow wins ties).
+function canCrawl(bot,path){
+ const groups=[];let group={agents:[],rules:[]};
+ for(const raw of robots.split(/\r?\n/)){
+  const line=raw.split('#')[0].trim();const m=line.match(/^(user-agent|allow|disallow):\s*(.*)$/i);if(!m)continue;
+  const field=m[1].toLowerCase(),value=m[2].trim();
+  if(field==='user-agent'){if(group.rules.length){groups.push(group);group={agents:[],rules:[]};}group.agents.push(value.toLowerCase());}
+  else if(group.agents.length&&value)group.rules.push({allow:field==='allow',path:value});
+ }groups.push(group);
+ const exact=groups.filter(g=>g.agents.includes(bot.toLowerCase()));
+ const rules=(exact.length?exact:groups.filter(g=>g.agents.includes('*'))).flatMap(g=>g.rules).filter(r=>path.startsWith(r.path)).sort((a,b)=>b.path.length-a.path.length||Number(b.allow)-Number(a.allow));
+ return rules[0]?.allow??true;
+}
+for(const bot of ['Googlebot','Bingbot','OAI-SearchBot','ChatGPT-User','PerplexityBot'])for(const path of ['/','/compliance','/products/','/rechargeable-coin-cell-batteries','/about-vszapower','/coin-cell-charger-manufacturer'])assert(canCrawl(bot,path),bot+' '+path);
 const paths=['/','/coin-cell-charger-manufacturer','/compliance','/about-vszapower','/rechargeable-coin-cell-batteries',...catalog.map(p=>'/products/'+p.slug),...evidence.products.map(p=>p.path)];
 const results=[];
 async function checkPage(path){
