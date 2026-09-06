@@ -277,10 +277,10 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                       ))}
                     </div>
                     <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-main)' }}>
-                      {product.rating ? product.rating.toFixed(2) : '4.93'}
+                      {product.rating ? product.rating.toFixed(2) : '—'}
                     </span>
                     <span style={{ fontSize: '0.75rem', color: '#f97316', background: 'rgba(249, 115, 22, 0.12)', border: '1px solid rgba(249, 115, 22, 0.3)', padding: '1px 6px', borderRadius: '4px', fontWeight: 600 }}>
-                      ✓ {product.review_count ? product.review_count.toLocaleString() : '1,480'}+ {copy('reviews')}
+                      ✓ {product.review_count ? product.review_count.toLocaleString() : '0'}+ {copy('reviews')}
                     </span>
                   </div>
 
@@ -664,7 +664,7 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                         📋 {copy('techSpecs')}
                       </h5>
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '14px' }}>
-                        {Object.entries(displaySpecs).map(([key, val]) => {
+                        {Object.entries(displaySpecs).filter(([key]) => !/certif/i.test(key)).map(([key, val]) => {
                           const uiKey = key === 'certifications' ? 'certificationSpec' : key;
                           const label = uiKey in productUi.en ? copy(uiKey as keyof typeof productUi.en) : key.replace(/_/g, ' ');
                           return (
@@ -693,55 +693,16 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                 })()}
               </div>
 
-              {/* Certifications & Qualifications Section */}
-              <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '28px' }}>
-                <h4 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-main)' }}>
-                  <Award size={20} color="var(--accent-cyan)" /> {copy('certifications')}
-                </h4>
-
-                {(!selectedProduct.certifications || selectedProduct.certifications.length === 0) ? (
-                  <div style={{ background: 'rgba(255,255,255,0.02)', padding: '16px', borderRadius: '12px', textAlign: 'center', color: 'var(--text-dim)', fontSize: '0.88rem' }}>
-                    {copy('certificationHelp')}
-                  </div>
-                ) : (
-                  <div style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: '12px',
-                  }}>
-                    {selectedProduct.certifications.map((cert, idx) => (
-                      <div
-                        key={idx}
-                        style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '8px',
-                          background: 'rgba(0, 230, 153, 0.08)',
-                          border: '1px solid rgba(0, 230, 153, 0.3)',
-                          borderRadius: '10px',
-                          padding: '10px 16px',
-                          color: 'var(--text-main)',
-                          fontSize: '0.9rem',
-                          fontWeight: 700,
-                          boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-                        }}
-                      >
-                        <ShieldCheck size={18} color="var(--accent-green)" />
-                        <span>{cert.name}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
+              <section style={{borderTop:'1px solid var(--border-color)',paddingTop:24}}><h4>Model-specific documentation</h4><p>Match the charger design and report series. Battery documents depend on the model, capacity and version.</p><a href="/compliance">Find the relevant test summary →</a></section>
               {/* Global Customer Reviews Section */}
               <ReviewSection
-                rating={selectedProduct.rating || 4.93}
-                reviewCount={selectedProduct.review_count || 1480}
+                rating={selectedProduct.rating}
+                reviewCount={selectedProduct.review_count}
                 temuLink={selectedProduct.temu_link}
                 reviews={selectedProduct.reviews || []}
                 productTitle={selectedProduct.title}
               />
+
             </div>
           </div>
         );

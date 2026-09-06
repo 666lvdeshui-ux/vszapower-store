@@ -140,7 +140,7 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
             lineHeight: '1.6'
           }}>
             {sectionText(
-              'Live laser engraving simulation, custom brand packaging, international compliance certification, and 7-day fast prototype delivery to empower global battery brands.',
+              'Discuss branding, packaging and model-specific documentation for your rechargeable battery project.',
               lang
             )}
           </p>
@@ -645,12 +645,12 @@ export default function CustomizationSection({ onContactClick }: CustomizationSe
               marginBottom: '32px'
             }}>
               {[
-                { name: 'CE-Battery Safety', status: 'IEC 62133 Verified' },
-                { name: 'UN38.3', status: 'Air & Sea Transport Safe' },
-                { name: 'MSDS Certificate', status: '2026 Latest Standard' },
-                { name: 'EU GPSR Compliance', status: 'European General Safety' },
-                { name: 'RoHS / REACH', status: 'Heavy-Metal Free' },
-                { name: 'PSE Exempt Report', status: 'Japan Market Compliant' },
+                { name: 'Charger EMC reports', status: 'Identified models and tests' },
+                { name: 'Charger RoHS reports', status: 'Tested sample materials' },
+                { name: 'Battery documentation', status: 'Specify model and capacity' },
+                { name: 'Destination market', status: 'Confirm project requirements' },
+                { name: 'Design changes', status: 'Reassess report scope' },
+                { name: 'Document requests', status: 'Use our Compliance Center' },
               ].map((cert, idx) => (
                 <div
                   key={idx}

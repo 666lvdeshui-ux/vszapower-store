@@ -588,8 +588,8 @@ export const DEFAULT_TEMU_REVIEWS: ReviewItem[] = [
 ];
 
 export default function ReviewSection({
-  rating = 4.93,
-  reviewCount = 1480,
+  rating = 0,
+  reviewCount = 0,
   temuLink = 'https://www.temu.com/goods.html?_bg_fs=1&goods_id=606258002264728',
   reviews = [],
   productTitle = '',
@@ -602,7 +602,7 @@ export default function ReviewSection({
   const [currentPage, setCurrentPage] = useState<number>(1);
   const ITEMS_PER_PAGE = 10;
 
-  const activeReviews = (Array.isArray(reviews) && reviews.length > 0) ? reviews : DEFAULT_TEMU_REVIEWS;
+  const activeReviews = Array.isArray(reviews) ? reviews : [];
 
   const handleHelpfulClick = (reviewId: string, currentCount: number) => {
     setHelpfulVotes((prev) => ({

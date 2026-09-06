@@ -34,7 +34,7 @@ export default function Footer() {
             {t('hero_subtitle')}
           </p>
           <div style={{ display: 'flex', gap: '10px', fontSize: '0.8rem', color: 'var(--text-dim)' }}>
-            <Shield size={16} color="var(--accent-green)" /> {sectionText('Certifications & Compliance', lang)}: {['Battery', 'CE', 'FCC', 'RoHS', 'CE-Battery', 'GPSR', 'PSE Exempt', 'UN38.3'].map(cert => sectionText(cert, lang)).join(' / ')}
+            <Shield size={16} color="var(--accent-green)" /> {sectionText('Certifications & Compliance', lang)}: {['Battery', 'CE', 'FCC', 'RoHS', 'CE-Battery', 'GPSR', 'PSE', 'UN38.3'].map(cert => sectionText(cert, lang)).join(' / ')}
           </div>
         </div>
 
@@ -49,6 +49,9 @@ export default function Footer() {
             <li><Link href="/#products?cat=battery" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{t('nav_batteries')}</Link></li>
             <li><Link href="/academy" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{t('nav_academy')}</Link></li>
             <li><Link href="/#contact" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{t('nav_contact')}</Link></li>
+            <li><Link href="/compliance" style={{color:'var(--text-muted)'}}>Compliance Center</Link></li>
+            <li><Link href="/about-vszapower" style={{color:'var(--text-muted)'}}>About VSZAPOWER</Link></li>
+            <li><Link href="/coin-cell-charger-manufacturer" style={{color:'var(--text-muted)'}}>Charger manufacturing &amp; OEM</Link></li>
           </ul>
         </div>
 
@@ -78,7 +81,7 @@ export default function Footer() {
           </h4>
           <div style={{ background: 'rgba(255,255,255,0.03)', padding: '14px', borderRadius: '12px', border: '1px solid var(--border-color)', fontSize: '0.85rem' }}>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '10px' }}>
-              {['Battery', 'CE', 'FCC', 'RoHS', 'CE-Battery', 'GPSR-Test Report', 'PSE Exempt', 'UN38.3'].map((cert) => (
+              {['Battery', 'CE', 'FCC', 'RoHS', 'CE-Battery', 'GPSR-Test Report', 'PSE', 'UN38.3'].map((cert) => (
                 <span
                   key={cert}
                   style={{
@@ -91,12 +94,12 @@ export default function Footer() {
                     borderRadius: '6px',
                   }}
                 >
-                  ✓ {sectionText(cert, lang)}
+                  {sectionText(cert, lang)}
                 </span>
               ))}
             </div>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.78rem', lineHeight: 1.4 }}>
-              {sectionText('Micro-chip 3.6V-4.2V Auto Switch • Overcharge Cutoff • Kraft Pack Certified', lang)}
+              <span>Documentation topics. Availability and scope depend on the specific model and report. View the Compliance Center for published test summaries.</span>
             </p>
           </div>
         </div>
@@ -118,7 +121,7 @@ export default function Footer() {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
           <span style={{ color: 'var(--accent-green)', fontWeight: 600, fontSize: '0.8rem' }}>
-            ✓ {['Battery', 'CE', 'FCC', 'RoHS', 'CE-Battery', 'GPSR-Test Report', 'PSE Exempt', 'UN38.3'].map(cert => sectionText(cert, lang)).join(' / ')}
+            {['Battery', 'CE', 'FCC', 'RoHS', 'CE-Battery', 'GPSR-Test Report', 'PSE', 'UN38.3'].map(cert => sectionText(cert, lang)).join(' / ')}
           </span>
           <span>•</span>
           <span>Crafted with <Heart size={14} color="#ef4444" fill="#ef4444" style={{ display: 'inline' }} /> for Eco Electronics</span>

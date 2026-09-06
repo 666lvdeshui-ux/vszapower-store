@@ -1,0 +1,10 @@
+work/
+docs/compliance/
+.git/
+.env*.local
+CODEX_HANDOVER_DOCS.md
+PROJECT_TECHNICAL_DOCS.md
+temu_page.html
+scripts/import_article_translations.mjs
+scripts/restore_article_translations.py
+scripts/restore_paragraph_translations.py

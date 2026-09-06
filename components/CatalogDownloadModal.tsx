@@ -25,27 +25,7 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
     setSubmitting(true);
 
     try {
-      // 1. Send Lead Record to Email & Inquiry Database
-      fetch('https://formsubmit.co/ajax/666lvdeshui@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          _subject: `【VSZAPOWER 线索收集】用户索取 2026 产品目录 PDF`,
-          _captcha: 'false',
-          _template: 'table',
-          email: email,
-          _replyto: email,
-          '买家邮箱 Email': email,
-          '公司名称 Company': company || '未填写 (N/A)',
-          '索取内容 Content': '2026 VSZAPOWER Wholesale Product Catalog & Technical Datasheet (PDF)',
-          '提交时间 Time': new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }),
-        }),
-      }).catch(err => console.warn('FormSubmit Lead capture error:', err));
-
-      fetch('/api/inquiries', {
+      const response = await fetch('/api/inquiries', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -54,12 +34,13 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
           company: company || '未填写公司 (Not Specified)',
           country: 'PDF Catalog Lead',
           product: '2026 Wholesale Product Catalog & Datasheets (PDF)',
-          message: `【资料索取下载】买家下载了 2026 Wholesale Catalog (PDF 报价单)，公司: ${company || '未填写'}，邮箱: ${email}`,
+          message: `【资料索取下载】买家申请了 2026 Wholesale Catalog (PDF 报价单)，公司: ${company || '未填写'}，邮箱: ${email}`,
         }),
-      }).catch(console.error);
+      });
+      if (!response.ok || !(await response.json()).success) throw new Error('Could not save request');
 
       // 2. Open official wholesale price quotation sheet in new tab
-      window.open('/VSZAPOWER_2026_Official_Wholesale_Quotation.html', '_blank');
+      // Documentation is shared after scope and privacy review.
 
       setDownloaded(true);
       setTimeout(() => {
@@ -120,10 +101,10 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
           <div style={{ textAlign: 'center', padding: '20px 0' }}>
             <CheckCircle2 size={56} color="var(--accent-green)" style={{ margin: '0 auto 16px' }} />
             <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '8px' }}>
-              {translateDynamicContent('Catalog PDF Download Started!', lang)}
+              {translateDynamicContent('Catalog request received', lang)}
             </h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-              {translateDynamicContent('Thank you! Your PDF catalog download has commenced. Check your downloads folder.', lang)}
+              {translateDynamicContent('Thank you. Our team will review your request and share the relevant product information.', lang)}
             </p>
           </div>
         ) : (
@@ -145,10 +126,10 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
                 LEAD MAGNET • 2026 EDITION
               </span>
               <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-main)' }}>
-                {translateDynamicContent('Download 2026 Wholesale Product Catalog & Datasheets (PDF)', lang)}
+                {translateDynamicContent('Request Product Catalog & Datasheets', lang)}
               </h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '8px', lineHeight: 1.5 }}>
-                {translateDynamicContent('Get instant access to complete technical specs, wholesale MOQ pricing tiers, CE/FCC/UN38.3 certification copies, and OEM branding options.', lang)}
+                {translateDynamicContent('Request technical specifications, wholesale pricing and OEM options for your selected model.', lang)}
               </p>
             </div>
 
@@ -182,11 +163,11 @@ export default function CatalogDownloadModal({ isOpen, onClose }: CatalogDownloa
                 className="btn-primary"
                 style={{ padding: '14px', fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginTop: '8px' }}
               >
-                <Download size={18} /> {submitting ? translateDynamicContent('Preparing PDF...', lang) : translateDynamicContent('Download PDF Catalog Now', lang)}
+                <Download size={18} /> {submitting ? translateDynamicContent('Sending request...', lang) : translateDynamicContent('Request product catalog', lang)}
               </button>
 
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.75rem', color: 'var(--text-dim)', textAlign: 'center' }}>
-                <Lock size={12} /> {translateDynamicContent('We respect your privacy. No spam guarantee. Instant PDF trigger.', lang)}
+                <Lock size={12} /> {translateDynamicContent('Your business email is used to respond to this request.', lang)}
               </div>
             </form>
           </div>

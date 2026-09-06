@@ -28,6 +28,7 @@ export default function StorefrontShell({ children }: { children: React.ReactNod
       <main>{children}</main>
       <Footer />
       <FloatingWhatsApp />
+
     </>
   );
 }

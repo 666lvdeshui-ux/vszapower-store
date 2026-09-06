@@ -26,3 +26,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .vercel
+
+# Local development scratch and private source files
+/work/
+# Internal compliance inventory must not enter the public GitHub repository.
+/docs/compliance/
+.env*

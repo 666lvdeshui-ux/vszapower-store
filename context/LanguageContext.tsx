@@ -1,5 +1,7 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
+import { isEvidenceRoute } from '@/lib/compliance';
 import { normalizeLocale } from '@/lib/postI18n';
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { detectBrowserLanguage, getTranslation, SUPPORTED_LANGUAGES, TranslationKey } from '@/lib/i18n';
@@ -19,6 +21,8 @@ const LanguageContext = createContext<LanguageContextType>({
 });
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const fixedEnglish = isEvidenceRoute(pathname || '');
   const [lang, setLangState] = useState<string>('zh-CN');
   const [isRTL, setIsRTL] = useState<boolean>(false);
 
@@ -59,12 +63,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  useEffect(() => { document.documentElement.lang = fixedEnglish ? 'en' : lang; document.documentElement.dir = fixedEnglish ? 'ltr' : (isRTL ? 'rtl' : 'ltr'); }, [fixedEnglish, lang, isRTL]);
+
   const t = (key: TranslationKey): string => {
-    return getTranslation(lang, key);
+    return getTranslation(fixedEnglish ? 'en' : lang, key);
   };
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t, isRTL }}>
+    <LanguageContext.Provider value={{ lang: fixedEnglish ? 'en' : lang, setLang, t, isRTL: fixedEnglish ? false : isRTL }}>
       {children}
     </LanguageContext.Provider>
   );

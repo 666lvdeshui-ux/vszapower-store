@@ -114,50 +114,20 @@ export default function InquiryManager() {
   const handleSendTestEmail = async () => {
     setTestSending(true);
     try {
-      // 1. Direct browser client dispatch to FormSubmit for instant notification
-      let clientMsg = '';
-      try {
-        const clientRes = await fetch('https://formsubmit.co/ajax/666lvdeshui@gmail.com', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-          },
-          body: JSON.stringify({
-            _subject: '【VSZAPOWER 测试邮件提醒】',
-            _captcha: 'false',
-            _template: 'table',
-            email: '666lvdeshui@gmail.com',
-            _replyto: '666lvdeshui@gmail.com',
-            '客户姓名 Name': '系统自动测试客户',
-            '所属国家 Country': '中国 (China)',
-            '联系方式 Contact': '666lvdeshui@gmail.com',
-            '意向产品 Product': 'Vszapower Smart Coin Cell Charger Starter Kit',
-            '留言内容 Message': '【测试邮件提醒】这是一条从 VSZAPOWER 网站发起的客户询价测试邮件。',
-            '提交时间 Time': new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }),
-          }),
-        });
-        const clientJson = await clientRes.json();
-        clientMsg = clientJson.message || 'Direct browser dispatch succeeded';
-      } catch (e) {
-        console.warn('Browser test dispatch error:', e);
-      }
-
-      // 2. Persist in DB API & Admin Dashboard
       const res = await fetch('/api/inquiries', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: '系统自动测试客户',
           country: '中国 (China)',
-          contact: '666lvdeshui@gmail.com',
+          contact: 'test@example.invalid',
           product: 'Vszapower Smart Coin Cell Charger Starter Kit',
           message: '【测试邮件提醒】这是一条从 VSZAPOWER 网站发起的客户询价测试邮件。',
         }),
       });
       const json = await res.json();
       if (json.success) {
-        alert(`测试咨询已成功保存并提交！\n浏览器直连发信结果: ${clientMsg}\n目标邮箱: 666lvdeshui@gmail.com\n(提示: 请在 Gmail 收件箱或垃圾箱中查收主题为【VSZAPOWER 测试邮件提醒】的即时邮件通知)`);
+        alert('测试咨询已保存到后台。');
         loadInquiries();
       } else {
         alert('测试发送失败');
@@ -190,7 +160,7 @@ export default function InquiryManager() {
             <MessageSquare size={24} color="var(--accent-green)" /> 客户咨询与询价管理 (Customer Inquiries)
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>
-            系统会在收到客户咨询时自动向 <code>666lvdeshui@gmail.com</code> 发送邮件提醒。
+            客户咨询保存至后台；邮件通知需在服务器配置。
           </p>
         </div>
 

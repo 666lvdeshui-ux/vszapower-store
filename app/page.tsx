@@ -75,7 +75,7 @@ export default function HomePage() {
             gap: '8px',
           }}
         >
-          <FileText size={18} /> {translateDynamicContent('Download 2026 Catalog (PDF)', lang)}
+          <FileText size={18} /> {translateDynamicContent('Request Product Catalog', lang)}
         </button>
       </div>
 

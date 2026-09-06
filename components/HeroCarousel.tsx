@@ -94,7 +94,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
     'OEM / ODM Customization',
     'Private Label Packaging',
     'Worldwide Express Shipping',
-    'CE / FCC / RoHS Certified',
+    'Model-specific test documentation',
   ];
 
   return (

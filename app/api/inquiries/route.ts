@@ -54,84 +54,29 @@ export async function GET(request: Request) {
   });
 }
 
+const recentRequests = new Map<string, number[]>();
 export async function POST(request: Request) {
+  const origin = request.headers.get('origin');
+  if (origin && origin !== new URL(request.url).origin && origin !== 'https://www.vszapower.com') return NextResponse.json({error:'Invalid origin'}, {status:403});
   try {
-    const body = await request.json();
-    const saved = await saveInquiry(body);
-
-    const recipientEmail = '666lvdeshui@gmail.com';
-    let emailStatusMessage = '';
-
-    // 1. Send via FormSubmit AJAX service to 666lvdeshui@gmail.com
-    const senderEmail = (saved.contact && saved.contact.includes('@')) ? saved.contact : '666lvdeshui@gmail.com';
-
-    try {
-      const emailRes = await fetch('https://formsubmit.co/ajax/666lvdeshui@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Origin': 'https://www.vszapower.com',
-          'Referer': 'https://www.vszapower.com/',
-        },
-        body: JSON.stringify({
-          _subject: `【VSZAPOWER 网站新询价】来自 ${saved.name} 的产品咨询`,
-          _captcha: 'false',
-          _template: 'table',
-          email: senderEmail,
-          _replyto: senderEmail,
-          '客户姓名 Name': saved.name,
-          '所属国家 Country': saved.country || '未填写 (Not Specified)',
-          '联系方式 Contact': saved.contact,
-          '意向产品 Product': saved.product,
-          '留言内容 Message': saved.message,
-          '提交时间 Time': new Date(saved.created_at).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }),
-        }),
-      });
-      const emailJson = await emailRes.json();
-      if (emailJson.message && emailJson.message.includes('Activation')) {
-        emailStatusMessage = 'FormSubmit 激活邮件已派送至 666lvdeshui@gmail.com，请登录 Gmail 邮箱（或检查垃圾箱）点击【Activate Form】链接确认一次即可激活！';
-      } else {
-        emailStatusMessage = emailJson.message || 'Email dispatched successfully';
-      }
-    } catch (emailErr) {
-      console.error('[Email Dispatch Error]:', emailErr);
-    }
-
-    // 2. Resend API Fallback if configured
-    if (process.env.RESEND_API_KEY) {
-      try {
-        await fetch('https://api.resend.com/emails', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            from: 'VSZAPOWER <onboarding@resend.dev>',
-            to: [recipientEmail],
-            subject: `【VSZAPOWER 网站新询价】来自 ${saved.name} 的产品咨询`,
-            text: `收到新咨询：\n姓名: ${saved.name}\n所属国家: ${saved.country || '未填写'}\n联系方式: ${saved.contact}\n意向产品: ${saved.product}\n留言内容: ${saved.message}`,
-          }),
-        });
-      } catch (err) {
-        console.warn('[Resend API Error]:', err);
-      }
-    }
-
-    // Save to persistent file store
-    const currentList = getStoredInquiries();
-    const existingIdx = currentList.findIndex(i => i.id === saved.id);
-    if (existingIdx >= 0) {
-      currentList[existingIdx] = saved;
-    } else {
-      currentList.unshift(saved);
-    }
-    persistInquiries(currentList);
-
-    return NextResponse.json({ success: true, inquiry: saved, emailStatus: emailStatusMessage });
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to process inquiry' }, { status: 500 });
+    const raw = await request.text();
+    if (raw.length > 12000) return NextResponse.json({error:'Request too large'}, {status:413});
+    const body = JSON.parse(raw);
+    if (!body || typeof body !== 'object' || body.website) return NextResponse.json({error:'Invalid request'}, {status:400});
+    const fields = ['name','contact','company','country','product','message'] as const;
+    if (fields.some(k => body[k] !== undefined && (typeof body[k] !== 'string' || body[k].length > (k === 'message' ? 5000 : 600))) || !body.contact?.trim()) return NextResponse.json({error:'Valid contact details are required'}, {status:400});
+    const now = Date.now();
+    recentRequests.forEach((times,key) => { if (!times.some(t=>now-t<60000)) recentRequests.delete(key); });
+    const key = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'local';
+    const times = (recentRequests.get(key)||[]).filter(t=>now-t<60000);
+    if(times.length >= 5) return NextResponse.json({error:'Please try again in a minute'}, {status:429,headers:{'Retry-After':'60'}});
+    recentRequests.set(key,[...times,now]);
+    const input = Object.fromEntries(fields.map(k=>[k,typeof body[k]==='string'?body[k].trim():'']));
+    // Durable storage must succeed before acknowledging receipt.
+    const saved = await saveInquiry({...input, message: [input.company && `Company: ${input.company}`, input.message].filter(Boolean).join('\n')});
+    return NextResponse.json({success:true,id:saved.id});
+  } catch {
+    return NextResponse.json({error:'Unable to save your enquiry. Please try again later.'}, {status:503});
   }
 }
 

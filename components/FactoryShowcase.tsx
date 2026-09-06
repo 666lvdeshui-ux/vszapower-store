@@ -37,50 +37,11 @@ export default function FactoryShowcase({ onContactClick }: FactoryShowcaseProps
           {sectionText('Direct Manufacturer & Customization Power', lang)}
         </h2>
         <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', maxWidth: '680px', margin: '12px auto 0', lineHeight: 1.6 }}>
-          {sectionText('VSZAPOWER operates dedicated automated SMT lines, micro-current IC testing labs, and eco-friendly packaging workshops to support global distributors and OEM/ODM clients.', lang)}
+          {sectionText('Discuss rechargeable coin-cell charger selection, branding and packaging for your wholesale project. Specifications and documentation depend on the selected configuration.', lang)}
         </p>
       </div>
 
-      {/* Metric Cards Grid */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-        gap: '24px',
-        marginBottom: '56px',
-      }}>
-        <div className="glass-panel" style={{ padding: '28px', borderRadius: '18px', textAlign: 'center' }}>
-          <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
-            <Factory size={24} color="var(--accent-green)" />
-          </div>
-          <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '4px' }}>10,000+ m²</h3>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{sectionText('Modern Production Facility', lang)}</p>
-        </div>
-
-        <div className="glass-panel" style={{ padding: '28px', borderRadius: '18px', textAlign: 'center' }}>
-          <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(6, 182, 212, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
-            <Cpu size={24} color="var(--accent-cyan)" />
-          </div>
-          <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '4px' }}>{sectionText('500,000+ Pcs', lang)}</h3>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{sectionText('Monthly Charger Dock Capacity', lang)}</p>
-        </div>
-
-        <div className="glass-panel" style={{ padding: '28px', borderRadius: '18px', textAlign: 'center' }}>
-          <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(245, 158, 11, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
-            <ShieldCheck size={24} color="var(--kraft-gold)" />
-          </div>
-          <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '4px' }}>{sectionText('100% QC Test', lang)}</h3>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{sectionText('Aging & Auto 4.2V Cutoff Inspection', lang)}</p>
-        </div>
-
-        <div className="glass-panel" style={{ padding: '28px', borderRadius: '18px', textAlign: 'center' }}>
-          <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(147, 51, 234, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
-            <PackageCheck size={24} color="#a855f7" />
-          </div>
-          <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '4px' }}>{sectionText('50+ Countries', lang)}</h3>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{sectionText('Global Express & Freight Export', lang)}</p>
-        </div>
-      </div>
-
+      <div className="evidence-actions" style={{marginBottom:40}}><a className="btn-primary" href="/coin-cell-charger-manufacturer">Charger manufacturing and OEM →</a><a href="/about-vszapower">About VSZAPOWER</a></div>
       {/* OEM / ODM Service Box */}
       <div className="glass-panel" style={{
         borderRadius: '24px',

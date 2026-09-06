@@ -1,5 +1,7 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
+import { isEvidenceRoute } from '@/lib/compliance';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Zap, BookOpen, Home, MessageSquare, Menu, X, Video, Sparkles } from 'lucide-react';
@@ -15,9 +17,10 @@ interface HeaderProps {
 export default function Header({ onContactClick }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { t, lang } = useLanguage();
+  const evidenceRoute = isEvidenceRoute(usePathname() || '');
 
   return (
-    <header style={{
+    <header className="storefront-header" style={{
       position: 'sticky',
       top: 0,
       zIndex: 100,
@@ -58,7 +61,9 @@ export default function Header({ onContactClick }: HeaderProps) {
           <div className="header-cert-strip" style={{ display: 'flex', flexDirection: 'column', gap: '3px', marginTop: '3px' }}>
             <div style={{ display: 'flex', gap: '4px', alignItems: 'center', flexWrap: 'wrap' }}>
               {['Battery', 'CE', 'FCC', 'RoHS'].map((cert) => (
-                <span
+                <a
+                  href="/compliance"
+                  title="Documentation topic — confirm availability and scope for your model"
                   key={cert}
                   style={{
                     fontSize: '0.58rem',
@@ -73,13 +78,15 @@ export default function Header({ onContactClick }: HeaderProps) {
                   }}
                 >
                   {sectionText(cert, lang)}
-                </span>
+                </a>
               ))}
             </div>
 
             <div className="header-cert-row2" style={{ display: 'flex', gap: '4px', alignItems: 'center', flexWrap: 'wrap' }}>
-              {['CE-Battery', 'GPSR-Test Report', 'PSE Exempt', 'UN38.3'].map((cert) => (
-                <span
+              {['CE-Battery', 'GPSR-Test Report', 'PSE', 'UN38.3'].map((cert) => (
+                <a
+                  href="/compliance"
+                  title="Documentation topic — confirm availability and scope for your model"
                   key={cert}
                   style={{
                     fontSize: '0.58rem',
@@ -94,10 +101,11 @@ export default function Header({ onContactClick }: HeaderProps) {
                   }}
                 >
                   {sectionText(cert, lang)}
-                </span>
+                </a>
               ))}
             </div>
           </div>
+          <Link className="header-doc-link" href="/compliance" style={{fontSize:"0.6rem",color:"var(--text-muted)"}}>Documentation by model</Link>
         </div>
 
         {/* Navigation Tabs (Responsive & Multi-language Optimized) */}
@@ -192,7 +200,7 @@ export default function Header({ onContactClick }: HeaderProps) {
           }}>
             <Zap size={15} color="var(--kraft-gold)" style={{ flexShrink: 0 }} /> {t('nav_factory')}
           </Link>
-          <Link href="/#certifications" style={{
+          <Link href="/compliance" style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
             fontSize: 'clamp(0.78rem, 0.85vw, 0.9rem)',
@@ -206,7 +214,7 @@ export default function Header({ onContactClick }: HeaderProps) {
             borderRadius: '6px',
             transition: 'all 0.2s',
           }}>
-            <Zap size={15} color="var(--accent-green)" style={{ flexShrink: 0 }} /> {t('nav_certifications')}
+            <Zap size={15} color="var(--accent-green)" style={{ flexShrink: 0 }} /> Compliance
           </Link>
           <Link href="/#contact" onClick={() => onContactClick && onContactClick()} style={{
             color: 'var(--text-muted)',
@@ -227,12 +235,12 @@ export default function Header({ onContactClick }: HeaderProps) {
         </nav>
 
         {/* Action Controls: Theme Toggle + Language Switcher + Contact Button (Prevent Shrink) */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0, position: 'relative', zIndex: 10, paddingLeft: '6px' }}>
+        <div className="header-actions" style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0, position: 'relative', zIndex: 10, paddingLeft: '6px' }}>
           {/* Light / Dark Mode Manual Switcher */}
           <ThemeToggle />
 
           {/* Top-Right Language Switcher Dropdown */}
-          <LanguageSwitcher />
+          {evidenceRoute ? <span lang="en" style={{fontSize:14,padding:"8px 12px"}}>English</span> : <LanguageSwitcher />}
 
           <button
             onClick={() => onContactClick ? onContactClick() : (window.location.href = '/#contact')}

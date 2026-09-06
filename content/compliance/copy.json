@@ -1,0 +1,179 @@
+{
+  "center": {
+    "Title": "VSZAPOWER Compliance Center | Model-Specific Test Reports",
+    "Meta description": "Find model-specific VSZAPOWER charger test summaries, report numbers, standards and document request options. Evidence applies to the identified sample and scope.",
+    "H1": "VSZAPOWER Compliance Center",
+    "Lead": "Explore test documentation for identified VSZAPOWER charger models and rechargeable coin-cell versions. Each published summary connects the product configuration with its report number, test scope and issuing laboratory. Documentation for one model or version should not be applied to another.",
+    "sections": [
+      {
+        "title": "Find documentation for your product",
+        "paragraphs": [],
+        "faqs": []
+      },
+      {
+        "title": "Battery documentation requests",
+        "paragraphs": [
+          "For rechargeable coin-cell documentation, specify the battery model, capacity, product version and destination market. Our team can identify the relevant documents for your order. A model name alone may not distinguish all battery versions."
+        ],
+        "faqs": []
+      },
+      {
+        "title": "How to read a test summary",
+        "paragraphs": [
+          "A test report describes the tested sample and the tests performed. A Verification of Conformity identifies the scope stated by its issuer. These documents do not establish that every product variant meets every market requirement. Transport documentation also depends on the battery, packaging and shipment configuration."
+        ],
+        "faqs": []
+      },
+      {
+        "title": "Frequently asked questions",
+        "paragraphs": [],
+        "faqs": [
+          {
+            "q": "Why are there two VZ002 entries?",
+            "a": "VZ002 is used for two different charger designs. The single-slot and dual-slot versions have separate report sets. Match the product image and report number before requesting documents."
+          },
+          {
+            "q": "Does an EMC report cover every CE requirement?",
+            "a": "No. An EMC report addresses the tests and standards listed in that report. It does not by itself establish compliance with every requirement that may apply to the finished product."
+          },
+          {
+            "q": "Does a RoHS test result mean zero restricted substances?",
+            "a": "No. The published result applies to the tested materials and the limits and methods stated in the report. It is not a zero-content claim."
+          },
+          {
+            "q": "Can I download the original documents?",
+            "a": "Use the document request form and identify your model and purpose. Document access depends on the relevant scope, privacy requirements and reproduction conditions."
+          },
+          {
+            "q": "Can battery and charger reports be combined?",
+            "a": "Each report must remain linked to its tested object. A charger test does not cover every bundled battery, and a battery transport report does not establish charger compliance."
+          }
+        ]
+      }
+    ]
+  },
+  "about": {
+    "Title": "About VSZAPOWER | Coin Cell Chargers and Battery Solutions",
+    "Meta description": "Learn about VSZAPOWER, its coin cell charger and battery business, Shenzhen Weizan Technology, and model-specific test documentation for commercial buyers.",
+    "H1": "About VSZAPOWER",
+    "Lead": "VSZAPOWER provides rechargeable coin-cell chargers and battery solutions for commercial buyers. Shenzhen Weizan Technology Co., Ltd. is identified as the applicant and manufacturer in the charger test reports linked from our Compliance Center.",
+    "sections": [
+      {
+        "title": "Company and product focus",
+        "paragraphs": [
+          "Our focus is rechargeable coin-cell charging, battery supply and OEM project support. Buyers can discuss product selection, branding and packaging for their application. The specifications and documentation for a project depend on the selected model and product version."
+        ],
+        "faqs": []
+      },
+      {
+        "title": "Charger manufacturing documentation",
+        "paragraphs": [
+          "The published charger summaries cover VZ002 single-slot, VSZAPOWER-002 and VZ002 dual-slot configurations. They identify the standards, laboratory and report references for each tested sample. Follow the model links to examine the scope before using a document for procurement."
+        ],
+        "faqs": []
+      },
+      {
+        "title": "Battery sourcing and product versions",
+        "paragraphs": [
+          "Battery documentation is selected by model, capacity and product version. Contact us with your required cell specification and market so that the appropriate product and documentation can be identified."
+        ],
+        "faqs": []
+      },
+      {
+        "title": "OEM and commercial projects",
+        "paragraphs": [
+          "Share your battery requirements, expected quantity, branding and packaging needs. We will evaluate the project configuration and quotation. Changes to charging electronics, materials or product construction may require the documentation scope to be reassessed."
+        ],
+        "faqs": []
+      },
+      {
+        "title": "Evidence and document access",
+        "paragraphs": [
+          "Our Compliance Center provides model-specific factual summaries. Original document requests are handled according to their intended use, applicable privacy requirements and document conditions."
+        ],
+        "faqs": []
+      }
+    ]
+  },
+  "manufacturer": {
+    "Title": "Coin Cell Charger Manufacturer & OEM Supplier | VSZAPOWER",
+    "Meta description": "Explore VSZAPOWER coin cell charger manufacturing and OEM projects, compare charger designs, and request model-specific test documentation and wholesale pricing.",
+    "H1": "Rechargeable Coin Cell Charger Manufacturer",
+    "Lead": "VSZAPOWER offers rechargeable coin-cell charger solutions for wholesale and OEM projects. Our linked charger reports identify Shenzhen Weizan Technology Co., Ltd. as the applicant and manufacturer for the tested configurations. Explore the designs below and tell us which rechargeable cell and application your project requires.",
+    "sections": [
+      {
+        "title": "Compare charger designs",
+        "paragraphs": [
+          "Select a design by its model and product image, then confirm the charging requirements of your cell. Physical fit alone does not establish electrical compatibility. Model-specific documentation is linked from each design."
+        ],
+        "faqs": []
+      },
+      {
+        "title": "LIR2032 charger projects",
+        "paragraphs": [
+          "For an LIR2032 project, provide the cell specification, capacity, required charging current and intended use. We can assess a suitable charger configuration and battery bundle. Charging time and compatibility must be confirmed for the selected combination rather than assumed from the LIR2032 name alone."
+        ],
+        "faqs": []
+      },
+      {
+        "title": "OEM branding and packaging",
+        "paragraphs": [
+          "Discuss logo placement, packaging, labeling, instructions and battery bundles as part of your project. Available options, minimum order quantities and lead times depend on the selected model and customization. Request a project quotation for confirmed terms."
+        ],
+        "faqs": []
+      },
+      {
+        "title": "Match the battery chemistry",
+        "paragraphs": [
+          "Use only rechargeable cells supported by the charger's specification. Standard CR-series primary cells must not be recharged. ML2032 and LIR2032 require separate compatibility assessment; do not assume that an LIR charging profile is suitable for ML2032. Device compatibility also requires checking the final device's electrical requirements."
+        ],
+        "faqs": []
+      },
+      {
+        "title": "Model-specific EMC and RoHS documentation",
+        "paragraphs": [
+          "EMC test reports and RoHS test reports are available for the three identified charger configurations. Each summary lists its report references and scope. These records apply to the tested sample and materials; they are not a blanket certification for all products, customized versions or destination markets."
+        ],
+        "faqs": []
+      },
+      {
+        "title": "How an OEM enquiry works",
+        "paragraphs": [],
+        "faqs": []
+      },
+      {
+        "title": "Questions from commercial buyers",
+        "paragraphs": [],
+        "faqs": [
+          {
+            "q": "Who manufactures these coin-cell chargers?",
+            "a": "Shenzhen Weizan Technology Co., Ltd. is named as manufacturer in the linked test reports for the three VSZAPOWER charger configurations. See each report summary for the model and scope."
+          },
+          {
+            "q": "Can you support private-label chargers?",
+            "a": "Branding and packaging projects can be discussed for the selected model. The quotation should confirm the configuration, quantity, lead time and documentation requirements."
+          },
+          {
+            "q": "What is the minimum order quantity?",
+            "a": "The minimum quantity depends on the model and customization. Request a quotation with your required quantity and packaging instead of relying on a single site-wide MOQ."
+          },
+          {
+            "q": "Can batteries be supplied with the charger?",
+            "a": "A matched battery-and-charger project can be evaluated after the cell chemistry, voltage and charging specification are confirmed."
+          },
+          {
+            "q": "Will the documentation cover my modified design?",
+            "a": "A modified design must be checked against the tested configuration. A new logo alone and a change to charging electronics are different changes; report coverage must be assessed for the actual project."
+          }
+        ]
+      },
+      {
+        "title": "Request a charger quotation",
+        "paragraphs": [
+          "Tell us the battery model and specification, required quantity, destination market, intended application and branding or packaging needs. We will use those details to evaluate the project."
+        ],
+        "faqs": []
+      }
+    ]
+  }
+}

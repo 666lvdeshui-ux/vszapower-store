@@ -18,6 +18,7 @@ const nextConfig = {
   // Fixes GSC "Page is not served over HTTPS" warning.
   async redirects() {
     return [
+      { source: '/VSZAPOWER_2026_Wholesale_Product_Catalog.pdf', destination: '/compliance#document-request', permanent: false },
       // http://vszapower.com/* → https://www.vszapower.com/*
       {
         source: '/:path*',

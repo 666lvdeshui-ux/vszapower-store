@@ -1,0 +1,167 @@
+{
+  "version": "1.0",
+  "contentReviewedAt": "2026-09-06",
+  "canonicalOrigin": "https://www.vszapower.com",
+  "summaryNotice": "These are VSZAPOWER factual summaries, not replacements for the original laboratory documents. Results apply to the identified sample, materials and tests.",
+  "products": [
+    {
+      "id": "vz002-single-slot",
+      "model": "VZ002",
+      "design": "Single-Slot Charger",
+      "reportSeries": "A2601422",
+      "path": "/compliance/chargers/vz002-single-slot",
+      "image": "/compliance/samples/a2601422.jpg",
+      "productUrl": "/#products?cat=charger",
+      "documents": [
+        {
+          "id": "a2601422-c01-r01",
+          "documentType": "EMC Test Report",
+          "number": "A2601422-C01-R01",
+          "issueDate": "2026-03-02",
+          "laboratory": "Shenzhen Alpha Product Testing Co., Ltd.",
+          "standards": [
+            "EN IEC 55014-1:2021",
+            "EN IEC 55014-2:2021"
+          ],
+          "scope": "EMC tests and configuration described in the report",
+          "recordedResult": "PASS for the tests listed in the report summary",
+          "downloadUrl": null
+        },
+        {
+          "id": "a2601422-c01-e01",
+          "documentType": "Verification of Conformity",
+          "number": "A2601422-C01-E01",
+          "issueDate": "2026-03-02",
+          "laboratory": "Shenzhen Alpha Product Testing Co., Ltd.",
+          "standards": [
+            "EN IEC 55014-1:2021",
+            "EN IEC 55014-2:2021"
+          ],
+          "scope": "Verification referring to A2601422-C01-R01; EMC Directive 2014/30/EU",
+          "recordedResult": "Conformity statement for the sample and scope identified by the issuer",
+          "downloadUrl": null
+        },
+        {
+          "id": "a2601422-c02-r01",
+          "documentType": "RoHS Test Report",
+          "number": "A2601422-C02-R01",
+          "issueDate": "2026-04-02",
+          "laboratory": "Shenzhen Alpha Product Testing Co., Ltd.",
+          "standards": [
+            "2011/65/EU",
+            "(EU) 2015/863"
+          ],
+          "scope": "Pb, Cd, Hg, Cr(VI), PBB, PBDE, DBP, BBP, DEHP, DIBP in tested materials",
+          "recordedResult": "Pass for the tested materials of the submitted sample",
+          "downloadUrl": null
+        }
+      ]
+    },
+    {
+      "id": "vszapower-002",
+      "model": "VSZAPOWER-002",
+      "design": "Coin Cell Charger",
+      "reportSeries": "A2605238",
+      "path": "/compliance/chargers/vszapower-002",
+      "image": "/compliance/samples/a2605238.jpg",
+      "productUrl": "/#products?cat=charger",
+      "documents": [
+        {
+          "id": "a2605238-c01-r01",
+          "documentType": "EMC Test Report",
+          "number": "A2605238-C01-R01",
+          "issueDate": "2026-06-01",
+          "laboratory": "Shenzhen Alpha Product Testing Co., Ltd.",
+          "standards": [
+            "EN IEC 61000-6-3:2021",
+            "EN IEC 61000-6-1:2019"
+          ],
+          "scope": "EMC tests and configuration described in the report",
+          "recordedResult": "PASS for the tests listed in the report summary",
+          "downloadUrl": null
+        },
+        {
+          "id": "a2605238-c01-e01",
+          "documentType": "Verification of Conformity",
+          "number": "A2605238-C01-E01",
+          "issueDate": "2026-06-01",
+          "laboratory": "Shenzhen Alpha Product Testing Co., Ltd.",
+          "standards": [
+            "EN IEC 61000-6-3:2021",
+            "EN IEC 61000-6-1:2019"
+          ],
+          "scope": "Verification referring to A2605238-C01-R01; EMC Directive 2014/30/EU",
+          "recordedResult": "Conformity statement for the sample and scope identified by the issuer",
+          "downloadUrl": null
+        },
+        {
+          "id": "a2605238-c02-r01",
+          "documentType": "RoHS Test Report",
+          "number": "A2605238-C02-R01",
+          "issueDate": "2026-05-27",
+          "laboratory": "Shenzhen Alpha Product Testing Co., Ltd.",
+          "standards": [
+            "2011/65/EU",
+            "(EU) 2015/863"
+          ],
+          "scope": "Pb, Cd, Hg, Cr(VI), PBB, PBDE, DBP, BBP, DEHP, DIBP in tested materials",
+          "recordedResult": "Pass for the tested materials of the submitted sample",
+          "downloadUrl": null
+        }
+      ]
+    },
+    {
+      "id": "vz002-dual-slot",
+      "model": "VZ002",
+      "design": "Dual-Slot Charger",
+      "reportSeries": "A2607200",
+      "path": "/compliance/chargers/vz002-dual-slot",
+      "image": "/compliance/samples/a2607200.jpg",
+      "productUrl": "/#products?cat=charger",
+      "documents": [
+        {
+          "id": "a2607200-c01-r01",
+          "documentType": "EMC Test Report",
+          "number": "A2607200-C01-R01",
+          "issueDate": "2026-07-30",
+          "laboratory": "Shenzhen Alpha Product Testing Co., Ltd.",
+          "standards": [
+            "EN 55032:2015+A11:2020+A1:2020",
+            "EN 55035:2017+A11:2020"
+          ],
+          "scope": "EMC tests and configuration described in the report",
+          "recordedResult": "PASS for the tests listed in the report summary",
+          "downloadUrl": null
+        },
+        {
+          "id": "a2607200-c01-e01",
+          "documentType": "Verification of Conformity",
+          "number": "A2607200-C01-E01",
+          "issueDate": "2026-07-30",
+          "laboratory": "Shenzhen Alpha Product Testing Co., Ltd.",
+          "standards": [
+            "EN 55032:2015+A11:2020+A1:2020",
+            "EN 55035:2017+A11:2020"
+          ],
+          "scope": "Verification referring to A2607200-C01-R01; EMC Directive 2014/30/EU",
+          "recordedResult": "Conformity statement for the sample and scope identified by the issuer",
+          "downloadUrl": null
+        },
+        {
+          "id": "a2607200-c02-r01",
+          "documentType": "RoHS Test Report",
+          "number": "A2607200-C02-R01",
+          "issueDate": "2026-07-31",
+          "laboratory": "Shenzhen Alpha Product Testing Co., Ltd.",
+          "standards": [
+            "2011/65/EU",
+            "(EU) 2015/863"
+          ],
+          "scope": "Pb, Cd, Hg, Cr(VI), PBB, PBDE, DBP, BBP, DEHP, DIBP in tested materials",
+          "recordedResult": "Pass for the tested materials of the submitted sample",
+          "downloadUrl": null
+        }
+      ]
+    }
+  ]
+}

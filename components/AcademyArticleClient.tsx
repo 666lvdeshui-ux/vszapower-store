@@ -128,6 +128,7 @@ export default function AcademyArticleClient({ post, formattedDate }: AcademyArt
         />
       </div>
 
+      <nav aria-label="Product documentation" style={{display:'flex',flexWrap:'wrap',gap:16,marginBottom:24}}><a href="/compliance">Model-specific test documentation</a><a href="/coin-cell-charger-manufacturer">Charger manufacturing &amp; OEM</a></nav>
       {/* Content Rendering with Real-time i18n Translation */}
       {localized.showingOriginal && <p role="status">{originalNotice[lang] || originalNotice.en}</p>}
       <div className="markdown-content">

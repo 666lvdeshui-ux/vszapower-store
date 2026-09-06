@@ -693,7 +693,7 @@ export async function fetchAllInquiries(): Promise<InquiryItem[]> {
 
 export async function saveInquiry(inquiry: Partial<InquiryItem>): Promise<InquiryItem> {
   const newInquiry: InquiryItem = {
-    id: inquiry.id || `inq_${Date.now()}`,
+    id: crypto.randomUUID(),
     name: inquiry.name || 'Anonymous User',
     country: inquiry.country || '未指定 (Not Specified)',
     contact: inquiry.contact || 'No contact provided',
@@ -703,24 +703,10 @@ export async function saveInquiry(inquiry: Partial<InquiryItem>): Promise<Inquir
     created_at: inquiry.created_at || new Date().toISOString(),
   };
 
-  deletedInquiryIds.delete(newInquiry.id);
-
-  if (database) {
-    try {
-      const { data, error } = await database.from('inquiries').upsert(newInquiry).select().single();
-      if (!error && data) return data as InquiryItem;
-    } catch (e) {
-      console.warn('Supabase save inquiry error, falling back to local store:', e);
-    }
-  }
-
-  const existingIdx = inquiriesCache.findIndex(i => i.id === newInquiry.id);
-  if (existingIdx >= 0) {
-    inquiriesCache[existingIdx] = newInquiry;
-  } else {
-    inquiriesCache.unshift(newInquiry);
-  }
-  return newInquiry;
+  if (!serverSupabase) throw new Error('Inquiry database is not configured');
+  const { data, error } = await serverSupabase.from('inquiries').insert(newInquiry).select().single();
+  if (error || !data) throw new Error('Inquiry could not be persisted');
+  return data as InquiryItem;
 }
 
 export async function removeInquiry(id: string): Promise<boolean> {
