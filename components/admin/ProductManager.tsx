@@ -41,6 +41,8 @@ export default function ProductManager() {
       price: 24.99,
       compare_at_price: 39.99,
       is_starter_kit: false,
+      show_reviews: false,
+      review_group: null,
       image_url: 'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=800&q=80',
       badge: 'NEW ARRIVAL',
       description: '',
@@ -622,6 +624,7 @@ export default function ProductManager() {
                 </label>
               </div>
 
+              <fieldset style={{padding:16,border:'1px solid var(--border-color)',borderRadius:10}}><legend>评价与评分</legend><label style={{display:'flex',gap:8,alignItems:'center'}}><input type="checkbox" checked={editingProduct.show_reviews===true} onChange={e=>setEditingProduct({...editingProduct,show_reviews:e.target.checked})}/>显示评价与评分</label><p style={{fontSize:13,color:'var(--text-muted)'}}>关闭后，商品卡片和详情均不显示评分及评价。五款电池目前关闭。</p><label>评价来源<select value={editingProduct.review_group || ''} onChange={e=>setEditingProduct({...editingProduct,review_group:e.target.value||null})} style={{display:'block',width:'100%',padding:8,marginTop:8,color:'var(--text-main)',background:'var(--bg-card)'}}><option value="">无共享评价来源</option><option value="temu-606258002264728">Temu 充电器商品 · 共享 50 条评价</option></select></label></fieldset>
               {/* Main Cover Image Uploader */}
               <ImageUploader
                 label="产品主封面图片 (Main Cover Image)"

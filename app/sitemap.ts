@@ -1,3 +1,5 @@
+import { complianceLocales, centerPath } from '@/lib/complianceLocale';
+import { centerAlternates } from '@/lib/complianceCenterMetadata';
 import { publicPaths, compliance } from '@/lib/compliance';
 import { MetadataRoute } from 'next';
 import { getPosts } from '@/lib/supabase';
@@ -23,7 +25,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  routes.push(...publicPaths.map(path => ({ url: baseUrl + path, lastModified: new Date(compliance.contentReviewedAt), changeFrequency: 'monthly' as const, priority: 0.8 })));
+  routes.push(...publicPaths.filter(p=>p!=='/compliance').map(path => ({ url: baseUrl + path, lastModified: new Date(compliance.contentReviewedAt), changeFrequency: 'monthly' as const, priority: 0.8 })));
+
+  routes.push(...complianceLocales.map(l=>({url:baseUrl+centerPath(l),lastModified:new Date('2026-09-06'),alternates:{languages:centerAlternates}})));
 
   try {
     const posts = await getPosts().catch(() => []);

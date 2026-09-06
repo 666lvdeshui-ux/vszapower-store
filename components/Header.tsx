@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { isEvidenceRoute } from '@/lib/compliance';
+import { centerLocale } from '@/lib/complianceLocale';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Zap, BookOpen, Home, MessageSquare, Menu, X, Video, Sparkles } from 'lucide-react';
@@ -17,7 +18,8 @@ interface HeaderProps {
 export default function Header({ onContactClick }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { t, lang } = useLanguage();
-  const evidenceRoute = isEvidenceRoute(usePathname() || '');
+  const pathname=usePathname() || '';
+  const evidenceRoute = isEvidenceRoute(pathname) && !centerLocale(pathname);
 
   return (
     <header className="storefront-header" style={{

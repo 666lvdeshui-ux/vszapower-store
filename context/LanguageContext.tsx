@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { isEvidenceRoute } from '@/lib/compliance';
+import { centerLocale, centerPath } from '@/lib/complianceLocale';
 import { normalizeLocale } from '@/lib/postI18n';
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { detectBrowserLanguage, getTranslation, SUPPORTED_LANGUAGES, TranslationKey } from '@/lib/i18n';
@@ -22,7 +23,9 @@ const LanguageContext = createContext<LanguageContextType>({
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const fixedEnglish = isEvidenceRoute(pathname || '');
+  const routeLocale = centerLocale(pathname || '');
+  const fixedEnglish = !routeLocale && isEvidenceRoute(pathname || '');
+  const effectiveLang = routeLocale || (fixedEnglish ? 'en' : null);
   const [lang, setLangState] = useState<string>('zh-CN');
   const [isRTL, setIsRTL] = useState<boolean>(false);
 
@@ -41,12 +44,17 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       initialLang = detectBrowserLanguage();
     }
 
-    setLang(initialLang);
+    if(routeLocale){setLangState(routeLocale);setIsRTL(['ar','he'].includes(routeLocale));}else{setLang(initialLang);}
   }, []);
 
   const setLang = (requestedCode: string) => {
     const normalized = normalizeLocale(requestedCode);
     const code = SUPPORTED_LANGUAGES.some(l => l.code === normalized) ? normalized : 'en';
+    if(routeLocale && routeLocale!==code){
+      try { localStorage.setItem('vszapower_lang',code); } catch {} 
+      window.location.assign(centerPath(code));
+      return;
+    }
     setLangState(code);
     try {
       localStorage.setItem('vszapower_lang', code);
@@ -63,14 +71,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  useEffect(() => { document.documentElement.lang = fixedEnglish ? 'en' : lang; document.documentElement.dir = fixedEnglish ? 'ltr' : (isRTL ? 'rtl' : 'ltr'); }, [fixedEnglish, lang, isRTL]);
+  useEffect(() => { document.documentElement.lang = effectiveLang || lang; document.documentElement.dir = ['ar','he'].includes(effectiveLang || lang) ? 'rtl' : 'ltr'; }, [effectiveLang, lang, isRTL]);
 
   const t = (key: TranslationKey): string => {
-    return getTranslation(fixedEnglish ? 'en' : lang, key);
+    return getTranslation(effectiveLang || lang, key);
   };
 
   return (
-    <LanguageContext.Provider value={{ lang: fixedEnglish ? 'en' : lang, setLang, t, isRTL: fixedEnglish ? false : isRTL }}>
+    <LanguageContext.Provider value={{ lang: effectiveLang || lang, setLang, t, isRTL: ['ar','he'].includes(effectiveLang || lang) }}>
       {children}
     </LanguageContext.Provider>
   );

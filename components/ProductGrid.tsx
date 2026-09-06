@@ -269,8 +269,8 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                     {translatedTitle}
                   </h3>
 
-                  {/* Verified Star Rating & Reviews Badge */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '10px', flexWrap: 'wrap' }}>
+                  {/* Rating follows the product's persisted visibility setting. */}
+                  {product.show_reviews && <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '10px', flexWrap: 'wrap' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
                       {[1, 2, 3, 4, 5].map((s) => (
                         <Star key={s} size={13} fill="#f59e0b" color="#f59e0b" />
@@ -280,9 +280,9 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
                       {product.rating ? product.rating.toFixed(2) : '—'}
                     </span>
                     <span style={{ fontSize: '0.75rem', color: '#f97316', background: 'rgba(249, 115, 22, 0.12)', border: '1px solid rgba(249, 115, 22, 0.3)', padding: '1px 6px', borderRadius: '4px', fontWeight: 600 }}>
-                      ✓ {product.review_count ? product.review_count.toLocaleString() : '0'}+ {copy('reviews')}
+                      ✓ {product.review_count ? product.review_count.toLocaleString() : '0'} · Temu
                     </span>
-                  </div>
+                  </div>}
 
                   {/* Product Tagline */}
                   <p style={{
@@ -695,13 +695,14 @@ export default function ProductGrid({ onContactClick }: ProductGridProps) {
 
               <section style={{borderTop:'1px solid var(--border-color)',paddingTop:24}}><h4>Model-specific documentation</h4><p>Match the charger design and report series. Battery documents depend on the model, capacity and version.</p><a href="/compliance">Find the relevant test summary →</a></section>
               {/* Global Customer Reviews Section */}
-              <ReviewSection
+              {selectedProduct.show_reviews && <ReviewSection
                 rating={selectedProduct.rating}
+                sharedSource={Boolean(selectedProduct.review_group)}
                 reviewCount={selectedProduct.review_count}
                 temuLink={selectedProduct.temu_link}
                 reviews={selectedProduct.reviews || []}
                 productTitle={selectedProduct.title}
-              />
+              />}
 
             </div>
           </div>

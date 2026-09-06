@@ -1,3 +1,4 @@
+import { applyReviewDisplay } from './productReviews';
 import { normalizeTranslations } from './postI18n';
 import { MOCK_PRODUCTS, MOCK_POSTS, serverSupabase, supabase } from './supabase';
 import { normalizeProductTranslations, ProductTranslation } from './productI18n';
@@ -102,7 +103,7 @@ export interface ReviewItem {
   rating: number;
   title: string;
   content: string;
-  verified_source: 'Verified Purchase' | 'Amazon' | 'Direct';
+  verified_source: 'Verified Purchase' | 'Amazon' | 'Direct' | 'Temu';
   images?: string[];
   date: string;
   helpful_count?: number;
@@ -128,6 +129,8 @@ export interface ProductItem {
   review_count?: number;
   temu_link?: string;
   reviews?: ReviewItem[];
+  show_reviews?: boolean;
+  review_group?: string | null;
   created_at?: string;
 }
 
@@ -375,7 +378,7 @@ export function sanitizeProductList(list: ProductItem[]): ProductItem[] {
     const mainImg = p.image_url || '/products/clip-dual-charger.png';
     const imgList = (Array.isArray(p.images) && p.images.length > 0) ? p.images : [mainImg];
     return {
-      ...p,
+      ...applyReviewDisplay(p),
       image_url: mainImg,
       images: imgList,
     };
@@ -418,14 +421,21 @@ export async function fetchAllProducts(): Promise<ProductItem[]> {
 export async function saveProduct(product: Partial<ProductItem>): Promise<ProductItem> {
   const targetId = (product.id && product.id.trim()) ? product.id.trim() : `prod_${Date.now()}`;
   let translations = product.translations;
-  if (translations === undefined && product.id) {
+  let showReviews = product.show_reviews;
+  let reviewGroup = product.review_group;
+  if ((translations === undefined || showReviews === undefined || reviewGroup === undefined) && product.id) {
     // Older clients may edit a product without sending its translations.
     if (database) {
-      const { data, error } = await database.from('products').select('translations').eq('id', targetId).maybeSingle();
+      const { data, error } = await database.from('products').select('translations,show_reviews,review_group').eq('id', targetId).maybeSingle();
       if (error) throw new Error(`Product could not be loaded: ${error.message}`);
-      translations = data?.translations;
+      translations ??= data?.translations;
+      showReviews ??= data?.show_reviews;
+      if(reviewGroup===undefined)reviewGroup=data?.review_group;
     } else {
-      translations = productsCache.find(p => p.id === targetId)?.translations;
+      const previous=productsCache.find(p=>p.id===targetId);
+      translations ??= previous?.translations;
+      showReviews ??= previous?.show_reviews;
+      if(reviewGroup===undefined)reviewGroup=previous?.review_group;
     }
   }
   const newProduct: ProductItem = {
@@ -443,8 +453,10 @@ export async function saveProduct(product: Partial<ProductItem>): Promise<Produc
     badge: product.badge || '',
     description: product.description || '',
     specs: product.specs || {},
-    rating: product.rating || 4.93,
-    review_count: product.review_count || 1480,
+    show_reviews: showReviews === true,
+    review_group: reviewGroup ?? null,
+    rating: product.rating ?? 0,
+    review_count: product.review_count ?? 0,
     temu_link: product.temu_link || 'https://www.temu.com/goods.html?_bg_fs=1&goods_id=606258002264728',
     reviews: product.reviews || [],
     translations: normalizeProductTranslations(translations),
@@ -470,6 +482,8 @@ export async function saveProduct(product: Partial<ProductItem>): Promise<Produc
         description: newProduct.description,
         translations: newProduct.translations,
         specs: newProduct.specs,
+        show_reviews: newProduct.show_reviews,
+        review_group: newProduct.review_group,
         created_at: newProduct.created_at,
       };
 
