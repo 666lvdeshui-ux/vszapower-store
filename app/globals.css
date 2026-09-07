@@ -306,6 +306,37 @@ html, body {
   margin: 1.5rem 0;
 }
 
+.markdown-content .article-warning {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.markdown-content a {
+  color: var(--accent-cyan);
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+
+.markdown-content pre {
+  overflow-x: auto;
+  padding: 18px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.markdown-content code {
+  color: var(--accent-cyan);
+  font-family: monospace;
+}
+
+.markdown-content ul, .markdown-content ol {
+  padding-inline-start: 1.5rem;
+  margin-bottom: 1.2rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
 /* Mobile Responsive Utility Classes & Global Tweaks */
 .markdown-table-wrapper {
   width: 100%;

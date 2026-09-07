@@ -8,6 +8,7 @@ import { ArrowLeft, Clock, User, Calendar, Zap, ShoppingBag } from 'lucide-react
 import { useLanguage } from '@/context/LanguageContext';
 import { localizePost, originalNotice } from '@/lib/postI18n';
 import { translateDynamicContent } from '@/lib/dynamicI18n';
+import ArticleMarkdown from './ArticleMarkdown';
 
 interface AcademyArticleClientProps {
   post: PostItem;
@@ -21,7 +22,6 @@ export default function AcademyArticleClient({ post, formattedDate }: AcademyArt
   const translatedTitle = localized.title;
   const translatedSummary = localized.summary;
   const translatedCategory = localized.category;
-  const formattedContentHtml = formatMarkdownWithI18n(localized.content, lang);
 
 
   const articleSchema = {
@@ -133,7 +133,7 @@ export default function AcademyArticleClient({ post, formattedDate }: AcademyArt
       {/* Content Rendering with Real-time i18n Translation */}
       {localized.showingOriginal && <p role="status">{originalNotice[lang] || originalNotice.en}</p>}
       <div className="markdown-content">
-        <div dangerouslySetInnerHTML={{ __html: formattedContentHtml }} />
+        <ArticleMarkdown content={localized.content} />
       </div>
 
       {/* Bottom CTA Card */}
@@ -153,32 +153,4 @@ export default function AcademyArticleClient({ post, formattedDate }: AcademyArt
       </div>
     </article>
   );
-}
-
-function formatMarkdownWithI18n(content: string, lang: string) {
-  if (!content) return '';
-
-  let html = content
-    .replace(/^# (.*$)/gim, (_, m) => `<h1 style="font-size:1.8rem;font-weight:800;margin:28px 0 16px;color:#fff;">${m}</h1>`)
-    .replace(/^## (.*$)/gim, (_, m) => `<h2 style="font-size:1.4rem;font-weight:700;margin:24px 0 14px;color:var(--accent-green);">${m}</h2>`)
-    .replace(/^### (.*$)/gim, (_, m) => `<h3 style="font-size:1.15rem;font-weight:700;margin:20px 0 12px;color:#fff;">${m}</h3>`)
-    .replace(/^> \[!WARNING\]\n> (.*$)/gim, (_, m) => `<blockquote style="border-left:4px solid #ef4444;background:rgba(239,68,68,0.1);padding:14px 18px;border-radius:8px;margin:20px 0;color:#fff;"><strong style="color:#ef4444;">⚠️ WARNING:</strong> ${m}</blockquote>`)
-    .replace(/^> (.*$)/gim, (_, m) => `<blockquote style="border-left:4px solid var(--accent-green);background:rgba(0,230,153,0.08);padding:14px 18px;border-radius:8px;margin:20px 0;color:var(--text-muted);">${m}</blockquote>`)
-    .replace(/```([\s\S]*?)```/g, '<pre style="background:#0b0f19;padding:18px;border-radius:12px;border:1px solid var(--border-color);overflow-x:auto;color:#38bdf8;font-family:monospace;margin:20px 0;"><code>$1</code></pre>')
-    .replace(/`([^`]+)`/g, '<code style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;color:var(--accent-cyan);font-family:monospace;">$1</code>')
-    .replace(/\*\*([^*]+)\*\*/g, (_, m) => `<strong>${m}</strong>`)
-    .replace(/^- (.*$)/gim, (_, m) => `<li style="margin-bottom:8px;color:var(--text-muted);line-height:1.7;">${m}</li>`);
-
-  // Wrap remaining paragraphs with translateDynamicContent
-  const paragraphs = html.split('\n\n');
-  html = paragraphs.map(p => {
-    const trimmed = p.trim();
-    if (!trimmed) return '';
-    if (trimmed.startsWith('<h') || trimmed.startsWith('<blockquote') || trimmed.startsWith('<pre') || trimmed.startsWith('<li')) {
-      return trimmed;
-    }
-    return `<p style="margin-bottom:18px;line-height:1.8;color:var(--text-muted);font-size:1.02rem;">${trimmed}</p>`;
-  }).join('');
-
-  return html;
 }

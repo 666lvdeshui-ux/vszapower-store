@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "automation_id": "vszapower-30",
+  "timezone": "Asia/Shanghai",
+  "target_count": 30,
+  "verified_published_count": 0,
+  "next_sequence": 1,
+  "entries": [
+    {
+      "sequence": 1,
+      "date": "2026-09-07",
+      "topic": "LIR/ML/CR electrochemical selection",
+      "status": "ready",
+      "slug": "lir-ml-cr-coin-cell-chemistry-selection-b2b",
+      "post_id": "academy30-01-lir-ml-cr",
+      "file": "content/battery-academy/01-lir-ml-cr-coin-cell-chemistry-selection-b2b.md",
+      "word_count": 864,
+      "word_count_method": "Visible Markdown text; link destinations and frontmatter excluded; Unicode word tokens including numeric quantities",
+      "sources": [
+        {
+          "title": "EEMB LIR2032 product specifications",
+          "url": "https://www.eemb.com/product-9",
+          "supports": "45 mAh, 3.7 V reference model",
+          "read_on": "2026-09-07"
+        },
+        {
+          "title": "EEMB LIR2032 datasheet ZJQM-RD-SPC-H0339",
+          "url": "https://eemb.oss-accelerate.aliyuncs.com//uploads/20230323/ba65f4e593715c5dedf377f550c58f6b.pdf",
+          "document_date": "2019-04-19",
+          "supports": "Sections 5.1 and 5.2: 0.2C CC to 4.20 V, CV to less than 0.05C at 25 C; at least 300 cycles with at least 80% capacity under standard conditions",
+          "read_on": "2026-09-07"
+        },
+        {
+          "title": "Maxell ML rechargeable battery specifications",
+          "url": "https://www.maxell.eu/industry/coin-type-lithium-manganese-dioxide-rechargeable-batteries-ml/",
+          "supports": "Electrode materials, ML2032 3 V 65 mAh; 3.0–3.3 V charging; 1000 cycles at 10% DOD and 30 at 100%; 200 microampere capacity conditions",
+          "read_on": "2026-09-07"
+        },
+        {
+          "title": "Panasonic CR2032 datasheet",
+          "url": "https://energy.panasonic.com/dam/master/pdf/en/datasheet/lithium/CR2032_Datasheet_EN.pdf",
+          "document_date": "2026-02",
+          "supports": "3 V, 225 mAh, 0.2 mA continuous drain; lithium manganese dioxide primary cell",
+          "read_on": "2026-09-07"
+        },
+        {
+          "title": "TI BQ2057 charging sequence",
+          "url": "https://www.ti.com/product/BQ2057C",
+          "supports": "Distinct conditioning, CC, CV, current termination and recharge stages",
+          "read_on": "2026-09-07"
+        },
+        {
+          "title": "Apple AirTag battery replacement instructions",
+          "url": "https://support.apple.com/en-nz/102600",
+          "document_date": "2026-05-12",
+          "supports": "Apple specifies a CR2032 lithium 3 V replacement",
+          "read_on": "2026-09-07"
+        }
+      ],
+      "meta_description": "Compare LIR2032, ML2032 and CR2032 charging rules, usable energy, pulse limits and service costs to choose a coin cell chemistry for your next OEM design.",
+      "content_sha256": "5ee470135c27e2fc797d97bc1942371afccdbc4409c265ba0dfa4800b8e9753a",
+      "content_md5": "92624f7bb5b4d7ebec02c82fd553ba2b",
+      "public_url": null,
+      "planned_public_url": "https://www.vszapower.com/academy/lir-ml-cr-coin-cell-chemistry-selection-b2b",
+      "prepared_at": "2026-09-07T01:08:11.666582+00:00",
+      "validation": {
+        "source_review": true,
+        "formulas_checked": true,
+        "markdown_tests_passed": 3,
+        "internal_links_verified": [
+          "https://www.vszapower.com/#contact",
+          "https://www.vszapower.com/coin-cell-charger-manufacturer",
+          "https://www.vszapower.com/academy"
+        ],
+        "preflight_published_today": 0,
+        "preflight_existing_series_rows": 0,
+        "preflight_existing_slug_rows": 0
+      },
+      "notes": [
+        "Reference manufacturer specifications are not claims about all VSZAPOWER products.",
+        "500 cycles is an explicit hypothetical procurement input; the cited EEMB datasheet lists at least 300 cycles."
+      ]
+    }
+  ]
+}
