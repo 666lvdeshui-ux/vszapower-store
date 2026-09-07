@@ -3,14 +3,14 @@
   "automation_id": "vszapower-30",
   "timezone": "Asia/Shanghai",
   "target_count": 30,
-  "verified_published_count": 0,
-  "next_sequence": 1,
+  "verified_published_count": 1,
+  "next_sequence": 2,
   "entries": [
     {
       "sequence": 1,
       "date": "2026-09-07",
       "topic": "LIR/ML/CR electrochemical selection",
-      "status": "ready",
+      "status": "published",
       "slug": "lir-ml-cr-coin-cell-chemistry-selection-b2b",
       "post_id": "academy30-01-lir-ml-cr",
       "file": "content/battery-academy/01-lir-ml-cr-coin-cell-chemistry-selection-b2b.md",
@@ -60,8 +60,7 @@
       "meta_description": "Compare LIR2032, ML2032 and CR2032 charging rules, usable energy, pulse limits and service costs to choose a coin cell chemistry for your next OEM design.",
       "content_sha256": "5ee470135c27e2fc797d97bc1942371afccdbc4409c265ba0dfa4800b8e9753a",
       "content_md5": "92624f7bb5b4d7ebec02c82fd553ba2b",
-      "public_url": null,
-      "planned_public_url": "https://www.vszapower.com/academy/lir-ml-cr-coin-cell-chemistry-selection-b2b",
+      "public_url": "https://www.vszapower.com/academy/lir-ml-cr-coin-cell-chemistry-selection-b2b",
       "prepared_at": "2026-09-07T01:08:11.666582+00:00",
       "validation": {
         "source_review": true,
@@ -74,12 +73,40 @@
         ],
         "preflight_published_today": 0,
         "preflight_existing_series_rows": 0,
-        "preflight_existing_slug_rows": 0
+        "preflight_existing_slug_rows": 0,
+        "slug_http_before_publish": 404,
+        "production_renderer_deployment": "dpl_FftKWqppAoebi4cyYyB2sJjNSpxL",
+        "article_render": {
+          "table_rows": 4,
+          "headings": 6,
+          "links": 10,
+          "warning": true
+        },
+        "public_http_status": 200,
+        "public_page_checks": {
+          "body_html_exact_match": true,
+          "meta_description_matches": true,
+          "canonical_matches": true,
+          "title_present": true,
+          "table_present": true,
+          "warning_present": true,
+          "final_paragraph_present": true,
+          "today_visible": true
+        },
+        "academy_index_contains_article": true,
+        "published_today_after_write": 1,
+        "database_content_md5_matches": true
       },
       "notes": [
         "Reference manufacturer specifications are not claims about all VSZAPOWER products.",
         "500 cycles is an explicit hypothetical procurement input; the cited EEMB datasheet lists at least 300 cycles."
-      ]
+      ],
+      "publish_attempt_at": "2026-09-07T01:10:58.064150+00:00",
+      "published_at": "2026-09-07T01:11:03.806268Z",
+      "verified_at": "2026-09-07T01:12:31.309895+00:00",
+      "publication_channel": "Authenticated Supabase MCP SQL, guarded single-row insert"
     }
-  ]
+  ],
+  "last_verified_publication_date": "2026-09-07",
+  "updated_at": "2026-09-07T01:12:31.309895+00:00"
 }

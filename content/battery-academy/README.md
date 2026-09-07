@@ -1,0 +1,13 @@
+# Battery Academy daily publication archive
+
+`publication-log.json` is the progress ledger for automation `vszapower-30`. Numbered English Markdown files contain the reviewed article and SEO metadata; the `posts.content` database field contains the body after frontmatter. `posts.summary` supplies the page's meta description.
+
+Count an entry only when its status is `published` and the public URL has been read back with the complete expected body. A database insert alone is insufficient. The first verified publication was 2026-09-07; pre-existing website articles are not entries in this 30-topic series.
+
+For each run, read the ledger and live database before selecting the next sequence. Check the planned slug and the current Asia/Shanghai date for duplicates. Publish at most one new article per Beijing date. Resume an unfinished entry before advancing. If a write returns an ambiguous result, query its stable post ID and content checksum before retrying.
+
+The authenticated publishing path is the existing Supabase `public.posts` table. The first publication used a short transaction with `pg_advisory_xact_lock(hashtext('vszapower-30'))`, a date guard, a same-day publication check, and ID/slug checks before a single-row insert. Keep using the same lock key for this series. Do not invoke the old `/api/cron/publish-news` article pool. Pause the automation after 30 verified entries.
+
+Each entry records sources actually read, word count, review date, content checksums, publication time, and public verification. Re-check manufacturer specifications when writing each article. Price, service-life and ROI assumptions must remain explicit.
+
+`components/ArticleMarkdown.tsx` renders GFM tables, direct Markdown links and warning blocks. Raw HTML is disabled and default safe URL handling is retained. Validate rendering changes with `node --test tests/article-markdown.test.mjs` and `npm run build`.
