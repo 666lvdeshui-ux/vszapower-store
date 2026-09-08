@@ -1,5 +1,5 @@
 'use client';
-import { academyImageAlt, academyImageSources } from '@/lib/academyImages';
+import { academyImage, academyImageAlt, academyImageSources } from '@/lib/academyImages';
 import { academyCopy } from '@/lib/academyI18n';
 import { localizePost } from '@/lib/postI18n';
 
@@ -261,7 +261,8 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
                     style={{
                       width: '100%',
                       height: '100%',
-                      objectFit: 'cover',
+                      objectFit: academyImage(post)?.kind === 'owned-product' ? 'contain' : 'cover',
+                      background: academyImage(post)?.kind === 'owned-product' ? '#fff' : undefined,
                       transition: 'transform 0.5s ease',
                     }}
                     className="list-cover-img"
@@ -409,7 +410,8 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
                     loading="lazy"
                     decoding="async"
                     alt={academyImageAlt(post, lang, translatedTitle)}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    style={{ width: '100%', height: '100%', objectFit: academyImage(post)?.kind === 'owned-product' ? 'contain' : 'cover',
+                      background: academyImage(post)?.kind === 'owned-product' ? '#fff' : undefined }}
                   />
                   <span style={{
                     position: 'absolute',

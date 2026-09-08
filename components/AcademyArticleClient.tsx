@@ -1,5 +1,5 @@
 'use client';
-import { academyImageAlt, academyImageSources, academyImageCaption } from '@/lib/academyImages';
+import { academyImage, academyImageAlt, academyImageSources, academyImageCaption } from '@/lib/academyImages';
 
 import { catalog, productPath, compatibilityNote } from '@/lib/catalog';
 import React from 'react';
@@ -130,7 +130,8 @@ export default function AcademyArticleClient({ post, formattedDate }: AcademyArt
                     loading="eager"
                     decoding="async"
           alt={academyImageAlt(post, lang, translatedTitle)}
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          style={{ width: '100%', height: '100%', objectFit: academyImage(post)?.kind === 'owned-product' ? 'contain' : 'cover',
+                      background: academyImage(post)?.kind === 'owned-product' ? '#fff' : undefined }}
         />
       </div>
 

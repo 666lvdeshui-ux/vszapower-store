@@ -1,5 +1,5 @@
 'use client';
-import { academyImageAlt, academyImageSources } from '@/lib/academyImages';
+import { academyImage, academyImageAlt, academyImageSources } from '@/lib/academyImages';
 import { localizePost } from '@/lib/postI18n';
 
 import React, { useState, useEffect } from 'react';
@@ -109,7 +109,8 @@ export default function BlogPreview({ posts: initialPosts = [] }: {posts?: PostI
                     style={{
                       width: '100%',
                       height: '100%',
-                      objectFit: 'cover',
+                      objectFit: academyImage(post)?.kind === 'owned-product' ? 'contain' : 'cover',
+                      background: academyImage(post)?.kind === 'owned-product' ? '#fff' : undefined,
                       transition: 'transform 0.5s ease',
                     }}
                     className="preview-cover-img"
