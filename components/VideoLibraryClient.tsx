@@ -10,8 +10,8 @@ export function VideoCard({ video }: { video: VideoItem }) {
   const { lang } = useLanguage();
   const copy = videoCopy(lang), text = localizedVideo(video, lang), info = videoInfo(video);
   return <article className="glass-panel" style={{ borderRadius:16, overflow:'hidden', display:'flex',flexDirection:'column' }}>
-    <Link href={videoPath(video)} aria-label={`${copy.watch}: ${text.title}`} style={{display:'block',position:'relative',aspectRatio:'16 / 10',background:'#090d16'}}>
-      {video.poster_url && <img src={video.poster_url} alt={text.title} loading="lazy" decoding="async" style={{display:'block',width:'100%',height:'100%',objectFit:'contain'}} />}
+    <Link href={videoPath(video)} aria-label={`${copy.watch}: ${text.title}`} style={{display:'block',position:'relative',aspectRatio:'16 / 10',flexShrink:0,overflow:'hidden',background:'#090d16'}}>
+      {video.poster_url && <img src={video.poster_url} alt={text.title} loading="lazy" decoding="async" style={{display:'block',position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'contain'}} />}
       <span style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)',width:48,height:48,borderRadius:'50%',display:'grid',placeItems:'center',background:'var(--accent-green)',color:'#061710'}}><Play size={22}/></span>
       <span style={{position:'absolute',bottom:10,right:10,borderRadius:6,padding:'3px 7px',background:'#000b',color:'#fff',fontSize:12}}>{video.duration}</span>
     </Link>
