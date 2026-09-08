@@ -9,7 +9,7 @@ meta_description: "Compare LIR2032, ML2032 and CR2032 charging rules, usable ene
 category: "Battery Academy"
 keywords: ["LIR2032", "ML2032", "CR2032", "coin cell chemistry", "CC/CV charging", "OEM battery selection", "battery TCO"]
 author: "VSZAPOWER Editorial Team"
-cover_image: "https://www.vszapower.com/oem/oem_battery_testing.png"
+cover_image: "https://www.vszapower.com/academy/images/lir-ml-cr-chemistry.webp"
 ---
 
 ## Start with chemistry, not the 2032 footprint

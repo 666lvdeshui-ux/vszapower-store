@@ -1,4 +1,5 @@
 import { applyReviewDisplay } from './productReviews';
+import { validateAcademyImage } from './academyImageValidation';
 import { normalizeTranslations } from './postI18n';
 import { MOCK_POSTS, serverSupabase, supabase } from './supabase';
 import { catalog, catalogFallbackProduct } from './catalog';
@@ -570,7 +571,7 @@ export async function savePost(post: Partial<PostItem>): Promise<PostItem> {
     content: post.content || '',
     category: post.category || 'Battery Academy',
     tags: Array.isArray(post.tags) ? post.tags : ['纽扣电池充电器', 'LIR2032'],
-    cover_image: post.cover_image || 'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=1200&q=80',
+    cover_image: post.cover_image || '',
     author: post.author || 'Vszapower Tech Team',
     read_time: post.read_time || '5 min read',
     published: post.published ?? true,
@@ -578,6 +579,8 @@ export async function savePost(post: Partial<PostItem>): Promise<PostItem> {
     created_at: post.created_at || new Date().toISOString(),
   };
 
+
+  validateAcademyImage(newPost, [...await fetchAllPosts(), ...(MOCK_POSTS as PostItem[])]);
 
   // Persist complete translations with the article; fail visibly on database errors.
   if (database) {

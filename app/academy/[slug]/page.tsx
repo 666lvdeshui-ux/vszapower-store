@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import AcademyArticleClient from '@/components/AcademyArticleClient';
 import { localizePost } from '@/lib/postI18n';
+import { academyImage, academyImageAlt } from '@/lib/academyImages';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -33,9 +34,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       images: [
         {
           url: post.cover_image,
-          width: 1200,
-          height: 630,
-          alt: post.title,
+          width: academyImage(post) ? 1280 : 1200,
+          height: academyImage(post) ? 720 : 630,
+          alt: academyImageAlt(post, 'en', post.title),
         },
       ],
       type: 'article',

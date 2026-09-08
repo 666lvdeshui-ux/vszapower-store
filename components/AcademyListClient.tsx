@@ -1,4 +1,5 @@
 'use client';
+import { academyImageAlt, academyImageSources } from '@/lib/academyImages';
 import { academyCopy } from '@/lib/academyI18n';
 import { localizePost } from '@/lib/postI18n';
 
@@ -252,7 +253,11 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
                 <div style={{ position: 'relative', overflow: 'hidden', minHeight: '220px' }}>
                   <img
                     src={post.cover_image}
-                    alt={translatedTitle}
+                    srcSet={academyImageSources(post)}
+                    sizes="(max-width: 700px) 100vw, 420px"
+                    loading="lazy"
+                    decoding="async"
+                    alt={academyImageAlt(post, lang, translatedTitle)}
                     style={{
                       width: '100%',
                       height: '100%',
@@ -399,7 +404,11 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
                 <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
                   <img
                     src={post.cover_image}
-                    alt={translatedTitle}
+                    srcSet={academyImageSources(post)}
+                    sizes="(max-width: 700px) 100vw, 420px"
+                    loading="lazy"
+                    decoding="async"
+                    alt={academyImageAlt(post, lang, translatedTitle)}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                   <span style={{

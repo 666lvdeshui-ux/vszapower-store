@@ -1,4 +1,5 @@
 'use client';
+import { academyImageAlt, academyImageSources, academyImageCaption } from '@/lib/academyImages';
 
 import { catalog, productPath, compatibilityNote } from '@/lib/catalog';
 import React from 'react';
@@ -124,10 +125,16 @@ export default function AcademyArticleClient({ post, formattedDate }: AcademyArt
       }}>
         <img
           src={post.cover_image}
-          alt={translatedTitle}
+                    srcSet={academyImageSources(post)}
+                    sizes="(max-width: 860px) 100vw, 812px"
+                    loading="eager"
+                    decoding="async"
+          alt={academyImageAlt(post, lang, translatedTitle)}
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
       </div>
+
+      {academyImageCaption(post, lang) && <p style={{color:'var(--text-muted)',fontSize:'0.78rem',marginTop:'-30px',marginBottom:'32px'}}>{academyImageCaption(post, lang)}</p>}
 
       <nav aria-label="Product documentation" style={{display:'flex',flexWrap:'wrap',gap:16,marginBottom:24}}><a href="/compliance">Model-specific test documentation</a><a href="/coin-cell-charger-manufacturer">Charger manufacturing &amp; OEM</a></nav>
       {/* Content Rendering with Real-time i18n Translation */}

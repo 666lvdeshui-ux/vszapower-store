@@ -1,4 +1,5 @@
 'use client';
+import { academyImageAlt, academyImageSources } from '@/lib/academyImages';
 import { localizePost } from '@/lib/postI18n';
 
 import React, { useState, useEffect } from 'react';
@@ -100,7 +101,11 @@ export default function BlogPreview({ posts: initialPosts = [] }: {posts?: PostI
                 <div style={{ position: 'relative', overflow: 'hidden', aspectRatio: '16 / 9', background: '#090d16' }}>
                   <img
                     src={post.cover_image}
-                    alt={translatedTitle}
+                    srcSet={academyImageSources(post)}
+                    sizes="(max-width: 700px) 100vw, 420px"
+                    loading="lazy"
+                    decoding="async"
+                    alt={academyImageAlt(post, lang, translatedTitle)}
                     style={{
                       width: '100%',
                       height: '100%',

@@ -1,0 +1,290 @@
+[
+  {
+    "slug": "lir2032-cc-cv-charging-curve-termination-guide",
+    "file": "/academy/images/vszapower-002-cc-cv-guide.webp",
+    "alt": {
+      "en": "VSZAPOWER-002 single-slot charger",
+      "zh": "VSZAPOWER-002 单槽充电器"
+    },
+    "kind": "owned-product"
+  },
+  {
+    "slug": "lir-ml-cr-coin-cell-chemistry-selection-b2b",
+    "file": "/academy/images/lir-ml-cr-chemistry.webp",
+    "alt": {
+      "en": "Concept illustration: Three separate coin-cell chemistry paths.",
+      "zh": "概念示意图：LIR、ML、CR 三种纽扣电池体系示意。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "lir2032-3.7v-vs-cr2032-3.0v-device-voltage-safety-guide",
+    "file": "/academy/images/voltage-compatibility.webp",
+    "alt": {
+      "en": "Concept illustration: Coin-cell voltage checking before device installation.",
+      "zh": "概念示意图：装入设备前核对纽扣电池电压。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "lir2032-charger-wholesale-buying-guide-dual-slot-vs-quad-slot",
+    "file": "/academy/images/vz002-dual-slot-buying-guide.webp",
+    "alt": {
+      "en": "VSZAPOWER VZ002 dual-slot charger",
+      "zh": "VSZAPOWER VZ002 双槽充电器"
+    },
+    "kind": "owned-product"
+  },
+  {
+    "slug": "2026-top-lir2032-charger-manufacturer-micro-current-safety-guide",
+    "file": "/academy/images/vz002-single-slot-manufacturer.webp",
+    "alt": {
+      "en": "VSZAPOWER VZ002 single-slot charger product image",
+      "zh": "VSZAPOWER VZ002 单槽充电器产品图"
+    },
+    "kind": "owned-product"
+  },
+  {
+    "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide-1786095004189-1",
+    "file": "/academy/images/multisize-cell-selection.webp",
+    "alt": {
+      "en": "Concept illustration: Coin-cell size selection with a digital caliper.",
+      "zh": "概念示意图：使用卡尺选择不同尺寸的纽扣电池。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "lir1632-lir1220-micro-coin-cell-charger-tech-1786095004189-2",
+    "file": "/academy/images/miniature-holder-design.webp",
+    "alt": {
+      "en": "Concept illustration: Miniature coin-cell inspection with a magnifier.",
+      "zh": "概念示意图：使用放大镜检查微型纽扣电池。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "lir1632-lir1220-micro-coin-cell-charger-tech-1786008603523-1",
+    "file": "/academy/images/precision-sensor-power.webp",
+    "alt": {
+      "en": "Concept illustration: Measuring coin-cell thickness with a micrometer.",
+      "zh": "概念示意图：使用千分尺测量纽扣电池厚度。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "ml2032-vs-lir2032-3v-charger-compatibility-1786008603523-2",
+    "file": "/academy/images/solar-watch-power.webp",
+    "alt": {
+      "en": "Concept illustration: Solar watch dial and rechargeable backup-cell concept.",
+      "zh": "概念示意图：太阳能手表表盘与后备纽扣电池示意。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "ml2032-vs-lir2032-3v-charger-compatibility-1785922203984-1",
+    "file": "/academy/images/rtc-backup-circuit.webp",
+    "alt": {
+      "en": "Concept illustration: Real-time clock backup circuit inspection.",
+      "zh": "概念示意图：实时时钟后备电源电路检查。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "airtag-keyfob-lir2032-lir2450-charger-solution-1785835803833-2",
+    "file": "/academy/images/smart-lock-service.webp",
+    "alt": {
+      "en": "Concept illustration: Smart-lock battery compartment inspection.",
+      "zh": "概念示意图：智能门锁电池仓检查。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide-1785749407303-1",
+    "file": "/academy/images/vz002-single-slot-sample.webp",
+    "alt": {
+      "en": "VZ002 single-slot exterior sample, report A2601422",
+      "zh": "VZ002 单槽外观样品，报告 A2601422"
+    },
+    "kind": "owned-product"
+  },
+  {
+    "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide-1785663003908-2",
+    "file": "/academy/images/vz002-dual-slot-sample.webp",
+    "alt": {
+      "en": "VZ002 dual-slot exterior sample, report A2607200",
+      "zh": "VZ002 双槽外观样品，报告 A2607200"
+    },
+    "kind": "owned-product"
+  },
+  {
+    "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide-1785576020902-1",
+    "file": "/academy/images/lir2032-rechargeable-selection.webp",
+    "alt": {
+      "en": "VSZAPOWER LIR2032 rechargeable coin-cell product image",
+      "zh": "VSZAPOWER LIR2032 可充电纽扣电池产品图"
+    },
+    "kind": "owned-product"
+  },
+  {
+    "slug": "lir1632-lir1220-micro-coin-cell-charger-tech-1785576020902-2",
+    "file": "/academy/images/wearable-miniature-power.webp",
+    "alt": {
+      "en": "Concept illustration: Miniature wearable sensor and separate button cell.",
+      "zh": "概念示意图：微型穿戴传感器与独立纽扣电池。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide-1785489240911-1",
+    "file": "/academy/images/lir2025-rechargeable-selection.webp",
+    "alt": {
+      "en": "VSZAPOWER LIR2025 rechargeable coin-cell product image",
+      "zh": "VSZAPOWER LIR2025 可充电纽扣电池产品图"
+    },
+    "kind": "owned-product"
+  },
+  {
+    "slug": "lir1632-lir1220-micro-coin-cell-charger-tech-1785489240912-2",
+    "file": "/academy/images/vszapower-002-sample.webp",
+    "alt": {
+      "en": "VSZAPOWER-002 exterior sample, report A2605238",
+      "zh": "VSZAPOWER-002 外观样品，报告 A2605238"
+    },
+    "kind": "owned-product"
+  },
+  {
+    "slug": "lir1632-lir1220-micro-coin-cell-charger-tech-1785404034415-1",
+    "file": "/academy/images/chemistry-specific-chargers.webp",
+    "alt": {
+      "en": "Concept illustration: Different coin-cell voltage profiles.",
+      "zh": "概念示意图：不同纽扣电池电压曲线。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "ml2032-vs-lir2032-3v-charger-compatibility-1785404034415-2",
+    "file": "/academy/images/key-fob-maintenance.webp",
+    "alt": {
+      "en": "Concept illustration: Car key-fob coin-cell compartment maintenance.",
+      "zh": "概念示意图：汽车钥匙纽扣电池仓维护。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide-1785380508593-2",
+    "file": "/academy/images/tracker-battery-check.webp",
+    "alt": {
+      "en": "Concept illustration: Tracking-tag battery compartment and compatibility check.",
+      "zh": "概念示意图：定位标签电池仓与兼容性检查。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide-1785318058696-1",
+    "file": "/academy/images/lir2016-rechargeable-selection.webp",
+    "alt": {
+      "en": "VSZAPOWER LIR2016 rechargeable coin-cell product image",
+      "zh": "VSZAPOWER LIR2016 可充电纽扣电池产品图"
+    },
+    "kind": "owned-product"
+  },
+  {
+    "slug": "lir1632-lir1220-micro-coin-cell-charger-tech-1785291111804-2",
+    "file": "/academy/images/miniature-cell-handling.webp",
+    "alt": {
+      "en": "Concept illustration: Precision handling of small coin cells.",
+      "zh": "概念示意图：微型纽扣电池精密取放。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "airtag-keyfob-lir2032-lir2450-charger-solution",
+    "file": "/academy/images/battery-service-costs.webp",
+    "alt": {
+      "en": "Concept illustration: Coin-cell service planning and operating costs.",
+      "zh": "概念示意图：纽扣电池维护计划与使用成本。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "ml2032-vs-lir2032-3v-charger-compatibility",
+    "file": "/academy/images/ml-lir-materials.webp",
+    "alt": {
+      "en": "Concept illustration: Different electrode materials in coin cells.",
+      "zh": "概念示意图：纽扣电池不同电极材料。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide",
+    "file": "/academy/images/vz002-single-slot-selection.webp",
+    "alt": {
+      "en": "VZ002 single-slot charger with USB cable",
+      "zh": "VZ002 单槽充电器与 USB 线"
+    },
+    "kind": "owned-product"
+  },
+  {
+    "slug": "cr2032-vs-lir2032-can-you-recharge-them",
+    "file": "/academy/images/primary-vs-rechargeable.webp",
+    "alt": {
+      "en": "Concept illustration: Primary and rechargeable coin-cell lifecycle comparison.",
+      "zh": "概念示意图：一次性与可充电纽扣电池生命周期对比。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "the-ultimate-guide-to-rechargeable-coin-cell-batteries",
+    "file": "/academy/images/coin-cell-dimensions.webp",
+    "alt": {
+      "en": "Concept illustration: Coin-cell diameter and thickness comparison.",
+      "zh": "概念示意图：纽扣电池直径与厚度选型对比。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "airtag-battery-life-and-lir2032-compatibility-lab-test",
+    "file": "/academy/images/tracker-runtime-evaluation.webp",
+    "alt": {
+      "en": "Concept illustration: Tracking-device runtime evaluation setup.",
+      "zh": "概念示意图：定位设备续航评估示意。"
+    },
+    "kind": "concept"
+  },
+  {
+    "slug": "coin-cell-charging-safety-and-smart-chip-tech",
+    "file": "/academy/images/white-charger-lir2032-kit.webp",
+    "alt": {
+      "en": "VSZAPOWER white single-slot charger and LIR2032 pack",
+      "zh": "VSZAPOWER 白色单槽充电器与 LIR2032 电池套装"
+    },
+    "kind": "owned-product"
+  },
+  {
+    "slug": "lir2450-wholesale-iot-zigbee-smart-lock-battery-guide",
+    "file": "/academy/images/lir2450-iot-sourcing.webp",
+    "alt": {
+      "en": "VSZAPOWER LIR2450 rechargeable coin-cell product image",
+      "zh": "VSZAPOWER LIR2450 可充电纽扣电池产品图"
+    },
+    "kind": "owned-product"
+  },
+  {
+    "slug": "ml2032-vs-lir2032-manganese-rechargeable-vs-lithium-ion-deep-comparison",
+    "file": "/academy/images/ml2032-chemistry-selection.webp",
+    "alt": {
+      "en": "VSZAPOWER ML2032 rechargeable coin-cell product image",
+      "zh": "VSZAPOWER ML2032 可充电纽扣电池产品图"
+    },
+    "kind": "owned-product"
+  },
+  {
+    "slug": "cr2032-disposable-vs-lir2032-rechargeable-500-cycle-roi-ewaste-analysis",
+    "file": "/academy/images/circular-battery-economics.webp",
+    "alt": {
+      "en": "Concept illustration: Battery reuse and responsible collection concept.",
+      "zh": "概念示意图：电池重复使用与分类回收示意。"
+    },
+    "kind": "concept"
+  }
+]

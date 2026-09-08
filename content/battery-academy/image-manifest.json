@@ -1,0 +1,538 @@
+{
+  "version": 1,
+  "date": "2026-09-08",
+  "generationPrompt": "Create ONE finished 16:9 landscape editorial cover, premium scientific 3D illustration for a coin-cell Battery Academy. Deep graphite/navy background, restrained emerald and cyan light, excellent brushed silver metal and realistic scale. Clearly an illustrative concept, NOT a real product photo, test record or proof of compatibility. No text, numbers, brands, logos, badges, certifications, watermark, people, smoke, sparks. No collage. Keep essential subject within central 80% for web crops, art-directed clean negative space. Scene:  IMPORTANT: Never depict a charger, charging dock or charging test fixture. ",
+  "entries": [
+    {
+      "id": "academy30-02-lir2032-cccv",
+      "slug": "lir2032-cc-cv-charging-curve-termination-guide",
+      "title": "LIR2032 CC/CV Charging Curve: Current, Time and Termination",
+      "file": "/academy/images/vszapower-002-cc-cv-guide.webp",
+      "alt": {
+        "en": "VSZAPOWER-002 single-slot charger",
+        "zh": "VSZAPOWER-002 单槽充电器"
+      },
+      "source": "Existing VSZAPOWER product library",
+      "kind": "owned-product",
+      "sourceAsset": "/products/single-direct-charger.png",
+      "sourceSha256": "999f609bf43998267b22e29df5e8562544604e59114214ca24a51dc787fd3954",
+      "sha256": "d034487ec58533a6e5c791b47af2951ec61d0b69e2cb210a49ac25c5c9d7eeca",
+      "bytes": 17432
+    },
+    {
+      "id": "academy30-01-lir-ml-cr",
+      "slug": "lir-ml-cr-coin-cell-chemistry-selection-b2b",
+      "title": "LIR vs ML vs CR Coin Cells: A B2B Chemistry Selection Guide",
+      "file": "/academy/images/lir-ml-cr-chemistry.webp",
+      "alt": {
+        "en": "Concept illustration: Three separate coin-cell chemistry paths.",
+        "zh": "概念示意图：LIR、ML、CR 三种纽扣电池体系示意。"
+      },
+      "scene": "Three silver coin cells on three separate graphite plinths, separated paths of light: teal looping path, cyan looping path, warm amber one-way path. Top-down diagonal arrangement, no electrical connections between batteries.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-317b56aa-a6a8-4c9f-918f-b3a14edd7dd7.png",
+      "sourceSha256": "c1fb04cb3afd47c8e17f296bcf837a7fe109dcdd9f1c2e78fd9c8970939dd1b9",
+      "sha256": "093d839eef1e43a1bafcc77b573c2fde3b151e790d79f1b837be59cc5985037d",
+      "bytes": 53960
+    },
+    {
+      "id": "post_day1_lir2032_voltage_safety",
+      "slug": "lir2032-3.7v-vs-cr2032-3.0v-device-voltage-safety-guide",
+      "title": "LIR2032 3.7V vs CR2032 3.0V: Is Your Electronic Device Safe with Higher Voltage?",
+      "file": "/academy/images/voltage-compatibility.webp",
+      "alt": {
+        "en": "Concept illustration: Coin-cell voltage checking before device installation.",
+        "zh": "概念示意图：装入设备前核对纽扣电池电压。"
+      },
+      "scene": "Exploded conceptual coin-cell powered sensor housing suspended above an EMPTY circular battery socket, a silver cell separated at left, amber boundary shield between cell and electronics. Emphasize checking compatibility, no charging or electrical connection. Angled macro.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-1a042d0f-aacf-4fcd-aecc-ac15a5c285d3.png",
+      "sourceSha256": "b0380d453991b8e06ab627b3c08b922c43a88444840ba1bcfa5cd3bda4151254",
+      "sha256": "ce0a33c574aaec55ae686cd67935b1c06a48b8d7987b917aea7cdbd17b6d6cdb",
+      "bytes": 62876
+    },
+    {
+      "id": "post_lir2032_charger_wholesale_buying_guide",
+      "slug": "lir2032-charger-wholesale-buying-guide-dual-slot-vs-quad-slot",
+      "title": "LIR2032 Charger Wholesale Buying Guide: Dual-Slot vs Quad-Slot & Clip Docks",
+      "file": "/academy/images/vz002-dual-slot-buying-guide.webp",
+      "alt": {
+        "en": "VSZAPOWER VZ002 dual-slot charger",
+        "zh": "VSZAPOWER VZ002 双槽充电器"
+      },
+      "source": "Existing VSZAPOWER product library",
+      "kind": "owned-product",
+      "sourceAsset": "/products/clip-dual-charger.png",
+      "sourceSha256": "d934ade5ac258a7a1d63c0b38047cbabf2a598b5b6129b0cf7ad4887d298e1d3",
+      "sha256": "1054b303fdfd664243a9c419d5383f9c179e7c2a6c5a3dab4c086bf2aa4f0323",
+      "bytes": 28778
+    },
+    {
+      "id": "post_lir2032_charger_manufacturer_guide_2026",
+      "slug": "2026-top-lir2032-charger-manufacturer-micro-current-safety-guide",
+      "title": "2026 Top LIR2032 Charger Manufacturer & Micro-current Safety Guide",
+      "file": "/academy/images/vz002-single-slot-manufacturer.webp",
+      "alt": {
+        "en": "VSZAPOWER VZ002 single-slot charger product image",
+        "zh": "VSZAPOWER VZ002 单槽充电器产品图"
+      },
+      "source": "Owner's existing product artwork",
+      "kind": "owned-product",
+      "sourceAsset": "充电器详情/3.png",
+      "sourceSha256": "a863e68303607c38133d2dbac23f4f41569be2dc04c7f6025008ee62f6da3952",
+      "sha256": "81441a6ec9834096e3f45119317fa6436fe33fbe8e7329cc888c4d883c595f1c",
+      "bytes": 34412
+    },
+    {
+      "id": "post_1786095004189",
+      "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide-1786095004189-1",
+      "title": "[Daily Coin Cell Tech] LIR2032 / LIR2025 / LIR2016 / LIR2450 Smart Coin Cell Charger Selection & Micro-Current Protection Guide (2026-08-07 Edition)",
+      "file": "/academy/images/multisize-cell-selection.webp",
+      "alt": {
+        "en": "Concept illustration: Coin-cell size selection with a digital caliper.",
+        "zh": "概念示意图：使用卡尺选择不同尺寸的纽扣电池。"
+      },
+      "scene": "Overhead still life: four silver coin cells of visibly different diameters and thicknesses laid flat without touching, a precision caliper measuring a detached small cell. No numbers on caliper, blank display, emerald surface mat.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-a2b7d3dd-cff9-4b08-9c9f-0885f1e48ad3.png",
+      "sourceSha256": "100610e68c618780f49255bdd3c755019a4ace1a118753de640c1bf70c305c39",
+      "sha256": "ec1caa200d802b6b8d2933a9a25e3b8941314a9306059c3e7c9e4d3ced9e513b",
+      "bytes": 88536
+    },
+    {
+      "id": "post_1786095004522",
+      "slug": "lir1632-lir1220-micro-coin-cell-charger-tech-1786095004189-2",
+      "title": "[Battery Academy Special] LIR1632 & LIR1220 Micro Rechargeable Button Battery Charger Docks & Precision Equipment Power Solutions (2026-08-07 Issue)",
+      "file": "/academy/images/miniature-holder-design.webp",
+      "alt": {
+        "en": "Concept illustration: Miniature coin-cell inspection with a magnifier.",
+        "zh": "概念示意图：使用放大镜检查微型纽扣电池。"
+      },
+      "scene": "Tiny silver button cells arranged separately in individual recesses on a black precision component tray, one magnifying loupe enlarging the rim of a single cell. No charger, socket, holder, PCB, circuit board or cable anywhere. Macro still life with exceptional scale and texture.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-96753d85-5383-4331-b1c8-26f2c12523d9.png",
+      "sourceSha256": "7517373a69c9316a8586d8a9d1641fb496ed744ddc6131c588939ec49a019e18",
+      "sha256": "f6f790ad5fc2d7a87910392951af8a27b6a84a98f44c7bee91278beaadeed90f",
+      "bytes": 74468
+    },
+    {
+      "id": "post_1786008603523",
+      "slug": "lir1632-lir1220-micro-coin-cell-charger-tech-1786008603523-1",
+      "title": "[Daily Coin Cell Tech] LIR1632 & LIR1220 Micro Rechargeable Button Battery Charger Docks & Precision Equipment Power Solutions (2026-08-06 Edition)",
+      "file": "/academy/images/precision-sensor-power.webp",
+      "alt": {
+        "en": "Concept illustration: Measuring coin-cell thickness with a micrometer.",
+        "zh": "概念示意图：使用千分尺测量纽扣电池厚度。"
+      },
+      "scene": "A steel micrometer with its spindle poised around the thickness of a tiny silver coin cell, standalone measurement on a charcoal metrology bench, blurred unnumbered scale. No charger, socket, PCB or cables. Side-view extreme macro.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-9e5ee086-0c9e-4d77-9797-dd69079b9305.png",
+      "sourceSha256": "f0ebd0d4d493b5efc95399e913fd36befdbf501b4edd994c3f76687aa81ac646",
+      "sha256": "f18d9e94a776d18a30919b88fc3d692183104aa9c05d8252ee0c0ea89b0f3f1b",
+      "bytes": 86630
+    },
+    {
+      "id": "post_1786008603857",
+      "slug": "ml2032-vs-lir2032-3v-charger-compatibility-1786008603523-2",
+      "title": "[Battery Academy Special] ML2032 (3.0V) vs LIR2032 (3.7V) Button Battery Chargers: CMOS Motherboard & Solar Watch Charging Guide (2026-08-06 Issue)",
+      "file": "/academy/images/solar-watch-power.webp",
+      "alt": {
+        "en": "Concept illustration: Solar watch dial and rechargeable backup-cell concept.",
+        "zh": "概念示意图：太阳能手表表盘与后备纽扣电池示意。"
+      },
+      "scene": "Elegant exploded-view of an unbranded solar wristwatch: black segmented solar dial above movement, EMPTY battery recess visible, small detached silver coin cell. Charcoal background with soft morning light. No compatibility claims or labels.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-8250b21f-127b-4c5c-b990-88dd351db1da.png",
+      "sourceSha256": "d6d5500fef04a5a9b1cf45afda6ca6dc96b5d07dbe38ec3a86eb37d300d942d5",
+      "sha256": "e3ea3cf4e56e6053c1e6cbc17f50e708bb402d7d0f31599be7b6a6d7d92ba7b8",
+      "bytes": 41408
+    },
+    {
+      "id": "post_1785922203985",
+      "slug": "ml2032-vs-lir2032-3v-charger-compatibility-1785922203984-1",
+      "title": "[Daily Coin Cell Tech] ML2032 (3.0V) vs LIR2032 (3.7V) Button Battery Chargers: CMOS Motherboard & Solar Watch Charging Guide (2026-08-05 Edition)",
+      "file": "/academy/images/rtc-backup-circuit.webp",
+      "alt": {
+        "en": "Concept illustration: Real-time clock backup circuit inspection.",
+        "zh": "概念示意图：实时时钟后备电源电路检查。"
+      },
+      "scene": "Close macro of RTC circuit concept on emerald PCB, quartz crystal can and black chip in foreground with an EMPTY round backup-battery holder in rear; separate silver cell on dark mat at left, no charger connection.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-7fc956e0-2dcc-424b-b0db-5774cc58d664.png",
+      "sourceSha256": "fd6fdffe9f2f7a86420a19a08479757f36b784e224a1cf66f89eed343480bccb",
+      "sha256": "4ecd8e262a4cbbbf973d02efec6314f214c2bf767c0f649a00fed67ac4518411",
+      "bytes": 115158
+    },
+    {
+      "id": "post_1785835804161",
+      "slug": "airtag-keyfob-lir2032-lir2450-charger-solution-1785835803833-2",
+      "title": "[Battery Academy Special] AirTag / Car Key Fob / Smart Lock Battery Replacement Cost & B2B Wholesale Charger Analysis (2026-08-04 Issue)",
+      "file": "/academy/images/smart-lock-service.webp",
+      "alt": {
+        "en": "Concept illustration: Smart-lock battery compartment inspection.",
+        "zh": "概念示意图：智能门锁电池仓检查。"
+      },
+      "scene": "Unbranded electronic cabinet cam lock disassembled on dark servicing mat, compact circuit board and EMPTY small circular backup-cell recess visible, one detached coin cell and insulated plastic spudger nearby. Horizontal front perspective, brass lock cylinder.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-4939bedf-f6ab-4109-8eca-93cab5c4eb77.png",
+      "sourceSha256": "22cfab881535711433bb943a8dc60895b732775080cfff6a21feb377a3ad04f5",
+      "sha256": "e91bb88168bc3a09a890c2afcfc5eb5e69bf965198b455acb359aa7a25d91e33",
+      "bytes": 69190
+    },
+    {
+      "id": "post_1785749407303",
+      "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide-1785749407303-1",
+      "title": "[Daily Coin Cell Tech] LIR2032 / LIR2025 / LIR2016 / LIR2450 Smart Coin Cell Charger Selection & Micro-Current Protection Guide (2026-08-03 Edition)",
+      "file": "/academy/images/vz002-single-slot-sample.webp",
+      "alt": {
+        "en": "VZ002 single-slot exterior sample, report A2601422",
+        "zh": "VZ002 单槽外观样品，报告 A2601422"
+      },
+      "source": "Existing public exterior report sample photo",
+      "kind": "owned-product",
+      "sourceAsset": "/compliance/samples/a2601422.jpg",
+      "sourceSha256": "8b34f7b28bae0e9e78d9c9fc42bcf2e2bc402cf5b2bd92a88e718b0b45b9b828",
+      "sha256": "68aae15d04281cfd56e887ea6a481250b4b53b88d99fb43a5183c92ccb7c9235",
+      "bytes": 196122
+    },
+    {
+      "id": "post_1785663004256",
+      "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide-1785663003908-2",
+      "title": "[Battery Academy Special] LIR2032 / LIR2025 / LIR2016 / LIR2450 Smart Coin Cell Charger Selection & Micro-Current Protection Guide (2026-08-02 Issue)",
+      "file": "/academy/images/vz002-dual-slot-sample.webp",
+      "alt": {
+        "en": "VZ002 dual-slot exterior sample, report A2607200",
+        "zh": "VZ002 双槽外观样品，报告 A2607200"
+      },
+      "source": "Existing public exterior report sample photo",
+      "kind": "owned-product",
+      "sourceAsset": "/compliance/samples/a2607200.jpg",
+      "sourceSha256": "d006ad8e84e7edc891c5da74b4fed02a595bc507c32059485ef60a5f97e7ded0",
+      "sha256": "7fd4b52f0f85243df8db455e43b49f08c9922c35ddb038a2da59f1f8d32afb57",
+      "bytes": 159520
+    },
+    {
+      "id": "post_1785576020902",
+      "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide-1785576020902-1",
+      "title": "[Daily Coin Cell Tech] LIR2032 / LIR2025 / LIR2016 / LIR2450 Smart Coin Cell Charger Selection & Micro-Current Protection Guide (2026-08-01 Edition)",
+      "file": "/academy/images/lir2032-rechargeable-selection.webp",
+      "alt": {
+        "en": "VSZAPOWER LIR2032 rechargeable coin-cell product image",
+        "zh": "VSZAPOWER LIR2032 可充电纽扣电池产品图"
+      },
+      "source": "Existing VSZAPOWER product library",
+      "kind": "owned-product",
+      "sourceAsset": "/products/prod_lir2032_battery.jpg",
+      "sourceSha256": "2e297596401560acbb49727fb92e1db9d4145d81eaa740bec7092ebae4108538",
+      "sha256": "3993c88d95831f2344c0a0237152b3a029f94fd260f6c2bf7ce0503b15908370",
+      "bytes": 56380
+    },
+    {
+      "id": "post_1785576021071",
+      "slug": "lir1632-lir1220-micro-coin-cell-charger-tech-1785576020902-2",
+      "title": "[Battery Academy Special] LIR1632 & LIR1220 Micro Rechargeable Button Battery Charger Docks & Precision Equipment Power Solutions (2026-08-01 Issue)",
+      "file": "/academy/images/wearable-miniature-power.webp",
+      "alt": {
+        "en": "Concept illustration: Miniature wearable sensor and separate button cell.",
+        "zh": "概念示意图：微型穿戴传感器与独立纽扣电池。"
+      },
+      "scene": "A tiny unbranded wearable sensor exterior beside its detached silver button cell and detached rear cover. No charger or dock of any kind. Emerald translucent shell subtly reveals an internal board but no connection, elegant wide composition.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-a357e8c4-6440-48e9-9a4a-03cba5215d35.png",
+      "sourceSha256": "39dd3625cec917ebe9644a67bdaa006e59cf1143fc887b933c2415d3064d1da3",
+      "sha256": "ee00a2a424896b52b0ace1893a1ccb0b657290c08888ada1d34f3650f5110b0c",
+      "bytes": 39688
+    },
+    {
+      "id": "post_1785489240912",
+      "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide-1785489240911-1",
+      "title": "[Daily Coin Cell Tech] LIR2032 / LIR2025 / LIR2016 / LIR2450 Smart Coin Cell Charger Selection & Micro-Current Protection Guide (2026-07-31 Edition)",
+      "file": "/academy/images/lir2025-rechargeable-selection.webp",
+      "alt": {
+        "en": "VSZAPOWER LIR2025 rechargeable coin-cell product image",
+        "zh": "VSZAPOWER LIR2025 可充电纽扣电池产品图"
+      },
+      "source": "Existing VSZAPOWER product library",
+      "kind": "owned-product",
+      "sourceAsset": "/products/prod_lir2025_battery.png",
+      "sourceSha256": "f249026de7531d040f253884ea8beb6d3bbbef8b3d10d0315e872e7f4b504cd6",
+      "sha256": "09ef81729817714036b3da9f30e74b62396462c86a7dac90957d2e14f1aabe0d",
+      "bytes": 27918
+    },
+    {
+      "id": "post_1785489241070",
+      "slug": "lir1632-lir1220-micro-coin-cell-charger-tech-1785489240912-2",
+      "title": "[Battery Academy Special] LIR1632 & LIR1220 Micro Rechargeable Button Battery Charger Docks & Precision Equipment Power Solutions (2026-07-31 Issue)",
+      "file": "/academy/images/vszapower-002-sample.webp",
+      "alt": {
+        "en": "VSZAPOWER-002 exterior sample, report A2605238",
+        "zh": "VSZAPOWER-002 外观样品，报告 A2605238"
+      },
+      "source": "Existing public exterior report sample photo",
+      "kind": "owned-product",
+      "sourceAsset": "/compliance/samples/a2605238.jpg",
+      "sourceSha256": "f65965e76d97673299e800c0e490ec0444d9033303afd71c57b137724423ea52",
+      "sha256": "7f7894334b676e489c1040bd643fef7d4349712a68e3e1dfd7f177a4f306f71d",
+      "bytes": 164962
+    },
+    {
+      "id": "post_1785404034416",
+      "slug": "lir1632-lir1220-micro-coin-cell-charger-tech-1785404034415-1",
+      "title": "[Daily Coin Cell Tech] ML2032 (3.0V) vs LIR2032 (3.7V) Button Battery Chargers: CMOS Motherboard & Solar Watch Charging Guide",
+      "file": "/academy/images/chemistry-specific-chargers.webp",
+      "alt": {
+        "en": "Concept illustration: Different coin-cell voltage profiles.",
+        "zh": "概念示意图：不同纽扣电池电压曲线。"
+      },
+      "scene": "Two silver coin cells on separate cyan and amber sample stands, each backed by a different smooth abstract voltage profile on translucent glass panels without any text or numbers. Chemistry-dependent profiles, never depict a charger, holder, circuit board or cable.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-fc678db2-76d9-428b-b16d-004797934c88.png",
+      "sourceSha256": "978ddc794d79be96ccb0a96b2f83e17ef0d1d9f556dbe6c0f9e08edd62181e50",
+      "sha256": "fc19bea9cc49aeb211bf351e42526f8d8288be19828734fd1d9c1b261ea1f239",
+      "bytes": 50538
+    },
+    {
+      "id": "post_1785404034798",
+      "slug": "ml2032-vs-lir2032-3v-charger-compatibility-1785404034415-2",
+      "title": "[Daily Coin Cell Tech] AirTag / Car Key Fob / Smart Lock Battery Replacement Cost & B2B Wholesale Charger Analysis",
+      "file": "/academy/images/key-fob-maintenance.webp",
+      "alt": {
+        "en": "Concept illustration: Car key-fob coin-cell compartment maintenance.",
+        "zh": "概念示意图：汽车钥匙纽扣电池仓维护。"
+      },
+      "scene": "Close illustrative disassembly of unbranded black key fob with three blank raised buttons, rear cover beside it, EMPTY battery socket, detached silver coin cell and small nonconductive opening tool, warm side light on charcoal desk. No charger.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-43d9b736-dc11-40a4-a14c-353c96db37ac.png",
+      "sourceSha256": "aa2da924eb51b366ebca7f75b5f8337087ce988ab81548ca1fb712692459b631",
+      "sha256": "28dae416e8a2afd498d38a5a5fbdbd93a344045a7d247f10950518bbfcab0c08",
+      "bytes": 89550
+    },
+    {
+      "id": "post_1785380508594",
+      "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide-1785380508593-2",
+      "title": "[Daily Coin Cell Tech] AirTag / Car Key Fob / Smart Lock Battery Replacement Cost & B2B Wholesale Charger Analysis",
+      "file": "/academy/images/tracker-battery-check.webp",
+      "alt": {
+        "en": "Concept illustration: Tracking-tag battery compartment and compatibility check.",
+        "zh": "概念示意图：定位标签电池仓与兼容性检查。"
+      },
+      "scene": "Unbranded generic square tracking tag with rounded corners, open battery cover and EMPTY coin-cell bay, detached cell, magnifier inspecting the bay; no Apple logo, no AirTag likeness or connection to charger. Cool cyan illumination, oblique top-down.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-8b9ef22b-ebf2-4dab-8c57-164b91dc19c6.png",
+      "sourceSha256": "8a3bb6c0e87d17e3111258c13b7558d8f2dfc414889a0daf446c68a785e88dbc",
+      "sha256": "b8b9178025639c5383663db9ec19add3d710372496a1aa48b23c51b7926b7066",
+      "bytes": 52898
+    },
+    {
+      "id": "post_1785318058696",
+      "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide-1785318058696-1",
+      "title": "[Daily Coin Cell Tech] LIR2032 / LIR2025 / LIR2016 / LIR2450 Smart Coin Cell Charger Selection & Micro-Current Protection Guide",
+      "file": "/academy/images/lir2016-rechargeable-selection.webp",
+      "alt": {
+        "en": "VSZAPOWER LIR2016 rechargeable coin-cell product image",
+        "zh": "VSZAPOWER LIR2016 可充电纽扣电池产品图"
+      },
+      "source": "Existing VSZAPOWER product library",
+      "kind": "owned-product",
+      "sourceAsset": "/products/prod_lir2016_battery.png",
+      "sourceSha256": "362f32ae94f7f811217dba22aadb39b835b04fe5aa8a152b196996fc539b3191",
+      "sha256": "6dc248846d5ce44b5c8338e8226b1b3e54c3cf42b16ba61385daddc8e0622c27",
+      "bytes": 28878
+    },
+    {
+      "id": "post_1785291111963",
+      "slug": "lir1632-lir1220-micro-coin-cell-charger-tech-1785291111804-2",
+      "title": "[Daily Coin Cell Tech] LIR1632 & LIR1220 Micro Rechargeable Button Battery Charger Docks & Precision Equipment Power Solutions",
+      "file": "/academy/images/miniature-cell-handling.webp",
+      "alt": {
+        "en": "Concept illustration: Precision handling of small coin cells.",
+        "zh": "概念示意图：微型纽扣电池精密取放。"
+      },
+      "scene": "Ceramic-tipped nonconductive tweezers gently gripping one tiny silver disc at its rim above individual recessed antistatic tray pockets, no overlapping or stacked loose cells. No charger, dock, PCB or cables. Diagonal macro.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-17975a76-65a3-4c52-b279-d939612452f1.png",
+      "sourceSha256": "fc6bb66891cd799b6928ba7309d4577f9be68372e2c53807a6747b5fdce1af30",
+      "sha256": "87e5f4565933d47db7938d5a482562d13f2e0249769e2b5f29cd1b3c6251ec9d",
+      "bytes": 75746
+    },
+    {
+      "id": "post_1785231660102",
+      "slug": "airtag-keyfob-lir2032-lir2450-charger-solution",
+      "title": "AirTag / Car Key Fob / Smart Lock Battery Replacement Cost & B2B Wholesale Charger Analysis",
+      "file": "/academy/images/battery-service-costs.webp",
+      "alt": {
+        "en": "Concept illustration: Coin-cell service planning and operating costs.",
+        "zh": "概念示意图：纽扣电池维护计划与使用成本。"
+      },
+      "scene": "Organized B2B service planning still life: insulated individual battery tray, abstract cost chart on blank tablet with bars but NO numbers or text, hourglass and service token; tiny detached unbranded key fob in corner. Top-down broad layout.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-9f893ce2-3d84-49f0-95dc-c74584da1bdf.png",
+      "sourceSha256": "fe66ff57502324e3efec72327716a018f893072fe071d4814885067fcfd31242",
+      "sha256": "21d46ca88b12a1d179f9e94f0976a61fbafdf5177ec352ac5347b94e37b9c7df",
+      "bytes": 80466
+    },
+    {
+      "id": "post_1785231659792",
+      "slug": "ml2032-vs-lir2032-3v-charger-compatibility",
+      "title": "ML2032 (3.0V) vs LIR2032 (3.7V) Button Battery Chargers: CMOS Motherboard & Solar Watch Charging Guide",
+      "file": "/academy/images/ml-lir-materials.webp",
+      "alt": {
+        "en": "Concept illustration: Different electrode materials in coin cells.",
+        "zh": "概念示意图：纽扣电池不同电极材料。"
+      },
+      "scene": "Scientific conceptual molecular-material illustration around two separate coin cells: cyan spheres and amber crystalline spheres arranged as two clearly different abstract electrode-material networks. Beautiful macro materials texture, no literal battery internal cutaway, no labels, no charger or cables.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-05ea54db-9212-4b49-910b-ce5ab26d4997.png",
+      "sourceSha256": "72b04206eadaf975288b56c39c2b7fd226ebc3454e2a8af5ae8ee243d2761705",
+      "sha256": "a990a48255d34725869a2bb43bc8bf7e48d4ff421b1e48e2dd265a9233cd5d34",
+      "bytes": 126366
+    },
+    {
+      "id": "post_1785145259562",
+      "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide",
+      "title": "LIR2032 / LIR2025 / LIR2016 / LIR2450 Smart Coin Cell Charger Selection & Micro-Current Protection Guide",
+      "file": "/academy/images/vz002-single-slot-selection.webp",
+      "alt": {
+        "en": "VZ002 single-slot charger with USB cable",
+        "zh": "VZ002 单槽充电器与 USB 线"
+      },
+      "source": "Existing VSZAPOWER product library",
+      "kind": "owned-product",
+      "sourceAsset": "/products/clip-single-charger.png",
+      "sourceSha256": "c19582ce5feb56296d68d5259378725b5ffb84570cb68aa6e3e1fc425a1308c7",
+      "sha256": "b68b6b42273ee946982163a166866931d2aad927f48a026160c592b1421ec6f6",
+      "bytes": 20118
+    },
+    {
+      "id": "p1",
+      "slug": "cr2032-vs-lir2032-can-you-recharge-them",
+      "title": "CR2032 vs LIR2032 终极对比：一次性与可充电纽扣电池全面深度解析",
+      "file": "/academy/images/primary-vs-rechargeable.webp",
+      "alt": {
+        "en": "Concept illustration: Primary and rechargeable coin-cell lifecycle comparison.",
+        "zh": "概念示意图：一次性与可充电纽扣电池生命周期对比。"
+      },
+      "scene": "Two contrasting circular silver cells separated across frame: left warm amber straight sequence ending at a safe collection box icon sculptural object, right teal circular light path surrounding one isolated cell. Elegant conceptual lifecycle editorial art, no numeric claims, no charging of primary cell.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-5b2130d0-b012-497e-ba6f-3918d46819b2.png",
+      "sourceSha256": "3c51ac60b7ff15782b5dceaa07e01e556fd28c2252ac218d5688ac464fd2378d",
+      "sha256": "99427c1aae770b5abf300970cbf3ff50be77cc034fdc82a0cd1cc5bf783844e0",
+      "bytes": 36592
+    },
+    {
+      "id": "p2",
+      "slug": "the-ultimate-guide-to-rechargeable-coin-cell-batteries",
+      "title": "LIR2032 / LIR2025 / LIR2450 / ML2032 全系列纽扣电池规格图谱与选型指南",
+      "file": "/academy/images/coin-cell-dimensions.webp",
+      "alt": {
+        "en": "Concept illustration: Coin-cell diameter and thickness comparison.",
+        "zh": "概念示意图：纽扣电池直径与厚度选型对比。"
+      },
+      "scene": "Side-on precision still life of four different silver coin cells standing upright independently in insulated grooves, stepped heights and visible thicknesses, soft cyan metrology grid behind without numbers. Strong wide silhouette, brushed metal material.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-03e39357-c4a6-4b08-9ffe-eb579e321121.png",
+      "sourceSha256": "57d654a775122c4a7e66132141fca929a2bab11db3324f00734e53b404f7da80",
+      "sha256": "f45129fe1a59009fa6adec0621f71bea9d9330765c9c13a606e4de1a0bd7e1fa",
+      "bytes": 48356
+    },
+    {
+      "id": "p3",
+      "slug": "airtag-battery-life-and-lir2032-compatibility-lab-test",
+      "title": "Apple AirTag 续航提升与 LIR2032 可充电电池实测与兼容性报告",
+      "file": "/academy/images/tracker-runtime-evaluation.webp",
+      "alt": {
+        "en": "Concept illustration: Tracking-device runtime evaluation setup.",
+        "zh": "概念示意图：定位设备续航评估示意。"
+      },
+      "scene": "Illustrative laboratory runtime evaluation: unbranded generic hexagonal tracking sensor on an isolated mat next to disconnected coin cell, oscilloscope blurred in background with simple pulse pattern but no labels or values, neatly parked probes. No implied drop-in compatibility.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-7e2e5776-93ca-43ec-8b4d-820d7982325d.png",
+      "sourceSha256": "5ab193ff4c802f818373d23d2030f7af4bafbf16df905970e8599502e20e8659",
+      "sha256": "569a942f5fe236468462f8a628936936d8e879b530de6718b2f9efcab39cf943",
+      "bytes": 52886
+    },
+    {
+      "id": "p4",
+      "slug": "coin-cell-charging-safety-and-smart-chip-tech",
+      "title": "微型纽扣电池智能充电器脉冲保护与 Auto-Cut 芯片原理解析",
+      "file": "/academy/images/white-charger-lir2032-kit.webp",
+      "alt": {
+        "en": "VSZAPOWER white single-slot charger and LIR2032 pack",
+        "zh": "VSZAPOWER 白色单槽充电器与 LIR2032 电池套装"
+      },
+      "source": "Owner's existing product artwork",
+      "kind": "owned-product",
+      "sourceAsset": "充电器详情/SKU.png",
+      "sourceSha256": "7216e4ed2e34e5609ebec0b4d659c2b114a8bd83057c9560d8b2a03198380e15",
+      "sha256": "ed1c6a55f855957fae802d1b12dac4a51df5bc2c3bfabeb6d98e6f3564736577",
+      "bytes": 54410
+    },
+    {
+      "id": "post_lir2450_wholesale_iot_zigbee_2026",
+      "slug": "lir2450-wholesale-iot-zigbee-smart-lock-battery-guide",
+      "title": "LIR2450 Wholesale for IoT & Smart Lock Applications: Technical B2B Sourcing Guide 2026",
+      "file": "/academy/images/lir2450-iot-sourcing.webp",
+      "alt": {
+        "en": "VSZAPOWER LIR2450 rechargeable coin-cell product image",
+        "zh": "VSZAPOWER LIR2450 可充电纽扣电池产品图"
+      },
+      "source": "Existing VSZAPOWER product library",
+      "kind": "owned-product",
+      "sourceAsset": "/products/prod_lir2450_battery.png",
+      "sourceSha256": "ccaec4b035fb3c3c5a6eeef86e1a1a78477b50c6a3721737d088125d2c608ab6",
+      "sha256": "1ccfd2d196d94ac2a2a30535ef76aa9428f420b07fc3bda400a72d2c12030142",
+      "bytes": 30462
+    },
+    {
+      "id": "post_ml2032_vs_lir2032_manganese_vs_lithium_ion",
+      "slug": "ml2032-vs-lir2032-manganese-rechargeable-vs-lithium-ion-deep-comparison",
+      "title": "ML2032 vs LIR2032: Manganese Rechargeable vs Lithium-Ion — Which Coin Cell is Right for Your Device?",
+      "file": "/academy/images/ml2032-chemistry-selection.webp",
+      "alt": {
+        "en": "VSZAPOWER ML2032 rechargeable coin-cell product image",
+        "zh": "VSZAPOWER ML2032 可充电纽扣电池产品图"
+      },
+      "source": "Existing VSZAPOWER product library",
+      "kind": "owned-product",
+      "sourceAsset": "/products/prod_ml2032_battery.png",
+      "sourceSha256": "cc4a20bf19e4aa1cd0ad3df68028e066a97417a9e26af4cf4ae5398cd4689f67",
+      "sha256": "df11f2e81bdff34d5bdf2d86ac370a1efc5ca23313dd8290ee2c6ddc138ae27e",
+      "bytes": 25918
+    },
+    {
+      "id": "post_cr2032_disposable_vs_rechargeable_economics_ewaste_2026",
+      "slug": "cr2032-disposable-vs-lir2032-rechargeable-500-cycle-roi-ewaste-analysis",
+      "title": "CR2032 Disposable vs LIR2032 Rechargeable: 500-Cycle ROI Math & E-Waste Environmental Impact 2026",
+      "file": "/academy/images/circular-battery-economics.webp",
+      "alt": {
+        "en": "Concept illustration: Battery reuse and responsible collection concept.",
+        "zh": "概念示意图：电池重复使用与分类回收示意。"
+      },
+      "scene": "Refined sustainability still life: one silver coin cell on small dark circular pedestal surrounded by a subtle emerald circular path; beside it a safe insulating collection tray holding spent cells in separate compartments, a small fresh green leaf in far background. No numerical cycle claims or piled batteries.",
+      "source": "OpenAI built-in imagegen; original editorial concept illustration; not a product photograph or test record",
+      "kind": "concept",
+      "generatedFile": "exec-f7416fe5-852f-4088-9065-0675edb6cd55.png",
+      "sourceSha256": "dddfcd0f0d94671fc9f5566934cd8fd0119b8ea04e25aa3e29a4066435718f0a",
+      "sha256": "492d015d4d657095a3b746fe0607f23f7ccd271b1c00f1846633c11eda21cce6",
+      "bytes": 49698
+    }
+  ]
+}
