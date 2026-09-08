@@ -16,7 +16,11 @@ export const supabase = isSupabaseConfigured
 // This client is server-only. Never expose SUPABASE_SERVICE_ROLE_KEY to browser code.
 export const serverSupabase =
   typeof window === 'undefined' && isSupabaseConfigured && supabaseServiceRoleKey
-    ? createClient(supabaseUrl, supabaseServiceRoleKey, { auth: { persistSession: false } })
+    ? createClient(supabaseUrl, supabaseServiceRoleKey, {
+        auth: { persistSession: false },
+        // Resolve fetch per request and bypass Next's data cache for live admin edits.
+        global: { fetch: (input, init) => fetch(input, { ...init, cache: 'no-store' }) },
+      })
     : null;
 
 // Mock Fallback Data when Supabase is not connected yet
