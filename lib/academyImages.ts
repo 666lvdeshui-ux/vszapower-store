@@ -15,8 +15,9 @@ export function academyImageAlt(post: PostImage, lang: string, fallback: string)
   return image ? (lang.startsWith('zh') ? image.alt.zh : image.alt.en) : fallback;
 }
 
-export function academyImageSources(post: PostImage) {
+export function academyImageSources(post: PostImage, card = false) {
   const image = academyImage(post);
+  if (image?.kind === 'owned-product' && card) return `${image.file.replace('.webp', '-small.webp')} 512w, ${image.file.replace('.webp', '-card.webp')} 1024w`;
   return image ? `${image.file.replace('.webp', '-small.webp')} 512w, ${image.file} 1280w` : undefined;
 }
 

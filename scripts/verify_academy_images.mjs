@@ -16,7 +16,10 @@ for (const entry of manifest.entries) {
   assert(fs.existsSync('public' + entry.file.replace('.webp', '-small.webp')), 'Missing thumbnail');
   assert(entry.alt.en && entry.alt.zh && entry.source, 'Missing image description/provenance');
   if (entry.kind === 'concept') assert(entry.generatedFile && entry.scene, 'Missing generation record');
-  else assert(entry.sourceAsset && !entry.generatedFile, 'Product image must come from the owner');
+  else {
+    assert(entry.sourceAsset && !entry.generatedFile, 'Product image must come from the owner');
+    assert(fs.existsSync('public' + entry.file.replace('.webp', '-card.webp')), 'Missing uncropped product card');
+  }
   totalBytes += data.length;
 }
 // Include fallback routes, which are absent from the database API.

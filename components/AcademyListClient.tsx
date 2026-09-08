@@ -253,7 +253,7 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
                 <div style={{ position: 'relative', overflow: 'hidden', minHeight: '220px' }}>
                   <img
                     src={post.cover_image}
-                    srcSet={academyImageSources(post)}
+                    srcSet={academyImageSources(post, true)}
                     sizes="(max-width: 700px) 100vw, 420px"
                     loading="lazy"
                     decoding="async"
@@ -405,7 +405,7 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
                 <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
                   <img
                     src={post.cover_image}
-                    srcSet={academyImageSources(post)}
+                    srcSet={academyImageSources(post, true)}
                     sizes="(max-width: 700px) 100vw, 420px"
                     loading="lazy"
                     decoding="async"

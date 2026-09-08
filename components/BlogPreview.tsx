@@ -101,7 +101,7 @@ export default function BlogPreview({ posts: initialPosts = [] }: {posts?: PostI
                 <div style={{ position: 'relative', overflow: 'hidden', aspectRatio: '16 / 9', background: '#090d16' }}>
                   <img
                     src={post.cover_image}
-                    srcSet={academyImageSources(post)}
+                    srcSet={academyImageSources(post, true)}
                     sizes="(max-width: 700px) 100vw, 420px"
                     loading="lazy"
                     decoding="async"
