@@ -3,8 +3,8 @@
   "automation_id": "vszapower-30",
   "timezone": "Asia/Shanghai",
   "target_count": 30,
-  "verified_published_count": 1,
-  "next_sequence": 2,
+  "verified_published_count": 2,
+  "next_sequence": 3,
   "entries": [
     {
       "sequence": 1,
@@ -105,8 +105,112 @@
       "published_at": "2026-09-07T01:11:03.806268Z",
       "verified_at": "2026-09-07T01:12:31.309895+00:00",
       "publication_channel": "Authenticated Supabase MCP SQL, guarded single-row insert"
+    },
+    {
+      "sequence": 2,
+      "date": "2026-09-08",
+      "topic": "LIR2032 CC/CV charging curve",
+      "status": "published",
+      "slug": "lir2032-cc-cv-charging-curve-termination-guide",
+      "post_id": "academy30-02-lir2032-cccv",
+      "file": "content/battery-academy/02-lir2032-cc-cv-charging-curve-termination-guide.md",
+      "word_count": 887,
+      "word_count_method": "Visible Markdown text; link destinations and frontmatter excluded; Unicode word tokens including numeric quantities",
+      "sources": [
+        {
+          "title": "EEMB LIR2032 datasheet ZJQM-RD-SPC-H0339",
+          "url": "https://eemb.oss-accelerate.aliyuncs.com//uploads/20230323/ba65f4e593715c5dedf377f550c58f6b.pdf",
+          "document_date": "2019-04-19",
+          "supports": "45 mAh, 3.7 V cell; section 5.1 standard 0.2C and fast 1C at 25 C, both CV 4.20 V and terminate below 0.05C; linked by current manufacturer product page",
+          "read_on": "2026-09-08"
+        },
+        {
+          "title": "Analog Devices: Portable Devices Need High-Performance Battery Chargers",
+          "url": "https://www.analog.com/en/resources/technical-articles/portable-devices-need-high-performance-battery-chargers.html",
+          "document_date": "2023-02-09",
+          "supports": "CV current taper and influence of cell and connection resistance; limited effect of higher initial charging current on total duration",
+          "read_on": "2026-09-08"
+        },
+        {
+          "title": "TI SLUA376: Implementations of Battery Charger and Power-Path Management System",
+          "url": "https://www.ti.com/lit/an/slua376/slua376.pdf",
+          "document_date": "2006-06",
+          "supports": "Sections 2–3 distinguish direct connection and separate paths; system current can delay or prevent termination and provoke restart behavior",
+          "read_on": "2026-09-08"
+        },
+        {
+          "title": "Analog Devices Design Note 244: Simple Li-Ion Charge Termination Using the LT1505",
+          "url": "https://www.analog.com/en/resources/design-notes/li-ion-charge-termination-using-lt1505.html",
+          "supports": "Current-based completion and maximum charging duration are distinct; charger disabled after termination",
+          "read_on": "2026-09-08"
+        }
+      ],
+      "meta_description": "Understand LIR2032 constant-current and constant-voltage charging, taper termination, system-load errors and the impact of charge time on OEM operating costs.",
+      "content_sha256": "211d091c844a81929f6a8c57fe44463b8956c4112d5469ef760b52f05a4731f0",
+      "content_md5": "d6d574c8fddc4ac7b3f4368aac84bf26",
+      "public_url": "https://www.vszapower.com/academy/lir2032-cc-cv-charging-curve-termination-guide",
+      "prepared_at": "2026-09-08T01:07:04.223366+00:00",
+      "validation": {
+        "source_review": true,
+        "formulas_checked": true,
+        "calculations": {
+          "word_count": 887,
+          "title_characters": 59,
+          "meta_characters": 158,
+          "CV_minutes": 53.923180923971834,
+          "total_minutes": 95.92318092397184,
+          "CC_mAh": 31.499999999999996,
+          "CV_mAh": 12.825,
+          "total_input_mAh": 44.324999999999996,
+          "charges_per_dock_day": 16,
+          "docks": 4,
+          "TCO": 551.0,
+          "cost_per_charge": 0.45916666666666667
+        },
+        "article_render": {
+          "table_rows": 6,
+          "headings": 7,
+          "links": 7,
+          "warning": true,
+          "complete": true
+        },
+        "internal_links_verified": [
+          "https://www.vszapower.com/academy/lir-ml-cr-coin-cell-chemistry-selection-b2b",
+          "https://www.vszapower.com/coin-cell-charger-manufacturer",
+          "https://www.vszapower.com/#contact"
+        ],
+        "preflight_published_today": 0,
+        "preflight_existing_series_rows": 1,
+        "preflight_existing_slug_rows": 0,
+        "slug_http_before_publish": 404,
+        "public_http_status": 200,
+        "public_page_checks": {
+          "body_html_exact_match": true,
+          "meta_description_matches": true,
+          "canonical_matches": true,
+          "title_present": true,
+          "table_present": true,
+          "warning_present": true,
+          "final_paragraph_present": true,
+          "today_visible": true,
+          "academy_index_contains_article": true
+        },
+        "published_today_after_write": 1,
+        "database_content_md5_matches": true,
+        "cover_image_http_status": 200,
+        "markdown_tests_passed": 4
+      },
+      "notes": [
+        "42-minute CC duration and 18-minute exponential time constant are illustrative assumptions, not measured manufacturer curves.",
+        "Operating-cost scenario concerns a hypothetical charging operation; dock features, pricing, handling time and energy allowance are assumptions.",
+        "This run changes only the article archive and publication ledger; pre-existing application changes are outside this publishing run."
+      ],
+      "publish_attempt_at": "2026-09-08T01:07:34.005578+00:00",
+      "published_at": "2026-09-08T01:07:41.869613Z",
+      "verified_at": "2026-09-08T01:09:21.788620+00:00",
+      "publication_channel": "Authenticated Supabase MCP SQL, guarded single-row insert"
     }
   ],
-  "last_verified_publication_date": "2026-09-07",
-  "updated_at": "2026-09-07T01:12:31.309895+00:00"
+  "last_verified_publication_date": "2026-09-08",
+  "updated_at": "2026-09-08T01:09:21.788620+00:00"
 }
