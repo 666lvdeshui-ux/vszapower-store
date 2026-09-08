@@ -1,12 +1,12 @@
 [
   {
     "slug": "lir2032-cc-cv-charging-curve-termination-guide",
-    "file": "/academy/images/vszapower-002-cc-cv-guide.webp",
+    "file": "/academy/images/vszapower-002-cc-cv-guide-scene-v2.webp",
     "alt": {
-      "en": "VSZAPOWER-002 single-slot charger",
-      "zh": "VSZAPOWER-002 单槽充电器"
+      "en": "VSZAPOWER-002 single-slot charger — AI-styled scene based on the original product image",
+      "zh": "VSZAPOWER-002 单槽充电器，基于原图制作的 AI 场景图"
     },
-    "kind": "owned-product"
+    "kind": "owned-product-scene"
   },
   {
     "slug": "lir-ml-cr-coin-cell-chemistry-selection-b2b",
@@ -28,21 +28,21 @@
   },
   {
     "slug": "lir2032-charger-wholesale-buying-guide-dual-slot-vs-quad-slot",
-    "file": "/academy/images/vz002-dual-slot-buying-guide.webp",
+    "file": "/academy/images/vz002-dual-slot-buying-guide-scene-v2.webp",
     "alt": {
-      "en": "VSZAPOWER VZ002 dual-slot charger",
-      "zh": "VSZAPOWER VZ002 双槽充电器"
+      "en": "VSZAPOWER VZ002 dual-slot charger — AI-styled scene based on the original product image",
+      "zh": "VSZAPOWER VZ002 双槽充电器，基于原图制作的 AI 场景图"
     },
-    "kind": "owned-product"
+    "kind": "owned-product-scene"
   },
   {
     "slug": "2026-top-lir2032-charger-manufacturer-micro-current-safety-guide",
-    "file": "/academy/images/vz002-single-slot-manufacturer.webp",
+    "file": "/academy/images/vz002-single-slot-manufacturer-scene-v2.webp",
     "alt": {
-      "en": "VSZAPOWER VZ002 single-slot charger product image",
-      "zh": "VSZAPOWER VZ002 单槽充电器产品图"
+      "en": "VSZAPOWER VZ002 single-slot charger product image — AI-styled scene based on the original product image",
+      "zh": "VSZAPOWER VZ002 单槽充电器产品图，基于原图制作的 AI 场景图"
     },
-    "kind": "owned-product"
+    "kind": "owned-product-scene"
   },
   {
     "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide-1786095004189-1",
@@ -217,12 +217,12 @@
   },
   {
     "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide",
-    "file": "/academy/images/vz002-single-slot-selection.webp",
+    "file": "/academy/images/vz002-single-slot-selection-scene-v2.webp",
     "alt": {
-      "en": "VZ002 single-slot charger with USB cable",
-      "zh": "VZ002 单槽充电器与 USB 线"
+      "en": "VZ002 single-slot charger with USB cable — AI-styled scene based on the original product image",
+      "zh": "VZ002 单槽充电器与 USB 线，基于原图制作的 AI 场景图"
     },
-    "kind": "owned-product"
+    "kind": "owned-product-scene"
   },
   {
     "slug": "cr2032-vs-lir2032-can-you-recharge-them",
@@ -253,12 +253,12 @@
   },
   {
     "slug": "coin-cell-charging-safety-and-smart-chip-tech",
-    "file": "/academy/images/white-charger-lir2032-kit.webp",
+    "file": "/academy/images/white-charger-lir2032-kit-scene-v2.webp",
     "alt": {
-      "en": "VSZAPOWER white single-slot charger and LIR2032 pack",
-      "zh": "VSZAPOWER 白色单槽充电器与 LIR2032 电池套装"
+      "en": "VSZAPOWER white single-slot charger and LIR2032 pack — AI-styled scene based on the original product image",
+      "zh": "VSZAPOWER 白色单槽充电器与 LIR2032 电池套装，基于原图制作的 AI 场景图"
     },
-    "kind": "owned-product"
+    "kind": "owned-product-scene"
   },
   {
     "slug": "lir2450-wholesale-iot-zigbee-smart-lock-battery-guide",

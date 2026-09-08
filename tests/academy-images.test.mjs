@@ -33,4 +33,10 @@ test('image descriptions and thumbnails follow the selected asset, not stale slu
  assert.equal(academyImageAlt(changed,'en','replacement'), 'replacement');
  assert.equal(academyImageSources(changed),undefined);
  assert.equal(academyImageCaption(changed,'en'),null);
+ const scene=covers.find(x=>x.kind==='owned-product-scene');
+ const productScene={slug:scene.slug,cover_image:scene.file};
+ assert.match(academyImageCaption(productScene,'en'),/original VSZAPOWER product/);
+ assert.match(academyImageCaption(productScene,'zh-CN'),/产品原图/);
+ assert.match(academyImageSources(productScene,true),/512w.*1280w/);
+ assert.equal(academyImageCaption({...productScene,cover_image:'/original-product.jpg'},'en'),null);
 });

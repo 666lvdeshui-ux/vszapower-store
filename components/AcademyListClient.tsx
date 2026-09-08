@@ -261,8 +261,8 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
                     style={{
                       width: '100%',
                       height: '100%',
-                      objectFit: academyImage(post)?.kind === 'owned-product' ? 'contain' : 'cover',
-                      background: academyImage(post)?.kind === 'owned-product' ? '#fff' : undefined,
+                      objectFit: academyImage(post)?.kind.startsWith('owned-product') ? 'contain' : 'cover',
+                      background: academyImage(post)?.kind === 'owned-product' ? '#fff' : academyImage(post)?.kind === 'owned-product-scene' ? '#0a1018' : undefined,
                       transition: 'transform 0.5s ease',
                     }}
                     className="list-cover-img"
@@ -410,8 +410,8 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
                     loading="lazy"
                     decoding="async"
                     alt={academyImageAlt(post, lang, translatedTitle)}
-                    style={{ width: '100%', height: '100%', objectFit: academyImage(post)?.kind === 'owned-product' ? 'contain' : 'cover',
-                      background: academyImage(post)?.kind === 'owned-product' ? '#fff' : undefined }}
+                    style={{ width: '100%', height: '100%', objectFit: academyImage(post)?.kind.startsWith('owned-product') ? 'contain' : 'cover',
+                      background: academyImage(post)?.kind === 'owned-product' ? '#fff' : academyImage(post)?.kind === 'owned-product-scene' ? '#0a1018' : undefined }}
                   />
                   <span style={{
                     position: 'absolute',

@@ -22,6 +22,25 @@ export function academyImageSources(post: PostImage, card = false) {
 }
 
 export function academyImageCaption(post: PostImage, lang: string) {
+  if (academyImage(post)?.kind === 'owned-product-scene') {
+    const labels: Record<string, string> = {
+      en: 'AI-styled scene based on original VSZAPOWER product imagery',
+      'zh-CN': '基于 VSZAPOWER 产品原图制作的 AI 场景图',
+      'zh-TW': '基於 VSZAPOWER 產品原圖製作的 AI 場景圖',
+      'zh-HK': '基於 VSZAPOWER 產品原圖製作的 AI 場景圖',
+      de: 'KI-gestaltete Szene auf Basis originaler VSZAPOWER-Produktbilder',
+      ja: 'VSZAPOWER の製品原画像を基にした AI シーン画像',
+      es: 'Escena con IA basada en imágenes originales de productos VSZAPOWER',
+      ko: 'VSZAPOWER 제품 원본 이미지를 기반으로 제작한 AI 장면',
+      he: 'סצנה בעיצוב AI המבוססת על תמונות מוצר מקוריות של VSZAPOWER',
+      ar: 'مشهد مصمم بالذكاء الاصطناعي استنادًا إلى صور منتجات VSZAPOWER الأصلية',
+      fr: 'Scène créée avec IA à partir des images originales des produits VSZAPOWER',
+      pt: 'Cena com IA baseada em imagens originais de produtos VSZAPOWER',
+      ru: 'Сцена, созданная ИИ на основе оригинальных изображений продукции VSZAPOWER',
+      vi: 'Cảnh AI dựa trên hình ảnh sản phẩm gốc của VSZAPOWER',
+    };
+    return labels[lang] || labels.en;
+  }
   if (academyImage(post)?.kind !== 'concept') return null;
   const labels: Record<string, string> = {
     en: 'AI-generated concept illustration', 'zh-CN': 'AI 辅助概念示意图',

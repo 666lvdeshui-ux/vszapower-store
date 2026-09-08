@@ -9,7 +9,7 @@ meta_description: "Understand LIR2032 constant-current and constant-voltage char
 category: "Battery Academy"
 keywords: ["LIR2032 charging curve", "CC/CV charging", "charge termination", "constant voltage taper", "coin cell charger", "OEM charging cost"]
 author: "VSZAPOWER Editorial Team"
-cover_image: "https://www.vszapower.com/academy/images/vszapower-002-cc-cv-guide.webp"
+cover_image: "https://www.vszapower.com/academy/images/vszapower-002-cc-cv-guide-scene-v2.webp"
 ---
 
 ## The voltage plateau is a charging stage

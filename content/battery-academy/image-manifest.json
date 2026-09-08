@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "date": "2026-09-08",
   "generationPrompt": "Create ONE finished 16:9 landscape editorial cover, premium scientific 3D illustration for a coin-cell Battery Academy. Deep graphite/navy background, restrained emerald and cyan light, excellent brushed silver metal and realistic scale. Clearly an illustrative concept, NOT a real product photo, test record or proof of compatibility. No text, numbers, brands, logos, badges, certifications, watermark, people, smoke, sparks. No collage. Keep essential subject within central 80% for web crops, art-directed clean negative space. Scene:  IMPORTANT: Never depict a charger, charging dock or charging test fixture. ",
   "entries": [
@@ -7,17 +7,22 @@
       "id": "academy30-02-lir2032-cccv",
       "slug": "lir2032-cc-cv-charging-curve-termination-guide",
       "title": "LIR2032 CC/CV Charging Curve: Current, Time and Termination",
-      "file": "/academy/images/vszapower-002-cc-cv-guide.webp",
+      "file": "/academy/images/vszapower-002-cc-cv-guide-scene-v2.webp",
       "alt": {
-        "en": "VSZAPOWER-002 single-slot charger",
-        "zh": "VSZAPOWER-002 单槽充电器"
+        "en": "VSZAPOWER-002 single-slot charger — AI-styled scene based on the original product image",
+        "zh": "VSZAPOWER-002 单槽充电器，基于原图制作的 AI 场景图"
       },
-      "source": "Existing VSZAPOWER product library",
-      "kind": "owned-product",
+      "source": "OpenAI built-in imagegen edit based on owner-supplied VSZAPOWER product artwork; styled scene, not a test photograph",
+      "kind": "owned-product-scene",
       "sourceAsset": "/products/single-direct-charger.png",
       "sourceSha256": "999f609bf43998267b22e29df5e8562544604e59114214ca24a51dc787fd3954",
-      "sha256": "d034487ec58533a6e5c791b47af2951ec61d0b69e2cb210a49ac25c5c9d7eeca",
-      "bytes": 17432
+      "sha256": "d4820d59561c666cf09674524d35a94640658bcba1d7c25fba9dbdc8026a3832",
+      "bytes": 98166,
+      "previousFile": "/academy/images/vszapower-002-cc-cv-guide.webp",
+      "scene": "A restrained dark graphite electronics work surface, overhead view matching original. Product and its coiled USB cable rest on a charcoal fine-textured desk mat. Delicate cyan light grazing from the right and warm neutral overhead softbox makes the actual black charger readable. Two out-of-focus ordinary unconnected probe leads at the far edge, no displays or graphs. Contemporary scientific editorial photo.",
+      "editPrompt": "Use case: compositing. Edit the supplied VSZAPOWER product image into ONE finished 16:9 landscape Battery Academy editorial cover. The reference image is the EDIT TARGET and the product identity authority. Preserve the exact charger body, shape, relative proportions, number of slots, clamps/contacts, LED positions and colors, printed branding, cable and USB-A connector. Preserve the camera view of the product; no redesign, no invented controls, no extra chargers. Only replace the surrounding background, fit/reposition the complete product, and match subtle ambient lighting/contact shadows. Keep complete product prominently visible in central 75%, clean composition. No slogans, diagrams, performance claims, safety marks, added text, watermarks or people. This is a styled editorial scene, not test evidence. A restrained dark graphite electronics work surface, overhead view matching original. Product and its coiled USB cable rest on a charcoal fine-textured desk mat. Delicate cyan light grazing from the right and warm neutral overhead softbox makes the actual black charger readable. Two out-of-focus ordinary unconnected probe leads at the far edge, no displays or graphs. Contemporary scientific editorial photo.",
+      "generatedFile": "exec-16881e28-41b5-4d68-aa19-93495b8be3b9.png",
+      "generatedSha256": "a67f534f03a7a72008f505507154e8c0197157f24bef36891d6cf93d490ff53c"
     },
     {
       "id": "academy30-01-lir-ml-cr",
@@ -57,33 +62,43 @@
       "id": "post_lir2032_charger_wholesale_buying_guide",
       "slug": "lir2032-charger-wholesale-buying-guide-dual-slot-vs-quad-slot",
       "title": "LIR2032 Charger Wholesale Buying Guide: Dual-Slot vs Quad-Slot & Clip Docks",
-      "file": "/academy/images/vz002-dual-slot-buying-guide.webp",
+      "file": "/academy/images/vz002-dual-slot-buying-guide-scene-v2.webp",
       "alt": {
-        "en": "VSZAPOWER VZ002 dual-slot charger",
-        "zh": "VSZAPOWER VZ002 双槽充电器"
+        "en": "VSZAPOWER VZ002 dual-slot charger — AI-styled scene based on the original product image",
+        "zh": "VSZAPOWER VZ002 双槽充电器，基于原图制作的 AI 场景图"
       },
-      "source": "Existing VSZAPOWER product library",
-      "kind": "owned-product",
+      "source": "OpenAI built-in imagegen edit based on owner-supplied VSZAPOWER product artwork; styled scene, not a test photograph",
+      "kind": "owned-product-scene",
       "sourceAsset": "/products/clip-dual-charger.png",
       "sourceSha256": "d934ade5ac258a7a1d63c0b38047cbabf2a598b5b6129b0cf7ad4887d298e1d3",
-      "sha256": "1054b303fdfd664243a9c419d5383f9c179e7c2a6c5a3dab4c086bf2aa4f0323",
-      "bytes": 28778
+      "sha256": "dc315c1cbb7de2bea8610e86de0cc49c32163152ebc1da0f22571cbf2352bd5b",
+      "bytes": 47802,
+      "previousFile": "/academy/images/vz002-dual-slot-buying-guide.webp",
+      "scene": "Wholesale product selection setting, a charcoal product presentation desk, faint open plain kraft packaging tray in distant background at left. Place the exact two-slot charger and complete coiled cable from reference in foreground, same three-quarter perspective. Broad soft natural window illumination with subtle teal background accents, realistic premium editorial scene.",
+      "editPrompt": "Use case: compositing. Edit the supplied VSZAPOWER product image into ONE finished 16:9 landscape Battery Academy editorial cover. The reference image is the EDIT TARGET and the product identity authority. Preserve the exact charger body, shape, relative proportions, number of slots, clamps/contacts, LED positions and colors, printed branding, cable and USB-A connector. Preserve the camera view of the product; no redesign, no invented controls, no extra chargers. Only replace the surrounding background, fit/reposition the complete product, and match subtle ambient lighting/contact shadows. Keep complete product prominently visible in central 75%, clean composition. No slogans, diagrams, performance claims, safety marks, added text, watermarks or people. This is a styled editorial scene, not test evidence. Wholesale product selection setting, a charcoal product presentation desk, faint open plain kraft packaging tray in distant background at left. Place the exact two-slot charger and complete coiled cable from reference in foreground, same three-quarter perspective. Broad soft natural window illumination with subtle teal background accents, realistic premium editorial scene.",
+      "generatedFile": "exec-8f45b431-5efe-44aa-9278-dd7ee77881e4.png",
+      "generatedSha256": "dffdac07274d1218ad144e9a2ab29ed17479ecc1bbbd89bf89418aa362d7357b"
     },
     {
       "id": "post_lir2032_charger_manufacturer_guide_2026",
       "slug": "2026-top-lir2032-charger-manufacturer-micro-current-safety-guide",
       "title": "2026 Top LIR2032 Charger Manufacturer & Micro-current Safety Guide",
-      "file": "/academy/images/vz002-single-slot-manufacturer.webp",
+      "file": "/academy/images/vz002-single-slot-manufacturer-scene-v2.webp",
       "alt": {
-        "en": "VSZAPOWER VZ002 single-slot charger product image",
-        "zh": "VSZAPOWER VZ002 单槽充电器产品图"
+        "en": "VSZAPOWER VZ002 single-slot charger product image — AI-styled scene based on the original product image",
+        "zh": "VSZAPOWER VZ002 单槽充电器产品图，基于原图制作的 AI 场景图"
       },
-      "source": "Owner's existing product artwork",
-      "kind": "owned-product",
+      "source": "OpenAI built-in imagegen edit based on owner-supplied VSZAPOWER product artwork; styled scene, not a test photograph",
+      "kind": "owned-product-scene",
       "sourceAsset": "充电器详情/3.png",
       "sourceSha256": "a863e68303607c38133d2dbac23f4f41569be2dc04c7f6025008ee62f6da3952",
-      "sha256": "81441a6ec9834096e3f45119317fa6436fe33fbe8e7329cc888c4d883c595f1c",
-      "bytes": 34412
+      "sha256": "e90c4f46e67dab6c3a6412f2e9e73f40d5d4be51524ed766b4ab6b49f8dc11a3",
+      "bytes": 61582,
+      "previousFile": "/academy/images/vz002-single-slot-manufacturer.webp",
+      "scene": "Precision product-design studio scene, same diagonal overhead product view and intact USB cable/plug from reference on a matte navy drafting surface, faint blurred unmarked component tray far behind. Strong soft directional studio light reveals the real housing texture. A single restrained emerald edge light. Premium detailed full-product editorial photograph.",
+      "editPrompt": "Use case: compositing. Edit the supplied VSZAPOWER product image into ONE finished 16:9 landscape Battery Academy editorial cover. The reference image is the EDIT TARGET and the product identity authority. Preserve the exact charger body, shape, relative proportions, number of slots, clamps/contacts, LED positions and colors, printed branding, cable and USB-A connector. Preserve the camera view of the product; no redesign, no invented controls, no extra chargers. Only replace the surrounding background, fit/reposition the complete product, and match subtle ambient lighting/contact shadows. Keep complete product prominently visible in central 75%, clean composition. No slogans, diagrams, performance claims, safety marks, added text, watermarks or people. This is a styled editorial scene, not test evidence. Precision product-design studio scene, same diagonal overhead product view and intact USB cable/plug from reference on a matte navy drafting surface, faint blurred unmarked component tray far behind. Strong soft directional studio light reveals the real housing texture. A single restrained emerald edge light. Premium detailed full-product editorial photograph.",
+      "generatedFile": "exec-f5f1430e-bede-4dd8-b8da-56c4ad66b70e.png",
+      "generatedSha256": "103955690c77c0cb6df484ab62b7fc5fa9e91bfb4586ccf9dae7f37a6b66bbc6"
     },
     {
       "id": "post_1786095004189",
@@ -406,17 +421,22 @@
       "id": "post_1785145259562",
       "slug": "lir2032-lir2450-lir2025-lir2016-smart-charger-guide",
       "title": "LIR2032 / LIR2025 / LIR2016 / LIR2450 Smart Coin Cell Charger Selection & Micro-Current Protection Guide",
-      "file": "/academy/images/vz002-single-slot-selection.webp",
+      "file": "/academy/images/vz002-single-slot-selection-scene-v2.webp",
       "alt": {
-        "en": "VZ002 single-slot charger with USB cable",
-        "zh": "VZ002 单槽充电器与 USB 线"
+        "en": "VZ002 single-slot charger with USB cable — AI-styled scene based on the original product image",
+        "zh": "VZ002 单槽充电器与 USB 线，基于原图制作的 AI 场景图"
       },
-      "source": "Existing VSZAPOWER product library",
-      "kind": "owned-product",
+      "source": "OpenAI built-in imagegen edit based on owner-supplied VSZAPOWER product artwork; styled scene, not a test photograph",
+      "kind": "owned-product-scene",
       "sourceAsset": "/products/clip-single-charger.png",
       "sourceSha256": "c19582ce5feb56296d68d5259378725b5ffb84570cb68aa6e3e1fc425a1308c7",
-      "sha256": "b68b6b42273ee946982163a166866931d2aad927f48a026160c592b1421ec6f6",
-      "bytes": 20118
+      "sha256": "4b67ad7995b1e1c47ece326efae5f2045d377ae990a0d5bef0c8df5404f633ff",
+      "bytes": 62476,
+      "previousFile": "/academy/images/vz002-single-slot-selection.webp",
+      "scene": "Minimal refined desktop charging-accessory selection scene. Keep the exact charger and entire cable from reference on a warm gray stone desk, with a soft dark blue wall gradient and defocused plant shadow far behind, late-morning window light. Technical yet approachable. No connected devices or additional batteries. The original product is the sole sharp subject.",
+      "editPrompt": "Use case: compositing. Edit the supplied VSZAPOWER product image into ONE finished 16:9 landscape Battery Academy editorial cover. The reference image is the EDIT TARGET and the product identity authority. Preserve the exact charger body, shape, relative proportions, number of slots, clamps/contacts, LED positions and colors, printed branding, cable and USB-A connector. Preserve the camera view of the product; no redesign, no invented controls, no extra chargers. Only replace the surrounding background, fit/reposition the complete product, and match subtle ambient lighting/contact shadows. Keep complete product prominently visible in central 75%, clean composition. No slogans, diagrams, performance claims, safety marks, added text, watermarks or people. This is a styled editorial scene, not test evidence. Minimal refined desktop charging-accessory selection scene. Keep the exact charger and entire cable from reference on a warm gray stone desk, with a soft dark blue wall gradient and defocused plant shadow far behind, late-morning window light. Technical yet approachable. No connected devices or additional batteries. The original product is the sole sharp subject. CRITICAL: The coin cell under the clamp must remain LIR2032. Render the exposed battery model exactly 'LIR2032', never LIR2016 or another model. Exposed lower rim wording exactly 'Rechargeable Battery'. Do not invent any other battery letters. Preserve the complete charger, clamp, cable, LED and original proportions. Keep cable resting naturally flat on the tabletop.",
+      "generatedFile": "exec-0f481c42-4ed9-424c-9d73-afc9d1e6ed63.png",
+      "generatedSha256": "e08a426cbb32bf38d8368d2fed3e392f577ad7643f326d78a4226b7b2fb20b03"
     },
     {
       "id": "p1",
@@ -473,17 +493,22 @@
       "id": "p4",
       "slug": "coin-cell-charging-safety-and-smart-chip-tech",
       "title": "微型纽扣电池智能充电器脉冲保护与 Auto-Cut 芯片原理解析",
-      "file": "/academy/images/white-charger-lir2032-kit.webp",
+      "file": "/academy/images/white-charger-lir2032-kit-scene-v2.webp",
       "alt": {
-        "en": "VSZAPOWER white single-slot charger and LIR2032 pack",
-        "zh": "VSZAPOWER 白色单槽充电器与 LIR2032 电池套装"
+        "en": "VSZAPOWER white single-slot charger and LIR2032 pack — AI-styled scene based on the original product image",
+        "zh": "VSZAPOWER 白色单槽充电器与 LIR2032 电池套装，基于原图制作的 AI 场景图"
       },
-      "source": "Owner's existing product artwork",
-      "kind": "owned-product",
+      "source": "OpenAI built-in imagegen edit based on owner-supplied VSZAPOWER product artwork; styled scene, not a test photograph",
+      "kind": "owned-product-scene",
       "sourceAsset": "充电器详情/SKU.png",
       "sourceSha256": "7216e4ed2e34e5609ebec0b4d659c2b114a8bd83057c9560d8b2a03198380e15",
-      "sha256": "ed1c6a55f855957fae802d1b12dac4a51df5bc2c3bfabeb6d98e6f3564736577",
-      "bytes": 54410
+      "sha256": "ed620e3cfec5cb52dec95124ea403664ff1eba9234032cea330b3b27a7672a59",
+      "bytes": 121888,
+      "previousFile": "/academy/images/white-charger-lir2032-kit.webp",
+      "scene": "Premium kit unboxing scene on a dark slate packing table. Keep every original kit component, charger, USB cable and battery blister card and ALL existing printed marks exactly as reference. Complete original kit arrangement is prominent and readable, with a plain open kraft box softly blurred in background, muted turquoise fill light and soft white overhead key. Do not add certificates, labels, extra products or new package text.",
+      "editPrompt": "Use case: compositing. Edit the supplied VSZAPOWER product image into ONE finished 16:9 landscape Battery Academy editorial cover. The reference image is the EDIT TARGET and the product identity authority. Preserve the exact charger body, shape, relative proportions, number of slots, clamps/contacts, LED positions and colors, printed branding, cable and USB-A connector. Preserve the camera view of the product; no redesign, no invented controls, no extra chargers. Only replace the surrounding background, fit/reposition the complete product, and match subtle ambient lighting/contact shadows. Keep complete product prominently visible in central 75%, clean composition. No slogans, diagrams, performance claims, safety marks, added text, watermarks or people. This is a styled editorial scene, not test evidence. Premium kit unboxing scene on a dark slate packing table. Keep every original kit component, charger, USB cable and battery blister card and ALL existing printed marks exactly as reference. Complete original kit arrangement is prominent and readable, with a plain open kraft box softly blurred in background, muted turquoise fill light and soft white overhead key. Do not add certificates, labels, extra products or new package text.",
+      "generatedFile": "exec-bc6a01fe-edc8-438a-9d8b-4e31d7513346.png",
+      "generatedSha256": "9f11d3e0c2ecdf98130a7800c234c7e5bd4863d91483a29a3e09b240862e4785"
     },
     {
       "id": "post_lir2450_wholesale_iot_zigbee_2026",
@@ -534,5 +559,6 @@
       "sha256": "492d015d4d657095a3b746fe0607f23f7ccd271b1c00f1846633c11eda21cce6",
       "bytes": 49698
     }
-  ]
+  ],
+  "chargerImagePolicy": "Owner product images may be used as references for AI scene edits. Preserve model identity and visible product structure; inspect every output. Never invent a charger design or alter compliance evidence. Label AI-styled product scenes."
 }
