@@ -1,3 +1,4 @@
+import ownedVideoDefaults from '@/content/video-library/public.json';
 import { applyReviewDisplay } from './productReviews';
 import { validateAcademyImage } from './academyImageValidation';
 import { normalizeTranslations } from './postI18n';
@@ -187,52 +188,7 @@ export interface VideoItem {
   created_at?: string;
 }
 
-export const INITIAL_VIDEOS: VideoItem[] = [
-  {
-    id: 'vid_tiktok_1',
-    title: "Electronics project overview \u2014 illustrative footage",
-    duration: 'Preview',
-    video_url: 'https://assets.mixkit.co/videos/preview/mixkit-circuit-board-with-glowing-lines-41565-large.mp4',
-    poster_url: 'https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=800&q=80',
-    tiktok_url: 'https://www.tiktok.com/@vszapower.3c',
-    keywords: ['#CoinCells', '#OEM', '#VSZAPOWER'],
-    description: 'Illustrative stock footage, not a VSZAPOWER product test. Visit our TikTok channel or request a model-specific demonstration. Confirm the cell and charger configuration before use.',
-    created_at: new Date().toISOString(),
-  },
-  {
-    id: 'vid_tiktok_2',
-    title: "Portable electronics \u2014 illustrative footage",
-    duration: 'Preview',
-    video_url: 'https://assets.mixkit.co/videos/preview/mixkit-hands-holding-a-smartphone-with-green-screen-41544-large.mp4',
-    poster_url: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=800&q=80',
-    tiktok_url: 'https://www.tiktok.com/@vszapower.3c',
-    keywords: ['#CoinCells', '#OEM', '#VSZAPOWER'],
-    description: 'Illustrative stock footage, not a VSZAPOWER product test. Visit our TikTok channel or request a model-specific demonstration. Confirm the cell and charger configuration before use.',
-    created_at: new Date().toISOString(),
-  },
-  {
-    id: 'vid_tiktok_3',
-    title: "Charging electronics \u2014 illustrative footage",
-    duration: 'Preview',
-    video_url: 'https://assets.mixkit.co/videos/preview/mixkit-macro-shot-of-a-circuit-board-41567-large.mp4',
-    poster_url: 'https://images.unsplash.com/photo-1609592424074-954930b8098c?auto=format&fit=crop&w=800&q=80',
-    tiktok_url: 'https://www.tiktok.com/@vszapower.3c',
-    keywords: ['#CoinCells', '#OEM', '#VSZAPOWER'],
-    description: 'Illustrative stock footage, not a VSZAPOWER product test. Visit our TikTok channel or request a model-specific demonstration. Confirm the cell and charger configuration before use.',
-    created_at: new Date().toISOString(),
-  },
-  {
-    id: 'vid_tiktok_4',
-    title: "Rechargeable coin cell projects \u2014 illustrative footage",
-    duration: 'Preview',
-    video_url: 'https://assets.mixkit.co/videos/preview/mixkit-circuit-board-with-glowing-lines-41565-large.mp4',
-    poster_url: '/products/lir2025-30min-charger.jpg',
-    tiktok_url: 'https://www.tiktok.com/@vszapower.3c',
-    keywords: ['#CoinCells', '#OEM', '#VSZAPOWER'],
-    description: 'Illustrative stock footage, not a VSZAPOWER product test. Visit our TikTok channel or request a model-specific demonstration. Confirm the cell and charger configuration before use.',
-    created_at: new Date().toISOString(),
-  }
-];
+export const INITIAL_VIDEOS: VideoItem[] = ownedVideoDefaults;
 
 export const INITIAL_BANNERS: BannerItem[] = [
   {
@@ -313,7 +269,7 @@ export async function fetchAllVideos(): Promise<VideoItem[]> {
   if (database) {
     try {
       const { data, error } = await database.from('videos').select('*').order('created_at', { ascending: false });
-      if (!error && data && data.length > 0) {
+      if (!error && data) {
         return (data as VideoItem[]).filter(v => !deletedVideoIds.has(v.id));
       }
     } catch (e) {
@@ -328,8 +284,8 @@ export async function saveVideo(video: Partial<VideoItem>): Promise<VideoItem> {
     id: video.id || `video_${Date.now()}`,
     title: video.title || 'Untitled Video',
     duration: video.duration || '00:30',
-    video_url: video.video_url || 'https://assets.mixkit.co/videos/preview/mixkit-circuit-board-micro-controller-42862-large.mp4',
-    poster_url: video.poster_url || 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+    video_url: video.video_url || '',
+    poster_url: video.poster_url || '',
     keywords: Array.isArray(video.keywords) ? video.keywords : ['纽扣电池充电器', 'LIR2032'],
     description: video.description || '',
     created_at: video.created_at || new Date().toISOString(),
@@ -340,9 +296,11 @@ export async function saveVideo(video: Partial<VideoItem>): Promise<VideoItem> {
   if (database) {
     try {
       const { data, error } = await database.from('videos').upsert(newVideo).select().single();
-      if (!error && data) return data as VideoItem;
+      if (error) throw error;
+      if (data) return data as VideoItem;
+      throw new Error('No saved video returned');
     } catch (e) {
-      console.warn('Supabase save video error, falling back to local store:', e);
+      throw new Error('Failed to persist video');
     }
   }
 

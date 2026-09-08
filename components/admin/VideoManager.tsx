@@ -11,6 +11,22 @@ export default function VideoManager() {
   const [editingVideo, setEditingVideo] = useState<Partial<VideoItem> | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [keywordsText, setKeywordsText] = useState('');
+  const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState('');
+
+  const uploadFile = async (file: File) => {
+    if (file.type !== 'video/mp4' || file.size > 50 * 1024 * 1024) { setUploadError('请使用 50 MB 以下的 MP4 文件。'); return; }
+    setUploading(true); setUploadError('');
+    try {
+      const path = `videos/admin-${Date.now()}/${crypto.randomUUID()}.mp4`;
+      const result = await fetch('/api/admin/media-upload', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({path,size:file.size,contentType:file.type}) });
+      const signed = await result.json();
+      if (!result.ok) throw new Error(signed.error || '无法创建上传地址');
+      const response = await fetch(signed.signedUrl, {method:'PUT',headers:{'Content-Type':file.type,'Cache-Control':'max-age=31536000'},body:file});
+      if (!response.ok) throw new Error('上传失败，请重试');
+      setEditingVideo(current => current ? {...current,video_url:signed.publicUrl} : current);
+    } catch (error) { setUploadError(error instanceof Error ? error.message : '上传失败'); } finally { setUploading(false); }
+  };
 
   const loadVideos = async () => {
     setLoading(true);
@@ -36,7 +52,7 @@ export default function VideoManager() {
       id: `vid_${Date.now()}`,
       title: '',
       duration: '00:30',
-      video_url: 'https://assets.mixkit.co/videos/preview/mixkit-circuit-board-with-glowing-lines-41565-large.mp4',
+      video_url: '',
       poster_url: '',
       keywords: ['#VSZAPOWER', '#纽扣电池充电器'],
       description: '',
@@ -53,7 +69,7 @@ export default function VideoManager() {
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editingVideo || !editingVideo.title) return;
+    if (!editingVideo || !editingVideo.title || uploading) return;
 
     const parsedKeywords = keywordsText
       .split(/[,，\n]/)
@@ -116,7 +132,7 @@ export default function VideoManager() {
             <Video size={24} color="#f59e0b" /> 产品短视频管理 (Short Video CMS)
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>
-            管理首页“短视频”栏目，展示产品短视频、功能看点与多维标签关键词。
+            管理首页及视频库，展示自有产品短视频、内容说明与型号标签。
           </p>
         </div>
 
@@ -292,6 +308,9 @@ export default function VideoManager() {
                   <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px' }}>
                     视频文件/MP4 URL 链接
                   </label>
+                  <input type="file" accept="video/mp4" disabled={uploading} aria-label="上传 MP4 视频" onChange={e=>{const file=e.target.files?.[0];if(file)void uploadFile(file);e.target.value='';}} style={{marginBottom:10,maxWidth:'100%'}} />
+                  {uploading && <p role="status">正在上传，请勿关闭窗口…</p>}
+                  {uploadError && <p role="alert" style={{color:'#f87171'}}>{uploadError}</p>}
                   <input
                     type="text"
                     required
@@ -370,7 +389,7 @@ export default function VideoManager() {
                   className="btn-primary"
                   style={{ padding: '10px 24px', display: 'flex', alignItems: 'center', gap: '6px' }}
                 >
-                  <Check size={16} /> 保存发布短视频
+                  <Check size={16} /> {uploading ? '上传中，请稍候' : '保存发布短视频'}
                 </button>
               </div>
             </form>

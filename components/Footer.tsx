@@ -1,5 +1,6 @@
 'use client';
 
+import { videoCopy } from '@/lib/videoLibrary';
 import { entityDescription } from '@/lib/catalog';
 import React from 'react';
 import Link from 'next/link';
@@ -49,6 +50,7 @@ export default function Footer() {
             <li><Link href="/#products?cat=charger" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{t('nav_chargers')}</Link></li>
             <li><Link href="/rechargeable-coin-cell-batteries" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{t('nav_batteries')}</Link></li>
             <li><Link href="/academy" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{t('nav_academy')}</Link></li>
+            <li><Link href="/videos" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{videoCopy(lang).title}</Link></li>
             <li><Link href="/#contact" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{t('nav_contact')}</Link></li>
             <li><Link href="/compliance" style={{color:'var(--text-muted)'}}>Compliance Center</Link></li>
             <li><Link href="/about-vszapower" style={{color:'var(--text-muted)'}}>About VSZAPOWER</Link></li>

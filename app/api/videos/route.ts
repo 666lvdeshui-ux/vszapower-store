@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { isAdminRequest, unauthorizedResponse } from '@/lib/adminAuth';
 import { fetchAllVideos, saveVideo, removeVideo } from '@/lib/store';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const data = await fetchAllVideos();

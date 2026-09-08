@@ -1,0 +1,739 @@
+[
+  {
+    "id": "vs-20260723-01",
+    "title": "USB clip charger: battery placement and indicators",
+    "titleZh": "USB 夹式充电器：放入电池与指示灯",
+    "description": "Demonstrates the black and white clip chargers, battery placement and red/blue indicators. The presenter distinguishes rechargeable LIR cells from primary CR cells.",
+    "descriptionZh": "展示黑白夹式充电器、放入电池及红蓝指示灯，并区分 LIR 可充电电池与 CR 一次性电池。",
+    "category": "clip",
+    "models": [
+      "LIR2032",
+      "LIR2016",
+      "LIR2025",
+      "LIR2450"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260723-01",
+    "duration": "0:55",
+    "durationSeconds": 55.773,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-01/58ff54e2bdd4ccd035c0.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-01/24673d6b3187b3d13836.jpg",
+    "keywords": [
+      "LIR2032",
+      "LIR2016",
+      "LIR2025",
+      "LIR2450",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260723-02",
+    "title": "LIR2032 clip charger: USB connection",
+    "titleZh": "LIR2032 夹式充电器：USB 接电",
+    "description": "A desktop demonstration of the USB plug, clip mechanism and charging indicators using an LIR2032 cell.",
+    "descriptionZh": "桌面展示 USB 插头、夹持结构和 LIR2032 电池的灯光状态。",
+    "category": "clip",
+    "models": [
+      "LIR2032"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260723-02",
+    "duration": "1:01",
+    "durationSeconds": 61.625,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-02/d36110858034515cfadc.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-02/aca93cc67fe145dfab1e.jpg",
+    "keywords": [
+      "LIR2032",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260723-03",
+    "title": "Clip charger indicator demonstration with a small load",
+    "titleZh": "夹式充电器：小负载与指示灯演示",
+    "description": "Shows a small fan/load fixture followed by the cell being placed in the clip charger, with red and blue indicator states.",
+    "descriptionZh": "展示小风扇负载装置，随后将电池放回夹式充电器观察红蓝灯状态。",
+    "category": "clip",
+    "models": [
+      "LIR2032"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260723-03",
+    "duration": "1:08",
+    "durationSeconds": 68.22,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-03/dd80ec974d576ea00916.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-03/97d3e2663698de40aa08.jpg",
+    "keywords": [
+      "LIR2032",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260723-04",
+    "title": "Clip charger: several LIR coin cell sizes",
+    "titleZh": "夹式充电器：多种 LIR 尺寸展示",
+    "description": "Shows several coin cell sizes being positioned in the clip, plus the USB connection and indicator lights. Primary CR cells are shown as a non-rechargeable comparison.",
+    "descriptionZh": "展示多种纽扣电池尺寸的夹持、USB 接电和指示灯，并以 CR 一次性电池作不可充电对照。",
+    "category": "clip",
+    "models": [
+      "LIR2032",
+      "LIR2016",
+      "LIR2025",
+      "LIR2450"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260723-04",
+    "duration": "1:23",
+    "durationSeconds": 83.359,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-04/e6bc505107f813bea491.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-04/2f226e63cbe5fde975a1.jpg",
+    "keywords": [
+      "LIR2032",
+      "LIR2016",
+      "LIR2025",
+      "LIR2450",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260723-05",
+    "title": "Clip charger overview for small electronic devices",
+    "titleZh": "小型电子设备用夹式充电器介绍",
+    "description": "A close-up of the black and white charger versions, cell insertion and red/blue indicators, with a discussion of small-device applications.",
+    "descriptionZh": "近距离展示黑白两色充电器、电池夹入和红蓝指示灯，口播介绍小型电子设备场景。",
+    "category": "clip",
+    "models": [
+      "LIR2032"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260723-05",
+    "duration": "0:32",
+    "durationSeconds": 32.413,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-05/a8e952cb453d364e1794.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-05/23e90c26fb4ccb45c263.jpg",
+    "keywords": [
+      "LIR2032",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260723-06",
+    "title": "USB clip charger inside a parked car",
+    "titleZh": "停车场景：USB 夹式充电器",
+    "description": "Shows the USB connection and clip charger inside a parked vehicle. Match the rechargeable cell and charger before use.",
+    "descriptionZh": "在停车场景展示 USB 接口和夹式充电器；使用前需匹配可充电电池与充电器。",
+    "category": "clip",
+    "models": [],
+    "language": "en",
+    "canonicalId": "vs-20260723-06",
+    "duration": "0:20",
+    "durationSeconds": 20.641,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-06/3a998c5e5196c818a545.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-06/1dd5f57dcbdf08199d9b.jpg",
+    "keywords": [
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260723-07",
+    "title": "Key fob battery compartment and clip charger",
+    "titleZh": "遥控钥匙电池仓与夹式充电器",
+    "description": "Shows opening one key fob, its coin cell compartment and a clip charger demonstration. This example does not establish compatibility with other key fobs.",
+    "descriptionZh": "展示一个遥控钥匙的拆壳、电池仓和夹式充电器操作；单次演示不代表其他钥匙通用兼容。",
+    "category": "clip",
+    "models": [
+      "LIR2032"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260723-07",
+    "duration": "0:49",
+    "durationSeconds": 49.0,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-07/d7ddeb372176c9f51b9b.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-07/072513c94b4f42e75628.jpg",
+    "keywords": [
+      "LIR2032",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": true
+  },
+  {
+    "id": "vs-20260723-08",
+    "title": "Key fob and rechargeable cell handling",
+    "titleZh": "遥控钥匙与可充电电池操作",
+    "description": "A second key fob demonstration showing the battery compartment, cell handling and charging indicators.",
+    "descriptionZh": "另一段遥控钥匙演示，展示电池仓、电池取放和充电器灯光。",
+    "category": "clip",
+    "models": [
+      "LIR2032"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260723-08",
+    "duration": "0:48",
+    "durationSeconds": 48.0,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-08/d43fcfda618850acbe40.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-08/8350b010821eaf127fbb.jpg",
+    "keywords": [
+      "LIR2032",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": true
+  },
+  {
+    "id": "vs-20260723-09",
+    "title": "Console USB connection and coin cell clip",
+    "titleZh": "中控 USB 接口与电池夹持",
+    "description": "Shows a clip charger connected to a vehicle console USB port and demonstrates cell placement.",
+    "descriptionZh": "展示夹式充电器连接车内中控 USB 接口及电池放入动作。",
+    "category": "clip",
+    "models": [
+      "LIR2032",
+      "LIR2025",
+      "LIR2450"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260723-09",
+    "duration": "0:23",
+    "durationSeconds": 23.079,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-09/0810afea3094ae678e25.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-09/578e96b92cd3f7247373.jpg",
+    "keywords": [
+      "LIR2032",
+      "LIR2025",
+      "LIR2450",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260723-10",
+    "title": "Rechargeable LIR and primary CR: visual comparison",
+    "titleZh": "LIR 可充电与 CR 一次性电池对照",
+    "description": "A landscape demonstration comparing the labels on rechargeable LIR cells and primary CR cells, with a USB clip charger.",
+    "descriptionZh": "横屏演示 LIR 可充电电池与 CR 一次性电池的标识差别，并展示 USB 夹式充电器。",
+    "category": "clip",
+    "models": [
+      "LIR2032",
+      "LIR2016"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260723-10",
+    "duration": "0:26",
+    "durationSeconds": 26.074,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-10/1625ff91f34d5b7bfe37.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-10/7fb96e3b913b71497468.jpg",
+    "keywords": [
+      "LIR2032",
+      "LIR2016",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260723-11",
+    "title": "Writing tablet battery compartment demonstration",
+    "titleZh": "手写板电池仓演示",
+    "description": "Shows a writing tablet coin cell compartment, rechargeable cell handling and a clip charger. Device voltage requirements must be checked before any replacement.",
+    "descriptionZh": "展示手写板纽扣电池仓、可充电电池取放和夹式充电器；替换前需核对设备电压要求。",
+    "category": "clip",
+    "models": [
+      "LIR2025"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260723-11",
+    "duration": "0:53",
+    "durationSeconds": 53.172,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-11/5ab0c84a61668043ff61.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-11/0e19198fd715bbd73075.jpg",
+    "keywords": [
+      "LIR2025",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260723-12",
+    "title": "Writing tablet demonstration: alternate export",
+    "titleZh": "手写板演示：另一导出版本",
+    "description": "An alternate export of the writing tablet and clip charger demonstration. Confirm device and rechargeable-cell voltage compatibility.",
+    "descriptionZh": "手写板与夹式充电器演示的另一导出版本；需确认设备与可充电电池的电压兼容。",
+    "category": "clip",
+    "models": [
+      "LIR2025"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260723-11",
+    "duration": "0:53",
+    "durationSeconds": 53.172,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-12/b7303e1f70723dca3fe8.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-12/f62e3774ce636e32d688.jpg",
+    "keywords": [
+      "LIR2025",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260723-13",
+    "title": "Black and white clip chargers: portable USB overview",
+    "titleZh": "黑白夹式充电器：便携 USB 介绍",
+    "description": "Shows the black and white clip charger housings, USB cable and cell placement, followed by indicator changes.",
+    "descriptionZh": "展示黑白外壳、USB 线缆、电池夹入和灯光变化。",
+    "category": "clip",
+    "models": [
+      "LIR2032"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260723-13",
+    "duration": "0:51",
+    "durationSeconds": 51.245,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-13/c88a632884a78ecb96b5.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-13/9881241d76fa2de4eee2.jpg",
+    "keywords": [
+      "LIR2032",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260723-14",
+    "title": "Legacy slot charger: latch and red/green lights",
+    "titleZh": "老款卡槽充电器：卡扣与红绿灯",
+    "description": "Demonstrates the legacy square slot charger, its battery-release latch and red/green indicator lights.",
+    "descriptionZh": "展示老款方形卡槽充电器、取电池卡扣和红绿指示灯。",
+    "category": "legacy",
+    "models": [
+      "LIR2032"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260723-14",
+    "duration": "0:52",
+    "durationSeconds": 52.406,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-14/fbfbb4cc14e082e7b9e8.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-14/b28bfb3be6ead0763fa6.jpg",
+    "keywords": [
+      "LIR2032",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260723-15",
+    "title": "Multi-size clip charger: alternate demonstration",
+    "titleZh": "多尺寸夹式充电器：另一演示版本",
+    "description": "An alternate multi-size clip charger presentation showing battery placement and indicator lights.",
+    "descriptionZh": "多尺寸夹式充电器的另一演示版本，展示电池夹持与指示灯。",
+    "category": "clip",
+    "models": [
+      "LIR2032",
+      "LIR2016",
+      "LIR2025",
+      "LIR2450"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260723-04",
+    "duration": "1:23",
+    "durationSeconds": 83.359,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-15/b9c4f1e45d30126ed889.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-15/6fa5c0b661c255e46e62.jpg",
+    "keywords": [
+      "LIR2032",
+      "LIR2016",
+      "LIR2025",
+      "LIR2450",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260723-16",
+    "title": "Short USB clip charger demonstration in a car",
+    "titleZh": "车内 USB 夹式充电器短片",
+    "description": "A short view of the console USB connection, cell insertion and red charging indicator in a parked car.",
+    "descriptionZh": "短片展示停车场景的中控 USB 接电、电池放入和红色指示灯。",
+    "category": "clip",
+    "models": [],
+    "language": "en",
+    "canonicalId": "vs-20260723-16",
+    "duration": "0:25",
+    "durationSeconds": 25.145,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-16/9aa28f14943cdeeeeb76.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260723-16/6d55cd0f1442d9c744b7.jpg",
+    "keywords": [
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260702-01",
+    "title": "VSZAPOWER ML2032 pack and charger footage",
+    "titleZh": "VSZAPOWER ML2032 包装与充电器素材",
+    "description": "Shows the VSZAPOWER ML2032 pack alongside a clip charger. The matching ML charging profile requires confirmation; this footage is not a 4.2V charging instruction.",
+    "descriptionZh": "展示 VSZAPOWER ML2032 包装与夹式充电器；匹配的 ML 充电参数仍需核实，本视频不能作为 4.2V 充电指导。",
+    "category": "battery",
+    "models": [
+      "ML2032"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260702-01",
+    "duration": "0:49",
+    "durationSeconds": 49.317,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260702-01/59a98ccfad0ce74dd4ef.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260702-01/566eee4e386bf0d97a39.jpg",
+    "keywords": [
+      "ML2032",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260702-02",
+    "title": "VSZAPOWER LIR2016 pack and clip charger",
+    "titleZh": "VSZAPOWER LIR2016 包装与夹式充电器",
+    "description": "Shows the branded LIR2016 two-cell pack, cell handling and black/white clip charger versions.",
+    "descriptionZh": "展示品牌 LIR2016 两粒装、电池取放和黑白两色夹式充电器。",
+    "category": "battery",
+    "models": [
+      "LIR2016"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260702-02",
+    "duration": "0:43",
+    "durationSeconds": 43.211,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260702-02/160b3e34b0ffc3f1c5ef.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260702-02/30186e3af6e4a0f4a13c.jpg",
+    "keywords": [
+      "LIR2016",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260702-03",
+    "title": "VSZAPOWER LIR2025 pack and clip charger",
+    "titleZh": "VSZAPOWER LIR2025 包装与夹式充电器",
+    "description": "Shows the VSZAPOWER LIR2025 pack, cell insertion and the charger indicator lights.",
+    "descriptionZh": "展示 VSZAPOWER LIR2025 包装、电池放入和充电器指示灯。",
+    "category": "battery",
+    "models": [
+      "LIR2025"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260702-03",
+    "duration": "0:33",
+    "durationSeconds": 33.18,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260702-03/df2ca7a5d8a512de06e7.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260702-03/aed210f531bb9b4c4565.jpg",
+    "keywords": [
+      "LIR2025",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260702-04",
+    "title": "VSZAPOWER LIR2450 pack and clip charger",
+    "titleZh": "VSZAPOWER LIR2450 包装与夹式充电器",
+    "description": "Shows the VSZAPOWER LIR2450 two-cell pack and a clip charger demonstration. Confirm the supplied charger configuration for this cell.",
+    "descriptionZh": "展示 VSZAPOWER LIR2450 两粒装和夹式充电器；需核对随附充电器版本。",
+    "category": "battery",
+    "models": [
+      "LIR2450"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260702-04",
+    "duration": "0:41",
+    "durationSeconds": 41.539,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260702-04/d2f71c7169a3af255bb6.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260702-04/957960d0128b54855182.jpg",
+    "keywords": [
+      "LIR2450",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260609-01",
+    "title": "USB clip charger walkthrough in Chinese",
+    "titleZh": "USB 夹式充电器中文操作演示",
+    "description": "Chinese-language walkthrough of the USB clip charger, LIR cell placement and red/blue indicators, with a warning against charging primary cells.",
+    "descriptionZh": "中文演示 USB 夹式充电器、LIR 电池夹入及红蓝灯，并提醒一次性电池不可充电。",
+    "category": "clip",
+    "models": [
+      "LIR2032"
+    ],
+    "language": "zh",
+    "canonicalId": "vs-20260609-01",
+    "duration": "1:01",
+    "durationSeconds": 61.625,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-01/51e225434d08abe49c7d.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-01/fb6656d6ce1d53a34b36.jpg",
+    "keywords": [
+      "LIR2032",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260609-02",
+    "title": "Clip mechanism and indicator lights in Chinese",
+    "titleZh": "夹持结构与指示灯中文演示",
+    "description": "Chinese-language close-up of the two charger colors, clip mechanism and USB-powered indicators.",
+    "descriptionZh": "中文近距离展示黑白两色、夹持结构和 USB 供电指示灯。",
+    "category": "clip",
+    "models": [
+      "LIR2032"
+    ],
+    "language": "zh",
+    "canonicalId": "vs-20260609-02",
+    "duration": "0:39",
+    "durationSeconds": 39.913,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-02/a16080d2b7b135a9744c.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-02/29438d1bd3c078c62907.jpg",
+    "keywords": [
+      "LIR2032",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260609-03",
+    "title": "Portable clip charger overview in Chinese",
+    "titleZh": "便携夹式充电器中文介绍",
+    "description": "Chinese-language introduction to the portable clip charger, with battery insertion and red/blue indicator demonstrations.",
+    "descriptionZh": "中文介绍便携夹式充电器，展示放入电池和红蓝灯状态。",
+    "category": "clip",
+    "models": [
+      "LIR2032"
+    ],
+    "language": "zh",
+    "canonicalId": "vs-20260609-03",
+    "duration": "0:51",
+    "durationSeconds": 51.245,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-03/92209d88e2a6aae0a8af.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-03/d110b0e62f3192102d72.jpg",
+    "keywords": [
+      "LIR2032",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260609-04",
+    "title": "Small-device charging discussion in Chinese",
+    "titleZh": "小型设备电池充电中文介绍",
+    "description": "Chinese-language discussion of rechargeable coin cells for small devices, with a black and white clip charger demonstration.",
+    "descriptionZh": "中文介绍小型设备用可充电纽扣电池，并展示黑白夹式充电器。",
+    "category": "clip",
+    "models": [
+      "LIR2032"
+    ],
+    "language": "zh",
+    "canonicalId": "vs-20260609-04",
+    "duration": "0:32",
+    "durationSeconds": 32.413,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-04/aff0a014d6d04937b676.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-04/c6f5c8083ee4032545ca.jpg",
+    "keywords": [
+      "LIR2032",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260609-05",
+    "title": "Legacy slot charger: English product demonstration",
+    "titleZh": "老款卡槽充电器：英文产品演示",
+    "description": "English demonstration of the square slot charger, release latch and red/green indicators.",
+    "descriptionZh": "英文演示方形卡槽充电器、释放卡扣与红绿指示灯。",
+    "category": "legacy",
+    "models": [
+      "LIR2032"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260723-14",
+    "duration": "0:52",
+    "durationSeconds": 52.406,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-05/15cb683fb2f407031a75.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-05/f4740c99a6b500e25fae.jpg",
+    "keywords": [
+      "LIR2032",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260609-06",
+    "title": "Legacy slot charger: alternate English version",
+    "titleZh": "老款卡槽充电器：另一英文版本",
+    "description": "Another supplied English export showing the legacy slot charger and battery-release operation.",
+    "descriptionZh": "另一份英文导出素材，展示老款卡槽充电器和取出电池动作。",
+    "category": "legacy",
+    "models": [
+      "LIR2032"
+    ],
+    "language": "en",
+    "canonicalId": "vs-20260723-14",
+    "duration": "0:52",
+    "durationSeconds": 52.406,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-06/b8e115c0932d8ffb6de7.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-06/b2570e0d1454303254bb.jpg",
+    "keywords": [
+      "LIR2032",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260609-07",
+    "title": "Legacy slot charger walkthrough in Chinese",
+    "titleZh": "老款卡槽充电器中文操作演示",
+    "description": "Chinese walkthrough of cell insertion, the release latch and red/green indicator states on the legacy charger.",
+    "descriptionZh": "中文演示老款充电器放入电池、按卡扣取出，以及红绿灯状态。",
+    "category": "legacy",
+    "models": [
+      "LIR2032"
+    ],
+    "language": "zh",
+    "canonicalId": "vs-20260609-07",
+    "duration": "0:52",
+    "durationSeconds": 52.406,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-07/dc589d31bd29b4c1d14b.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-07/ca841570a7807e864f4a.jpg",
+    "keywords": [
+      "LIR2032",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260609-08",
+    "title": "Fan-load and charger indicator demonstration in Chinese",
+    "titleZh": "风扇负载与充电指示灯中文演示",
+    "description": "Chinese-language demonstration of a small fan/load fixture, followed by placing the cell in a clip charger and observing the indicator.",
+    "descriptionZh": "中文展示小风扇负载装置，再将电池放回夹式充电器观察灯色。",
+    "category": "clip",
+    "models": [
+      "LIR2032"
+    ],
+    "language": "zh",
+    "canonicalId": "vs-20260609-08",
+    "duration": "1:08",
+    "durationSeconds": 68.172,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-08/a3a25a74a434d2aa9880.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-08/7ac5aa344b3fbb95ca90.jpg",
+    "keywords": [
+      "LIR2032",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-20260609-09",
+    "title": "Multi-size clip charger walkthrough in Chinese",
+    "titleZh": "多尺寸夹式充电器中文操作演示",
+    "description": "Chinese-language presentation of several LIR coin cell sizes, the clip mechanism and a primary CR battery comparison.",
+    "descriptionZh": "中文展示多种 LIR 尺寸、夹持机构，并与 CR 一次性电池作对照。",
+    "category": "clip",
+    "models": [
+      "LIR2032",
+      "LIR2016",
+      "LIR2025",
+      "LIR2450"
+    ],
+    "language": "zh",
+    "canonicalId": "vs-20260609-09",
+    "duration": "1:23",
+    "durationSeconds": 83.359,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-09/5f35a4d9df06301dd431.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-20260609-09/d9eb059e285749732c76.jpg",
+    "keywords": [
+      "LIR2032",
+      "LIR2016",
+      "LIR2025",
+      "LIR2450",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": false
+  },
+  {
+    "id": "vs-primary-01",
+    "title": "VSZAPOWER LR44 alkaline battery pack",
+    "titleZh": "VSZAPOWER LR44 碱性电池包装",
+    "description": "A close-up of the branded LR44 blister pack. LR44 is a primary alkaline cell and must not be recharged. Keep coin cells away from children.",
+    "descriptionZh": "品牌 LR44 吸塑包装特写。LR44 为一次性碱性电池，不得充电；纽扣电池须远离儿童。",
+    "category": "primary",
+    "models": [
+      "LR44"
+    ],
+    "language": "en",
+    "canonicalId": "vs-primary-01",
+    "duration": "0:07",
+    "durationSeconds": 7.5,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-primary-01/15e61626b63d781a1c2d.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-primary-01/108f038e1a79f314c34a.jpg",
+    "keywords": [
+      "LR44",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": true
+  },
+  {
+    "id": "vs-primary-02",
+    "title": "VSZAPOWER LR1130 alkaline battery pack",
+    "titleZh": "VSZAPOWER LR1130 碱性电池包装",
+    "description": "A close-up of the branded LR1130 blister pack. LR1130 is a primary alkaline cell and must not be recharged. Keep coin cells away from children.",
+    "descriptionZh": "品牌 LR1130 吸塑包装特写。LR1130 为一次性碱性电池，不得充电；纽扣电池须远离儿童。",
+    "category": "primary",
+    "models": [
+      "LR1130"
+    ],
+    "language": "en",
+    "canonicalId": "vs-primary-02",
+    "duration": "0:07",
+    "durationSeconds": 7.5,
+    "video_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-primary-02/16970fbbe4f386547d78.mp4",
+    "poster_url": "https://opvfguxhmgxrgufyedlh.supabase.co/storage/v1/object/public/product-media/videos/vs-primary-02/118630c7f021a7fbfca8.jpg",
+    "keywords": [
+      "LR1130",
+      "VSZAPOWER"
+    ],
+    "created_at": "2026-09-08T03:37:00.000Z",
+    "edited": true
+  }
+]

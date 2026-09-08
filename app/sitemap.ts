@@ -1,3 +1,5 @@
+import { fetchAllVideos } from '@/lib/store';
+import { videoInfo } from '@/lib/videoLibrary';
 import { catalog, productPath } from '@/lib/catalog';
 import { complianceLocales, centerPath } from '@/lib/complianceLocale';
 import { centerAlternates } from '@/lib/complianceCenterMetadata';
@@ -25,6 +27,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
   ];
+
+  routes.push({url:baseUrl+'/videos',lastModified:new Date('2026-09-08')});
+  const videos = await fetchAllVideos();
+  routes.push(...videos.filter(v => !videoInfo(v) || videoInfo(v)?.canonicalId === v.id).map(v => ({url:baseUrl+'/videos/'+encodeURIComponent(v.id),lastModified:new Date(v.created_at || '2026-09-08')})));
 
   routes.push({url:baseUrl+'/rechargeable-coin-cell-batteries',lastModified:new Date('2026-09-06')});
   // Product page structured data was updated on this date, not on every sitemap request.
