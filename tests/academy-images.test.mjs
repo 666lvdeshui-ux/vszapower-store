@@ -37,6 +37,17 @@ test('image descriptions and thumbnails follow the selected asset, not stale slu
  const productScene={slug:scene.slug,cover_image:scene.file};
  assert.match(academyImageCaption(productScene,'en'),/original VSZAPOWER product/);
  assert.match(academyImageCaption(productScene,'zh-CN'),/产品原图/);
- assert.match(academyImageSources(productScene,true),/-card-small.webp 512w.*-card.webp 1024w/);
+ assert.match(academyImageSources(productScene,'square'),/-card-small.webp 512w.*-card.webp 1024w/);
  assert.equal(academyImageCaption({...productScene,cover_image:'/original-product.jpg'},'en'),null);
+});
+
+test('landscape cards do not load square product thumbnails',()=>{
+ for (const image of covers.filter(x=>x.kind.startsWith('owned-product'))) {
+  const post={slug:image.slug,cover_image:image.file};
+  const landscape=academyImageSources(post,'landscape');
+  assert.doesNotMatch(landscape,/-card/);
+  assert.match(landscape,new RegExp(`${image.file} 1280w$`));
+  if(image.kind==='owned-product') assert.equal(landscape,`${image.file} 1280w`);
+  assert.notEqual(landscape,academyImageSources(post,'square'));
+ }
 });

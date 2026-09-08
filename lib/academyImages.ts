@@ -15,10 +15,12 @@ export function academyImageAlt(post: PostImage, lang: string, fallback: string)
   return image ? (lang.startsWith('zh') ? image.alt.zh : image.alt.en) : fallback;
 }
 
-export function academyImageSources(post: PostImage, card = false) {
+export function academyImageSources(post: PostImage, layout: 'landscape' | 'square' = 'landscape') {
   const image = academyImage(post);
-  if (image?.kind === 'owned-product-scene' && card) return `${image.file.replace('.webp', '-card-small.webp')} 512w, ${image.file.replace('.webp', '-card.webp')} 1024w`;
-  if (image?.kind === 'owned-product' && card) return `${image.file.replace('.webp', '-small.webp')} 512w, ${image.file.replace('.webp', '-card.webp')} 1024w`;
+  if (image?.kind === 'owned-product-scene' && layout === 'square') return `${image.file.replace('.webp', '-card-small.webp')} 512w, ${image.file.replace('.webp', '-card.webp')} 1024w`;
+  if (image?.kind === 'owned-product' && layout === 'square') return `${image.file.replace('.webp', '-small.webp')} 512w, ${image.file.replace('.webp', '-card.webp')} 1024w`;
+  // Original-product small thumbnails are square; never mix them into a landscape srcset.
+  if (image?.kind === 'owned-product') return `${image.file} 1280w`;
   return image ? `${image.file.replace('.webp', '-small.webp')} 512w, ${image.file} 1280w` : undefined;
 }
 

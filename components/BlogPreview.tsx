@@ -101,7 +101,7 @@ export default function BlogPreview({ posts: initialPosts = [] }: {posts?: PostI
                 <div style={{ position: 'relative', overflow: 'hidden', aspectRatio: '16 / 9', background: '#090d16' }}>
                   <img
                     src={post.cover_image}
-                    srcSet={academyImageSources(post, true)}
+                    srcSet={academyImageSources(post, 'landscape')}
                     sizes="(max-width: 700px) 100vw, 420px"
                     loading="lazy"
                     decoding="async"
@@ -109,7 +109,8 @@ export default function BlogPreview({ posts: initialPosts = [] }: {posts?: PostI
                     style={{
                       width: '100%',
                       height: '100%',
-                      objectFit: academyImage(post)?.kind.startsWith('owned-product') ? 'contain' : 'cover',
+                      display: 'block',
+                      objectFit: academyImage(post)?.kind === 'owned-product' ? 'contain' : 'cover',
                       background: academyImage(post)?.kind === 'owned-product' ? '#fff' : academyImage(post)?.kind === 'owned-product-scene' ? '#0a1018' : undefined,
                       transition: 'transform 0.5s ease',
                     }}

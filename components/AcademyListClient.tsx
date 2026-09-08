@@ -253,7 +253,7 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
                 <div style={{ position: 'relative', overflow: 'hidden', minHeight: '220px' }}>
                   <img
                     src={post.cover_image}
-                    srcSet={academyImageSources(post, true)}
+                    srcSet={academyImageSources(post, 'square')}
                     sizes="(max-width: 700px) 100vw, 420px"
                     loading="lazy"
                     decoding="async"
@@ -402,15 +402,15 @@ export default function AcademyListClient({ posts }: AcademyListClientProps) {
                 overflow: 'hidden',
                 borderRadius: '16px',
               }}>
-                <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
+                <div style={{ aspectRatio: '16 / 9', overflow: 'hidden', position: 'relative' }}>
                   <img
                     src={post.cover_image}
-                    srcSet={academyImageSources(post, true)}
+                    srcSet={academyImageSources(post, 'landscape')}
                     sizes="(max-width: 700px) 100vw, 420px"
                     loading="lazy"
                     decoding="async"
                     alt={academyImageAlt(post, lang, translatedTitle)}
-                    style={{ width: '100%', height: '100%', objectFit: academyImage(post)?.kind.startsWith('owned-product') ? 'contain' : 'cover',
+                    style={{ width: '100%', height: '100%', display: 'block', objectFit: academyImage(post)?.kind === 'owned-product' ? 'contain' : 'cover',
                       background: academyImage(post)?.kind === 'owned-product' ? '#fff' : academyImage(post)?.kind === 'owned-product-scene' ? '#0a1018' : undefined }}
                   />
                   <span style={{
