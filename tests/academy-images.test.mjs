@@ -37,6 +37,6 @@ test('image descriptions and thumbnails follow the selected asset, not stale slu
  const productScene={slug:scene.slug,cover_image:scene.file};
  assert.match(academyImageCaption(productScene,'en'),/original VSZAPOWER product/);
  assert.match(academyImageCaption(productScene,'zh-CN'),/产品原图/);
- assert.match(academyImageSources(productScene,true),/512w.*1280w/);
+ assert.match(academyImageSources(productScene,true),/-card-small.webp 512w.*-card.webp 1024w/);
  assert.equal(academyImageCaption({...productScene,cover_image:'/original-product.jpg'},'en'),null);
 });

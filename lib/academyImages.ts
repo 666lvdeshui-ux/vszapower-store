@@ -17,6 +17,7 @@ export function academyImageAlt(post: PostImage, lang: string, fallback: string)
 
 export function academyImageSources(post: PostImage, card = false) {
   const image = academyImage(post);
+  if (image?.kind === 'owned-product-scene' && card) return `${image.file.replace('.webp', '-card-small.webp')} 512w, ${image.file.replace('.webp', '-card.webp')} 1024w`;
   if (image?.kind === 'owned-product' && card) return `${image.file.replace('.webp', '-small.webp')} 512w, ${image.file.replace('.webp', '-card.webp')} 1024w`;
   return image ? `${image.file.replace('.webp', '-small.webp')} 512w, ${image.file} 1280w` : undefined;
 }

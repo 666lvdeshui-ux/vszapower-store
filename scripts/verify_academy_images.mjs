@@ -18,6 +18,7 @@ for (const entry of manifest.entries) {
   if (entry.kind === 'concept') assert(entry.generatedFile && entry.scene, 'Missing generation record');
   else if (entry.kind === 'owned-product-scene') {
     assert(entry.sourceAsset && entry.sourceSha256 && entry.generatedFile && entry.editPrompt, 'Scene requires an owner reference and edit provenance');
+    assert(fs.existsSync('public' + entry.file.replace('.webp', '-card.webp')) && fs.existsSync('public' + entry.file.replace('.webp', '-card-small.webp')), 'Missing complete-product scene thumbnails');
   }
   else {
     assert(entry.sourceAsset && !entry.generatedFile, 'Product image must come from the owner');
