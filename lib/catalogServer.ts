@@ -3,13 +3,13 @@ import imageReferences from '@/content/catalog/image-references.json';
 import { localizeProduct } from './productI18n';
 import { cache } from 'react';
 import { fetchAllProducts, type ProductItem } from './store';
-import { catalog } from './catalog';
+import { catalog, catalogFallbackProduct } from './catalog';
 /** Database remains authoritative for published product edits and review visibility. */
 export const getCatalogProducts = cache(async (): Promise<ProductItem[]> => {
  const stored = await fetchAllProducts();
  return catalog.map(p=>{
   const live=stored.find(x=>x.id===p.id);
-  return live || {id:p.id,slug:p.slug,title:p.title,tagline:p.design,description:p.summary,price:0,image_url:p.image,images:[p.image],category:p.kind==='charger'?'纽扣电池充电器':'可充电纽扣电池',specs:Object.fromEntries(Object.entries(p.specs).filter((v):v is [string,string]=>typeof v[1]==='string')),show_reviews:false};
+ return live || catalogFallbackProduct(p);
  });
 });
 

@@ -26,7 +26,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  routes.push(...['/rechargeable-coin-cell-batteries', ...catalog.map(productPath)].map(path=>({url:baseUrl+path,lastModified:new Date('2026-09-06')})));
+  routes.push({url:baseUrl+'/rechargeable-coin-cell-batteries',lastModified:new Date('2026-09-06')});
+  // Product page structured data was updated on this date, not on every sitemap request.
+  routes.push(...catalog.map(p=>({url:baseUrl+productPath(p),lastModified:new Date('2026-09-08')})));
 
   routes.push(...publicPaths.filter(p=>p!=='/compliance').map(path => ({ url: baseUrl + path, lastModified: new Date(compliance.contentReviewedAt), changeFrequency: 'monthly' as const, priority: 0.8 })));
 
@@ -37,7 +39,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const articleRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
       url: `${baseUrl}/academy/${post.slug}`,
-      lastModified: post.created_at ? new Date(post.created_at) : new Date(),
+      // The article template's metadata and heading hierarchy were updated on September 8.
+      lastModified: new Date(Math.max(new Date('2026-09-08').getTime(), post.created_at ? new Date(post.created_at).getTime() : 0)),
       changeFrequency: 'weekly',
       priority: 0.8,
     }));

@@ -1,6 +1,7 @@
 import { applyReviewDisplay } from './productReviews';
 import { normalizeTranslations } from './postI18n';
-import { MOCK_PRODUCTS, MOCK_POSTS, serverSupabase, supabase } from './supabase';
+import { MOCK_POSTS, serverSupabase, supabase } from './supabase';
+import { catalog, catalogFallbackProduct } from './catalog';
 import { normalizeProductTranslations, ProductTranslation } from './productI18n';
 
 // API route handlers run on the server and prefer the privileged client. The anon
@@ -292,7 +293,7 @@ export const INITIAL_INQUIRIES: InquiryItem[] = [
 ];
 
 // Global in-memory cache fallback for serverless execution
-let productsCache: ProductItem[] = [...(MOCK_PRODUCTS as unknown as ProductItem[])];
+let productsCache: ProductItem[] = catalog.map(catalogFallbackProduct);
 const deletedProductIds = new Set<string>();
 
 let postsCache: PostItem[] = [...(MOCK_POSTS as unknown as PostItem[])];

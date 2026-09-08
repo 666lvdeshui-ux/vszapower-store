@@ -11,6 +11,14 @@ const compiled = ts.transpileModule(source, { compilerOptions: { module: ts.Modu
 const { default: ArticleMarkdown } = await import('data:text/javascript;base64,' + Buffer.from(compiled).toString('base64'));
 const render = content => renderToStaticMarkup(React.createElement(ArticleMarkdown, { content }));
 
+test('body headings do not duplicate the article template H1 or rewrite code examples', () => {
+  const html = render('# Article body title\n\n## Section\n\n```markdown\n# Example heading\n```');
+  assert.doesNotMatch(html, /<h1\b/);
+  assert.match(html, /<h2 style="font-size:2em">Article body title<\/h2>/);
+  assert.match(html, /<h2>Section<\/h2>/);
+  assert.match(html, /# Example heading/);
+});
+
 test('technical tables and direct source links render as semantic HTML', () => {
   const html = render('## Parameters\n\n| Cell | Voltage |\n| --- | --- |\n| LIR2032 | 4.20 V |\n\n[Source](https://www.eemb.com/product-9)');
   assert.match(html, /<h2>Parameters<\/h2>/);

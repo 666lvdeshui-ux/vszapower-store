@@ -27,6 +27,8 @@ export default function ArticleMarkdown({ content }: { content: string }) {
       remarkPlugins={[remarkGfm, remarkWarnings]}
       skipHtml
       components={{
+        // The article template already supplies its H1; retain the body heading's styling.
+        h1: ({ children }) => <h2 style={{ fontSize: '2em' }}>{children}</h2>,
         table: ({ children }) => <div className="markdown-table-wrapper"><table>{children}</table></div>,
       }}
     >

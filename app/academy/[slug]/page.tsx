@@ -3,13 +3,16 @@ import { getPostBySlug } from '@/lib/supabase';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import AcademyArticleClient from '@/components/AcademyArticleClient';
+import { localizePost } from '@/lib/postI18n';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
-  if (!post) return {};
+  const source = await getPostBySlug(params.slug);
+  if (!source) return {};
+  // Match the English server-rendered article instead of its legacy source-language title.
+  const post = localizePost(source, 'en');
 
   const publishedTime = post.created_at ? new Date(post.created_at).toISOString() : new Date().toISOString();
 
