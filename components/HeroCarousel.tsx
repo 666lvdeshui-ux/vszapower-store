@@ -164,7 +164,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
               color: 'var(--text-main, #f8fafc)',
               marginBottom: '20px',
             }}>
-              Rechargeable Coin Cell Battery &amp; Charger Manufacturer
+              {sectionText('Rechargeable Coin Cell Battery & Charger Manufacturer', lang)}
             </h1>
 
             {/* Description Paragraph */}
@@ -175,7 +175,7 @@ export default function HeroCarousel({ onContactClick }: HeroCarouselProps) {
               marginBottom: '32px',
               maxWidth: '560px',
             }}>
-              LIR2032 · LIR2025 · LIR2016 · LIR2450 · ML2032 · Coin Cell Chargers · OEM/ODM. Explore rechargeable coin cells and charger configurations for wholesale and private-label projects.
+              {sectionText('LIR2032 · LIR2025 · LIR2016 · LIR2450 · ML2032 · Coin Cell Chargers · OEM/ODM. Explore rechargeable coin cells and charger configurations for wholesale and private-label projects.', lang)}
             </p>
 
             {/* Tag Pills Grid */}

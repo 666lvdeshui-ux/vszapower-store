@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { isEvidenceRoute } from '@/lib/compliance';
-import { centerLocale } from '@/lib/complianceLocale';
+import { centerLocale, centerPath } from '@/lib/complianceLocale';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Zap, BookOpen, Home, MessageSquare, Menu, X, Video, Sparkles } from 'lucide-react';
@@ -64,8 +64,8 @@ export default function Header({ onContactClick }: HeaderProps) {
             <div style={{ display: 'flex', gap: '4px', alignItems: 'center', flexWrap: 'wrap' }}>
               {['Battery', 'CE', 'FCC', 'RoHS'].map((cert) => (
                 <a
-                  href="/compliance"
-                  title="Documentation topic — confirm availability and scope for your model"
+                  href={centerPath(lang)}
+                  title={sectionText('Documentation topic — confirm availability and scope for your model', lang)}
                   key={cert}
                   style={{
                     fontSize: '0.58rem',
@@ -87,8 +87,8 @@ export default function Header({ onContactClick }: HeaderProps) {
             <div className="header-cert-row2" style={{ display: 'flex', gap: '4px', alignItems: 'center', flexWrap: 'wrap' }}>
               {['CE-Battery', 'GPSR-Test Report', 'PSE', 'UN38.3'].map((cert) => (
                 <a
-                  href="/compliance"
-                  title="Documentation topic — confirm availability and scope for your model"
+                  href={centerPath(lang)}
+                  title={sectionText('Documentation topic — confirm availability and scope for your model', lang)}
                   key={cert}
                   style={{
                     fontSize: '0.58rem',
@@ -107,7 +107,7 @@ export default function Header({ onContactClick }: HeaderProps) {
               ))}
             </div>
           </div>
-          <Link className="header-doc-link" href="/compliance" style={{fontSize:"0.6rem",color:"var(--text-muted)"}}>Documentation by model</Link>
+          <Link className="header-doc-link" href={centerPath(lang)} style={{fontSize:"0.6rem",color:"var(--text-muted)"}}>{sectionText('Documentation by model', lang)}</Link>
         </div>
 
         {/* Navigation Tabs (Responsive & Multi-language Optimized) */}
@@ -202,7 +202,7 @@ export default function Header({ onContactClick }: HeaderProps) {
           }}>
             <Zap size={15} color="var(--kraft-gold)" style={{ flexShrink: 0 }} /> {t('nav_factory')}
           </Link>
-          <Link href="/compliance" style={{
+          <Link href={centerPath(lang)} style={{
             color: 'var(--text-muted)',
             textDecoration: 'none',
             fontSize: 'clamp(0.78rem, 0.85vw, 0.9rem)',
@@ -216,7 +216,7 @@ export default function Header({ onContactClick }: HeaderProps) {
             borderRadius: '6px',
             transition: 'all 0.2s',
           }}>
-            <Zap size={15} color="var(--accent-green)" style={{ flexShrink: 0 }} /> Compliance
+            <Zap size={15} color="var(--accent-green)" style={{ flexShrink: 0 }} /> {sectionText('Compliance', lang)}
           </Link>
           <Link href="/#contact" onClick={() => onContactClick && onContactClick()} style={{
             color: 'var(--text-muted)',

@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Shield, Heart, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { sectionText } from '@/lib/sectionI18n';
+import { centerPath } from '@/lib/complianceLocale';
 
 export default function Footer() {
   const { t, lang } = useLanguage();
@@ -33,7 +34,7 @@ export default function Footer() {
             <img src="/logo.svg" alt="VSZAPOWER" style={{ height: '30px', width: 'auto', display: 'block' }} />
           </div>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '20px', lineHeight: 1.6 }}>
-            {entityDescription}
+            {sectionText(entityDescription, lang)}
           </p>
           <div style={{ display: 'flex', gap: '10px', fontSize: '0.8rem', color: 'var(--text-dim)' }}>
             <Shield size={16} color="var(--accent-green)" /> {sectionText('Certifications & Compliance', lang)}: {['Battery', 'CE', 'FCC', 'RoHS', 'CE-Battery', 'GPSR', 'PSE', 'UN38.3'].map(cert => sectionText(cert, lang)).join(' / ')}
@@ -52,9 +53,9 @@ export default function Footer() {
             <li><Link href="/academy" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{t('nav_academy')}</Link></li>
             <li><Link href="/videos" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{videoCopy(lang).title}</Link></li>
             <li><Link href="/#contact" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{t('nav_contact')}</Link></li>
-            <li><Link href="/compliance" style={{color:'var(--text-muted)'}}>Compliance Center</Link></li>
-            <li><Link href="/about-vszapower" style={{color:'var(--text-muted)'}}>About VSZAPOWER</Link></li>
-            <li><Link href="/coin-cell-charger-manufacturer" style={{color:'var(--text-muted)'}}>Charger manufacturing &amp; OEM</Link></li>
+            <li><Link href={centerPath(lang)} style={{color:'var(--text-muted)'}}>{sectionText('Compliance Center', lang)}</Link></li>
+            <li><Link href="/about-vszapower" style={{color:'var(--text-muted)'}}>{sectionText('About VSZAPOWER', lang)}</Link></li>
+            <li><Link href="/coin-cell-charger-manufacturer" style={{color:'var(--text-muted)'}}>{sectionText('Charger manufacturing & OEM', lang)}</Link></li>
           </ul>
         </div>
 
@@ -71,7 +72,7 @@ export default function Footer() {
             </li>
             <li>
               <a href="https://reddit.com/r/electronic" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                Community Discussions <ExternalLink size={14} />
+                {sectionText('Community Discussions', lang)} <ExternalLink size={14} />
               </a>
             </li>
           </ul>
@@ -102,7 +103,7 @@ export default function Footer() {
               ))}
             </div>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.78rem', lineHeight: 1.4 }}>
-              <span>Documentation topics. Availability and scope depend on the specific model and report. View the Compliance Center for published test summaries.</span>
+              <span>{sectionText('Documentation topics. Availability and scope depend on the specific model and report. View the Compliance Center for published test summaries.', lang)}</span>
             </p>
           </div>
         </div>
@@ -127,7 +128,7 @@ export default function Footer() {
             {['Battery', 'CE', 'FCC', 'RoHS', 'CE-Battery', 'GPSR-Test Report', 'PSE', 'UN38.3'].map(cert => sectionText(cert, lang)).join(' / ')}
           </span>
           <span>•</span>
-          <span>Crafted with <Heart size={14} color="#ef4444" fill="#ef4444" style={{ display: 'inline' }} /> for Eco Electronics</span>
+          <span>{sectionText('Crafted with care for Eco Electronics', lang)} <Heart size={14} color="#ef4444" fill="#ef4444" style={{ display: 'inline' }} /></span>
         </div>
       </div>
     </footer>

@@ -1,5 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import { catalog, productPath, entityDescription } from '@/lib/catalog';
+import { useLanguage } from '@/context/LanguageContext';
+import { sectionText } from '@/lib/sectionI18n';
 export const buyerAnswers = [
  {q:'Who manufactures rechargeable coin cell battery chargers?',a:'VSZAPOWER offers rechargeable coin cell chargers through Shenzhen Weizan Technology Co., Ltd., which is identified as manufacturer in the linked charger reports. Buyers should match the product design and report series before selecting a supplier configuration. The Compliance Center connects each published charger summary with its standards, laboratory and test scope.'},
  {q:'What is an LIR2032 battery?',a:'An LIR2032 is a rechargeable lithium-ion coin cell. The current VSZAPOWER catalog version is specified at 3.6V and 32mAh. Its charging requirements and device voltage range must be checked before use. A similar physical size to a CR2032 does not make it an electrically interchangeable replacement, and documentation must match the selected capacity and version.'},
@@ -8,4 +12,18 @@ export const buyerAnswers = [
  {q:'Does VSZAPOWER support OEM and private label?',a:'VSZAPOWER supports enquiries for OEM/ODM and private-label battery and charger projects, including branding, packaging and matched product configurations. Send the cell specification, expected quantity, destination market and application with your request. A quotation should confirm the actual customization, sample approval process, lead time and documentation scope for the proposed order.'},
  {q:'What compliance documents are available for rechargeable coin cells?',a:'Battery document availability must be checked against the model, capacity and product version. Buyers can request applicable safety testing, transport testing and summaries, heavy-metals testing and SDS documentation through the Compliance Center. Publicly reviewed EMC and RoHS summaries currently cover three charger designs; those charger reports do not establish compliance for the battery supplied with them.'}
 ];
-export default function AnswerBlocks(){return <section className="evidence-home"><span className="evidence-eyebrow">MANUFACTURER & BUYER QUESTIONS</span><h2>Rechargeable coin cells, chargers and OEM supply</h2><p>{entityDescription}</p><nav className="evidence-related"><Link href="/coin-cell-charger-manufacturer">Coin Cell Charger Manufacturer</Link><Link href="/rechargeable-coin-cell-batteries">Rechargeable Coin Cell Batteries</Link><Link href="/about-vszapower">About VSZAPOWER</Link></nav>{buyerAnswers.map(f=><details className="evidence-faq" key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>)}<nav className="evidence-related" aria-label="Battery models">{catalog.filter(p=>p.kind==='battery').map(p=><Link href={productPath(p)} key={p.id}>{p.model}</Link>)}</nav></section>;}
+export default function AnswerBlocks() {
+  const { lang } = useLanguage();
+  return <section id="buyer-questions" className="evidence-home">
+    <span className="evidence-eyebrow">{sectionText('MANUFACTURER & BUYER QUESTIONS', lang)}</span>
+    <h2>{sectionText('Rechargeable coin cells, chargers and OEM supply', lang)}</h2>
+    <p>{sectionText(entityDescription, lang)}</p>
+    <nav className="evidence-related">
+      <Link href="/coin-cell-charger-manufacturer">{sectionText('Coin Cell Charger Manufacturer', lang)}</Link>
+      <Link href="/rechargeable-coin-cell-batteries">{sectionText('Rechargeable Coin Cell Batteries', lang)}</Link>
+      <Link href="/about-vszapower">{sectionText('About VSZAPOWER', lang)}</Link>
+    </nav>
+    {buyerAnswers.map(f => <details className="evidence-faq" key={f.q}><summary>{sectionText(f.q, lang)}</summary><p>{sectionText(f.a, lang)}</p></details>)}
+    <nav className="evidence-related" aria-label={sectionText('Battery models', lang)}>{catalog.filter(p=>p.kind==='battery').map(p=><Link href={productPath(p)} key={p.id}>{p.model}</Link>)}</nav>
+  </section>;
+}

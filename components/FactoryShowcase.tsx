@@ -41,7 +41,7 @@ export default function FactoryShowcase({ onContactClick }: FactoryShowcaseProps
         </p>
       </div>
 
-      <div className="evidence-actions" style={{marginBottom:40}}><a className="btn-primary" href="/coin-cell-charger-manufacturer">Charger manufacturing and OEM →</a><a href="/about-vszapower">About VSZAPOWER</a></div>
+      <div className="evidence-actions" style={{marginBottom:40}}><a className="btn-primary" href="/coin-cell-charger-manufacturer">{sectionText('Charger manufacturing and OEM →', lang)}</a><a href="/about-vszapower">{sectionText('About VSZAPOWER', lang)}</a></div>
       {/* OEM / ODM Service Box */}
       <div className="glass-panel" style={{
         borderRadius: '24px',
